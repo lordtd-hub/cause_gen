@@ -28,6 +28,7 @@ If you want the second machine to work offline more easily, also keep:
 - `tools/wheels/`
 
 These are optional but useful for the current solver-based assessment flow.
+They are treated as local portability helpers, not long-term source-of-truth files that must stay tracked in git.
 
 ## What Not To Depend On
 

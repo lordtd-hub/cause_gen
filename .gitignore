@@ -22,3 +22,5 @@ Thumbs.db
 
 # Machine-local runtime artifacts
 tools/vendor/
+tools/vendor_clean/
+tools/wheels/
