@@ -1,0 +1,155 @@
+{
+  "updated": "2026-04-21",
+  "items": [
+    {
+      "id": "khan-academy-calculus-1",
+      "topic": "Practice and Review",
+      "title": "Khan Academy Calculus 1",
+      "description": "practice: เหมาะกับ Limits and Functions, Continuity and Applications, Differentiation, Integration",
+      "type": "link",
+      "addedDate": "2026-04-21",
+      "seed_type": "interactive",
+      "seed_role": "practice",
+      "linked_modules": [
+        "limits-and-functions",
+        "continuity-and-applications",
+        "differentiation",
+        "integration"
+      ],
+      "url": "https://www.khanacademy.org/math/calculus-1",
+      "public_href": "https://www.khanacademy.org/math/calculus-1"
+    },
+    {
+      "id": "paul-s-online-math-notes-calculus-i",
+      "topic": "Course Resources",
+      "title": "Paul's Online Math Notes: Calculus I",
+      "description": "support: เหมาะกับ Limits and Functions, Differentiation, Integration",
+      "type": "link",
+      "addedDate": "2026-04-21",
+      "seed_type": "notes",
+      "seed_role": "support",
+      "linked_modules": [
+        "limits-and-functions",
+        "differentiation",
+        "integration"
+      ],
+      "url": "http://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx",
+      "public_href": "http://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx"
+    },
+    {
+      "id": "mit-opencourseware-single-variable-calculus",
+      "topic": "Course Resources",
+      "title": "MIT OpenCourseWare: Single Variable Calculus",
+      "description": "support: เหมาะกับ Limits and Functions, Differentiation, Integration",
+      "type": "link",
+      "addedDate": "2026-04-21",
+      "seed_type": "course",
+      "seed_role": "support",
+      "linked_modules": [
+        "limits-and-functions",
+        "differentiation",
+        "integration"
+      ],
+      "url": "https://ocw.mit.edu/courses/mathematics/18-01-single-variable-calculus-fall-2006/",
+      "public_href": "https://ocw.mit.edu/courses/mathematics/18-01-single-variable-calculus-fall-2006/"
+    },
+    {
+      "id": "coursera-calculus-single-variable",
+      "topic": "Practice and Review",
+      "title": "Coursera Calculus: Single Variable",
+      "description": "review: เหมาะกับ Differentiation, Integration",
+      "type": "link",
+      "addedDate": "2026-04-21",
+      "seed_type": "course",
+      "seed_role": "review",
+      "linked_modules": [
+        "differentiation",
+        "integration"
+      ],
+      "url": "https://www.coursera.org/learn/calculus1",
+      "public_href": "https://www.coursera.org/learn/calculus1"
+    },
+    {
+      "id": "edx-calculus-1a-differentiation",
+      "topic": "Differentiation",
+      "title": "edX Calculus 1A: Differentiation",
+      "description": "review: เหมาะกับ Differentiation",
+      "type": "link",
+      "addedDate": "2026-04-21",
+      "seed_type": "course",
+      "seed_role": "review",
+      "linked_modules": [
+        "differentiation"
+      ],
+      "url": "https://www.edx.org/course/calculus-1a-differentiation",
+      "public_href": "https://www.edx.org/course/calculus-1a-differentiation"
+    },
+    {
+      "id": "professor-leonard-calculus-i-playlist",
+      "topic": "Course Resources",
+      "title": "Professor Leonard Calculus I Playlist",
+      "description": "support: เหมาะกับ Limits and Functions, Differentiation, Integration",
+      "type": "link",
+      "addedDate": "2026-04-21",
+      "seed_type": "video",
+      "seed_role": "support",
+      "linked_modules": [
+        "limits-and-functions",
+        "differentiation",
+        "integration"
+      ],
+      "url": "https://www.youtube.com/playlist?list=PLDesaqWTN6ES3tEYoj4THcPgZ4aPqB6a1",
+      "public_href": "https://www.youtube.com/playlist?list=PLDesaqWTN6ES3tEYoj4THcPgZ4aPqB6a1"
+    },
+    {
+      "id": "stewart-calculus-early-transcendentals-8th-ed",
+      "topic": "Core References",
+      "title": "Stewart Calculus: Early Transcendentals (8th ed.)",
+      "description": "main text: เหมาะกับ Limits and Functions, Continuity and Applications, Differentiation, Integration",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: textbook\nบทบาท: main text\nโมดูลที่เกี่ยวข้อง: Limits and Functions, Continuity and Applications, Differentiation, Integration\nหมายเหตุ: standard first-course text",
+      "seed_type": "textbook",
+      "seed_role": "main text",
+      "linked_modules": [
+        "limits-and-functions",
+        "continuity-and-applications",
+        "differentiation",
+        "integration"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "thomas-calculus-13th-ed",
+      "topic": "Course Resources",
+      "title": "Thomas' Calculus (13th ed.)",
+      "description": "support: เหมาะกับ Differentiation, Integration",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: textbook\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: Differentiation, Integration\nหมายเหตุ: alternative explanations and exercises",
+      "seed_type": "textbook",
+      "seed_role": "support",
+      "linked_modules": [
+        "differentiation",
+        "integration"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "rogawski-and-adams-calculus-early-transcendentals-3rd-ed",
+      "topic": "Course Resources",
+      "title": "Rogawski and Adams Calculus: Early Transcendentals (3rd ed.)",
+      "description": "support: เหมาะกับ Differentiation, Integration",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: textbook\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: Differentiation, Integration\nหมายเหตุ: good for worked examples and comparison",
+      "seed_type": "textbook",
+      "seed_role": "support",
+      "linked_modules": [
+        "differentiation",
+        "integration"
+      ],
+      "public_href": null
+    }
+  ]
+}

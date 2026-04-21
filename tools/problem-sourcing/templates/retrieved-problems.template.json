@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "replace-course-id",
+  "generated_at": "replace-generated-at",
+  "items": [
+    {
+      "retrieval_id": "replace-retrieval-id",
+      "query_id": "replace-query-id",
+      "source_id": "openstax",
+      "source_url": "https://example.org/problem-source",
+      "source_title": "Replace with source title",
+      "retrieved_excerpt": "Short paraphrase or excerpt of the candidate problem.",
+      "retrieval_query": "replace with the search query used",
+      "license_note": "Replace with source-specific note.",
+      "attribution_required": true,
+      "candidate_module_id": "replace-module-id",
+      "candidate_clo_ids": [
+        "CLO1"
+      ],
+      "candidate_bloom_levels": [
+        "understand"
+      ],
+      "notes": "",
+      "review_status": "pending"
+    }
+  ]
+}

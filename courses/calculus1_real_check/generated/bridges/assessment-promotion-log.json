@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "calculus1_real_check",
+  "promoted_at": "2026-04-21T09:21:53.394Z",
+  "promoted_count": 1,
+  "promoted_draft_ids": [
+    "draft-continuity-and-applications-is-it-possible-to-fi"
+  ],
+  "missions_path": "missions/missions.json"
+}

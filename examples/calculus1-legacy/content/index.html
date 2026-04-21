@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📚 สื่อเพิ่มเติม — Calculus 1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    .content-hero {
+      padding: 1rem 0 0.5rem;
+    }
+    .content-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .content-toolbar .chip {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+    .content-toolbar .chip:hover { border-color: var(--color-primary); }
+    .content-toolbar .chip.active {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent1));
+      border-color: transparent;
+      color: #fff;
+    }
+    .content-search {
+      flex: 1;
+      min-width: 180px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      padding: 0.5rem 0.8rem;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+    .content-search:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 0.9rem;
+    }
+    .content-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: all 0.15s;
+      text-decoration: none;
+      color: var(--color-text);
+      position: relative;
+    }
+    .content-card:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px rgba(139,92,246,0.45);
+    }
+    .cc-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+    .cc-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .cc-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .cc-desc {
+      color: var(--color-muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .cc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+      padding-top: 0.4rem;
+      font-size: 0.72rem;
+      color: var(--color-muted);
+    }
+    .cc-tag {
+      background: rgba(139,92,246,0.15);
+      border: 1px solid rgba(139,92,246,0.3);
+      color: var(--color-primary-light);
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+    }
+    .cc-new {
+      position: absolute;
+      top: 0.6rem; right: 0.6rem;
+      background: linear-gradient(135deg, var(--color-accent3), #f97316);
+      color: #1a1030;
+      font-size: 0.65rem;
+      font-weight: 900;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--color-muted);
+    }
+    .empty-state .big { font-size: 3rem; margin-bottom: 0.5rem; }
+
+    .note-body {
+      color: var(--color-text);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      background: rgba(34,211,238,0.06);
+      border-left: 3px solid var(--color-accent2);
+      padding: 0.5rem 0.75rem;
+      border-radius: 0 8px 8px 0;
+      margin-top: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation (paths prefixed with ../) -->
+  <nav class="topnav">
+    <a href="../index.html" class="nav-brand"><span class="brand-icon">∫</span> Calculus 1 <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+      <a href="../index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+      <a href="../intro.html" class="nav-link"><span class="nl-icon">🎯</span>แนะนำ</a>
+      </div>
+      <div class="nav-group" data-title="📖 บทเรียน">
+      <a href="../lessons.html" class="nav-link"><span class="nl-icon">📏</span>ลิมิต</a>
+      <a href="../continuity.html" class="nav-link"><span class="nl-icon">🔗</span>ต่อเนื่อง</a>
+      <a href="../differentiation.html" class="nav-link"><span class="nl-icon">📐</span>อนุพันธ์</a>
+      <a href="../integration.html" class="nav-link"><span class="nl-icon">∫</span>ปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="⚡ แอปประยุกต์">
+      <a href="../diff-app.html" class="nav-link"><span class="nl-icon">🚗</span>แอปอนุพันธ์</a>
+      <a href="../integrate-app.html" class="nav-link"><span class="nl-icon">📊</span>แอปปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="🎮 เกม">
+      <a href="../guess-game.html" class="nav-link"><span class="nl-icon">🎲</span>เกมทาย</a>
+      <a href="../match-game.html" class="nav-link"><span class="nl-icon">🧩</span>เกมจับคู่</a>
+      </div>
+      <div class="nav-group" data-title="📚 สื่อ">
+      <a href="./" class="nav-link active"><span class="nl-icon">📚</span>สื่อเพิ่มเติม</a>
+      </div>
+      <div class="nav-group nav-group-cta">
+      <a href="../missions.html" class="nav-link nav-cta"><span class="nl-icon">🎯</span>ภารกิจ</a>
+      </div>
+    </div>
+    <a href="../index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    <section class="content-hero">
+      <h1 style="font-size:1.8rem; font-weight:800; margin-bottom:.3rem;">📚 สื่อเพิ่มเติม</h1>
+      <p class="text-muted" style="margin-bottom:1rem;">
+        โน้ตขยายความ · handout · รูป diagram · วิดีโอ · ลิงก์ภายนอก
+        — กรองตามหัวข้อหรือค้นหาด้วยคำสำคัญ
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="content-toolbar">
+        <button class="chip active" data-topic="all">ทั้งหมด</button>
+        <button class="chip" data-topic="limits">📏 ลิมิต</button>
+        <button class="chip" data-topic="continuity">🔗 ต่อเนื่อง</button>
+        <button class="chip" data-topic="differentiation">📐 อนุพันธ์</button>
+        <button class="chip" data-topic="integration">∫ ปริพันธ์</button>
+        <button class="chip" data-topic="shared">🌐 รวม</button>
+        <input type="search" id="content-search" class="content-search"
+               placeholder="🔎 ค้นหา..." aria-label="ค้นหาสื่อ" />
+      </div>
+
+      <div id="content-grid" class="content-grid"></div>
+      <div id="content-empty" class="empty-state" hidden>
+        <div class="big">📭</div>
+        <div>ยังไม่มีสื่อในหมวดนี้</div>
+        <div class="text-small" style="margin-top:.4rem;">
+          เพิ่มไฟล์ในโฟลเดอร์ <code>content/</code> แล้วอัปเดต <code>manifest.json</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:1rem; background:rgba(34,211,238,0.05); border-color:rgba(34,211,238,0.25);">
+      <div class="card-title">💡 อาจารย์ — เพิ่มสื่อยังไง?</div>
+      <p class="text-small text-muted" style="margin-bottom:.5rem;">
+        1. วางไฟล์ลงใน <code>content/&lt;topic&gt;/&lt;handouts|notes|media|examples&gt;/</code><br />
+        2. เพิ่ม entry ลง <code>content/manifest.json</code> (ดู schema ใน <code>content/README.md</code>)<br />
+        3. refresh หน้านี้
+      </p>
+    </section>
+
+    <footer style="text-align:center; color:var(--color-muted); font-size:.82rem; margin-top:3rem; padding-bottom:1rem;">
+      สื่อการเรียนรู้เสริม · ใช้งานได้ offline เมื่อดาวน์โหลดแล้ว
+    </footer>
+  </main>
+
+  <script src="../js/xp.js"></script>
+  <script>
+    'use strict';
+
+    const TYPE_ICON = {
+      pdf: '📄',
+      md: '📝',
+      html: '🌐',
+      image: '🖼',
+      video: '🎬',
+      link: '🔗',
+      note: '💡',
+    };
+
+    const TOPIC_LABEL = {
+      limits: 'ลิมิต',
+      continuity: 'ต่อเนื่อง',
+      differentiation: 'อนุพันธ์',
+      integration: 'ปริพันธ์',
+      shared: 'รวม',
+    };
+
+    function isNew(dateStr) {
+      if (!dateStr) return false;
+      const added = new Date(dateStr);
+      if (isNaN(added)) return false;
+      const days = (Date.now() - added.getTime()) / 86400000;
+      return days >= 0 && days <= 14;
+    }
+
+    function resolveHref(item) {
+      if (item.type === 'link' || item.type === 'video') return item.url || '#';
+      if (item.type === 'note') return null; // notes show inline
+      if (item.path) return item.path;
+      return null;
+    }
+
+    function renderCard(item) {
+      const icon = TYPE_ICON[item.type] || '📎';
+      const topic = TOPIC_LABEL[item.topic] || item.topic;
+      const href = resolveHref(item);
+      const newPill = isNew(item.addedDate) ? '<span class="cc-new">NEW</span>' : '';
+
+      const metaParts = [`<span class="cc-tag">${topic}</span>`];
+      if (item.duration) metaParts.push(`<span>⏱ ${item.duration}</span>`);
+      if (item.author) metaParts.push(`<span>✦ ${item.author}</span>`);
+
+      const bodyExtra = item.type === 'note'
+        ? `<div class="note-body">${(item.body || item.description || '').replace(/</g,'&lt;')}</div>`
+        : '';
+
+      const inner = `
+        ${newPill}
+        <div class="cc-head">
+          <div class="cc-icon">${icon}</div>
+          <div style="min-width:0;">
+            <div class="cc-title">${item.title}</div>
+          </div>
+        </div>
+        <div class="cc-desc">${item.description || ''}</div>
+        ${bodyExtra}
+        <div class="cc-meta">${metaParts.join('')}</div>
+      `;
+
+      if (href) {
+        const targetAttr = (item.type === 'link' || item.type === 'video' || item.type === 'pdf')
+          ? ' target="_blank" rel="noopener"' : '';
+        return `<a class="content-card" href="${href}"${targetAttr}>${inner}</a>`;
+      }
+      return `<div class="content-card">${inner}</div>`;
+    }
+
+    function matchesFilter(item, topic, search) {
+      if (topic !== 'all' && item.topic !== topic) return false;
+      if (search) {
+        const q = search.toLowerCase();
+        const hay = `${item.title} ${item.description || ''} ${(item.tags||[]).join(' ')}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    }
+
+    let MANIFEST = { items: [] };
+    let activeTopic = 'all';
+    let searchQuery = '';
+
+    function render() {
+      const grid = document.getElementById('content-grid');
+      const empty = document.getElementById('content-empty');
+      const filtered = MANIFEST.items.filter(it => matchesFilter(it, activeTopic, searchQuery));
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.hidden = false;
+      } else {
+        empty.hidden = true;
+        // sort: newest first by addedDate desc, then by title
+        filtered.sort((a, b) => {
+          const da = a.addedDate || '';
+          const db = b.addedDate || '';
+          if (db !== da) return db.localeCompare(da);
+          return (a.title || '').localeCompare(b.title || '', 'th');
+        });
+        grid.innerHTML = filtered.map(renderCard).join('');
+      }
+    }
+
+    function setTopic(topic) {
+      activeTopic = topic;
+      document.querySelectorAll('.content-toolbar .chip').forEach(c => {
+        c.classList.toggle('active', c.dataset.topic === topic);
+      });
+      // update URL query
+      const url = new URL(window.location);
+      if (topic === 'all') url.searchParams.delete('topic');
+      else url.searchParams.set('topic', topic);
+      window.history.replaceState({}, '', url);
+      render();
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Initial topic from query string
+      const params = new URLSearchParams(window.location.search);
+      const initTopic = params.get('topic');
+      if (initTopic && ['limits','continuity','differentiation','integration','shared'].includes(initTopic)) {
+        activeTopic = initTopic;
+      }
+
+      // Wire chips
+      document.querySelectorAll('.content-toolbar .chip').forEach(chip => {
+        chip.addEventListener('click', () => setTopic(chip.dataset.topic));
+        chip.classList.toggle('active', chip.dataset.topic === activeTopic);
+      });
+
+      // Wire search
+      document.getElementById('content-search').addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim();
+        render();
+      });
+
+      // Load manifest
+      try {
+        const res = await fetch('manifest.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error('manifest fetch ' + res.status);
+        MANIFEST = await res.json();
+      } catch (err) {
+        console.error('ไม่สามารถโหลด manifest.json:', err);
+        MANIFEST = { items: [] };
+      }
+      render();
+
+      // Update nav XP chip
+      if (typeof updateNavXP === 'function') updateNavXP();
+    });
+  </script>
+  <script src="../js/nav.js"></script>
+</body>
+</html>

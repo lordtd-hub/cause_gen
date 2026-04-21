@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "complex_variables_real_check",
+  "generated_at": "2026-04-21T06:34:53.154Z",
+  "queries": [
+    {
+      "query_id": "query-01-complex-number-foundations",
+      "module_id": "complex-number-foundations",
+      "target_clo_ids": [
+        "CLO1"
+      ],
+      "target_bloom_levels": [
+        "understand"
+      ],
+      "query_texts": [
+        "Complex Variables Complex Number Foundations exercises",
+        "Complex Number Foundations open educational resources problems",
+        "Complex Number Foundations Explain the algebraic and geometric foundations of complex numbers. worked problems"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "status": "pending"
+    },
+    {
+      "query_id": "query-02-limits-and-continuity",
+      "module_id": "limits-and-continuity",
+      "target_clo_ids": [
+        "CLO2"
+      ],
+      "target_bloom_levels": [
+        "analyze"
+      ],
+      "query_texts": [
+        "Complex Variables Limits and Continuity in the Complex Plane exercises",
+        "Limits and Continuity in the Complex Plane open educational resources problems",
+        "Limits and Continuity in the Complex Plane Analyze limits and continuity of complex functions using prior analysis knowledge. worked problems"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "status": "pending"
+    },
+    {
+      "query_id": "query-03-complex-differentiation",
+      "module_id": "complex-differentiation",
+      "target_clo_ids": [
+        "CLO3"
+      ],
+      "target_bloom_levels": [
+        "apply"
+      ],
+      "query_texts": [
+        "Complex Variables Complex Differentiation and Analytic Functions exercises",
+        "Complex Differentiation and Analytic Functions open educational resources problems",
+        "Complex Differentiation and Analytic Functions Explain and apply complex differentiation, analytic functions, and holomorphic functions. worked problems"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "status": "pending"
+    },
+    {
+      "query_id": "query-04-complex-integration",
+      "module_id": "complex-integration",
+      "target_clo_ids": [
+        "CLO4"
+      ],
+      "target_bloom_levels": [
+        "apply"
+      ],
+      "query_texts": [
+        "Complex Variables Complex Integration exercises",
+        "Complex Integration open educational resources problems",
+        "Complex Integration Explain and compute complex integrals along suitable paths. worked problems"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "status": "pending"
+    },
+    {
+      "query_id": "query-05-series-and-applications",
+      "module_id": "series-and-applications",
+      "target_clo_ids": [
+        "CLO5"
+      ],
+      "target_bloom_levels": [
+        "analyze"
+      ],
+      "query_texts": [
+        "Complex Variables Taylor, Laurent, and Applications exercises",
+        "Taylor, Laurent, and Applications open educational resources problems",
+        "Taylor, Laurent, and Applications Use Taylor and Laurent series to study complex functions and support integral reasoning. worked problems"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "status": "pending"
+    }
+  ]
+}

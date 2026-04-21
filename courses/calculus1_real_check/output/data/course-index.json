@@ -1,0 +1,115 @@
+{
+  "course_id": "calculus1_real_check",
+  "course_name_th": "แคลคูลัส 1",
+  "generated_at": "2026-04-21T09:21:58.715Z",
+  "modules": [
+    {
+      "id": "limits-and-functions",
+      "slug": "limits-and-functions",
+      "title": "Limits and Functions",
+      "summary": "Start with function behavior, limit ideas, and first ways to reason about approaching values.",
+      "order": 1,
+      "clo_ids": [
+        "CLO1",
+        "CLO2"
+      ],
+      "module_kind": "concept",
+      "widgets": [
+        "quick-check",
+        "definition-visualizer",
+        "step-sequence"
+      ]
+    },
+    {
+      "id": "continuity-and-applications",
+      "slug": "continuity-and-applications",
+      "title": "Continuity and Applications",
+      "summary": "Use continuity as a bridge between limit ideas and richer function analysis.",
+      "order": 2,
+      "clo_ids": [
+        "CLO1",
+        "CLO3"
+      ],
+      "module_kind": "application",
+      "widgets": [
+        "quick-check",
+        "definition-visualizer",
+        "sbra-sequence"
+      ]
+    },
+    {
+      "id": "differentiation",
+      "slug": "differentiation",
+      "title": "Differentiation",
+      "summary": "Build derivative concepts, rules, and function-analysis techniques for change and rate.",
+      "order": 3,
+      "clo_ids": [
+        "CLO2",
+        "CLO3",
+        "CLO4"
+      ],
+      "module_kind": "application",
+      "widgets": [
+        "quick-check",
+        "step-sequence",
+        "proof-unpack"
+      ]
+    },
+    {
+      "id": "integration",
+      "slug": "integration",
+      "title": "Integration",
+      "summary": "Connect area, accumulation, antiderivatives, and the first major links between derivative and integral ideas.",
+      "order": 4,
+      "clo_ids": [
+        "CLO1",
+        "CLO2",
+        "CLO4"
+      ],
+      "module_kind": "application",
+      "widgets": [
+        "quick-check",
+        "step-sequence",
+        "sbra-sequence"
+      ]
+    }
+  ],
+  "clos": [
+    {
+      "id": "CLO1",
+      "label": "Explain the meaning of limits, continuity, derivatives, and integrals in standard first-course contexts.",
+      "bloom": "Understand",
+      "assessment_tags": [
+        "concepts",
+        "definitions"
+      ]
+    },
+    {
+      "id": "CLO2",
+      "label": "Apply standard calculus techniques to compute limits, derivatives, and integrals.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "techniques",
+        "computation"
+      ]
+    },
+    {
+      "id": "CLO3",
+      "label": "Analyze functions and their behavior using continuity, derivatives, and definite integrals.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "analysis",
+        "function-behavior"
+      ]
+    },
+    {
+      "id": "CLO4",
+      "label": "Use calculus reasoning to justify steps and interpret results in problem-solving situations.",
+      "bloom": "Evaluate",
+      "assessment_tags": [
+        "reasoning",
+        "interpretation"
+      ]
+    }
+  ]
+}

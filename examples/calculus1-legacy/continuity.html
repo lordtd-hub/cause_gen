@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ฟังก์ชันต่อเนื่อง — แคลคูลัส 1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .disc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .disc-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem;
+    }
+    .disc-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: var(--color-accent2);
+    }
+    .disc-card .expr { color: var(--color-muted); font-size: 0.85rem; margin-bottom: .5rem; }
+    .disc-card canvas { width: 100%; border-radius: var(--radius-sm); background: var(--color-surface); }
+    .disc-card .card-actions { margin-top: .5rem; text-align: center; }
+    .ivt-panel { margin-top: 1.5rem; }
+    .ivt-panel canvas { width: 100%; background: var(--color-bg); border-radius: var(--radius-sm); }
+    .ivt-readout {
+      font-variant-numeric: tabular-nums;
+      background: var(--color-surface2);
+      border-left: 3px solid var(--color-accent2);
+      padding: .75rem 1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-top: .75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">∫</span> Calculus 1 <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+      <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+      <a href="intro.html" class="nav-link"><span class="nl-icon">🎯</span>แนะนำ</a>
+      </div>
+      <div class="nav-group" data-title="📖 บทเรียน">
+      <a href="lessons.html" class="nav-link"><span class="nl-icon">📏</span>ลิมิต</a>
+      <a href="continuity.html" class="nav-link active"><span class="nl-icon">🔗</span>ต่อเนื่อง</a>
+      <a href="differentiation.html" class="nav-link"><span class="nl-icon">📐</span>อนุพันธ์</a>
+      <a href="integration.html" class="nav-link"><span class="nl-icon">∫</span>ปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="⚡ แอปประยุกต์">
+      <a href="diff-app.html" class="nav-link"><span class="nl-icon">🚗</span>แอปอนุพันธ์</a>
+      <a href="integrate-app.html" class="nav-link"><span class="nl-icon">📊</span>แอปปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="🎮 เกม">
+      <a href="guess-game.html" class="nav-link"><span class="nl-icon">🎲</span>เกมทาย</a>
+      <a href="match-game.html" class="nav-link"><span class="nl-icon">🧩</span>เกมจับคู่</a>
+      </div>
+      <div class="nav-group" data-title="📚 สื่อ">
+      <a href="content/" class="nav-link"><span class="nl-icon">📚</span>สื่อเพิ่มเติม</a>
+      </div>
+      <div class="nav-group nav-group-cta">
+      <a href="missions.html" class="nav-link nav-cta"><span class="nl-icon">🎯</span>ภารกิจ</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    <h1 class="page-title">🔗 ฟังก์ชันต่อเนื่อง</h1>
+    <p class="page-subtitle">สะพานเชื่อมระหว่างลิมิตและอนุพันธ์ — เข้าใจ 3 ประเภทของความไม่ต่อเนื่องและทฤษฎีบทค่ากลาง (IVT)</p>
+
+    <!-- Definition -->
+    <section class="card">
+      <div class="card-title">📖 นิยามของความต่อเนื่อง</div>
+      <div class="definition-block">
+        <div class="label">นิยาม</div>
+        <p>ฟังก์ชัน $f$ <strong>ต่อเนื่องที่ $a$</strong> เมื่อเงื่อนไขทั้ง 3 ข้อเป็นจริง:</p>
+        <ol style="margin-left:1.4rem; line-height:1.9;">
+          <li>$f(a)$ นิยาม (มีค่า)</li>
+          <li>$\displaystyle\lim_{x\to a} f(x)$ มีค่า (ลิมิตหาได้)</li>
+          <li>$\displaystyle\lim_{x\to a} f(x) = f(a)$ (สองค่าเท่ากัน)</li>
+        </ol>
+        <p class="text-muted text-small mt-2">หากข้อใดข้อหนึ่งไม่เป็นจริง → <strong>ไม่ต่อเนื่องที่ $a$</strong></p>
+      </div>
+    </section>
+
+    <!-- Three types of discontinuity -->
+    <section class="card">
+      <div class="card-title">🔍 3 ประเภทของความไม่ต่อเนื่อง</div>
+      <div class="disc-grid">
+        <div class="disc-card">
+          <h4>1. ถอดได้ (Removable)</h4>
+          <div class="expr">$f(x) = \dfrac{x^2-4}{x-2}$ ที่ $x=2$</div>
+          <canvas id="c-removable" width="300" height="220"></canvas>
+          <div class="card-actions">
+            <button class="btn btn-sm" id="btn-fix">✏ เติมรู</button>
+          </div>
+          <p class="text-small text-muted mt-1">ลิมิตมีค่า $= 4$ แต่ฟังก์ชันไม่นิยาม → <em>เติมจุดแล้วต่อเนื่องได้</em></p>
+        </div>
+
+        <div class="disc-card">
+          <h4>2. กระโดด (Jump)</h4>
+          <div class="expr">$f(x) = \lfloor x\rfloor$ ที่จำนวนเต็ม</div>
+          <canvas id="c-jump" width="300" height="220"></canvas>
+          <p class="text-small text-muted mt-1">ลิมิตซ้าย ≠ ลิมิตขวา → <em>กระโดด แก้ไม่ได้</em></p>
+        </div>
+
+        <div class="disc-card">
+          <h4>3. ไม่จำกัด (Infinite)</h4>
+          <div class="expr">$f(x) = \dfrac{1}{(x-1)^2}$ ที่ $x=1$</div>
+          <canvas id="c-infinite" width="300" height="220"></canvas>
+          <p class="text-small text-muted mt-1">ลิมิต $\to +\infty$ → <em>มีเส้นกำกับแนวดิ่ง</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- IVT Interactive -->
+    <section class="card ivt-panel">
+      <div class="card-title">🎯 ทฤษฎีบทค่ากลาง (IVT)</div>
+      <div class="definition-block">
+        <div class="label">ทฤษฎีบท</div>
+        <p>ถ้า $f$ ต่อเนื่องบน $[a,b]$ และ $N$ อยู่ระหว่าง $f(a)$ และ $f(b)$
+        แล้ว <strong>มี $c \in (a,b)$ ที่ $f(c) = N$</strong></p>
+        <p class="text-muted text-small mt-2">ตัวอย่าง: $f(x) = x^3 - x - 2$ บน $[1, 2]$ เราหาคำตอบของ $f(x)=0$ ได้</p>
+      </div>
+
+      <canvas id="c-ivt" width="720" height="380"></canvas>
+
+      <div class="mt-2">
+        <div class="slider-row">
+          <label>a = <span id="val-a">1.0</span></label>
+          <input type="range" id="sl-a" min="0" max="1.8" step="0.05" value="1.0" />
+        </div>
+        <div class="slider-row">
+          <label>b = <span id="val-b">2.0</span></label>
+          <input type="range" id="sl-b" min="1.2" max="3" step="0.05" value="2.0" />
+        </div>
+        <div class="slider-row">
+          <label>เป้าหมาย N = <span id="val-n">0.0</span></label>
+          <input type="range" id="sl-n" min="-5" max="5" step="0.1" value="0.0" />
+        </div>
+        <div class="flex-row" style="justify-content:center; margin-top:.6rem;">
+          <button class="btn btn-primary" id="btn-bisect">🔍 หาค่า c (bisection 8 ครั้ง)</button>
+          <button class="btn btn-sm" id="btn-reset-ivt">รีเซ็ต</button>
+        </div>
+        <div class="ivt-readout" id="ivt-readout">
+          $f(a) = ?$, $f(b) = ?$ — ลองปรับช่วงและกด "หาค่า c"
+        </div>
+      </div>
+    </section>
+
+    <!-- Completion banner -->
+    <section class="card" id="completion-banner" style="display:none;">
+      <div class="card-title">🎉 เรียนจบหัวข้อ "ฟังก์ชันต่อเนื่อง"</div>
+      <p id="completion-text">+40 XP! คุณได้ปลดล็อกความเข้าใจเรื่องความต่อเนื่องและ IVT แล้ว</p>
+      <div class="cta-row mt-2">
+        <a href="differentiation.html" class="btn btn-primary">➡ ไปต่อที่อนุพันธ์</a>
+        <a href="index.html" class="btn">🏠 กลับหน้าแรก</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Libraries -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+          onload="renderMathInElement(document.body, { delimiters: [{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}], throwOnError: false });"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@13.0.3/lib/browser/math.min.js"></script>
+
+  <!-- App -->
+  <script src="js/xp.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/continuity.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "calculus1_real_check",
+  "intended_use": "educational-noncommercial",
+  "generated_at": "2026-04-21T08:40:22.706Z",
+  "sources": [
+    {
+      "source_id": "webwork-opl",
+      "label": "WeBWorK Open Problem Library",
+      "homepage_url": "https://webwork.maa.org/wiki/Open_Problem_Library",
+      "source_type": "open-problem-library",
+      "license_note": "Generally CC BY-NC-SA unless otherwise indicated; verify per source record when possible.",
+      "attribution_required": true,
+      "default_use_mode": "ingest-with-attribution",
+      "approved_for_educational_use": true,
+      "notes": "Strong default source for mathematics problem retrieval."
+    },
+    {
+      "source_id": "openstax",
+      "label": "OpenStax",
+      "homepage_url": "https://openstax.org/",
+      "source_type": "open-textbook",
+      "license_note": "Books may be CC BY or CC BY-NC-SA; verify the specific book license.",
+      "attribution_required": true,
+      "default_use_mode": "ingest-with-attribution",
+      "approved_for_educational_use": true,
+      "notes": "Good source for textbook-style exercises and review items."
+    },
+    {
+      "source_id": "mit-ocw",
+      "label": "MIT OpenCourseWare",
+      "homepage_url": "https://ocw.mit.edu/",
+      "source_type": "open-course-materials",
+      "license_note": "Open course materials with Creative Commons licensing; confirm page-level terms when needed.",
+      "attribution_required": true,
+      "default_use_mode": "ingest-with-attribution",
+      "approved_for_educational_use": true,
+      "notes": "Useful for assignments, exams, proof prompts, and richer content extracts."
+    },
+    {
+      "source_id": "libretexts",
+      "label": "LibreTexts",
+      "homepage_url": "https://libretexts.org/",
+      "source_type": "open-textbook-network",
+      "license_note": "Licensing varies by page and book; always review before ingestion.",
+      "attribution_required": true,
+      "default_use_mode": "manual-review-first",
+      "approved_for_educational_use": true,
+      "notes": "Good source, but license checks must stay page-specific."
+    },
+    {
+      "source_id": "project-euler",
+      "label": "Project Euler",
+      "homepage_url": "https://projecteuler.net/",
+      "source_type": "problem-archive",
+      "license_note": "Main problem archive is CC BY-NC-SA 4.0.",
+      "attribution_required": true,
+      "default_use_mode": "ingest-with-attribution",
+      "approved_for_educational_use": true,
+      "notes": "Best for enrichment and challenge problems."
+    },
+    {
+      "source_id": "cs-unplugged",
+      "label": "CS Unplugged",
+      "homepage_url": "https://www.csunplugged.org/",
+      "source_type": "open-activity-bank",
+      "license_note": "Activities are open source under Creative Commons Attribution-ShareAlike.",
+      "attribution_required": true,
+      "default_use_mode": "ingest-with-attribution",
+      "approved_for_educational_use": true,
+      "notes": "Good source for concept-focused computer science activities."
+    },
+    {
+      "source_id": "pauls-online-notes",
+      "label": "Paul's Online Math Notes",
+      "homepage_url": "https://tutorial.math.lamar.edu/",
+      "source_type": "open-course-notes",
+      "license_note": "Free online notes and downloadable PDFs are publicly available; keep attribution and use review-first until reuse terms are confirmed per page.",
+      "attribution_required": true,
+      "default_use_mode": "manual-review-first",
+      "approved_for_educational_use": true,
+      "notes": "Good web-first source for calculus explanations, practice problems, and assignment-style prompts."
+    },
+    {
+      "source_id": "user-provided-document",
+      "label": "User-Provided Document",
+      "homepage_url": "file:///user-provided",
+      "source_type": "user-provided-document",
+      "license_note": "Use only within the current course workflow and review provenance manually.",
+      "attribution_required": true,
+      "default_use_mode": "manual-review-first",
+      "approved_for_educational_use": true,
+      "notes": "Preferred source type when the user directly provides a PDF or other course document."
+    }
+  ]
+}

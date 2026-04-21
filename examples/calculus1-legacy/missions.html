@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ภารกิจ — การบ้านแบบ OBE + Bloom</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/mission.css" />
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">∫</span> Calculus 1 <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+      <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+      <a href="intro.html" class="nav-link"><span class="nl-icon">🎯</span>แนะนำ</a>
+      </div>
+      <div class="nav-group" data-title="📖 บทเรียน">
+      <a href="lessons.html" class="nav-link"><span class="nl-icon">📏</span>ลิมิต</a>
+      <a href="continuity.html" class="nav-link"><span class="nl-icon">🔗</span>ต่อเนื่อง</a>
+      <a href="differentiation.html" class="nav-link"><span class="nl-icon">📐</span>อนุพันธ์</a>
+      <a href="integration.html" class="nav-link"><span class="nl-icon">∫</span>ปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="⚡ แอปประยุกต์">
+      <a href="diff-app.html" class="nav-link"><span class="nl-icon">🚗</span>แอปอนุพันธ์</a>
+      <a href="integrate-app.html" class="nav-link"><span class="nl-icon">📊</span>แอปปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="🎮 เกม">
+      <a href="guess-game.html" class="nav-link"><span class="nl-icon">🎲</span>เกมทาย</a>
+      <a href="match-game.html" class="nav-link"><span class="nl-icon">🧩</span>เกมจับคู่</a>
+      </div>
+      <div class="nav-group" data-title="📚 สื่อ">
+      <a href="content/" class="nav-link"><span class="nl-icon">📚</span>สื่อเพิ่มเติม</a>
+      </div>
+      <div class="nav-group nav-group-cta">
+      <a href="missions.html" class="nav-link nav-cta active"><span class="nl-icon">🎯</span>ภารกิจ</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    <h1 class="page-title">🎯 ภารกิจ (Homework + Active Learning)</h1>
+    <p class="page-subtitle">
+      การบ้านออกแบบตาม <strong>Outcome-Based Education</strong> และ <strong>Bloom's Taxonomy</strong>
+      — ไม่ใช่แค่คำนวณ แต่<em>วิเคราะห์ · ประเมิน · สร้างสรรค์</em> ได้จริง
+      พร้อม Rubric ชัดเจนทุกภารกิจ
+    </p>
+
+    <section class="card">
+      <div class="card-title">🧠 ทำไมต้องเรียนแบบนี้?</div>
+      <p style="line-height:1.8;">
+        การ<strong>คำนวณอย่างเดียว</strong>อยู่ที่ระดับ 3 ใน 6 ของ Bloom เท่านั้น —
+        ผู้เรียนที่แท้จริงต้อง<em>วินิจฉัย</em>โจทย์, <em>ประเมิน</em>ความถูกต้องของงานคนอื่น,
+        และ<em>สร้างสรรค์</em>ตัวอย่าง/counter-example ได้ด้วย
+        ทุกภารกิจที่นี่จึง<strong>ตรวจได้อัตโนมัติ</strong>และมี<strong>เกณฑ์วัดผลโปร่งใส</strong>
+      </p>
+    </section>
+
+    <!-- Heatmap: Topic × Bloom -->
+    <section class="card">
+      <div class="card-title">📊 แผนที่ภารกิจ (Topic × Bloom Level)</div>
+      <p class="text-small text-muted">คลิกช่องเพื่อกระโดดไปยังภารกิจ ✓ = ผ่านแล้ว · สีม่วง = พร้อมทำ · เทา = จะเปิดเร็วๆ นี้</p>
+      <div id="heatmap" class="mission-heatmap"></div>
+    </section>
+
+    <!-- Topic selector -->
+    <div class="topic-tabs" id="topic-tabs"></div>
+
+    <!-- Mission list -->
+    <div id="mission-list"></div>
+
+    <section class="card text-center" style="margin-top:1.5rem;">
+      <div class="card-title">🗺 ต่อไปจะเพิ่ม</div>
+      <p class="text-muted" style="line-height:1.7;">
+        ภารกิจของ <strong>ลิมิต · อนุพันธ์ · ปริพันธ์</strong> ครบทั้ง 6 ระดับ Bloom <br>
+        พร้อม Rubric-based assessment + CLO mapping + metacognition dashboard
+      </p>
+      <div class="flex-row" style="justify-content:center;">
+        <a href="index.html" class="btn">🏠 หน้าแรก</a>
+        <a href="continuity.html" class="btn btn-accent">📖 ทบทวนบทเรียน</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Libraries -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+          onload="renderMathInElement(document.body, { delimiters: [{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}], throwOnError: false });"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@13.0.3/lib/browser/math.min.js"></script>
+
+  <!-- App -->
+  <script src="js/xp.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/mission-bank.js"></script>
+  <script src="js/missions.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

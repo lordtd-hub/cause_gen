@@ -1,0 +1,227 @@
+/* ── Timer bar ── */
+.timer-bar {
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.timer-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-success), var(--color-accent3));
+  transition: width 0.1s linear, background 0.3s;
+  width: 100%;
+}
+.timer-fill.warn   { background: linear-gradient(90deg, var(--color-accent3), var(--color-accent1)); }
+.timer-fill.danger { background: linear-gradient(90deg, var(--color-accent1), var(--color-danger)); animation: shake-h 0.1s infinite; }
+@keyframes shake-h { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(1px); } }
+
+/* ── Score bar ── */
+.game-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 99px;
+  background: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.meta-chip.score  { color: var(--color-accent3); border-color: rgba(250,204,21,0.4); }
+.meta-chip.streak { color: var(--color-accent1); border-color: rgba(251,113,133,0.4); }
+.meta-chip.streak.fire { animation: fire 0.5s ease infinite alternate; }
+@keyframes fire { from { box-shadow: 0 0 10px rgba(251,113,133,0.4); } to { box-shadow: 0 0 20px rgba(251,113,133,0.8); } }
+
+/* ── Question stem ── */
+.q-stem {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  min-height: 3rem;
+}
+.q-stem.big { font-size: 1.4rem; text-align: center; padding: 1rem 0; }
+
+/* ── Graph in question ── */
+.q-graph-wrap {
+  background: #0a0614;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Options ── */
+.mcq-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.mcq-btn {
+  padding: 0.8rem 1rem;
+  background: var(--color-surface2);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-family: var(--font);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.mcq-btn:hover:not([disabled]) {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139,92,246,0.3);
+}
+.mcq-btn[data-state="correct"] {
+  background: rgba(52,211,153,0.2);
+  border-color: var(--color-success);
+  color: var(--color-success);
+  animation: pop 0.4s ease;
+}
+.mcq-btn[data-state="wrong"] {
+  background: rgba(248,113,113,0.2);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  animation: shake 0.4s ease;
+}
+@keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 50% { transform: translateX(6px); } 75% { transform: translateX(-4px); } }
+
+/* ── Feedback ── */
+.q-feedback {
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  display: none;
+  animation: slide-down 0.3s ease;
+}
+.q-feedback.show { display: block; }
+.q-feedback.correct { background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.3); }
+.q-feedback.wrong   { background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.3); }
+.q-feedback .fb-head { font-weight: 700; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.4rem; }
+.q-feedback.correct .fb-head { color: var(--color-success); }
+.q-feedback.wrong   .fb-head { color: var(--color-danger); }
+@keyframes slide-down { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── Summary screen ── */
+.summary-panel { text-align: center; padding: 2rem 1rem; }
+.summary-big {
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--color-accent3), var(--color-accent1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+.summary-label { color: var(--color-muted); font-size: 1.05rem; margin-bottom: 1rem; }
+.summary-reward {
+  background: linear-gradient(135deg, rgba(250,204,21,0.15), rgba(251,113,133,0.1));
+  border: 1px solid var(--color-accent3);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Match game ── */
+.match-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 640px) { .match-grid { grid-template-columns: 1fr; } }
+
+.match-col { display: flex; flex-direction: column; gap: 0.6rem; }
+.match-col-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.match-card {
+  background: var(--color-surface2);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  user-select: none;
+}
+.match-card:hover { border-color: var(--color-primary); transform: translateY(-2px); }
+.match-card.selected { border-color: var(--color-accent3); box-shadow: 0 0 0 3px rgba(250,204,21,0.3); }
+.match-card.matched {
+  border-color: var(--color-success);
+  background: rgba(52,211,153,0.1);
+  pointer-events: none;
+  opacity: 0.65;
+}
+.match-card.wrong { animation: shake 0.4s ease; border-color: var(--color-danger); }
+.match-card canvas { width: 100%; height: 90px; display: block; }
+.match-card .expr { font-size: 1.2rem; }
+
+/* ── Intro: XP badge popup ── */
+.xp-burst {
+  position: absolute;
+  padding: 0.4rem 1rem;
+  background: linear-gradient(135deg, var(--color-accent3), var(--color-accent1));
+  color: #1a1033;
+  border-radius: 99px;
+  font-weight: 800;
+  pointer-events: none;
+  animation: burst 1.5s ease forwards;
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+@keyframes burst {
+  0%   { opacity: 0; transform: translateY(0) scale(0.6); }
+  15%  { opacity: 1; transform: translateY(-10px) scale(1.1); }
+  25%  { transform: translateY(-12px) scale(1); }
+  100% { opacity: 0; transform: translateY(-60px) scale(0.9); }
+}
+
+/* ── Fill input for guess game ── */
+.fill-wrap {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 380px;
+  margin: 0 auto 1rem;
+}
+.fill-wrap input { flex: 1; text-align: center; font-size: 1.15rem; font-weight: 700; }
+
+/* ── Confetti dot ── */
+.confetti {
+  position: fixed;
+  width: 8px; height: 8px;
+  pointer-events: none;
+  z-index: 999;
+  animation: confetti-fall 2.5s linear forwards;
+}
+@keyframes confetti-fall {
+  0%   { transform: translateY(0) rotate(0); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}

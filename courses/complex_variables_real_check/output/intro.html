@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ตัวแปรเชิงซ้อน | Intro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  
+<style>
+  .intro-grid {
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+  @media (min-width: 880px) {
+    .intro-grid {
+      grid-template-columns:1.1fr .9fr;
+    }
+  }
+  .intro-soft-card {
+    background:linear-gradient(135deg, rgba(34,211,238,.08), rgba(139,92,246,.07));
+    border:1px solid rgba(34,211,238,.2);
+  }
+  .intro-soft-card p,
+  .intro-soft-card li {
+    color:var(--color-muted);
+    line-height:1.8;
+  }
+  .intro-route-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:.9rem;
+    margin-top:1rem;
+  }
+  .intro-route-card {
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--color-border);
+    border-radius:var(--radius);
+    padding:1rem;
+  }
+  .intro-route-card strong {
+    color:#fff;
+    display:block;
+    margin-bottom:.3rem;
+  }
+  .intro-route-card p {
+    color:var(--color-muted);
+    line-height:1.7;
+    font-size:.9rem;
+  }
+  .intro-checklist {
+    margin:0;
+    padding-left:1.2rem;
+  }
+  .intro-checklist li {
+    margin:.3rem 0;
+  }
+</style>
+
+</head>
+<body data-page="intro">
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">Z</span> Complex Variables <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="intro.html" class="nav-link active"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="lessons.html" class="nav-link"><span class="nl-icon">📚</span>Lessons</a>
+<a href="missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="content/" class="nav-link"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card">
+      <h1 class="page-title">แนะนำ Complex Variables</h1>
+      <p class="page-subtitle">หน้าแนะนำนี้ออกแบบให้ค่อย ๆ พาเข้าสู่รายวิชาอย่างไม่กดดันเกินไป เหมาะสำหรับการเริ่มเรียนครั้งแรกหรือกลับมาทบทวนภาพรวมก่อนเปิดบทเรียน</p>
+      <p style="line-height:1.8;">
+        รายวิชานี้แบ่งเป็น 5 โมดูล และเชื่อมกับผลลัพธ์การเรียนรู้ 5 ข้อ โดยใช้บทเรียน สื่อ interactive และภารกิจแบบเป็นขั้นช่วยให้เห็นความเข้าใจของตัวเองชัดขึ้น
+      </p>
+    </section>
+
+    <div class="intro-grid">
+      <section class="card intro-soft-card" id="intro-welcome">
+        <div class="card-title">🌿 เริ่มต้นแบบไม่ต้องรีบ</div>
+        <p>
+          ไม่จำเป็นต้องรู้ทุกอย่างตั้งแต่ครั้งแรก คุณสามารถเริ่มจากภาพรวมของวิชา แล้วค่อยเลือกบทที่อยากเรียนต่อหรือย้อนกลับมาทบทวนเฉพาะจุดได้เสมอ
+        </p>
+        <p>
+          ถ้าบางส่วนยังไม่มั่นใจ ให้ใช้บทเรียน สื่อเสริม และภารกิจเป็นสะพานช่วยเชื่อมความเข้าใจทีละส่วน ไม่ต้องเร่งให้ตอบได้ครบทุกอย่างในรอบเดียว
+        </p>
+      </section>
+
+      <section class="card intro-soft-card">
+        <div class="card-title">🧩 ก่อนเริ่มเรียนควรรู้อะไรบ้าง</div>
+        <ul class="intro-checklist">
+          <li>ดูภาพรวมของรายวิชาและเส้นทางการเรียนก่อน เพื่อเห็นว่าบทต่าง ๆ เชื่อมกันอย่างไร</li>
+          <li>เข้า lessons เพื่อเลือกเรียนตามลำดับ หรือย้อนกลับไปทบทวนเฉพาะโมดูลที่ต้องการ</li>
+          <li>ใช้สื่อ interactive ช่วยสำรวจกราฟ นิยาม พารามิเตอร์ หรือโครงเหตุผลให้เห็นภาพ</li>
+          <li>ถ้ามี missions ให้ใช้ภารกิจเป็นจังหวะเช็กความเข้าใจ ไม่ใช่พื้นที่ลงโทษเมื่อยังตอบไม่ได้ทันที</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="card">
+      <div class="card-title">✅ เริ่มจากตรงไหนดี</div>
+      <div class="intro-route-grid">
+        <div class="intro-route-card">
+          <strong>ดูภาพรวมก่อนเริ่ม</strong>
+          <p>เหมาะกับคนที่อยากเข้าใจก่อนว่ารายวิชานี้เรียนอะไร ใช้สื่ออย่างไร และควรเริ่มจากตรงไหน</p>
+          <div style="margin-top:.8rem;"><a href="index.html" class="btn">กลับหน้าแรก</a></div>
+        </div>
+        <div class="intro-route-card">
+          <strong>เข้าไปเลือกบทเรียน</strong>
+          <p>ถ้าพร้อมเริ่มเรียนแล้ว ให้ไปที่ lessons เพื่อเลือกโมดูลตามลำดับ หรือข้ามไปส่วนที่ต้องการทบทวนได้เลย</p>
+          <div style="margin-top:.8rem;"><a href="lessons.html" class="btn btn-primary">ไปหน้า Lessons</a></div>
+        </div>
+        
+        <div class="intro-route-card">
+          <strong>ลองภารกิจเมื่อพร้อม</strong>
+          <p>missions ใช้สำหรับเช็กวิธีคิด เหตุผล และความมั่นใจของตัวเองหลังจากได้ลองเรียนหรือทบทวนบทแล้ว</p>
+          <div style="margin-top:.8rem;"><a href="missions.html" class="btn">ไปหน้า Missions</a></div>
+        </div>
+      </div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"complex_variables_real_check","course_name_th":"ตัวแปรเชิงซ้อน","course_name_en":"Complex Variables","course_short_name":"Complex Variables","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A learner-facing complex variables course that helps students connect algebraic, geometric, and analytic ideas through modules, missions, and active-learning resources.","theme":{"brand_icon":"Z","accent":"#2563eb","accent_secondary":"#f59e0b"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","step-sequence","sbra-sequence"],"lesson_completion_xp":50,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Complex Variables Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-complex-foundations","emoji":"📘","name":"CLO1 Understand Complex Foundations","req":"Collect quick-check evidence in Complex Number Foundations.","threshold_xp":150,"required_modules":["complex-number-foundations"]},{"id":"clo2-complex-limits-analyst","emoji":"🧠","name":"CLO2 Analyze Complex Limits Analyst","req":"Collect reasoning-task evidence in Limits and Continuity in the Complex Plane.","threshold_xp":210,"required_modules":["limits-and-continuity"]},{"id":"clo3-analytic-function-strategist","emoji":"🛠","name":"CLO3 Apply Analytic Function Strategist","req":"Collect SBRA evidence in Complex Differentiation and Analytic Functions.","threshold_xp":250,"required_modules":["complex-differentiation"],"required_missions":["sbra-complex-differentiation-clo3"]},{"id":"clo4-complex-integrator","emoji":"🛠","name":"CLO4 Apply Complex Integrator","req":"Collect worked-task evidence in Complex Integration.","threshold_xp":280,"required_modules":["complex-integration"]},{"id":"clo5-series-analyst","emoji":"🧠","name":"CLO5 Analyze Series Analyst","req":"Collect SBRA evidence in Taylor, Laurent, and Applications.","threshold_xp":350,"required_modules":["series-and-applications"],"required_accuracy":60}],"modules":[{"id":"complex-number-foundations","slug":"complex-number-foundations","title":"Complex Number Foundations","summary":"Start from algebraic form, geometric interpretation, and the complex plane as the base language of the course.","order":1,"module_kind":"concept"},{"id":"limits-and-continuity","slug":"limits-and-continuity","title":"Limits and Continuity in the Complex Plane","summary":"Reconnect sequence, limit, and continuity ideas from analysis and move them into complex-valued settings.","order":2,"module_kind":"concept"},{"id":"complex-differentiation","slug":"complex-differentiation","title":"Complex Differentiation and Analytic Functions","summary":"Build the meaning of complex derivatives and analytic behavior through comparison with real-variable ideas.","order":3,"module_kind":"concept"},{"id":"complex-integration","slug":"complex-integration","title":"Complex Integration","summary":"Study contour-style integration and connect it to earlier work on integrals and paths.","order":4,"module_kind":"application"},{"id":"series-and-applications","slug":"series-and-applications","title":"Taylor, Laurent, and Applications","summary":"Use expansions and local representations to reason about complex functions and integral applications.","order":5,"module_kind":"application"}],"clos":[{"id":"CLO1","label":"Explain the algebraic and geometric foundations of complex numbers.","bloom":"Understand","assessment_tags":["concepts","complex-plane"]},{"id":"CLO2","label":"Analyze limits and continuity of complex functions using prior analysis knowledge.","bloom":"Analyze","assessment_tags":["limits","continuity"]},{"id":"CLO3","label":"Explain and apply complex differentiation, analytic functions, and holomorphic functions.","bloom":"Apply","assessment_tags":["derivatives","analytic-functions"]},{"id":"CLO4","label":"Explain and compute complex integrals along suitable paths.","bloom":"Apply","assessment_tags":["integrals","contours"]},{"id":"CLO5","label":"Use Taylor and Laurent series to study complex functions and support integral reasoning.","bloom":"Analyze","assessment_tags":["series","residue-ideas"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="assets/js/course-runtime.js"></script>
+<script src="assets/js/xp.js"></script>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

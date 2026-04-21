@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แนะนำเชิงภาพ — ลิมิตของฟังก์ชัน</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/game.css" />
+  <style>
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 880px) { .intro-grid { grid-template-columns: 1.3fr 1fr; } }
+
+    .graph-shell {
+      background: #0a0614;
+      border-radius: var(--radius-sm);
+      padding: 0.5rem;
+      position: relative;
+    }
+    .graph-shell canvas { width: 100%; height: 380px; display: block; }
+    .canvas-hint {
+      position: absolute;
+      left: 50%; top: 12px;
+      transform: translateX(-50%);
+      background: rgba(139,92,246,0.85);
+      color: #fff;
+      padding: 0.3rem 0.85rem;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: opacity 0.3s;
+    }
+    .canvas-hint.hide { opacity: 0; }
+
+    .slider-big input[type="range"] {
+      width: 100%;
+      height: 8px;
+    }
+    .slider-big label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      text-align: center;
+    }
+    .slider-big .x-val {
+      display: block;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--color-primary-light);
+      font-variant-numeric: tabular-nums;
+      margin: 0.25rem 0 0.5rem;
+    }
+    .steps-list { margin: 1rem 0 0 1.2rem; color: var(--color-muted); font-size: .95rem; }
+    .steps-list li { margin: 0.3rem 0; }
+    .steps-list li.current { color: var(--color-accent3); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">∫</span> Calculus 1 <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+      <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+      <a href="intro.html" class="nav-link active"><span class="nl-icon">🎯</span>แนะนำ</a>
+      </div>
+      <div class="nav-group" data-title="📖 บทเรียน">
+      <a href="lessons.html" class="nav-link"><span class="nl-icon">📏</span>ลิมิต</a>
+      <a href="continuity.html" class="nav-link"><span class="nl-icon">🔗</span>ต่อเนื่อง</a>
+      <a href="differentiation.html" class="nav-link"><span class="nl-icon">📐</span>อนุพันธ์</a>
+      <a href="integration.html" class="nav-link"><span class="nl-icon">∫</span>ปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="⚡ แอปประยุกต์">
+      <a href="diff-app.html" class="nav-link"><span class="nl-icon">🚗</span>แอปอนุพันธ์</a>
+      <a href="integrate-app.html" class="nav-link"><span class="nl-icon">📊</span>แอปปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="🎮 เกม">
+      <a href="guess-game.html" class="nav-link"><span class="nl-icon">🎲</span>เกมทาย</a>
+      <a href="match-game.html" class="nav-link"><span class="nl-icon">🧩</span>เกมจับคู่</a>
+      </div>
+      <div class="nav-group" data-title="📚 สื่อ">
+      <a href="content/" class="nav-link"><span class="nl-icon">📚</span>สื่อเพิ่มเติม</a>
+      </div>
+      <div class="nav-group nav-group-cta">
+      <a href="missions.html" class="nav-link nav-cta"><span class="nl-icon">🎯</span>ภารกิจ</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    <h1 class="page-title">🎯 แนะนำเชิงภาพ</h1>
+    <p class="page-subtitle">ลองลากค่า $x$ ให้เข้าใกล้จุด $a=2$ แล้วดูว่า $f(x)$ เข้าใกล้ค่าอะไร</p>
+
+    <section class="card">
+      <div class="card-title">🧩 ปริศนาที่แก้ด้วย 0/0</div>
+      <p>พิจารณาฟังก์ชัน</p>
+      <div style="text-align:center; margin:.5rem 0;">$$f(x) = \dfrac{x^2 - 4}{x - 2}$$</div>
+      <p>
+        เมื่อแทน \(x=2\) เราได้ \(\dfrac{0}{0}\) ซึ่ง<strong>ไม่นิยาม</strong>! แต่…
+        ถ้าเราดูว่าฟังก์ชันนี้เข้าใกล้ค่าอะไรเมื่อ \(x\) เข้าใกล้ \(2\)
+        <strong>คำตอบจะออกมาชัดเจน</strong> นี่คือไอเดียของ "ลิมิต"
+      </p>
+    </section>
+
+    <div class="intro-grid">
+      <!-- Canvas -->
+      <section class="card">
+        <div class="card-title">🎬 ลากค่า $x$ แล้วดูการเคลื่อนที่</div>
+        <div class="graph-shell">
+          <canvas id="graph"></canvas>
+          <div class="canvas-hint" id="hint">👇 เลื่อนแถบด้านล่างเพื่อขยับจุด</div>
+        </div>
+
+        <div class="slider-big" style="margin-top:1rem;">
+          <label for="x-slider">ตำแหน่งของ <strong>x</strong></label>
+          <span class="x-val" id="x-val">0.50</span>
+          <input type="range" id="x-slider" min="-1" max="5" step="0.01" value="0.5" />
+        </div>
+
+        <div class="flex-row" style="justify-content:center; gap:.5rem; margin-top:.5rem;">
+          <button class="btn btn-sm" id="btn-approach-left">⟶ จากซ้าย</button>
+          <button class="btn btn-sm" id="btn-approach-right">จากขวา ⟵</button>
+          <button class="btn btn-sm" id="btn-auto">▶ อัตโนมัติ</button>
+        </div>
+      </section>
+
+      <!-- Readout -->
+      <section class="card">
+        <div class="card-title">📊 ค่าที่สังเกตได้</div>
+
+        <div class="value-table">
+          <div class="row">
+            <span class="label">x</span>
+            <span class="val" id="r-x">0.50</span>
+          </div>
+          <div class="row">
+            <span class="label">f(x)</span>
+            <span class="val" id="r-fx">2.50</span>
+          </div>
+          <div class="row">
+            <span class="label">|x − 2|</span>
+            <span class="val" id="r-dx">1.50</span>
+          </div>
+          <div class="row">
+            <span class="label">|f(x) − 4|</span>
+            <span class="val" id="r-dfx">1.50</span>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <span class="status-pill far" id="status-pill">ไกลจากจุด a</span>
+        </div>
+
+        <ol class="steps-list" id="steps">
+          <li data-step="far">ตอนนี้ x อยู่ห่างจาก 2 พอสมควร</li>
+          <li data-step="close">เข้าใกล้หน่อย (|x−2| &lt; 0.5)</li>
+          <li data-step="closer">ใกล้มาก! (|x−2| &lt; 0.1)</li>
+          <li data-step="success">เกือบชิด a แล้ว (|x−2| &lt; 0.01) → รับ XP 🎁</li>
+        </ol>
+      </section>
+    </div>
+
+    <!-- Reveal -->
+    <section class="card" id="reveal-card" style="display:none;">
+      <div class="card-title">🎉 เข้าใกล้ 2 ได้แล้ว! แล้วเรียนอะไรจากสิ่งนี้?</div>
+      <div class="definition-block">
+        <div class="label">นิยามเชิงสัญชาตญาณ</div>
+        เมื่อ $x$ เข้าใกล้ $a$ แล้ว $f(x)$ เข้าใกล้ค่า $L$
+        เราเขียนแทนด้วย
+        $$\lim_{x \to a} f(x) = L$$
+        ในตัวอย่างนี้ $a=2$ และสังเกตจากกราฟว่า $L = 4$
+      </div>
+
+      <p>
+        <strong>เทคนิค: แยกตัวประกอบ</strong> —
+        เราแทน $x=2$ ตรงๆ ไม่ได้ แต่สามารถจัดรูปก่อน
+      </p>
+      <div class="formula-step">
+        $$\frac{x^2-4}{x-2} = \frac{(x-2)(x+2)}{x-2} = x+2 \quad (x \neq 2)$$
+        $$\therefore\ \lim_{x \to 2} \frac{x^2-4}{x-2} = \lim_{x \to 2}(x+2) = 4$$
+      </div>
+
+      <div class="flex-row" style="margin-top:1rem; justify-content:center;">
+        <a href="lessons.html" class="btn btn-primary">📚 ไปอ่านบทเรียน</a>
+        <a href="guess-game.html" class="btn btn-accent">🎮 ลองเล่นเกม</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-title">💡 จุดสำคัญที่ควรจำ</div>
+      <ul style="margin-left:1.2rem; line-height:1.9;">
+        <li>ลิมิตไม่ได้ถามว่า $f(a)$ เป็นเท่าไร แต่ถามว่า $f(x)$ เข้าใกล้อะไรเมื่อ $x$ เข้าใกล้ $a$</li>
+        <li>ลิมิตอาจมีค่า แม้ $f(a)$ จะไม่ได้นิยาม (มี "รู" ในกราฟ)</li>
+        <li>ต้องเข้าใกล้ได้ทั้งสองฝั่ง (ซ้ายและขวา) และได้ค่าเดียวกัน</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Libraries -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+          onload="renderMathInElement(document.body, { delimiters: [{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}], throwOnError: false });"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@13.0.3/lib/browser/math.min.js"></script>
+
+  <!-- App -->
+  <script src="js/xp.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/intro.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

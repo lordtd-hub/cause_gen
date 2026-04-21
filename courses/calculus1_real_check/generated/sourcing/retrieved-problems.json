@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.1.0",
+  "course_id": "calculus1_real_check",
+  "generated_at": "2026-04-21T10:54:49.400Z",
+  "items": [
+    {
+      "retrieval_id": "retrieved-problem-user-provided-document-problem-query-02-continui-5b1a151ef7",
+      "source_id": "user-provided-document",
+      "source_url": "C:\\Users\\User\\Downloads\\Calculus.pdf",
+      "source_title": "Class Notes",
+      "query_id": "problem-query-02-continuity-and-applications",
+      "query_text": null,
+      "candidate_module_id": "continuity-and-applications",
+      "candidate_clo_ids": [
+        "CLO2"
+      ],
+      "candidate_bloom_levels": [
+        "apply"
+      ],
+      "retrieval_method": "local-pdf",
+      "license_note": "Use only within the current course workflow and review provenance manually.",
+      "attribution_required": true,
+      "retrieved_excerpt": "Once again, we need the derivative and we found that in Example 2 in the last section. The derivative is, g′ (t) = 1 (t + 1)2 (a) Is the object moving to the right or the left at t = 10 hours? T o determine if the object is moving to the right (velocity is positive) or left (velo",
+      "normalized_statement": "Once again, we need the derivative and we found that in Example 2 in the last section. The derivative is, g′ (t) = 1 (t + 1)2 (a) Is the object moving to the right or the left at t = 10 hours? T o determine if the object is moving to the right (velocity is positive) or left (velocity is negative) we need the derivative at t = 10. g′ (10) = 1 121"
+    },
+    {
+      "retrieval_id": "retrieved-problem-user-provided-document-problem-query-02-continui-f2f7e77181",
+      "source_id": "user-provided-document",
+      "source_url": "C:\\Users\\User\\Downloads\\Calculus.pdf",
+      "source_title": "Class Notes",
+      "query_id": "problem-query-02-continuity-and-applications",
+      "query_text": null,
+      "candidate_module_id": "continuity-and-applications",
+      "candidate_clo_ids": [
+        "CLO2"
+      ],
+      "candidate_bloom_levels": [
+        "apply"
+      ],
+      "retrieval_method": "local-pdf",
+      "license_note": "Use only within the current course workflow and review provenance manually.",
+      "attribution_required": true,
+      "retrieved_excerpt": "Chapter 3 : Derivatives Section 3.10 : Implicit Differentiation we couldn’t just solve for y and yet that’s what we just did. So, why can’t we use “normal” differentiation here? The problem is the “ ±”. With this in the “solution” for y we see that y is in fact two different func",
+      "normalized_statement": "Chapter 3 : Derivatives Section 3.10 : Implicit Differentiation we couldn’t just solve for y and yet that’s what we just did. So, why can’t we use “normal” differentiation here? The problem is the “ ±”. With this in the “solution” for y we see that y is in fact two different functions. Which should we use? Should we use both? We only want a single function for the derivative and at best we have two functions here."
+    }
+  ]
+}

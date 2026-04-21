@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "project_in_mathematics_real_check",
+  "generated_at": "2026-04-21T08:29:38.146Z",
+  "items": [
+    {
+      "retrieval_id": "content-001",
+      "content_id": "lit-review-evidence-ladder",
+      "dedupe_group": "annotated-reading-ladder-for-literature-review-planning-learners-compare-four-references-sort-them-by-mathematical-usefulness-and-explain",
+      "proposed_module_id": "02-literature-review-and-project-planning",
+      "proposed_clo_ids": [
+        "CLO1",
+        "CLO2"
+      ],
+      "proposed_bloom_levels": [
+        "analyze"
+      ],
+      "proposed_content_kind": "activity",
+      "proposed_asset_family": "active-learning-seed",
+      "title": "Evidence Ladder for Literature Review",
+      "summary": "A short guided activity that helps students separate strong mathematical sources from weaker background references before they write a project plan.",
+      "excerpt": "Learners compare four references, sort them by mathematical usefulness, and explain which source should anchor the first project review.",
+      "license_note": "Educational adaptation note recorded for local review.",
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "screening_status": "proposed",
+      "recommended_use_mode": "ingest-with-attribution",
+      "provenance": {
+        "source_id": "mit-ocw",
+        "source_title": "MIT OpenCourseWare",
+        "source_url": "https://ocw.mit.edu/",
+        "query_id": "content-query-02-literature-review-and-project-planning",
+        "query_texts": [
+          "Project in Mathematics Literature Review and Project Planning lecture notes",
+          "Literature Review and Project Planning interactive learning activity",
+          "Literature Review and Project Planning Analyze related work to define a meaningful mathematics project direction. worked example"
+        ],
+        "license_note": "Open course materials with Creative Commons licensing; confirm page-level terms when needed.",
+        "attribution_required": true
+      },
+      "notes": "Educational use policy matched source mit-ocw. Human review is still required before promotion into content drafts."
+    },
+    {
+      "retrieval_id": "content-002",
+      "content_id": "progress-risk-checkpoint",
+      "dedupe_group": "project-progress-checkpoint-prompt-students-inspect-a-progress-note-identify-the-highest-risk-gap-and-justify-what-should-be-raised-in-the",
+      "proposed_module_id": "03-project-execution-and-progress-review",
+      "proposed_clo_ids": [
+        "CLO3",
+        "CLO4"
+      ],
+      "proposed_bloom_levels": [
+        "evaluate"
+      ],
+      "proposed_content_kind": "activity",
+      "proposed_asset_family": "checkpoint-seed",
+      "title": "Progress Risk Checkpoint",
+      "summary": "A checkpoint prompt that asks learners to distinguish visible activity from evidence-backed project progress.",
+      "excerpt": "Students inspect a progress note, identify the highest-risk gap, and justify what should be raised in the next advisor meeting.",
+      "license_note": "Educational adaptation note recorded for local review.",
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "screening_status": "proposed",
+      "recommended_use_mode": "ingest-with-attribution",
+      "provenance": {
+        "source_id": "openstax",
+        "source_title": "OpenStax",
+        "source_url": "https://openstax.org/",
+        "query_id": "content-query-03-project-execution-and-progress-review",
+        "query_texts": [
+          "Project in Mathematics Project Execution and Progress Review lecture notes",
+          "Project Execution and Progress Review interactive learning activity",
+          "Project Execution and Progress Review Design a suitable study or analysis process for the selected project problem. worked example"
+        ],
+        "license_note": "Books may be CC BY or CC BY-NC-SA; verify the specific book license.",
+        "attribution_required": true
+      },
+      "notes": "Educational use policy matched source openstax. Human review is still required before promotion into content drafts."
+    }
+  ]
+}

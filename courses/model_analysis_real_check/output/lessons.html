@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>การวิเคราะห์ตัวแบบเชิงคณิตศาสตร์ | Lessons</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  
+<style>
+  .lesson-module-rail {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:1rem;
+  }
+  .lesson-rail-link {
+    display:block;
+    padding:.85rem 1rem;
+    border-radius:14px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.03);
+    color:var(--color-text);
+    text-decoration:none;
+  }
+  .lesson-rail-link strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.2rem;
+  }
+  .lesson-roadmap-grid {
+    display:grid;
+    gap:1rem;
+    margin-top:1rem;
+  }
+  .lesson-roadmap-card {
+    border:1px solid var(--color-border);
+    border-radius:var(--radius);
+    background:rgba(255,255,255,.03);
+    padding:1rem;
+  }
+  .lesson-roadmap-head {
+    display:flex;
+    justify-content:space-between;
+    gap:.75rem;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .lesson-order-pill {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:2rem;
+    height:2rem;
+    padding:0 .65rem;
+    border-radius:999px;
+    background:rgba(34,211,238,.12);
+    border:1px solid rgba(34,211,238,.28);
+    font-weight:800;
+    color:#fff;
+  }
+  .lesson-roadmap-summary {
+    color:var(--color-muted);
+    line-height:1.8;
+    margin:.7rem 0;
+  }
+  .lesson-meta-row {
+    display:flex;
+    flex-wrap:wrap;
+    gap:.45rem;
+    margin:.75rem 0;
+  }
+  .lesson-mini-pill {
+    display:inline-flex;
+    align-items:center;
+    padding:.2rem .6rem;
+    border-radius:999px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.04);
+    font-size:.78rem;
+    font-weight:700;
+  }
+  .lesson-activity-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:.85rem;
+  }
+  .lesson-activity-card {
+    border:1px dashed var(--color-border);
+    border-radius:12px;
+    background:rgba(10,6,20,.45);
+    padding:.85rem;
+  }
+  .lesson-activity-card strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.25rem;
+  }
+  .lesson-activity-card p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.7;
+    font-size:.88rem;
+  }
+  .lesson-page-note {
+    color:var(--color-muted);
+    line-height:1.8;
+  }
+</style>
+
+</head>
+<body data-page="lessons">
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">M</span> Model Analysis <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="lessons.html" class="nav-link active"><span class="nl-icon">📚</span>Lessons</a>
+<a href="missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="content/" class="nav-link"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card">
+      <h1 class="page-title">บทเรียนทั้งหมด 6 โมดูล</h1>
+      <p class="page-subtitle">lesson hub ของรายวิชานี้ล้อตามจำนวนโมดูลของแผนการสอน เพื่อให้เห็นลำดับหัวข้อ เส้นทางเรียน และกิจกรรม active learning ของแต่ละบทอย่างชัดเจน</p>
+      <p class="lesson-page-note">
+        ใช้ rail ด้านล่างเพื่อกระโดดไปยังโมดูลที่ต้องการ แล้วดู roadmap ของแต่ละบทเพื่อเห็นสรุปหัวข้อ กิจกรรม และจุดเชื่อมไปยังหน้าโมดูลจริง
+      </p>
+      <div class="lesson-module-rail" id="lessons-module-rail">
+        
+      <a class="lesson-rail-link" href="#lesson-module-modeling-foundations">
+        <strong>โมดูล 1</strong>
+        <span>Modeling Foundations</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-modeling-tools-and-techniques">
+        <strong>โมดูล 2</strong>
+        <span>Modeling Tools and Techniques</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-linear-and-nonlinear-models">
+        <strong>โมดูล 3</strong>
+        <span>Linear and Nonlinear Models</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-model-development-and-probability">
+        <strong>โมดูล 4</strong>
+        <span>Model Development and Probability Models</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-validation-and-advanced-cases">
+        <strong>โมดูล 5</strong>
+        <span>Validation and Advanced Cases</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-project-modeling-studio">
+        <strong>โมดูล 6</strong>
+        <span>Project Modeling Studio</span>
+      </a>
+    
+      </div>
+    </section>
+    <section class="card" id="lessons-roadmap">
+      <div class="card-title">แผนที่บทเรียนตามโมดูล</div>
+      <p class="lesson-page-note">
+        การ์ดแต่ละใบช่วยให้เห็นว่าบทนี้เน้นเรื่องอะไร อยู่ลำดับไหนของรายวิชา และมีกิจกรรม active learning แบบใดให้ใช้ประกอบก่อนเข้าเนื้อหาเต็ม
+      </p>
+      <div class="lesson-roadmap-grid">
+        
+      <article class="lesson-roadmap-card" id="lesson-module-modeling-foundations">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 1</div>
+            <div class="card-title" style="margin-top:.15rem;">Modeling Foundations</div>
+          </div>
+          <span class="lesson-order-pill">1</span>
+        </div>
+        <p class="lesson-roadmap-summary">Orient the course around what mathematical models are, why they matter, and how modeling work begins.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: concept</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">2 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🧩 คลี่นิยามทีละส่วน</strong>
+            <p>แยกนิยามหรือเงื่อนไขสำคัญออกเป็นชิ้น ๆ เพื่อมองความหมายได้ชัดขึ้น</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/modeling-foundations/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-modeling-tools-and-techniques">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 2</div>
+            <div class="card-title" style="margin-top:.15rem;">Modeling Tools and Techniques</div>
+          </div>
+          <span class="lesson-order-pill">2</span>
+        </div>
+        <p class="lesson-roadmap-summary">Use foundational mathematical and statistical tools to set up and compare modeling choices.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: concept</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">2 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/modeling-tools-and-techniques/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-linear-and-nonlinear-models">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 3</div>
+            <div class="card-title" style="margin-top:.15rem;">Linear and Nonlinear Models</div>
+          </div>
+          <span class="lesson-order-pill">3</span>
+        </div>
+        <p class="lesson-roadmap-summary">Compare model structures and decide when a linear or nonlinear view is more useful.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: application</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>💡 sbra-sequence</strong>
+            <p>กิจกรรม interactive ของบทนี้จะถูกเติมต่อในรอบ authoring</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/linear-and-nonlinear-models/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-model-development-and-probability">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 4</div>
+            <div class="card-title" style="margin-top:.15rem;">Model Development and Probability Models</div>
+          </div>
+          <span class="lesson-order-pill">4</span>
+        </div>
+        <p class="lesson-roadmap-summary">Move from structure choice into full model development and probabilistic perspectives.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: application</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>💡 sbra-sequence</strong>
+            <p>กิจกรรม interactive ของบทนี้จะถูกเติมต่อในรอบ authoring</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/model-development-and-probability/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-validation-and-advanced-cases">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 5</div>
+            <div class="card-title" style="margin-top:.15rem;">Validation and Advanced Cases</div>
+          </div>
+          <span class="lesson-order-pill">5</span>
+        </div>
+        <p class="lesson-roadmap-summary">Test model validity, inspect advanced examples, and discuss ethical handling of modeling decisions.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: concept</span>
+          <span class="lesson-mini-pill">3 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>💡 sbra-sequence</strong>
+            <p>กิจกรรม interactive ของบทนี้จะถูกเติมต่อในรอบ authoring</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/validation-and-advanced-cases/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-project-modeling-studio">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 6</div>
+            <div class="card-title" style="margin-top:.15rem;">Project Modeling Studio</div>
+          </div>
+          <span class="lesson-order-pill">6</span>
+        </div>
+        <p class="lesson-roadmap-summary">Use project-based work, peer critique, and final presentation as the capstone modeling experience.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: proof</span>
+          <span class="lesson-mini-pill">4 CLOs</span>
+          <span class="lesson-mini-pill">2 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>💡 sbra-sequence</strong>
+            <p>กิจกรรม interactive ของบทนี้จะถูกเติมต่อในรอบ authoring</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/project-modeling-studio/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+      </div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"model_analysis_real_check","course_name_th":"การวิเคราะห์ตัวแบบเชิงคณิตศาสตร์","course_name_en":"Analysis of Mathematical Models","course_short_name":"Model Analysis","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A mathematical model analysis course scaffolded from TQF3 and extended with modules, project framing, and active-learning missions.","theme":{"brand_icon":"M","accent":"#0f766e","accent_secondary":"#f97316"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","step-sequence","sbra-sequence"],"lesson_completion_xp":50,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Model Analysis Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-modeling-foundations","emoji":"📘","name":"CLO1 Understand Modeling Foundations","req":"Collect quick-check evidence in Modeling Foundations.","threshold_xp":150,"required_modules":["modeling-foundations"]},{"id":"clo2-modeling-reviewer","emoji":"🧠","name":"CLO2 Analyze Modeling Reviewer","req":"Collect review-task evidence in Modeling Tools and Techniques.","threshold_xp":200,"required_modules":["modeling-tools-and-techniques"]},{"id":"clo3-model-designer","emoji":"🚀","name":"CLO3 Create Model Designer","req":"Collect design-task evidence in Linear and Nonlinear Models.","threshold_xp":250,"required_modules":["linear-and-nonlinear-models"]},{"id":"clo5-application-interpreter","emoji":"🎯","name":"CLO5 Evaluate Application Interpreter","req":"Collect interpretation-task evidence in Model Development and Probability Models.","threshold_xp":290,"required_modules":["model-development-and-probability"]},{"id":"clo4-model-validator","emoji":"🛠","name":"CLO4 Apply Model Validator","req":"Collect SBRA evidence in Validation and Advanced Cases.","threshold_xp":350,"required_modules":["validation-and-advanced-cases"],"required_missions":["sbra-validation-and-advanced-cases-clo4"],"required_accuracy":60},{"id":"clo6-ethical-modeler","emoji":"🎯","name":"CLO6 Evaluate Ethical Modeler","req":"Collect reflection-task evidence in Project Modeling Studio.","threshold_xp":390,"required_modules":["project-modeling-studio"],"required_accuracy":60}],"modules":[{"id":"modeling-foundations","slug":"modeling-foundations","title":"Modeling Foundations","summary":"Orient the course around what mathematical models are, why they matter, and how modeling work begins.","order":1,"module_kind":"concept"},{"id":"modeling-tools-and-techniques","slug":"modeling-tools-and-techniques","title":"Modeling Tools and Techniques","summary":"Use foundational mathematical and statistical tools to set up and compare modeling choices.","order":2,"module_kind":"concept"},{"id":"linear-and-nonlinear-models","slug":"linear-and-nonlinear-models","title":"Linear and Nonlinear Models","summary":"Compare model structures and decide when a linear or nonlinear view is more useful.","order":3,"module_kind":"application"},{"id":"model-development-and-probability","slug":"model-development-and-probability","title":"Model Development and Probability Models","summary":"Move from structure choice into full model development and probabilistic perspectives.","order":4,"module_kind":"application"},{"id":"validation-and-advanced-cases","slug":"validation-and-advanced-cases","title":"Validation and Advanced Cases","summary":"Test model validity, inspect advanced examples, and discuss ethical handling of modeling decisions.","order":5,"module_kind":"concept"},{"id":"project-modeling-studio","slug":"project-modeling-studio","title":"Project Modeling Studio","summary":"Use project-based work, peer critique, and final presentation as the capstone modeling experience.","order":6,"module_kind":"proof"}],"clos":[{"id":"CLO1","label":"Explain mathematical and statistical techniques used in mathematical modeling.","bloom":"Understand","assessment_tags":["foundations","techniques"]},{"id":"CLO2","label":"Search and review modeling work connected to real-world problems.","bloom":"Analyze","assessment_tags":["literature","real-world-context"]},{"id":"CLO3","label":"Integrate knowledge from other areas to create more complete mathematical models.","bloom":"Create","assessment_tags":["integration","design"]},{"id":"CLO4","label":"Build mathematical models that are analyzed, tested, and checked for validity.","bloom":"Apply","assessment_tags":["validation","testing"]},{"id":"CLO5","label":"Apply models to real-world problems and interpret results effectively.","bloom":"Evaluate","assessment_tags":["application","interpretation"]},{"id":"CLO6","label":"Demonstrate ethics in the development and analysis of mathematical models.","bloom":"Evaluate","assessment_tags":["ethics","responsibility"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="assets/js/course-runtime.js"></script>
+<script src="assets/js/xp.js"></script>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+{
+  "updated": "2026-04-21",
+  "items": [
+    {
+      "id": "artificial-intelligence-a-modern-approach",
+      "topic": "Core References",
+      "title": "Artificial Intelligence: A Modern Approach",
+      "description": "main text: เหมาะกับ AI Foundations, Search and Problem Solving, Knowledge and Reasoning",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: textbook\nบทบาท: main text\nโมดูลที่เกี่ยวข้อง: AI Foundations, Search and Problem Solving, Knowledge and Reasoning\nหมายเหตุ: core AI reference for concepts, search, and reasoning",
+      "seed_type": "textbook",
+      "seed_role": "main text",
+      "linked_modules": [
+        "ai-foundations",
+        "search-and-problem-solving",
+        "knowledge-and-reasoning"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "the-quest-for-artificial-intelligence",
+      "topic": "AI Foundations",
+      "title": "The Quest for Artificial Intelligence",
+      "description": "support: เหมาะกับ AI Foundations",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: textbook\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: AI Foundations\nหมายเหตุ: historical and conceptual background for the field",
+      "seed_type": "textbook",
+      "seed_role": "support",
+      "linked_modules": [
+        "ai-foundations"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "mit-opencourseware-introduction-to-artificial-intelligence",
+      "topic": "Course Resources",
+      "title": "MIT OpenCourseWare: Introduction to Artificial Intelligence",
+      "description": "support: เหมาะกับ Search and Problem Solving, Knowledge and Reasoning",
+      "type": "link",
+      "addedDate": "2026-04-21",
+      "seed_type": "course",
+      "seed_role": "support",
+      "linked_modules": [
+        "search-and-problem-solving",
+        "knowledge-and-reasoning"
+      ],
+      "url": "https://ocw.mit.edu",
+      "public_href": "https://ocw.mit.edu"
+    },
+    {
+      "id": "search-visualizer-and-graph-search-demos",
+      "topic": "Search and Problem Solving",
+      "title": "Search visualizer and graph search demos",
+      "description": "practice: เหมาะกับ Search and Problem Solving",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: interactive\nบทบาท: practice\nโมดูลที่เกี่ยวข้อง: Search and Problem Solving\nหมายเหตุ: use for BFS, DFS, best-first, and heuristic comparison",
+      "seed_type": "interactive",
+      "seed_role": "practice",
+      "linked_modules": [
+        "search-and-problem-solving"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "logic-and-knowledge-representation-notes",
+      "topic": "Knowledge and Reasoning",
+      "title": "Logic and knowledge representation notes",
+      "description": "support: เหมาะกับ Knowledge and Reasoning",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: notes\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: Knowledge and Reasoning\nหมายเหตุ: support material for facts, rules, and inference",
+      "seed_type": "notes",
+      "seed_role": "support",
+      "linked_modules": [
+        "knowledge-and-reasoning"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "google-colab-starter-notebooks-for-introductory-ai-coding",
+      "topic": "Practice and Review",
+      "title": "Google Colab starter notebooks for introductory AI coding",
+      "description": "practice: เหมาะกับ Knowledge and Reasoning, Intelligent Systems and Ethics",
+      "type": "link",
+      "addedDate": "2026-04-21",
+      "seed_type": "notebook",
+      "seed_role": "practice",
+      "linked_modules": [
+        "knowledge-and-reasoning",
+        "intelligent-systems-and-ethics"
+      ],
+      "url": "https://colab.research.google.com",
+      "public_href": "https://colab.research.google.com"
+    },
+    {
+      "id": "neural-network-playground-or-keras-demonstrations",
+      "topic": "Intelligent Systems and Ethics",
+      "title": "Neural network playground or Keras demonstrations",
+      "description": "support: เหมาะกับ Intelligent Systems and Ethics",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: interactive\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: Intelligent Systems and Ethics\nหมายเหตุ: demo tools for model behavior, limits, and interpretation",
+      "seed_type": "interactive",
+      "seed_role": "support",
+      "linked_modules": [
+        "intelligent-systems-and-ethics"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "ai-ethics-reading-pack-and-case-prompts",
+      "topic": "Practice and Review",
+      "title": "AI ethics reading pack and case prompts",
+      "description": "review: เหมาะกับ AI Foundations, Intelligent Systems and Ethics",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: reading-pack\nบทบาท: review\nโมดูลที่เกี่ยวข้อง: AI Foundations, Intelligent Systems and Ethics\nหมายเหตุ: case prompts for bias, transparency, accountability, and responsible deployment",
+      "seed_type": "reading-pack",
+      "seed_role": "review",
+      "linked_modules": [
+        "ai-foundations",
+        "intelligent-systems-and-ethics"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "untitled-resource",
+      "topic": "Course Resources",
+      "title": "Untitled resource",
+      "description": "support: ใช้เป็นแหล่งอ้างอิงของรายวิชา",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: resource\nบทบาท: support",
+      "seed_type": "resource",
+      "seed_role": "support",
+      "linked_modules": [],
+      "public_href": null
+    },
+    {
+      "id": "untitled-resource",
+      "topic": "Course Resources",
+      "title": "Untitled resource",
+      "description": "support: ใช้เป็นแหล่งอ้างอิงของรายวิชา",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: resource\nบทบาท: support",
+      "seed_type": "resource",
+      "seed_role": "support",
+      "linked_modules": [],
+      "public_href": null
+    },
+    {
+      "id": "untitled-resource",
+      "topic": "Course Resources",
+      "title": "Untitled resource",
+      "description": "support: ใช้เป็นแหล่งอ้างอิงของรายวิชา",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: resource\nบทบาท: support",
+      "seed_type": "resource",
+      "seed_role": "support",
+      "linked_modules": [],
+      "public_href": null
+    },
+    {
+      "id": "untitled-resource",
+      "topic": "Course Resources",
+      "title": "Untitled resource",
+      "description": "support: ใช้เป็นแหล่งอ้างอิงของรายวิชา",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: resource\nบทบาท: support",
+      "seed_type": "resource",
+      "seed_role": "support",
+      "linked_modules": [],
+      "public_href": null
+    },
+    {
+      "id": "untitled-resource",
+      "topic": "Course Resources",
+      "title": "Untitled resource",
+      "description": "support: ใช้เป็นแหล่งอ้างอิงของรายวิชา",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: resource\nบทบาท: support",
+      "seed_type": "resource",
+      "seed_role": "support",
+      "linked_modules": [],
+      "public_href": null
+    },
+    {
+      "id": "untitled-resource",
+      "topic": "Course Resources",
+      "title": "Untitled resource",
+      "description": "support: ใช้เป็นแหล่งอ้างอิงของรายวิชา",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: resource\nบทบาท: support",
+      "seed_type": "resource",
+      "seed_role": "support",
+      "linked_modules": [],
+      "public_href": null
+    },
+    {
+      "id": "untitled-resource",
+      "topic": "Course Resources",
+      "title": "Untitled resource",
+      "description": "support: ใช้เป็นแหล่งอ้างอิงของรายวิชา",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: resource\nบทบาท: support",
+      "seed_type": "resource",
+      "seed_role": "support",
+      "linked_modules": [],
+      "public_href": null
+    },
+    {
+      "id": "untitled-resource",
+      "topic": "Course Resources",
+      "title": "Untitled resource",
+      "description": "support: ใช้เป็นแหล่งอ้างอิงของรายวิชา",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: resource\nบทบาท: support",
+      "seed_type": "resource",
+      "seed_role": "support",
+      "linked_modules": [],
+      "public_href": null
+    }
+  ]
+}

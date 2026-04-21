@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "updated": "2026-04-19",
+  "items": [
+    {
+      "id": "example-limits-note",
+      "topic": "limits",
+      "title": "ตัวอย่าง: โน้ตขยายความลิมิตพิเศษ",
+      "description": "ตัวอย่างรายการแบบ note — ลบ/แก้ไขได้เมื่อเพิ่มสื่อจริง",
+      "type": "note",
+      "addedDate": "2026-04-19",
+      "tags": ["example", "placeholder"]
+    },
+    {
+      "id": "example-limits-cheatsheet",
+      "topic": "limits",
+      "title": "ตัวอย่าง: สรุปสูตรลิมิต (PDF)",
+      "description": "ตัวอย่าง entry แบบ PDF — ไฟล์นี้ยังไม่มีจริง ใส่ไฟล์แล้วแก้ path หรือลบทิ้ง",
+      "type": "pdf",
+      "path": "limits/handouts/limit-cheatsheet-example.pdf",
+      "addedDate": "2026-04-19",
+      "author": "ทีมคณิตศาสตร์"
+    },
+    {
+      "id": "example-3blue1brown-limits",
+      "topic": "limits",
+      "title": "ตัวอย่าง: วิดีโอแนะนำลิมิต (ลิงก์ภายนอก)",
+      "description": "ตัวอย่าง entry แบบลิงก์ไปวิดีโอ YouTube — เปลี่ยนเป็นวิดีโอจริงของอาจารย์ได้",
+      "type": "link",
+      "url": "https://www.youtube.com/results?search_query=limit+calculus",
+      "addedDate": "2026-04-19",
+      "duration": "—"
+    }
+  ]
+}

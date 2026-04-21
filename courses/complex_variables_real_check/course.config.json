@@ -1,0 +1,193 @@
+{
+  "course_id": "complex_variables_real_check",
+  "course_name_th": "ตัวแปรเชิงซ้อน",
+  "course_name_en": "Complex Variables",
+  "course_short_name": "Complex Variables",
+  "instructor": "แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด",
+  "description": "A learner-facing complex variables course that helps students connect algebraic, geometric, and analytic ideas through modules, missions, and active-learning resources.",
+  "theme": {
+    "brand_icon": "Z",
+    "accent": "#2563eb",
+    "accent_secondary": "#f59e0b"
+  },
+  "features": {
+    "resources": true,
+    "missions": true,
+    "games": false
+  },
+  "widgets_enabled": [
+    "quick-check",
+    "definition-visualizer",
+    "step-sequence",
+    "sbra-sequence"
+  ],
+  "lesson_completion_xp": 50,
+  "badges": [
+    {
+      "id": "starter",
+      "emoji": "🌱",
+      "name": "Starter",
+      "req": "Begin the course and collect the first XP.",
+      "threshold_xp": 0
+    },
+    {
+      "id": "explorer",
+      "emoji": "📚",
+      "name": "Explorer",
+      "req": "Reach 120 XP and complete at least 1 module.",
+      "threshold_xp": 120,
+      "required_modules_count": 1
+    },
+    {
+      "id": "master",
+      "emoji": "🏆",
+      "name": "Complex Variables Master",
+      "req": "Reach 600 XP and maintain at least 80% mission accuracy.",
+      "threshold_xp": 600,
+      "required_accuracy": 80
+    },
+    {
+      "id": "clo1-complex-foundations",
+      "emoji": "📘",
+      "name": "CLO1 Understand Complex Foundations",
+      "req": "Collect quick-check evidence in Complex Number Foundations.",
+      "threshold_xp": 150,
+      "required_modules": [
+        "complex-number-foundations"
+      ]
+    },
+    {
+      "id": "clo2-complex-limits-analyst",
+      "emoji": "🧠",
+      "name": "CLO2 Analyze Complex Limits Analyst",
+      "req": "Collect reasoning-task evidence in Limits and Continuity in the Complex Plane.",
+      "threshold_xp": 210,
+      "required_modules": [
+        "limits-and-continuity"
+      ]
+    },
+    {
+      "id": "clo3-analytic-function-strategist",
+      "emoji": "🛠",
+      "name": "CLO3 Apply Analytic Function Strategist",
+      "req": "Collect SBRA evidence in Complex Differentiation and Analytic Functions.",
+      "threshold_xp": 250,
+      "required_modules": [
+        "complex-differentiation"
+      ],
+      "required_missions": [
+        "sbra-complex-differentiation-clo3"
+      ]
+    },
+    {
+      "id": "clo4-complex-integrator",
+      "emoji": "🛠",
+      "name": "CLO4 Apply Complex Integrator",
+      "req": "Collect worked-task evidence in Complex Integration.",
+      "threshold_xp": 280,
+      "required_modules": [
+        "complex-integration"
+      ]
+    },
+    {
+      "id": "clo5-series-analyst",
+      "emoji": "🧠",
+      "name": "CLO5 Analyze Series Analyst",
+      "req": "Collect SBRA evidence in Taylor, Laurent, and Applications.",
+      "threshold_xp": 350,
+      "required_modules": [
+        "series-and-applications"
+      ],
+      "required_accuracy": 60
+    }
+  ],
+  "modules": [
+    {
+      "id": "complex-number-foundations",
+      "slug": "complex-number-foundations",
+      "title": "Complex Number Foundations",
+      "summary": "Start from algebraic form, geometric interpretation, and the complex plane as the base language of the course.",
+      "order": 1,
+      "module_kind": "concept"
+    },
+    {
+      "id": "limits-and-continuity",
+      "slug": "limits-and-continuity",
+      "title": "Limits and Continuity in the Complex Plane",
+      "summary": "Reconnect sequence, limit, and continuity ideas from analysis and move them into complex-valued settings.",
+      "order": 2,
+      "module_kind": "concept"
+    },
+    {
+      "id": "complex-differentiation",
+      "slug": "complex-differentiation",
+      "title": "Complex Differentiation and Analytic Functions",
+      "summary": "Build the meaning of complex derivatives and analytic behavior through comparison with real-variable ideas.",
+      "order": 3,
+      "module_kind": "concept"
+    },
+    {
+      "id": "complex-integration",
+      "slug": "complex-integration",
+      "title": "Complex Integration",
+      "summary": "Study contour-style integration and connect it to earlier work on integrals and paths.",
+      "order": 4,
+      "module_kind": "application"
+    },
+    {
+      "id": "series-and-applications",
+      "slug": "series-and-applications",
+      "title": "Taylor, Laurent, and Applications",
+      "summary": "Use expansions and local representations to reason about complex functions and integral applications.",
+      "order": 5,
+      "module_kind": "application"
+    }
+  ],
+  "clos": [
+    {
+      "id": "CLO1",
+      "label": "Explain the algebraic and geometric foundations of complex numbers.",
+      "bloom": "Understand",
+      "assessment_tags": [
+        "concepts",
+        "complex-plane"
+      ]
+    },
+    {
+      "id": "CLO2",
+      "label": "Analyze limits and continuity of complex functions using prior analysis knowledge.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "limits",
+        "continuity"
+      ]
+    },
+    {
+      "id": "CLO3",
+      "label": "Explain and apply complex differentiation, analytic functions, and holomorphic functions.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "derivatives",
+        "analytic-functions"
+      ]
+    },
+    {
+      "id": "CLO4",
+      "label": "Explain and compute complex integrals along suitable paths.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "integrals",
+        "contours"
+      ]
+    },
+    {
+      "id": "CLO5",
+      "label": "Use Taylor and Laurent series to study complex functions and support integral reasoning.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "series",
+        "residue-ideas"
+      ]
+    }
+  ]
+}

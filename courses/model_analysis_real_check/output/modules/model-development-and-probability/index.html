@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model Development and Probability Models | การวิเคราะห์ตัวแบบเชิงคณิตศาสตร์</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  
+<style>
+  .module-content { line-height: 1.9; }
+  .module-content h1:first-child { display: none; }
+  .module-content h2 { margin-top: 1.5rem; font-size: 1.35rem; }
+  .module-content h3 { margin-top: 1.1rem; font-size: 1.05rem; }
+  .module-content blockquote {
+    background: rgba(34,211,238,0.06);
+    border-left: 3px solid var(--color-accent2);
+    padding: .75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    color: var(--color-text);
+  }
+  .module-content pre {
+    background: rgba(0,0,0,.28);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    overflow: auto;
+  }
+  .module-content ul { padding-left: 1.25rem; }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .3rem .7rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 700;
+    border: 1px solid var(--color-border);
+    background: rgba(255,255,255,.04);
+    color: var(--color-text);
+  }
+  .interactive-widget {
+    margin: 1rem 0;
+    background: rgba(10,6,20,.75);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+  .widget-title { font-weight: 800; font-size: 1.05rem; color: #fff; margin-bottom: .35rem; }
+  .widget-desc { color: var(--color-muted); font-size: .88rem; margin-bottom: .9rem; line-height: 1.7; }
+  .widget-grid { display: grid; gap: 1rem; }
+  @media (min-width: 900px) { .widget-grid.graphish { grid-template-columns: 1.2fr .8fr; } }
+  .widget-controls { display: grid; gap: .75rem; }
+  .widget-control label { display:block; font-size:.85rem; font-weight:700; margin-bottom:.2rem; }
+  .widget-control input[type=range] { width:100%; }
+  .widget-value { color: var(--color-accent2); font-weight: 700; }
+  .widget-canvas-wrap { background:#0a0614; border-radius:12px; padding:.5rem; }
+  .widget-canvas-wrap canvas { width:100%; height:320px; display:block; }
+  .quick-check-choices { display:grid; gap:.5rem; margin-top:.75rem; }
+  .quick-check-choice { text-align:left; }
+  .widget-feedback {
+    margin-top: .75rem;
+    padding: .7rem .9rem;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: rgba(255,255,255,.04);
+  }
+  .definition-grid { display:grid; gap:.75rem; }
+  .definition-item {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255,255,255,.03);
+  }
+  .definition-item button {
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    color:#fff;
+    padding:.9rem 1rem;
+    font:inherit;
+    cursor:pointer;
+  }
+  .definition-detail {
+    padding:0 1rem 1rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+  .proof-box, .step-box {
+    background: rgba(255,255,255,.03);
+    border: 1px dashed var(--color-border);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    margin-top: .75rem;
+  }
+  .proof-steps, .step-sequence-nav { display:grid; gap:.5rem; margin-top:.75rem; }
+  .sequence-progress { color: var(--color-muted); font-size: .82rem; margin-bottom: .5rem; }
+  .lesson-activity-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:.85rem;
+  }
+  .lesson-activity-card {
+    border:1px dashed var(--color-border);
+    border-radius:12px;
+    background:rgba(10,6,20,.45);
+    padding:.85rem;
+  }
+  .lesson-activity-card strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.25rem;
+  }
+  .lesson-activity-card p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.7;
+    font-size:.88rem;
+  }
+  .lesson-page-note {
+    color:var(--color-muted);
+    line-height:1.8;
+  }
+  .module-kicker-grid,
+  .module-next-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:.85rem;
+  }
+  .module-kicker-card,
+  .module-next-card {
+    border:1px solid var(--color-border);
+    border-radius:12px;
+    background:rgba(255,255,255,.03);
+    padding:.95rem 1rem;
+  }
+  .module-kicker-card strong,
+  .module-next-card strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.3rem;
+  }
+  .module-kicker-card p,
+  .module-next-card p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.75;
+    font-size:.9rem;
+  }
+  .module-roadmap-list,
+  .module-reflection-list {
+    display:grid;
+    gap:.75rem;
+    margin-top:.9rem;
+  }
+  .module-roadmap-item,
+  .module-reflection-item {
+    border:1px dashed var(--color-border);
+    border-radius:12px;
+    background:rgba(10,6,20,.4);
+    padding:.85rem .95rem;
+  }
+  .module-roadmap-item {
+    display:flex;
+    gap:.8rem;
+    align-items:flex-start;
+  }
+  .module-roadmap-num {
+    width:1.9rem;
+    height:1.9rem;
+    flex-shrink:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    background:rgba(139,92,246,.14);
+    border:1px solid rgba(139,92,246,.35);
+    color:#fff;
+    font-weight:800;
+    font-size:.82rem;
+  }
+  .module-roadmap-item strong,
+  .module-reflection-item strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.25rem;
+  }
+  .module-roadmap-item p,
+  .module-reflection-item p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.75;
+  }
+  .module-nav-link {
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+    margin-top:.75rem;
+    color:var(--color-accent2);
+    font-weight:700;
+  }
+  .module-content h2[id] {
+    scroll-margin-top: 96px;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjs@13.0.3/lib/browser/math.min.js"></script>
+<script src="../../assets/js/graph.js"></script>
+</head>
+<body data-page="lessons">
+  <nav class="topnav">
+    <a href="../../index.html" class="nav-brand"><span class="brand-icon">M</span> Model Analysis <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="../../index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="../../intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="../../lessons.html" class="nav-link active"><span class="nl-icon">📚</span>Lessons</a>
+<a href="../../missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="../../content/" class="nav-link"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="../../index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    <section class="card" style="margin-bottom:1rem; background:linear-gradient(135deg, rgba(34,211,238,0.08), rgba(139,92,246,0.08)); border-color:rgba(34,211,238,0.25);">
+  <div class="text-small text-muted">Lessons / Model Development and Probability Models</div>
+  <h1 class="page-title" style="margin-top:.35rem;">Model Development and Probability Models</h1>
+  <p class="page-subtitle">Move from structure choice into full model development and probabilistic perspectives.</p>
+  <div class="flex-row" style="flex-wrap:wrap; gap:.5rem; margin-top:1rem;">
+    <span class="pill">ชนิด: application</span>
+<span class="pill">CLO3</span>
+<span class="pill">CLO5</span>
+<span class="pill">quick-check</span>
+<span class="pill">step-sequence</span>
+<span class="pill">sbra-sequence</span>
+  </div>
+</section>
+
+
+    <section class="card" id="module-at-a-glance" style="margin-bottom:1rem;">
+      <div class="card-title">ภาพรวมของบทเรียน</div>
+      <div class="module-kicker-grid" style="margin-top:.9rem;">
+        <article class="module-kicker-card">
+          <strong>บทนี้เน้นอะไร</strong>
+          <p>Move from structure choice into full model development and probabilistic perspectives.</p>
+        </article>
+        <article class="module-kicker-card">
+          <strong>โครงของบท</strong>
+          <p>ตอนนี้บทนี้แบ่งเป็นหัวข้อหลัก 8 ช่วง เพื่อช่วยให้ผู้เรียนค่อย ๆ มองภาพรวมก่อนลงรายละเอียดในแต่ละส่วน</p>
+        </article>
+        <article class="module-kicker-card">
+          <strong>วิธีฝึกในบทนี้</strong>
+          <p>, , </p>
+        </article>
+      </div>
+    </section>
+  
+
+
+    <section class="card" id="module-section-map" style="margin-bottom:1rem;">
+      <div class="card-title">แผนผังหัวข้อของบท</div>
+      <p class="lesson-page-note">
+        ส่วนนี้ช่วยให้เห็นว่าบทเรียนแบ่งเป็นช่วงใดบ้าง และถ้าต้องการย้อนกลับมาทบทวนเฉพาะหัวข้อก็เลือกเข้าไปดูได้ทันที
+      </p>
+      <div class="module-roadmap-list">
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">1</div>
+            <div>
+              <strong>Learning Snapshot</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-1">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">2</div>
+            <div>
+              <strong>What You Will Explore</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-2">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">3</div>
+            <div>
+              <strong>Learning Flow</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-3">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">4</div>
+            <div>
+              <strong>Try While You Learn</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-4">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">5</div>
+            <div>
+              <strong>Check Your Understanding</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-5">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">6</div>
+            <div>
+              <strong>Interactive Practice</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-6">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">7</div>
+            <div>
+              <strong>Interactive Practice</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-7">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">8</div>
+            <div>
+              <strong>Interactive Practice</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-8">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+  
+
+<section class="card" id="module-core-content" style="margin-bottom:1rem;">
+  <div class="card-title">สาระของบทเรียน</div>
+  <div class="module-content markdown-body"><h1>Model Development and Probability Models</h1>
+<p>Move from structure choice into full model development and probabilistic perspectives.</p>
+<h2 id="module-section-1">Learning Snapshot</h2>
+<ul><li>Learning pace: to be confirmed week(s)</li><li>Main CLO emphasis: CLO3, CLO5</li><li>Module style: application</li></ul>
+<h2 id="module-section-2">What You Will Explore</h2>
+<p>In this module, learners gradually work through Use this section to unfold the main ideas of the module in small, connected steps..</p>
+<h2 id="module-section-3">Learning Flow</h2>
+<ul><li>Begin with the key ideas of the module, then move into short practice and reflection.</li></ul>
+<h2 id="module-section-4">Try While You Learn</h2>
+<ul><li>Pause after each concept, test a small case, and explain your reasoning in your own words.</li></ul>
+<h2 id="module-section-5">Check Your Understanding</h2>
+<ul><li>Use a short explanation, a quick example, or a small verification task to check understanding.</li></ul>
+<h2 id="module-section-6">Interactive Practice</h2>
+<div class="interactive-widget" data-widget-type="quick-check"><script type="application/json" class="widget-data">{
+  "question": "คำถามทบทวนสำหรับ module \"Model Development and Probability Models\" ควรถามอะไร?",
+  "choices": [
+    {
+      "label": "คำตอบตัวอย่างที่ถูก",
+      "correct": true
+    },
+    {
+      "label": "คำตอบที่ยังไม่พอ",
+      "correct": false
+    },
+    {
+      "label": "คำตอบที่สะท้อน misconception",
+      "correct": false
+    }
+  ],
+  "explanation": "แทนที่ quick check นี้ด้วยคำถามที่สอดคล้องกับ concept จริงของ module"
+}</script></div>
+<h2 id="module-section-7">Interactive Practice</h2>
+<div class="interactive-widget" data-widget-type="step-sequence"><script type="application/json" class="widget-data">{
+  "title": "Model Development and Probability Models: Step Sequence",
+  "description": "ใช้ block นี้พาผู้เรียนเดินตามลำดับคิดทีละขั้น",
+  "steps": [
+    {
+      "label": "Step 1",
+      "detail": "ตั้งโจทย์หรือข้อมูลเริ่มต้น"
+    },
+    {
+      "label": "Step 2",
+      "detail": "วิเคราะห์ความสัมพันธ์หรือเงื่อนไขสำคัญ"
+    },
+    {
+      "label": "Step 3",
+      "detail": "สรุปผลและเชื่อมกลับไปยัง concept หลัก"
+    }
+  ]
+}</script></div>
+<h2 id="module-section-8">Interactive Practice</h2>
+<div class="interactive-widget" data-widget-type="quick-check"><script type="application/json" class="widget-data">{
+  "question": "คำถามทบทวนสำหรับ module \"Model Development and Probability Models\" ควรถามอะไร?",
+  "choices": [
+    {
+      "label": "คำตอบตัวอย่างที่ถูก",
+      "correct": true
+    },
+    {
+      "label": "คำตอบที่ยังไม่พอ",
+      "correct": false
+    },
+    {
+      "label": "คำตอบที่สะท้อน misconception",
+      "correct": false
+    }
+  ],
+  "explanation": "แทนที่ quick check นี้ด้วยคำถามที่สอดคล้องกับ concept จริงของ module"
+}</script></div></div>
+</section>
+
+
+    <section class="card" id="module-active-learning" style="margin-bottom:1rem;">
+      <div class="card-title">Active Learning ในบทนี้</div>
+      <p class="text-muted text-small" style="line-height:1.8;">
+        แต่ละบทควรมีช่วงให้ผู้เรียนได้ลองคิด ลองสำรวจ หรือเช็กความเข้าใจระหว่างทาง ไม่ใช่อ่านเนื้อหาอย่างเดียว ส่วนนี้จึงบอกว่าบทนี้จะมีกิจกรรมหรือ interactive แบบไหนช่วยพยุงการเรียนบ้าง
+      </p>
+      
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>💡 sbra-sequence</strong>
+            <p>กิจกรรม interactive ของบทนี้จะถูกเติมต่อในรอบ authoring</p>
+          </div>
+        
+    </div>
+  
+    </section>
+  
+
+
+    <section class="card" id="module-checkpoints" style="margin-bottom:1rem;">
+      <div class="card-title">จุดเช็กระหว่างเรียน</div>
+      <p class="lesson-page-note">
+        ใช้ส่วนนี้หยุดเช็กความเข้าใจเป็นระยะ เพื่อไม่ให้การเรียนไหลไปเร็วเกินจนหลุดประเด็นสำคัญของบท
+      </p>
+      <div class="module-reflection-list">
+        
+          <article class="module-reflection-item">
+            <strong>ระบุวัตถุที่กำลังศึกษา</strong>
+            <p>ลองเช็กว่าตอนนี้กำลังมองชุด ลำดับ ฟังก์ชัน หรือพารามิเตอร์ชนิดใดอยู่</p>
+          </article>
+        
+          <article class="module-reflection-item">
+            <strong>ลองดูการเปลี่ยนแปลง</strong>
+            <p>ใช้กิจกรรม interactive เป็นตัวช่วยดูว่าเมื่อเงื่อนไขเปลี่ยน ผลลัพธ์หรือพฤติกรรมเปลี่ยนอย่างไร</p>
+          </article>
+        
+          <article class="module-reflection-item">
+            <strong>สรุปด้วยภาษาของตัวเอง</strong>
+            <p>หลังเรียน ลองพูดใจความสำคัญของหัวข้อนี้ด้วยภาษาของตัวเอง ไม่ยึดติดกับสูตรหรือสัญลักษณ์อย่างเดียว</p>
+          </article>
+        
+      </div>
+    </section>
+  
+
+
+    <section class="card" id="module-next-step" style="margin-bottom:1rem;">
+      <div class="card-title">ไปต่อจากบทนี้</div>
+      <p class="lesson-page-note">
+        หลังจากอ่านจบบทนี้แล้ว ผู้เรียนสามารถเลือกทางไปต่อได้ชัดเจน ทั้งการทบทวน การไปบทถัดไป หรือการลองทำภารกิจ
+      </p>
+      <div class="module-next-grid" style="margin-top:.9rem;">
+        <article class="module-next-card">
+          <strong>กลับไปดูแผนบทเรียน</strong>
+          <p>ถ้าอยากมองภาพรวมอีกครั้งหรือเลือกบทอื่นก่อน ก็สามารถกลับไปที่หน้า lessons ได้เสมอ</p>
+          <div style="margin-top:.8rem;"><a href="../../lessons.html" class="btn">ไปหน้า Lessons</a></div>
+        </article>
+        <article class="module-next-card">
+          <strong>ลองบทถัดไป: Validation and Advanced Cases</strong>
+          <p>เมื่อพร้อมแล้วสามารถขยับไปตามลำดับของแผนการเรียนต่อได้ทันที</p>
+          <div style="margin-top:.8rem;">
+            <a href="../validation-and-advanced-cases/" class="btn">เปิดบทถัดไป</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  
+
+<section class="card">
+  <div class="card-title">ความคืบหน้า</div>
+  <p class="text-muted text-small" id="module-status-text">เมื่อเรียนจบบทนี้แล้ว ให้กดปุ่มด้านล่างเพื่อบันทึกความคืบหน้าและรับ XP ของบทเรียน</p>
+  <div class="flex-row" style="justify-content:space-between; flex-wrap:wrap; gap:.75rem;">
+    <button class="btn btn-primary" data-complete-module="model-development-and-probability" data-module-xp="50">บันทึกว่าจบบทเรียนนี้</button>
+    <a class="btn" href="../../lessons.html">กลับไปหน้า Lessons</a>
+  </div>
+</section>
+
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"model_analysis_real_check","course_name_th":"การวิเคราะห์ตัวแบบเชิงคณิตศาสตร์","course_name_en":"Analysis of Mathematical Models","course_short_name":"Model Analysis","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A mathematical model analysis course scaffolded from TQF3 and extended with modules, project framing, and active-learning missions.","theme":{"brand_icon":"M","accent":"#0f766e","accent_secondary":"#f97316"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","step-sequence","sbra-sequence"],"lesson_completion_xp":50,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Model Analysis Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-modeling-foundations","emoji":"📘","name":"CLO1 Understand Modeling Foundations","req":"Collect quick-check evidence in Modeling Foundations.","threshold_xp":150,"required_modules":["modeling-foundations"]},{"id":"clo2-modeling-reviewer","emoji":"🧠","name":"CLO2 Analyze Modeling Reviewer","req":"Collect review-task evidence in Modeling Tools and Techniques.","threshold_xp":200,"required_modules":["modeling-tools-and-techniques"]},{"id":"clo3-model-designer","emoji":"🚀","name":"CLO3 Create Model Designer","req":"Collect design-task evidence in Linear and Nonlinear Models.","threshold_xp":250,"required_modules":["linear-and-nonlinear-models"]},{"id":"clo5-application-interpreter","emoji":"🎯","name":"CLO5 Evaluate Application Interpreter","req":"Collect interpretation-task evidence in Model Development and Probability Models.","threshold_xp":290,"required_modules":["model-development-and-probability"]},{"id":"clo4-model-validator","emoji":"🛠","name":"CLO4 Apply Model Validator","req":"Collect SBRA evidence in Validation and Advanced Cases.","threshold_xp":350,"required_modules":["validation-and-advanced-cases"],"required_missions":["sbra-validation-and-advanced-cases-clo4"],"required_accuracy":60},{"id":"clo6-ethical-modeler","emoji":"🎯","name":"CLO6 Evaluate Ethical Modeler","req":"Collect reflection-task evidence in Project Modeling Studio.","threshold_xp":390,"required_modules":["project-modeling-studio"],"required_accuracy":60}],"modules":[{"id":"modeling-foundations","slug":"modeling-foundations","title":"Modeling Foundations","summary":"Orient the course around what mathematical models are, why they matter, and how modeling work begins.","order":1,"module_kind":"concept"},{"id":"modeling-tools-and-techniques","slug":"modeling-tools-and-techniques","title":"Modeling Tools and Techniques","summary":"Use foundational mathematical and statistical tools to set up and compare modeling choices.","order":2,"module_kind":"concept"},{"id":"linear-and-nonlinear-models","slug":"linear-and-nonlinear-models","title":"Linear and Nonlinear Models","summary":"Compare model structures and decide when a linear or nonlinear view is more useful.","order":3,"module_kind":"application"},{"id":"model-development-and-probability","slug":"model-development-and-probability","title":"Model Development and Probability Models","summary":"Move from structure choice into full model development and probabilistic perspectives.","order":4,"module_kind":"application"},{"id":"validation-and-advanced-cases","slug":"validation-and-advanced-cases","title":"Validation and Advanced Cases","summary":"Test model validity, inspect advanced examples, and discuss ethical handling of modeling decisions.","order":5,"module_kind":"concept"},{"id":"project-modeling-studio","slug":"project-modeling-studio","title":"Project Modeling Studio","summary":"Use project-based work, peer critique, and final presentation as the capstone modeling experience.","order":6,"module_kind":"proof"}],"clos":[{"id":"CLO1","label":"Explain mathematical and statistical techniques used in mathematical modeling.","bloom":"Understand","assessment_tags":["foundations","techniques"]},{"id":"CLO2","label":"Search and review modeling work connected to real-world problems.","bloom":"Analyze","assessment_tags":["literature","real-world-context"]},{"id":"CLO3","label":"Integrate knowledge from other areas to create more complete mathematical models.","bloom":"Create","assessment_tags":["integration","design"]},{"id":"CLO4","label":"Build mathematical models that are analyzed, tested, and checked for validity.","bloom":"Apply","assessment_tags":["validation","testing"]},{"id":"CLO5","label":"Apply models to real-world problems and interpret results effectively.","bloom":"Evaluate","assessment_tags":["application","interpretation"]},{"id":"CLO6","label":"Demonstrate ethics in the development and analysis of mathematical models.","bloom":"Evaluate","assessment_tags":["ethics","responsibility"]}]};
+    window.__PAGE_DATA__ = {"module":{"id":"model-development-and-probability","slug":"model-development-and-probability","title":"Model Development and Probability Models","summary":"Move from structure choice into full model development and probabilistic perspectives.","order":4,"clo_ids":["CLO3","CLO5"],"module_kind":"application","widgets":["quick-check","step-sequence","sbra-sequence"]}};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="../../assets/js/course-runtime.js"></script>
+<script src="../../assets/js/xp.js"></script>
+<script src="../../assets/js/nav.js"></script>
+<script src="assets/js/widgets.js"></script>
+<script src="assets/js/module-page.js"></script>
+</body>
+</html>

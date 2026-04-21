@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cause-gen.local/schemas/assessment-classification.schema.json",
+  "title": "Cause Gen Assessment Classification",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "source_problem_pool",
+    "classifications"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "source_problem_pool": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "classifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "problem_id",
+          "classification_status",
+          "needs_human_review",
+          "proposed",
+          "confidence"
+        ],
+        "properties": {
+          "problem_id": {
+            "type": "string"
+          },
+          "classification_status": {
+            "type": "string",
+            "enum": [
+              "proposed",
+              "approved",
+              "rejected"
+            ]
+          },
+          "needs_human_review": {
+            "type": "boolean"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "proposed": {
+            "type": "object",
+            "required": [
+              "module_id",
+              "clo_id",
+              "bloom_level",
+              "mission_family"
+            ],
+            "properties": {
+              "module_id": {
+                "type": "string"
+              },
+              "clo_id": {
+                "type": "string"
+              },
+              "bloom_level": {
+                "type": "string"
+              },
+              "mission_family": {
+                "type": "string"
+              },
+              "problem_type": {
+                "type": "string"
+              },
+              "target_skill": {
+                "type": "string"
+              },
+              "misconception_tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "usable_for": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "sbra_profile": {
+                "type": "object",
+                "properties": {
+                  "candidate_strength": {
+                    "type": "string",
+                    "enum": [
+                      "strong",
+                      "medium",
+                      "weak",
+                      "not_recommended"
+                    ]
+                  },
+                  "evidence_role": {
+                    "type": "string",
+                    "enum": [
+                      "primary-clo-evidence",
+                      "support-clo-evidence",
+                      "practice-or-check",
+                      "not-recommended"
+                    ]
+                  },
+                  "recommended_step_count": {
+                    "type": "integer"
+                  },
+                  "pattern_tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "distractor_focus": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalProperties": false
+              },
+              "sbra_shape": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "review_notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

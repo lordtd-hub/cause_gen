@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "calculus1_real_check",
+  "source_screened_content": "generated/sourcing/screened-content.json",
+  "generated_at": "2026-04-21T09:21:18.284Z",
+  "items": [
+    {
+      "content_id": "retrieved-content-openstax-content-query-02-continuity-and-applica-06c8b7cb85",
+      "classification_status": "proposed",
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-drafts.json",
+      "proposed": {
+        "module_id": "continuity-and-applications",
+        "clo_ids": [
+          "CLO2"
+        ],
+        "bloom_levels": [
+          "apply"
+        ],
+        "content_kind": "concept-explainer",
+        "asset_family": "module-content-block",
+        "target_section": "module-core-content",
+        "widget_type": null,
+        "title": "2.4 Continuity - Calculus Volume 1 | OpenStax",
+        "summary": "Before we look at a formal definition of what it means for a function to be continuous at a point, let’s consider various functions that fail to meet ou...",
+        "excerpt": "Before we look at a formal definition of what it means for a function to be continuous at a point, let’s consider various functions that fail to meet our intuitive notion of what it means to be continuous at a point. We then create a list of conditions that prevent such failures.",
+        "source_note": "OpenStax"
+      },
+      "review_notes": "AI proposal only. Human approval is required before this content can be treated as course-ready."
+    },
+    {
+      "content_id": "retrieved-content-openstax-content-query-02-continuity-and-applica-7c1c67c0ec",
+      "classification_status": "proposed",
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-drafts.json",
+      "proposed": {
+        "module_id": "continuity-and-applications",
+        "clo_ids": [
+          "CLO2"
+        ],
+        "bloom_levels": [
+          "apply"
+        ],
+        "content_kind": "worked-example",
+        "asset_family": "module-content-block",
+        "target_section": "module-core-content",
+        "widget_type": null,
+        "title": "2.4 Continuity - Calculus Volume 1 | OpenStax",
+        "summary": "Before we look at a formal definition of what it means for a function to be continuous at a point, let’s consider various functions that fail to meet ou...",
+        "excerpt": "However, as we see in Figure 2.33, this condition alone is insufficient to guarantee continuity at the point a. Although f ( a ) f ( a ) is defined, the function has a gap at a. In this example, the gap exists because lim x → a f ( x ) lim x → a f ( x ) does not exist. We must add another condition for continuity at a ",
+        "source_note": "OpenStax"
+      },
+      "review_notes": "AI proposal only. Human approval is required before this content can be treated as course-ready."
+    }
+  ]
+}

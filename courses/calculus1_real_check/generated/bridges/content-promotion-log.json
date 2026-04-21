@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "calculus1_real_check",
+  "promoted_at": "2026-04-21T09:21:53.457Z",
+  "promoted_count": 1,
+  "promoted_modules": [
+    {
+      "module_id": "continuity-and-applications",
+      "module_file": "courses\\calculus1_real_check\\modules\\02-continuity-and-applications.md",
+      "promoted_draft_ids": [
+        "content-draft-retrieved-content-openstax-content-query-02-continuity-and-applica-06c8b7cb85"
+      ]
+    }
+  ],
+  "destination": "modules/*.md"
+}

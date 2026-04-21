@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "replace-course-id",
+  "pool_status": "starter",
+  "source_file": "materials/processed/assessment/problem-pool-starter.md",
+  "generated_at": "replace-generated-at",
+  "items": [
+    {
+      "problem_id": "replace-problem-id",
+      "module_id": "replace-module-id",
+      "clo_id": "CLO1",
+      "bloom_level": "analyze",
+      "problem_type": "diagnosis",
+      "statement": "Replace with a real problem statement.",
+      "target_skill": "Replace with the target skill.",
+      "misconception_tags": [],
+      "usable_for": [
+        "mission"
+      ],
+      "sbra_profile": {
+        "candidate_strength": "medium",
+        "evidence_role": "support-clo-evidence",
+        "recommended_step_count": 3,
+        "pattern_tags": [],
+        "distractor_focus": []
+      },
+      "difficulty": "medium",
+      "solution_status": "not_started",
+      "solution_required": true,
+      "expected_answer_form": "numeric-or-expression",
+      "needs_solution_review": true,
+      "source": "TQF3 + course design",
+      "notes": "",
+      "review_status": "pending"
+    }
+  ]
+}

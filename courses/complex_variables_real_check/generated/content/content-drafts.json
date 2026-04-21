@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "complex_variables_real_check",
+  "source_content_classification": "generated/content/content-classification.json",
+  "generated_at": "2026-04-21T09:08:09.762Z",
+  "drafts": [
+    {
+      "draft_id": "content-draft-retrieved-content-mit-ocw-content-query-02-limits-and-continuity-h-4eb659b1ef",
+      "content_id": "retrieved-content-mit-ocw-content-query-02-limits-and-continuity-h-4eb659b1ef",
+      "module_id": "limits-and-continuity",
+      "clo_ids": [
+        "CLO2"
+      ],
+      "bloom_levels": [
+        "analyze"
+      ],
+      "content_kind": "activity",
+      "asset_family": "active-learning-seed",
+      "target_section": "module-active-learning",
+      "widget_type": null,
+      "title": "Complex Variables with Applications  | Mathematics | MIT OpenCourseWare",
+      "summary": "MIT OpenCourseWare is a web based publication of virtually all MIT course content. OCW is open and available to the world and is a permanent MIT activity",
+      "excerpt": "18.04 S18 Topic 9: Definite integrals using the residue theorem",
+      "source_note": "MIT OpenCourseWare",
+      "runtime_ready": false,
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "modules/*.md",
+      "review_status": "pending",
+      "markdown_block": "### Complex Variables with Applications  | Mathematics | MIT OpenCourseWare\n\nMIT OpenCourseWare is a web based publication of virtually all MIT course content. OCW is open and available to the world and is a permanent MIT activity\n\n- Asset family: active-learning-seed\n- Target section: module-active-learning\n- CLO focus: CLO2\n- Bloom focus: analyze\n\n> Source excerpt\n> 18.04 S18 Topic 9: Definite integrals using the residue theorem\n\n- Source note: MIT OpenCourseWare",
+      "source_refs": {
+        "content_classification": "retrieved-content-mit-ocw-content-query-02-limits-and-continuity-h-4eb659b1ef"
+      }
+    },
+    {
+      "draft_id": "content-draft-retrieved-content-mit-ocw-content-query-02-limits-and-continuity-h-0bfa8fe008",
+      "content_id": "retrieved-content-mit-ocw-content-query-02-limits-and-continuity-h-0bfa8fe008",
+      "module_id": "limits-and-continuity",
+      "clo_ids": [
+        "CLO2"
+      ],
+      "bloom_levels": [
+        "analyze"
+      ],
+      "content_kind": "activity",
+      "asset_family": "active-learning-seed",
+      "target_section": "module-active-learning",
+      "widget_type": null,
+      "title": "Complex Variables with Applications  | Mathematics | MIT OpenCourseWare",
+      "summary": "MIT OpenCourseWare is a web based publication of virtually all MIT course content. OCW is open and available to the world and is a permanent MIT activity",
+      "excerpt": "18.04 S18 Topic 3: Line integrals and Cauchy's theorem",
+      "source_note": "MIT OpenCourseWare",
+      "runtime_ready": false,
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "modules/*.md",
+      "review_status": "pending",
+      "markdown_block": "### Complex Variables with Applications  | Mathematics | MIT OpenCourseWare\n\nMIT OpenCourseWare is a web based publication of virtually all MIT course content. OCW is open and available to the world and is a permanent MIT activity\n\n- Asset family: active-learning-seed\n- Target section: module-active-learning\n- CLO focus: CLO2\n- Bloom focus: analyze\n\n> Source excerpt\n> 18.04 S18 Topic 3: Line integrals and Cauchy's theorem\n\n- Source note: MIT OpenCourseWare",
+      "source_refs": {
+        "content_classification": "retrieved-content-mit-ocw-content-query-02-limits-and-continuity-h-0bfa8fe008"
+      }
+    }
+  ]
+}

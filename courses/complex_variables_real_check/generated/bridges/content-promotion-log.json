@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "complex_variables_real_check",
+  "promoted_at": "2026-04-21T08:38:34.857Z",
+  "promoted_count": 1,
+  "promoted_modules": [
+    {
+      "module_id": "limits-and-continuity",
+      "module_file": "courses\\complex_variables_real_check\\modules\\02-limits-and-continuity.md",
+      "promoted_draft_ids": [
+        "content-draft-limit-path-comparison-check"
+      ]
+    }
+  ],
+  "destination": "modules/*.md"
+}

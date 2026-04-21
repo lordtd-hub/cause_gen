@@ -1,0 +1,575 @@
+{
+  "course_id": "project_in_mathematics_real_check",
+  "missions": [
+    {
+      "mission_id": "sbra-literature-review-and-project-planning-clo2",
+      "clo_id": "CLO2",
+      "module_id": "literature-review-and-project-planning",
+      "title": "SBRA: Literature Review and Project Planning",
+      "mission_type": "sbra-step-based-reasoning",
+      "bloom_level": 4,
+      "xp": 160,
+      "badge_hook": "clo2-analyze-readiness",
+      "rubric": [
+        "เลือก process ที่สอดคล้องกับการวัด CLO2 ในหัวข้อ Literature Review and Project Planning",
+        "อธิบาย reasoning ให้เห็นว่าทำไมกระบวนการที่เลือกจึงเหมาะกับโครงของโจทย์",
+        "หลีกเลี่ยง shortcut หรือ misconception ที่ทำให้ตอบได้โดยไม่ตรวจเงื่อนไขให้ครบ"
+      ],
+      "threshold": {
+        "min_steps_mastered": 3
+      },
+      "confidence": {
+        "prompt": "หลังทำครบทุก step แล้ว คุณมั่นใจต่อคำตอบและเหตุผลของตนเองระดับใด",
+        "levels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "prompt": "พิจารณาสถานการณ์ในหัวข้อ Literature Review and Project Planning แล้วเลือก process และ reasoning ที่เหมาะสมที่สุดในแต่ละขั้น เพื่อแสดงว่าคุณกำลังทำงานตาม CLO2 ระดับ Analyze",
+      "strategy_prompt": "อ่านโจทย์ก่อนว่ากำลังต้องการการวิเคราะห์แบบใดในหัวข้อ Literature Review and Project Planning แล้วค่อยเลือก process ที่ยังอิงโครงของปัญหาอยู่",
+      "misconceptions": [
+        "choosing a project direction only because the topic feels interesting, without checking evidence or feasibility",
+        "treating one familiar article as enough related work to define the whole project",
+        "mixing up source collection with actual issue analysis",
+        "giving a project title without explaining the decision path that led to it"
+      ],
+      "steps": [
+        {
+          "id": "identify-what-makes-a-proposed-project-issue-academically-usable",
+          "title": "Step 1: identify what makes a proposed project issue academically usable",
+          "prompt": "ในขั้น \"identify what makes a proposed project issue academically usable\" ผู้เรียนควรเลือกกระบวนการและเหตุผลแบบใดจึงจะสอดคล้องกับโจทย์",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดกับขั้นนี้",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "เลือกกระบวนการที่เชื่อมตรงกับขั้น \"identify what makes a proposed project issue academically usable\" และยังอิงโครงของโจทย์อย่างชัดเจน",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะกระบวนการนี้ยังผูกกับเจตนาของขั้นและเงื่อนไขของโจทย์",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"choosing a project direction only because the topic feels interesting, without checking evidence or feasibility\"",
+              "correct": false,
+              "feedback": "แนวนี้ทำให้ reasoning หลุดจากโครงของโจทย์หรือ CLO ที่กำลังวัด",
+              "misconception_tags": [
+                "choosing-a-project-direction-only-because-the-topic-feels-interesting-without-checking-evidence-or-feasibility"
+              ]
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"treating one familiar article as enough related work to define the whole project\"",
+              "correct": false,
+              "feedback": "แนวนี้ยังไม่พอสำหรับภารกิจที่ต้องอธิบายกระบวนการคิดอย่างตรวจสอบได้",
+              "misconception_tags": [
+                "treating-one-familiar-article-as-enough-related-work-to-define-the-whole-project"
+              ]
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้ได้ดีที่สุด",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะขั้น \"identify what makes a proposed project issue academically usable\" ต้องอธิบายให้เห็นว่าทำไมกระบวนการนี้จึงเหมาะกับโครงของโจทย์และเป้าหมายการวัด",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะเหตุผลยังเชื่อมทั้งกับโจทย์ เป้าหมาย และวิธีคิดของขั้นนี้",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะดูเหมือนจะตอบได้เร็วที่สุดจึงน่าจะถูกต้องที่สุด",
+              "correct": false,
+              "feedback": "ความเร็วไม่ใช่เหตุผลหลักของภารกิจเชิง reasoning",
+              "misconception_tags": [
+                "speed-over-validity"
+              ]
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะไม่จำเป็นต้องตรวจโครงของโจทย์ให้ละเอียดก็เลือกคำตอบได้",
+              "correct": false,
+              "feedback": "ภารกิจนี้ต้องผูกเหตุผลกับโครงของปัญหา ไม่ใช่เลือกคำตอบลอย ๆ",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            }
+          ],
+          "hint": "ลองถามก่อนว่า ขั้น \"identify what makes a proposed project issue academically usable\" กำลังต้องการตรวจอะไรในโจทย์ แล้วค่อยเลือก process ที่อธิบายได้จริง"
+        },
+        {
+          "id": "compare-candidate-sources-and-decide-which-evidence-is-strong-enough-to-support-the-project-direction",
+          "title": "Step 2: compare candidate sources and decide which evidence is strong enough to support the project direction",
+          "prompt": "ในขั้น \"compare candidate sources and decide which evidence is strong enough to support the project direction\" ผู้เรียนควรเลือกกระบวนการและเหตุผลแบบใดจึงจะสอดคล้องกับโจทย์",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดกับขั้นนี้",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "เลือกกระบวนการที่เชื่อมตรงกับขั้น \"compare candidate sources and decide which evidence is strong enough to support the project direction\" และยังอิงโครงของโจทย์อย่างชัดเจน",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะกระบวนการนี้ยังผูกกับเจตนาของขั้นและเงื่อนไขของโจทย์",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"treating one familiar article as enough related work to define the whole project\"",
+              "correct": false,
+              "feedback": "แนวนี้ทำให้ reasoning หลุดจากโครงของโจทย์หรือ CLO ที่กำลังวัด",
+              "misconception_tags": [
+                "treating-one-familiar-article-as-enough-related-work-to-define-the-whole-project"
+              ]
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"mixing up source collection with actual issue analysis\"",
+              "correct": false,
+              "feedback": "แนวนี้ยังไม่พอสำหรับภารกิจที่ต้องอธิบายกระบวนการคิดอย่างตรวจสอบได้",
+              "misconception_tags": [
+                "mixing-up-source-collection-with-actual-issue-analysis"
+              ]
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้ได้ดีที่สุด",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะขั้น \"compare candidate sources and decide which evidence is strong enough to support the project direction\" ต้องอธิบายให้เห็นว่าทำไมกระบวนการนี้จึงเหมาะกับโครงของโจทย์และเป้าหมายการวัด",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะเหตุผลยังเชื่อมทั้งกับโจทย์ เป้าหมาย และวิธีคิดของขั้นนี้",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะดูเหมือนจะตอบได้เร็วที่สุดจึงน่าจะถูกต้องที่สุด",
+              "correct": false,
+              "feedback": "ความเร็วไม่ใช่เหตุผลหลักของภารกิจเชิง reasoning",
+              "misconception_tags": [
+                "speed-over-validity"
+              ]
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะไม่จำเป็นต้องตรวจโครงของโจทย์ให้ละเอียดก็เลือกคำตอบได้",
+              "correct": false,
+              "feedback": "ภารกิจนี้ต้องผูกเหตุผลกับโครงของปัญหา ไม่ใช่เลือกคำตอบลอย ๆ",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            }
+          ],
+          "hint": "ลองถามก่อนว่า ขั้น \"compare candidate sources and decide which evidence is strong enough to support the project direction\" กำลังต้องการตรวจอะไรในโจทย์ แล้วค่อยเลือก process ที่อธิบายได้จริง"
+        },
+        {
+          "id": "test-whether-the-proposed-project-direction-still-matches-available-time-scope-and-advisor-guidance",
+          "title": "Step 3: test whether the proposed project direction still matches available time, scope, and advisor guidance",
+          "prompt": "ในขั้น \"test whether the proposed project direction still matches available time, scope, and advisor guidance\" ผู้เรียนควรเลือกกระบวนการและเหตุผลแบบใดจึงจะสอดคล้องกับโจทย์",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดกับขั้นนี้",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "เลือกกระบวนการที่เชื่อมตรงกับขั้น \"test whether the proposed project direction still matches available time, scope, and advisor guidance\" และยังอิงโครงของโจทย์อย่างชัดเจน",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะกระบวนการนี้ยังผูกกับเจตนาของขั้นและเงื่อนไขของโจทย์",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"mixing up source collection with actual issue analysis\"",
+              "correct": false,
+              "feedback": "แนวนี้ทำให้ reasoning หลุดจากโครงของโจทย์หรือ CLO ที่กำลังวัด",
+              "misconception_tags": [
+                "mixing-up-source-collection-with-actual-issue-analysis"
+              ]
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "รีบตอบผลลัพธ์โดยไม่อธิบายเส้นทางการตัดสินใจ",
+              "correct": false,
+              "feedback": "แนวนี้ยังไม่พอสำหรับภารกิจที่ต้องอธิบายกระบวนการคิดอย่างตรวจสอบได้",
+              "misconception_tags": [
+                "giving-a-project-title-without-explaining-the-decision-path-that-led-to-it"
+              ]
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้ได้ดีที่สุด",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะขั้น \"test whether the proposed project direction still matches available time, scope, and advisor guidance\" ต้องอธิบายให้เห็นว่าทำไมกระบวนการนี้จึงเหมาะกับโครงของโจทย์และเป้าหมายการวัด",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะเหตุผลยังเชื่อมทั้งกับโจทย์ เป้าหมาย และวิธีคิดของขั้นนี้",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะดูเหมือนจะตอบได้เร็วที่สุดจึงน่าจะถูกต้องที่สุด",
+              "correct": false,
+              "feedback": "ความเร็วไม่ใช่เหตุผลหลักของภารกิจเชิง reasoning",
+              "misconception_tags": [
+                "speed-over-validity"
+              ]
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะไม่จำเป็นต้องตรวจโครงของโจทย์ให้ละเอียดก็เลือกคำตอบได้",
+              "correct": false,
+              "feedback": "ภารกิจนี้ต้องผูกเหตุผลกับโครงของปัญหา ไม่ใช่เลือกคำตอบลอย ๆ",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            }
+          ],
+          "hint": "ลองถามก่อนว่า ขั้น \"test whether the proposed project direction still matches available time, scope, and advisor guidance\" กำลังต้องการตรวจอะไรในโจทย์ แล้วค่อยเลือก process ที่อธิบายได้จริง"
+        },
+        {
+          "id": "close-with-a-justified-project-direction-statement-rather-than-a-loose-topic-label",
+          "title": "Step 4: close with a justified project-direction statement rather than a loose topic label",
+          "prompt": "ในขั้น \"close with a justified project-direction statement rather than a loose topic label\" ผู้เรียนควรเลือกกระบวนการและเหตุผลแบบใดจึงจะสอดคล้องกับโจทย์",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดกับขั้นนี้",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "เลือกกระบวนการที่เชื่อมตรงกับขั้น \"close with a justified project-direction statement rather than a loose topic label\" และยังอิงโครงของโจทย์อย่างชัดเจน",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะกระบวนการนี้ยังผูกกับเจตนาของขั้นและเงื่อนไขของโจทย์",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "รีบตอบผลลัพธ์โดยไม่อธิบายเส้นทางการตัดสินใจ",
+              "correct": false,
+              "feedback": "แนวนี้ทำให้ reasoning หลุดจากโครงของโจทย์หรือ CLO ที่กำลังวัด",
+              "misconception_tags": [
+                "giving-a-project-title-without-explaining-the-decision-path-that-led-to-it"
+              ]
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"choosing a project direction only because the topic feels interesting, without checking evidence or feasibility\"",
+              "correct": false,
+              "feedback": "แนวนี้ยังไม่พอสำหรับภารกิจที่ต้องอธิบายกระบวนการคิดอย่างตรวจสอบได้",
+              "misconception_tags": [
+                "choosing-a-project-direction-only-because-the-topic-feels-interesting-without-checking-evidence-or-feasibility"
+              ]
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้ได้ดีที่สุด",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะขั้น \"close with a justified project-direction statement rather than a loose topic label\" ต้องอธิบายให้เห็นว่าทำไมกระบวนการนี้จึงเหมาะกับโครงของโจทย์และเป้าหมายการวัด",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะเหตุผลยังเชื่อมทั้งกับโจทย์ เป้าหมาย และวิธีคิดของขั้นนี้",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะดูเหมือนจะตอบได้เร็วที่สุดจึงน่าจะถูกต้องที่สุด",
+              "correct": false,
+              "feedback": "ความเร็วไม่ใช่เหตุผลหลักของภารกิจเชิง reasoning",
+              "misconception_tags": [
+                "speed-over-validity"
+              ]
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะไม่จำเป็นต้องตรวจโครงของโจทย์ให้ละเอียดก็เลือกคำตอบได้",
+              "correct": false,
+              "feedback": "ภารกิจนี้ต้องผูกเหตุผลกับโครงของปัญหา ไม่ใช่เลือกคำตอบลอย ๆ",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            }
+          ],
+          "hint": "ลองถามก่อนว่า ขั้น \"close with a justified project-direction statement rather than a loose topic label\" กำลังต้องการตรวจอะไรในโจทย์ แล้วค่อยเลือก process ที่อธิบายได้จริง"
+        }
+      ]
+    },
+    {
+      "mission_id": "mission-lit-review-source-quality-01",
+      "source_draft_id": "draft-lit-review-source-quality-01",
+      "clo_id": "CLO2",
+      "module_id": "literature-review-and-project-planning",
+      "title": "Evaluate source quality for literature review planning",
+      "mission_type": "quick-check",
+      "bloom_level": 4,
+      "xp": 160,
+      "rubric": [
+        "Choose processes that stay aligned with CLO2 and the module target.",
+        "Justify the process with explicit reasoning instead of shortcut answers.",
+        "Avoid the misconception patterns identified during draft review."
+      ],
+      "threshold": {
+        "min_steps_mastered": 3
+      },
+      "prompt": "Sort four candidate references into strong and weak starting sources for a mathematics project.",
+      "strategy_prompt": "Use a quick check approach and explain the mathematical reason behind your choice before you submit.",
+      "confidence": {
+        "prompt": "Before submitting, rate how confident you are in the full process and reasoning chain.",
+        "levels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "misconceptions": [
+        "source-counts-as-quality",
+        "web-page-equals-paper"
+      ],
+      "steps": [
+        {
+          "id": "step-1",
+          "title": "Step 1: Inspect the mathematical signals in each option.",
+          "prompt": "Choose the strongest process and reasoning for this step: Inspect the mathematical signals in each option.",
+          "process_prompt": "Select the process that best matches the goal of the step.",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "Use a process that stays aligned with the intent: Inspect the mathematical signals in each option.",
+              "correct": true,
+              "feedback": "This process stays aligned with the approved draft intent.",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "Jump to an answer without checking the structure of the task.",
+              "correct": false,
+              "feedback": "This skips the reasoning structure the draft is meant to measure.",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "Pick a familiar move without confirming it fits this exact step.",
+              "correct": false,
+              "feedback": "This treats familiarity as evidence instead of checking the step target.",
+              "misconception_tags": [
+                "pattern-overfit"
+              ]
+            }
+          ],
+          "reasoning_prompt": "Select the best reasoning for the chosen process.",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "The process is defensible because it directly supports the goal of the step.",
+              "correct": true,
+              "feedback": "This reasoning names why the process fits the step goal.",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "The fastest route is probably correct enough for this step.",
+              "correct": false,
+              "feedback": "Speed alone is not a strong reason in a reviewed SBRA mission.",
+              "misconception_tags": [
+                "speed-over-validity"
+              ]
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "The exact structure of the prompt does not matter once a likely answer appears.",
+              "correct": false,
+              "feedback": "The mission still measures step-level reasoning tied to the task structure.",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            }
+          ],
+          "hint": "Reconnect the step to its main intent before selecting a process: Inspect the mathematical signals in each option."
+        },
+        {
+          "id": "step-2",
+          "title": "Step 2: Sort or classify the options using a defensible rule.",
+          "prompt": "Choose the strongest process and reasoning for this step: Sort or classify the options using a defensible rule.",
+          "process_prompt": "Select the process that best matches the goal of the step.",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "Use a process that stays aligned with the intent: Sort or classify the options using a defensible rule.",
+              "correct": true,
+              "feedback": "This process stays aligned with the approved draft intent.",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "Jump to an answer without checking the structure of the task.",
+              "correct": false,
+              "feedback": "This skips the reasoning structure the draft is meant to measure.",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "Pick a familiar move without confirming it fits this exact step.",
+              "correct": false,
+              "feedback": "This treats familiarity as evidence instead of checking the step target.",
+              "misconception_tags": [
+                "pattern-overfit"
+              ]
+            }
+          ],
+          "reasoning_prompt": "Select the best reasoning for the chosen process.",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "The process is defensible because it directly supports the goal of the step.",
+              "correct": true,
+              "feedback": "This reasoning names why the process fits the step goal.",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "The fastest route is probably correct enough for this step.",
+              "correct": false,
+              "feedback": "Speed alone is not a strong reason in a reviewed SBRA mission.",
+              "misconception_tags": [
+                "speed-over-validity"
+              ]
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "The exact structure of the prompt does not matter once a likely answer appears.",
+              "correct": false,
+              "feedback": "The mission still measures step-level reasoning tied to the task structure.",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            }
+          ],
+          "hint": "Reconnect the step to its main intent before selecting a process: Sort or classify the options using a defensible rule."
+        },
+        {
+          "id": "step-3",
+          "title": "Step 3: Justify the rule with mathematical reasoning.",
+          "prompt": "Choose the strongest process and reasoning for this step: Justify the rule with mathematical reasoning.",
+          "process_prompt": "Select the process that best matches the goal of the step.",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "Use a process that stays aligned with the intent: Justify the rule with mathematical reasoning.",
+              "correct": true,
+              "feedback": "This process stays aligned with the approved draft intent.",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "Jump to an answer without checking the structure of the task.",
+              "correct": false,
+              "feedback": "This skips the reasoning structure the draft is meant to measure.",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "Pick a familiar move without confirming it fits this exact step.",
+              "correct": false,
+              "feedback": "This treats familiarity as evidence instead of checking the step target.",
+              "misconception_tags": [
+                "pattern-overfit"
+              ]
+            }
+          ],
+          "reasoning_prompt": "Select the best reasoning for the chosen process.",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "The process is defensible because it directly supports the goal of the step.",
+              "correct": true,
+              "feedback": "This reasoning names why the process fits the step goal.",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "The fastest route is probably correct enough for this step.",
+              "correct": false,
+              "feedback": "Speed alone is not a strong reason in a reviewed SBRA mission.",
+              "misconception_tags": [
+                "speed-over-validity"
+              ]
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "The exact structure of the prompt does not matter once a likely answer appears.",
+              "correct": false,
+              "feedback": "The mission still measures step-level reasoning tied to the task structure.",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            }
+          ],
+          "hint": "Reconnect the step to its main intent before selecting a process: Justify the rule with mathematical reasoning."
+        },
+        {
+          "id": "step-4",
+          "title": "Step 4: Reflect on the most tempting wrong classification.",
+          "prompt": "Choose the strongest process and reasoning for this step: Reflect on the most tempting wrong classification.",
+          "process_prompt": "Select the process that best matches the goal of the step.",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "Use a process that stays aligned with the intent: Reflect on the most tempting wrong classification.",
+              "correct": true,
+              "feedback": "This process stays aligned with the approved draft intent.",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "Jump to an answer without checking the structure of the task.",
+              "correct": false,
+              "feedback": "This skips the reasoning structure the draft is meant to measure.",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "Pick a familiar move without confirming it fits this exact step.",
+              "correct": false,
+              "feedback": "This treats familiarity as evidence instead of checking the step target.",
+              "misconception_tags": [
+                "pattern-overfit"
+              ]
+            }
+          ],
+          "reasoning_prompt": "Select the best reasoning for the chosen process.",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "The process is defensible because it directly supports the goal of the step.",
+              "correct": true,
+              "feedback": "This reasoning names why the process fits the step goal.",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "The fastest route is probably correct enough for this step.",
+              "correct": false,
+              "feedback": "Speed alone is not a strong reason in a reviewed SBRA mission.",
+              "misconception_tags": [
+                "speed-over-validity"
+              ]
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "The exact structure of the prompt does not matter once a likely answer appears.",
+              "correct": false,
+              "feedback": "The mission still measures step-level reasoning tied to the task structure.",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            }
+          ],
+          "hint": "Reconnect the step to its main intent before selecting a process: Reflect on the most tempting wrong classification."
+        }
+      ]
+    }
+  ]
+}

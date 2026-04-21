@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>อนุพันธ์ — แคลคูลัส 1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .twin-graph {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    @media (min-width: 820px) {
+      .twin-graph { grid-template-columns: 1fr 1fr; }
+    }
+    .twin-graph canvas { width: 100%; background: var(--color-bg); border-radius: var(--radius-sm); }
+    .twin-graph .cap { font-size: .85rem; color: var(--color-muted); text-align: center; margin-top: .25rem; }
+    .readout {
+      background: var(--color-surface2);
+      border-left: 3px solid var(--color-accent2);
+      padding: .75rem 1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-variant-numeric: tabular-nums;
+      margin-top: .75rem;
+    }
+    .formula-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: .85rem 1rem;
+      margin-bottom: .6rem;
+    }
+    .formula-card h4 { font-size: .95rem; color: var(--color-accent3); font-weight: 700; margin-bottom: .3rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">∫</span> Calculus 1 <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+      <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+      <a href="intro.html" class="nav-link"><span class="nl-icon">🎯</span>แนะนำ</a>
+      </div>
+      <div class="nav-group" data-title="📖 บทเรียน">
+      <a href="lessons.html" class="nav-link"><span class="nl-icon">📏</span>ลิมิต</a>
+      <a href="continuity.html" class="nav-link"><span class="nl-icon">🔗</span>ต่อเนื่อง</a>
+      <a href="differentiation.html" class="nav-link active"><span class="nl-icon">📐</span>อนุพันธ์</a>
+      <a href="integration.html" class="nav-link"><span class="nl-icon">∫</span>ปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="⚡ แอปประยุกต์">
+      <a href="diff-app.html" class="nav-link"><span class="nl-icon">🚗</span>แอปอนุพันธ์</a>
+      <a href="integrate-app.html" class="nav-link"><span class="nl-icon">📊</span>แอปปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="🎮 เกม">
+      <a href="guess-game.html" class="nav-link"><span class="nl-icon">🎲</span>เกมทาย</a>
+      <a href="match-game.html" class="nav-link"><span class="nl-icon">🧩</span>เกมจับคู่</a>
+      </div>
+      <div class="nav-group" data-title="📚 สื่อ">
+      <a href="content/" class="nav-link"><span class="nl-icon">📚</span>สื่อเพิ่มเติม</a>
+      </div>
+      <div class="nav-group nav-group-cta">
+      <a href="missions.html" class="nav-link nav-cta"><span class="nl-icon">🎯</span>ภารกิจ</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    <h1 class="page-title">📐 อนุพันธ์ (Derivatives)</h1>
+    <p class="page-subtitle">จากนิยามด้วยลิมิต → ถึงสูตรพื้นฐาน → และฟังก์ชันอดิศัย ทุกเรื่องมาจากแนวคิดเดียว: <em>ความชันของเส้นสัมผัส</em></p>
+
+    <!-- Tabs -->
+    <div class="tab-bar" id="tab-bar">
+      <button class="tab-btn active" data-topic="concept">🎯 แนวคิด</button>
+      <button class="tab-btn" data-topic="basic">📘 สูตรพื้นฐาน</button>
+      <button class="tab-btn" data-topic="trans">🔺 อดิศัย</button>
+      <button class="tab-btn" data-topic="summary">📝 สรุป</button>
+    </div>
+
+    <!-- Concept tab: secant → tangent -->
+    <section class="tab-panel active" id="pane-concept">
+      <div class="card">
+        <div class="card-title">🔭 นิยามเชิงเรขาคณิต — จากเส้นตัดสู่เส้นสัมผัส</div>
+        <p>อนุพันธ์คือ<strong>ความชันของเส้นสัมผัส</strong>ที่จุด $x_0$ บนกราฟของ $f$ ซึ่งได้จากลิมิตของความชันของ<strong>เส้นตัด</strong> (secant) เมื่อระยะห่าง $h$ เข้าใกล้ $0$</p>
+        <div class="definition-block">
+          <div class="label">นิยามของอนุพันธ์</div>
+          <div style="text-align:center; font-size:1.1rem;">
+            $$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
+          </div>
+        </div>
+
+        <div class="flex-row" style="gap:.5rem; margin:.5rem 0;">
+          <label style="font-weight:600;">เลือกฟังก์ชัน:</label>
+          <select id="concept-fn"></select>
+          <label style="font-weight:600; margin-left:.75rem;">จุด $x_0$:</label>
+          <input type="number" id="concept-x0" value="1" step="0.25" style="width:80px;" />
+        </div>
+
+        <canvas id="c-concept" width="720" height="420"></canvas>
+
+        <div class="slider-row">
+          <label>ค่า $h$ = <span id="val-h">1.000</span></label>
+          <input type="range" id="sl-h" min="-3" max="0" step="0.01" value="0" />
+        </div>
+        <p class="text-small text-muted" style="margin-top:-.3rem;">
+          (เลื่อนไปทางซ้าย = $h$ เล็กลง บนสเกลลอการิทึม — สังเกตว่าเส้นตัดจะหมุนเข้าหาเส้นสัมผัส)
+        </p>
+
+        <div class="readout" id="concept-readout">
+          $h = ?$ &nbsp;
+          $\dfrac{f(x_0+h) - f(x_0)}{h} = ?$ &nbsp;
+          $f'(x_0) = ?$
+        </div>
+
+        <div class="cta-row mt-2">
+          <button class="btn btn-primary" id="btn-animate-h">▶ เคลื่อนไหว $h \to 0$</button>
+          <button class="btn" id="btn-reset-h">รีเซ็ต</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Basic tab -->
+    <section class="tab-panel" id="pane-basic">
+      <div class="card">
+        <div class="card-title">📘 สูตรอนุพันธ์พื้นฐาน</div>
+        <div class="formula-card">
+          <h4>1. ฟังก์ชันคงที่</h4>
+          $(c)' = 0$
+        </div>
+        <div class="formula-card">
+          <h4>2. กฎพาวเวอร์ (Power rule)</h4>
+          $(x^n)' = n x^{n-1}$
+        </div>
+        <div class="formula-card">
+          <h4>3. กฎผลบวก/ผลต่าง</h4>
+          $(f \pm g)' = f' \pm g'$
+        </div>
+        <div class="formula-card">
+          <h4>4. กฎผลคูณ (Product rule)</h4>
+          $(u \cdot v)' = u'v + u v'$
+        </div>
+        <div class="formula-card">
+          <h4>5. กฎผลหาร (Quotient rule)</h4>
+          $\left(\dfrac{u}{v}\right)' = \dfrac{u'v - u v'}{v^2}$
+        </div>
+        <div class="formula-card">
+          <h4>6. กฎลูกโซ่ (Chain rule)</h4>
+          $\big(f(g(x))\big)' = f'(g(x)) \cdot g'(x)$
+        </div>
+
+        <div class="mt-3">
+          <div class="card-title" style="font-size:1rem;">ลองเลือกดูตัวอย่าง</div>
+          <div class="flex-row" style="gap:.5rem;">
+            <label>ฟังก์ชัน:</label>
+            <select id="basic-fn"></select>
+          </div>
+          <div class="twin-graph mt-2">
+            <div>
+              <canvas id="c-basic-f" width="360" height="260"></canvas>
+              <div class="cap" id="basic-f-cap">$f(x)$</div>
+            </div>
+            <div>
+              <canvas id="c-basic-df" width="360" height="260"></canvas>
+              <div class="cap" id="basic-df-cap">$f'(x)$</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transcendental tab -->
+    <section class="tab-panel" id="pane-trans">
+      <div class="card">
+        <div class="card-title">🔺 อนุพันธ์ของฟังก์ชันอดิศัย</div>
+        <div class="formula-card">$(\sin x)' = \cos x$</div>
+        <div class="formula-card">$(\cos x)' = -\sin x$</div>
+        <div class="formula-card">$(\tan x)' = \sec^2 x$</div>
+        <div class="formula-card">$(e^x)' = e^x$ &nbsp; <span class="text-muted text-small">(พิเศษสุด — เป็นอนุพันธ์ของตัวเอง)</span></div>
+        <div class="formula-card">$(a^x)' = (\ln a)\, a^x$</div>
+        <div class="formula-card">$(\ln x)' = \dfrac{1}{x}$</div>
+        <div class="formula-card">$(\log_a x)' = \dfrac{1}{x \ln a}$</div>
+
+        <div class="mt-3">
+          <div class="card-title" style="font-size:1rem;">ดูกราฟคู่กับอนุพันธ์</div>
+          <div class="flex-row" style="gap:.5rem;">
+            <label>ฟังก์ชัน:</label>
+            <select id="trans-fn"></select>
+          </div>
+          <div class="twin-graph mt-2">
+            <div>
+              <canvas id="c-trans-f" width="360" height="260"></canvas>
+              <div class="cap" id="trans-f-cap">$f(x)$</div>
+            </div>
+            <div>
+              <canvas id="c-trans-df" width="360" height="260"></canvas>
+              <div class="cap" id="trans-df-cap">$f'(x)$</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary tab -->
+    <section class="tab-panel" id="pane-summary">
+      <div class="card">
+        <div class="card-title">📝 สรุปสูตรอนุพันธ์</div>
+        <div class="value-table">
+          <div class="row"><div class="label">$(c)'$</div><div class="val">$0$</div></div>
+          <div class="row"><div class="label">$(x^n)'$</div><div class="val">$n x^{n-1}$</div></div>
+          <div class="row"><div class="label">$(\sin x)'$</div><div class="val">$\cos x$</div></div>
+          <div class="row"><div class="label">$(\cos x)'$</div><div class="val">$-\sin x$</div></div>
+          <div class="row"><div class="label">$(\tan x)'$</div><div class="val">$\sec^2 x$</div></div>
+          <div class="row"><div class="label">$(e^x)'$</div><div class="val">$e^x$</div></div>
+          <div class="row"><div class="label">$(\ln x)'$</div><div class="val">$1/x$</div></div>
+          <div class="row"><div class="label">$(uv)'$</div><div class="val">$u'v + u v'$</div></div>
+          <div class="row"><div class="label">$(u/v)'$</div><div class="val">$(u'v - u v')/v^2$</div></div>
+          <div class="row"><div class="label">$(f\circ g)'$</div><div class="val">$f'(g)\cdot g'$</div></div>
+        </div>
+
+        <div class="cta-row mt-3">
+          <a href="diff-app.html" class="btn btn-primary">⚡ ไปต่อที่ <em>การประยุกต์ของอนุพันธ์</em></a>
+          <a href="integration.html" class="btn btn-accent">∫ ไปต่อที่ปริพันธ์</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Libraries -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+          onload="renderMathInElement(document.body, { delimiters: [{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}], throwOnError: false });"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@13.0.3/lib/browser/math.min.js"></script>
+
+  <!-- App -->
+  <script src="js/xp.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/differentiation.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

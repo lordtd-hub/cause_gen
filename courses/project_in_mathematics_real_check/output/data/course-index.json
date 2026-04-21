@@ -1,0 +1,121 @@
+{
+  "course_id": "project_in_mathematics_real_check",
+  "course_name_th": "โครงงานคณิตศาสตร์",
+  "generated_at": "2026-04-21T08:29:38.418Z",
+  "modules": [
+    {
+      "id": "project-scoping-and-advisor-alignment",
+      "slug": "project-scoping-and-advisor-alignment",
+      "title": "Project Scoping and Advisor Alignment",
+      "summary": "Clarify project interests, shape a feasible topic, and connect it with advisor feedback.",
+      "order": 1,
+      "clo_ids": [
+        "CLO1",
+        "CLO2"
+      ],
+      "module_kind": "project",
+      "widgets": [
+        "quick-check",
+        "step-sequence"
+      ]
+    },
+    {
+      "id": "literature-review-and-project-planning",
+      "slug": "literature-review-and-project-planning",
+      "title": "Literature Review and Project Planning",
+      "summary": "Search, evaluate, and synthesize relevant sources to frame a project direction and plan.",
+      "order": 2,
+      "clo_ids": [
+        "CLO1",
+        "CLO2",
+        "CLO3"
+      ],
+      "module_kind": "analysis",
+      "widgets": [
+        "quick-check",
+        "definition-visualizer",
+        "step-sequence"
+      ]
+    },
+    {
+      "id": "project-execution-and-progress-review",
+      "slug": "project-execution-and-progress-review",
+      "title": "Project Execution and Progress Review",
+      "summary": "Carry out the project with advisor consultation, evidence logging, and progress reporting.",
+      "order": 3,
+      "clo_ids": [
+        "CLO3",
+        "CLO4",
+        "CLO5"
+      ],
+      "module_kind": "project",
+      "widgets": [
+        "quick-check",
+        "step-sequence"
+      ]
+    },
+    {
+      "id": "report-writing-and-seminar-presentation",
+      "slug": "report-writing-and-seminar-presentation",
+      "title": "Report Writing and Seminar Presentation",
+      "summary": "Prepare the final report, refine communication, and present the project in seminar form.",
+      "order": 4,
+      "clo_ids": [
+        "CLO4",
+        "CLO5"
+      ],
+      "module_kind": "communication",
+      "widgets": [
+        "quick-check",
+        "step-sequence"
+      ]
+    }
+  ],
+  "clos": [
+    {
+      "id": "CLO1",
+      "label": "Search for relevant sources and project ideas appropriately.",
+      "bloom": "Understand",
+      "assessment_tags": [
+        "search",
+        "source-evaluation"
+      ]
+    },
+    {
+      "id": "CLO2",
+      "label": "Analyze related work to define a meaningful mathematics project direction.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "analysis",
+        "project-framing"
+      ]
+    },
+    {
+      "id": "CLO3",
+      "label": "Design a suitable study or analysis process for the selected project problem.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "project-design",
+        "method"
+      ]
+    },
+    {
+      "id": "CLO4",
+      "label": "Present project progress and findings clearly and appropriately.",
+      "bloom": "Evaluate",
+      "assessment_tags": [
+        "presentation",
+        "communication"
+      ]
+    },
+    {
+      "id": "CLO5",
+      "label": "Work with discipline, responsibility, and respect for advisor and project roles.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "discipline",
+        "professionalism"
+      ]
+    }
+  ]
+}

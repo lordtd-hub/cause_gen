@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cause-gen.local/schemas/problem-source-policy.schema.json",
+  "title": "Cause Gen Problem Source Policy",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "intended_use",
+    "sources"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "intended_use": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "label",
+          "license_note",
+          "default_use_mode",
+          "approved_for_educational_use"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "homepage_url": {
+            "type": "string"
+          },
+          "source_type": {
+            "type": "string"
+          },
+          "license_note": {
+            "type": "string"
+          },
+          "attribution_required": {
+            "type": "boolean"
+          },
+          "default_use_mode": {
+            "type": "string",
+            "enum": [
+              "ingest-with-attribution",
+              "link-only",
+              "manual-review-first"
+            ]
+          },
+          "approved_for_educational_use": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "project_in_mathematics_real_check",
+  "promoted_at": "2026-04-21T08:29:38.351Z",
+  "promoted_count": 1,
+  "promoted_modules": [
+    {
+      "module_id": "literature-review-and-project-planning",
+      "module_file": "courses\\project_in_mathematics_real_check\\modules\\02-literature-review-and-project-planning.md",
+      "promoted_draft_ids": [
+        "content-draft-lit-review-evidence-ladder"
+      ]
+    }
+  ],
+  "destination": "modules/*.md"
+}

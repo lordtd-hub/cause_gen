@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ปัญญาประดิษฐ์เบื้องต้น | Lessons</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  
+<style>
+  .lesson-module-rail {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:1rem;
+  }
+  .lesson-rail-link {
+    display:block;
+    padding:.85rem 1rem;
+    border-radius:14px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.03);
+    color:var(--color-text);
+    text-decoration:none;
+  }
+  .lesson-rail-link strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.2rem;
+  }
+  .lesson-roadmap-grid {
+    display:grid;
+    gap:1rem;
+    margin-top:1rem;
+  }
+  .lesson-roadmap-card {
+    border:1px solid var(--color-border);
+    border-radius:var(--radius);
+    background:rgba(255,255,255,.03);
+    padding:1rem;
+  }
+  .lesson-roadmap-head {
+    display:flex;
+    justify-content:space-between;
+    gap:.75rem;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .lesson-order-pill {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:2rem;
+    height:2rem;
+    padding:0 .65rem;
+    border-radius:999px;
+    background:rgba(34,211,238,.12);
+    border:1px solid rgba(34,211,238,.28);
+    font-weight:800;
+    color:#fff;
+  }
+  .lesson-roadmap-summary {
+    color:var(--color-muted);
+    line-height:1.8;
+    margin:.7rem 0;
+  }
+  .lesson-meta-row {
+    display:flex;
+    flex-wrap:wrap;
+    gap:.45rem;
+    margin:.75rem 0;
+  }
+  .lesson-mini-pill {
+    display:inline-flex;
+    align-items:center;
+    padding:.2rem .6rem;
+    border-radius:999px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.04);
+    font-size:.78rem;
+    font-weight:700;
+  }
+  .lesson-activity-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:.85rem;
+  }
+  .lesson-activity-card {
+    border:1px dashed var(--color-border);
+    border-radius:12px;
+    background:rgba(10,6,20,.45);
+    padding:.85rem;
+  }
+  .lesson-activity-card strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.25rem;
+  }
+  .lesson-activity-card p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.7;
+    font-size:.88rem;
+  }
+  .lesson-page-note {
+    color:var(--color-muted);
+    line-height:1.8;
+  }
+</style>
+
+</head>
+<body data-page="lessons">
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">AI</span> Intro to AI <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="lessons.html" class="nav-link active"><span class="nl-icon">📚</span>Lessons</a>
+<a href="missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="content/" class="nav-link"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card">
+      <h1 class="page-title">บทเรียนทั้งหมด 4 โมดูล</h1>
+      <p class="page-subtitle">lesson hub ของรายวิชานี้ล้อตามจำนวนโมดูลของแผนการสอน เพื่อให้เห็นลำดับหัวข้อ เส้นทางเรียน และกิจกรรม active learning ของแต่ละบทอย่างชัดเจน</p>
+      <p class="lesson-page-note">
+        ใช้ rail ด้านล่างเพื่อกระโดดไปยังโมดูลที่ต้องการ แล้วดู roadmap ของแต่ละบทเพื่อเห็นสรุปหัวข้อ กิจกรรม และจุดเชื่อมไปยังหน้าโมดูลจริง
+      </p>
+      <div class="lesson-module-rail" id="lessons-module-rail">
+        
+      <a class="lesson-rail-link" href="#lesson-module-ai-foundations">
+        <strong>โมดูล 1</strong>
+        <span>AI Foundations</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-search-and-problem-solving">
+        <strong>โมดูล 2</strong>
+        <span>Search and Problem Solving</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-knowledge-and-reasoning">
+        <strong>โมดูล 3</strong>
+        <span>Knowledge and Reasoning</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-intelligent-systems-and-ethics">
+        <strong>โมดูล 4</strong>
+        <span>Intelligent Systems and Ethics</span>
+      </a>
+    
+      </div>
+    </section>
+    <section class="card" id="lessons-roadmap">
+      <div class="card-title">แผนที่บทเรียนตามโมดูล</div>
+      <p class="lesson-page-note">
+        การ์ดแต่ละใบช่วยให้เห็นว่าบทนี้เน้นเรื่องอะไร อยู่ลำดับไหนของรายวิชา และมีกิจกรรม active learning แบบใดให้ใช้ประกอบก่อนเข้าเนื้อหาเต็ม
+      </p>
+      <div class="lesson-roadmap-grid">
+        
+      <article class="lesson-roadmap-card" id="lesson-module-ai-foundations">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 1</div>
+            <div class="card-title" style="margin-top:.15rem;">AI Foundations</div>
+          </div>
+          <span class="lesson-order-pill">1</span>
+        </div>
+        <p class="lesson-roadmap-summary">Start with core AI ideas, scope, domains, and the language used across the field.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: concept</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🧩 คลี่นิยามทีละส่วน</strong>
+            <p>แยกนิยามหรือเงื่อนไขสำคัญออกเป็นชิ้น ๆ เพื่อมองความหมายได้ชัดขึ้น</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/ai-foundations/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-search-and-problem-solving">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 2</div>
+            <div class="card-title" style="margin-top:.15rem;">Search and Problem Solving</div>
+          </div>
+          <span class="lesson-order-pill">2</span>
+        </div>
+        <p class="lesson-roadmap-summary">Use state spaces, search strategies, and heuristics to reason about AI problem solving.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: application</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>💡 sbra-sequence</strong>
+            <p>กิจกรรม interactive ของบทนี้จะถูกเติมต่อในรอบ authoring</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/search-and-problem-solving/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-knowledge-and-reasoning">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 3</div>
+            <div class="card-title" style="margin-top:.15rem;">Knowledge and Reasoning</div>
+          </div>
+          <span class="lesson-order-pill">3</span>
+        </div>
+        <p class="lesson-roadmap-summary">Connect representation, logic, and inference to structured AI reasoning tasks.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: application</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🧩 คลี่นิยามทีละส่วน</strong>
+            <p>แยกนิยามหรือเงื่อนไขสำคัญออกเป็นชิ้น ๆ เพื่อมองความหมายได้ชัดขึ้น</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🧠 แกะโครงพิสูจน์</strong>
+            <p>ค่อย ๆ เปิดเหตุผลของ proof ทีละช่วง เพื่อเห็นความสัมพันธ์ระหว่างสมมติฐานกับข้อสรุป</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/knowledge-and-reasoning/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-intelligent-systems-and-ethics">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 4</div>
+            <div class="card-title" style="margin-top:.15rem;">Intelligent Systems and Ethics</div>
+          </div>
+          <span class="lesson-order-pill">4</span>
+        </div>
+        <p class="lesson-roadmap-summary">Relate AI methods to real systems, limitations, and ethical decision making.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: proof</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">2 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🧩 คลี่นิยามทีละส่วน</strong>
+            <p>แยกนิยามหรือเงื่อนไขสำคัญออกเป็นชิ้น ๆ เพื่อมองความหมายได้ชัดขึ้น</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/intelligent-systems-and-ethics/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+      </div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"intro_to_ai_real_check","course_name_th":"ปัญญาประดิษฐ์เบื้องต้น","course_name_en":"Introduction to Artificial Intelligence","course_short_name":"Intro to AI","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"An introductory AI course site for core concepts, search, reasoning, and ethical use of intelligent systems, built from the TQF3-first workflow in this repo.","theme":{"brand_icon":"AI","accent":"#0f766e","accent_secondary":"#f59e0b"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","proof-unpack","step-sequence","sbra-sequence"],"lesson_completion_xp":45,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Intro to AI Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-ai-language","emoji":"📘","name":"CLO1 Understand AI Language","req":"Collect quick-check evidence in AI Foundations.","threshold_xp":150,"required_modules":["ai-foundations"]},{"id":"clo2-search-strategist","emoji":"🛠","name":"CLO2 Apply Search Strategist","req":"Collect SBRA evidence in Search and Problem Solving.","threshold_xp":210,"required_modules":["search-and-problem-solving"],"required_missions":["sbra-search-and-problem-solving-clo2"]},{"id":"clo3-reasoning-analyst","emoji":"🧠","name":"CLO3 Analyze Reasoning Analyst","req":"Collect reasoning-task evidence in Knowledge and Reasoning.","threshold_xp":250,"required_modules":["knowledge-and-reasoning"]},{"id":"clo4-ethical-evaluator","emoji":"🎯","name":"CLO4 Evaluate Ethical Evaluator","req":"Collect reflection-task evidence in Intelligent Systems and Ethics.","threshold_xp":310,"required_modules":["intelligent-systems-and-ethics"],"required_accuracy":60}],"modules":[{"id":"ai-foundations","slug":"ai-foundations","title":"AI Foundations","summary":"Start with core AI ideas, scope, domains, and the language used across the field.","order":1,"module_kind":"concept"},{"id":"search-and-problem-solving","slug":"search-and-problem-solving","title":"Search and Problem Solving","summary":"Use state spaces, search strategies, and heuristics to reason about AI problem solving.","order":2,"module_kind":"application"},{"id":"knowledge-and-reasoning","slug":"knowledge-and-reasoning","title":"Knowledge and Reasoning","summary":"Connect representation, logic, and inference to structured AI reasoning tasks.","order":3,"module_kind":"application"},{"id":"intelligent-systems-and-ethics","slug":"intelligent-systems-and-ethics","title":"Intelligent Systems and Ethics","summary":"Relate AI methods to real systems, limitations, and ethical decision making.","order":4,"module_kind":"proof"}],"clos":[{"id":"CLO1","label":"Explain core AI concepts, terminology, and problem domains.","bloom":"Understand","assessment_tags":["concepts","terminology"]},{"id":"CLO2","label":"Apply search, reasoning, and representation ideas to structured AI tasks.","bloom":"Apply","assessment_tags":["search","representation"]},{"id":"CLO3","label":"Analyze AI methods, model behavior, and suitable solution strategies.","bloom":"Analyze","assessment_tags":["analysis","strategy"]},{"id":"CLO4","label":"Evaluate AI use cases, limitations, and ethical implications in practical settings.","bloom":"Evaluate","assessment_tags":["ethics","evaluation"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="assets/js/course-runtime.js"></script>
+<script src="assets/js/xp.js"></script>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

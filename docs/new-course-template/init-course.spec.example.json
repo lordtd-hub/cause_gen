@@ -1,0 +1,124 @@
+{
+  "course_id": "discrete_math_foundations",
+  "course_name_th": "คณิตศาสตร์ไม่ต่อเนื่องเบื้องต้น",
+  "course_name_en": "Foundations of Discrete Mathematics",
+  "course_short_name": "Discrete Math",
+  "instructor": "Course Design Team",
+  "description": "คอร์สต้นแบบสำหรับวิชาสายพิสูจน์ที่ใช้ markdown modules, SBRA missions และ interactive blocks แบบ reusable",
+  "theme": {
+    "brand_icon": "∑",
+    "accent": "#0ea5e9",
+    "accent_secondary": "#f97316"
+  },
+  "features": {
+    "resources": true,
+    "missions": true,
+    "games": false
+  },
+  "widgets_enabled": [
+    "quick-check",
+    "definition-visualizer",
+    "proof-unpack",
+    "step-sequence",
+    "sbra-sequence"
+  ],
+  "lesson_completion_xp": 50,
+  "badges": [
+    {
+      "id": "starter",
+      "emoji": "🌱",
+      "name": "Starter",
+      "req": "เปิดคอร์สและเริ่มสะสม XP",
+      "threshold_xp": 0
+    },
+    {
+      "id": "logic-explorer",
+      "emoji": "🧭",
+      "name": "Logic Explorer",
+      "req": "120 XP และเรียนอย่างน้อย 1 โมดูล",
+      "threshold_xp": 120,
+      "required_modules_count": 1
+    },
+    {
+      "id": "course-master",
+      "emoji": "🏆",
+      "name": "Course Master",
+      "req": "เรียนครบทุกโมดูล และผ่านอย่างน้อย 80% accuracy",
+      "threshold_xp": 300,
+      "required_modules_count": 2,
+      "required_accuracy": 80
+    }
+  ],
+  "clos": [
+    {
+      "id": "CLO1",
+      "label": "อธิบายและใช้แนวคิดพื้นฐานของตรรกศาสตร์และการให้เหตุผลทางคณิตศาสตร์ได้",
+      "bloom": "Understand",
+      "assessment_tags": [
+        "logic",
+        "definitions"
+      ]
+    },
+    {
+      "id": "CLO2",
+      "label": "สร้างและวิเคราะห์โครงพิสูจน์เบื้องต้นโดยเชื่อมกับนิยามและสมมติฐานได้",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "proof",
+        "structure"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "logic-propositions",
+      "slug": "logic-propositions",
+      "title": "ตรรกศาสตร์และประพจน์",
+      "summary": "เริ่มจากข้อความ, ค่าความจริง, ตัวเชื่อม และการแปลความหมายของประโยคตรรกศาสตร์",
+      "clo_ids": [
+        "CLO1"
+      ],
+      "module_kind": "concept",
+      "widgets": [
+        "quick-check",
+        "definition-visualizer",
+        "step-sequence"
+      ]
+    },
+    {
+      "id": "proof-structure",
+      "slug": "proof-structure",
+      "title": "โครงสร้างของการพิสูจน์",
+      "summary": "เปลี่ยนนิยามและเงื่อนไขให้เป็นโครงพิสูจน์ที่ตรวจสอบได้",
+      "clo_ids": [
+        "CLO1",
+        "CLO2"
+      ],
+      "module_kind": "proof",
+      "widgets": [
+        "definition-visualizer",
+        "proof-unpack",
+        "quick-check"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "logic-cheatsheet",
+      "topic": "ตรรกศาสตร์และประพจน์",
+      "title": "Logic Cheatsheet",
+      "description": "สรุปตัวเชื่อมตรรกศาสตร์และรูปแบบประโยคที่พบบ่อย",
+      "type": "file",
+      "path": "files/logic-cheatsheet.md",
+      "body": "# Logic Cheatsheet\n\n- p → q คือเงื่อนไขแบบอิมพลิเคชัน\n- p ↔ q คือสมมูลกัน\n"
+    },
+    {
+      "id": "proof-note",
+      "topic": "โครงสร้างของการพิสูจน์",
+      "title": "หมายเหตุสำหรับการเกลา proof module",
+      "description": "รายการสิ่งที่ควรตรวจเพิ่มก่อน publish",
+      "type": "note",
+      "body": "เติมตัวอย่าง proof ที่อิงนิยามจริงของรายวิชา และตรวจว่าทุก step map กับ CLO ถูกต้อง"
+    }
+  ]
+}

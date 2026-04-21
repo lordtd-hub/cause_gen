@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "calculus1_real_check",
+  "generated_at": "2026-04-21T08:39:18.983Z",
+  "queries": [
+    {
+      "query_id": "content-query-01-limits-and-functions",
+      "module_id": "limits-and-functions",
+      "target_clo_ids": [
+        "CLO1"
+      ],
+      "target_bloom_levels": [
+        "understand"
+      ],
+      "query_texts": [
+        "Calculus I Limits and Functions lecture notes",
+        "Limits and Functions interactive learning activity",
+        "Limits and Functions Explain the meaning of limits, continuity, derivatives, and integrals in standard first-course contexts. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    },
+    {
+      "query_id": "content-query-02-continuity-and-applications",
+      "module_id": "continuity-and-applications",
+      "target_clo_ids": [
+        "CLO2"
+      ],
+      "target_bloom_levels": [
+        "apply"
+      ],
+      "query_texts": [
+        "Calculus I Continuity and Applications lecture notes",
+        "Continuity and Applications interactive learning activity",
+        "Continuity and Applications Apply standard calculus techniques to compute limits, derivatives, and integrals. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    },
+    {
+      "query_id": "content-query-03-differentiation",
+      "module_id": "differentiation",
+      "target_clo_ids": [
+        "CLO3"
+      ],
+      "target_bloom_levels": [
+        "analyze"
+      ],
+      "query_texts": [
+        "Calculus I Differentiation lecture notes",
+        "Differentiation interactive learning activity",
+        "Differentiation Analyze functions and their behavior using continuity, derivatives, and definite integrals. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    },
+    {
+      "query_id": "content-query-04-integration",
+      "module_id": "integration",
+      "target_clo_ids": [
+        "CLO4"
+      ],
+      "target_bloom_levels": [
+        "evaluate"
+      ],
+      "query_texts": [
+        "Calculus I Integration lecture notes",
+        "Integration interactive learning activity",
+        "Integration Use calculus reasoning to justify steps and interpret results in problem-solving situations. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    }
+  ]
+}

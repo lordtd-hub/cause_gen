@@ -1,0 +1,93 @@
+{
+  "course_id": "complex_variables_real_check",
+  "items": [
+    {
+      "id": "first-course-in-complex-analysis",
+      "topic": "Core References",
+      "title": "First Course in Complex Analysis",
+      "description": "main text: เหมาะกับ Complex Number Foundations, Limits and Continuity in the Complex Plane, Complex Differentiation and Analytic Functions, Complex Integration, Taylor, Laurent, and Applications",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: textbook\nบทบาท: main text\nโมดูลที่เกี่ยวข้อง: Complex Number Foundations, Limits and Continuity in the Complex Plane, Complex Differentiation and Analytic Functions, Complex Integration, Taylor, Laurent, and Applications\nหมายเหตุ: Dennis Pixton and Lucas Sabalka introductory text for the whole course",
+      "seed_type": "textbook",
+      "seed_role": "main text",
+      "linked_modules": [
+        "complex-number-foundations",
+        "limits-and-continuity",
+        "complex-differentiation",
+        "complex-integration",
+        "series-and-applications"
+      ]
+    },
+    {
+      "id": "visual-complex-plane-notes-and-argand-diagram-handout",
+      "topic": "Complex Number Foundations",
+      "title": "Visual complex plane notes and Argand diagram handout",
+      "description": "support: เหมาะกับ Complex Number Foundations",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: notes\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: Complex Number Foundations\nหมายเหตุ: use for algebraic-geometric interpretation and argument/modulus review",
+      "seed_type": "notes",
+      "seed_role": "support",
+      "linked_modules": [
+        "complex-number-foundations"
+      ]
+    },
+    {
+      "id": "review-notes-on-limits-and-continuity-from-mathematical-analysis",
+      "topic": "Limits and Continuity in the Complex Plane",
+      "title": "Review notes on limits and continuity from mathematical analysis",
+      "description": "review: เหมาะกับ Limits and Continuity in the Complex Plane",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: notes\nบทบาท: review\nโมดูลที่เกี่ยวข้อง: Limits and Continuity in the Complex Plane\nหมายเหตุ: bridge prior analysis knowledge into complex-valued functions",
+      "seed_type": "notes",
+      "seed_role": "review",
+      "linked_modules": [
+        "limits-and-continuity"
+      ]
+    },
+    {
+      "id": "complex-derivative-and-analytic-function-worksheet",
+      "topic": "Complex Differentiation and Analytic Functions",
+      "title": "Complex derivative and analytic-function worksheet",
+      "description": "practice: เหมาะกับ Complex Differentiation and Analytic Functions",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: worksheet\nบทบาท: practice\nโมดูลที่เกี่ยวข้อง: Complex Differentiation and Analytic Functions\nหมายเหตุ: guided reasoning tasks on differentiability and analytic structure",
+      "seed_type": "worksheet",
+      "seed_role": "practice",
+      "linked_modules": [
+        "complex-differentiation"
+      ]
+    },
+    {
+      "id": "contour-integration-worked-examples",
+      "topic": "Complex Integration",
+      "title": "Contour integration worked examples",
+      "description": "support: เหมาะกับ Complex Integration",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: notes\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: Complex Integration\nหมายเหตุ: examples of path setup and explanation of integral meaning",
+      "seed_type": "notes",
+      "seed_role": "support",
+      "linked_modules": [
+        "complex-integration"
+      ]
+    },
+    {
+      "id": "taylor-and-laurent-series-summary-sheet",
+      "topic": "Taylor, Laurent, and Applications",
+      "title": "Taylor and Laurent series summary sheet",
+      "description": "review: เหมาะกับ Taylor, Laurent, and Applications",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: notes\nบทบาท: review\nโมดูลที่เกี่ยวข้อง: Taylor, Laurent, and Applications\nหมายเหตุ: compare local expansions and application patterns",
+      "seed_type": "notes",
+      "seed_role": "review",
+      "linked_modules": [
+        "series-and-applications"
+      ]
+    }
+  ]
+}

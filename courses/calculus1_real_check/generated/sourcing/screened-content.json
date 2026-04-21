@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "calculus1_real_check",
+  "generated_at": "2026-04-21T10:54:57.478Z",
+  "items": [
+    {
+      "retrieval_id": "retrieval-user-provided-document-content-query-02-continui-b9ee9ced77",
+      "content_id": "retrieved-content-user-provided-document-content-query-02-continui-b9ee9ced77",
+      "dedupe_group": "class-notes-2-10-the-definition-of-the-limit-169-3-derivatives-184-2-10-the-definition-of-the-limit",
+      "proposed_module_id": "continuity-and-applications",
+      "proposed_clo_ids": [
+        "CLO2"
+      ],
+      "proposed_bloom_levels": [
+        "apply"
+      ],
+      "proposed_content_kind": "reading",
+      "proposed_asset_family": "module-content-block",
+      "title": "Class Notes",
+      "summary": "2.10 The Definition of the Limit............................... 169 3 Derivatives 184",
+      "excerpt": "2.10 The Definition of the Limit............................... 169 3 Derivatives 184",
+      "source_id": "user-provided-document",
+      "source_title": "Class Notes",
+      "source_url": "C:\\Users\\User\\Downloads\\Calculus.pdf",
+      "query_id": "content-query-02-continuity-and-applications",
+      "license_note": "Use only within the current course workflow and review provenance manually.",
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "screening_status": "proposed",
+      "recommended_use_mode": "manual-review-first",
+      "provenance": {
+        "source_id": "user-provided-document",
+        "source_title": "User-Provided Document",
+        "source_url": "file:///user-provided",
+        "query_id": "content-query-02-continuity-and-applications",
+        "query_texts": [
+          "Calculus I Continuity and Applications lecture notes",
+          "Continuity and Applications interactive learning activity",
+          "Continuity and Applications Apply standard calculus techniques to compute limits, derivatives, and integrals. worked example"
+        ],
+        "license_note": "Use only within the current course workflow and review provenance manually.",
+        "attribution_required": true
+      },
+      "notes": "Educational use policy matched source user-provided-document. Human review is still required before promotion into content drafts."
+    },
+    {
+      "retrieval_id": "retrieval-user-provided-document-content-query-02-continui-b10efccd02",
+      "content_id": "retrieved-content-user-provided-document-content-query-02-continui-b10efccd02",
+      "dedupe_group": "class-notes-computing-limits-in-this-section-we-will-looks-at-several-types-of-limits-that-require-some-work-before-we-can-use-the-limit-p",
+      "proposed_module_id": "continuity-and-applications",
+      "proposed_clo_ids": [
+        "CLO2"
+      ],
+      "proposed_bloom_levels": [
+        "apply"
+      ],
+      "proposed_content_kind": "reading",
+      "proposed_asset_family": "module-content-block",
+      "title": "Class Notes",
+      "summary": "Computing Limits - In this section we will looks at several types of limits that require some work before we can use the limit properties to compute them. We will also look at computing limits of piecewise functions and use of the Squeeze Theorem to compute some limits.",
+      "excerpt": "Computing Limits - In this section we will looks at several types of limits that require some work before we can use the limit properties to compute them. We will also look at computing limits of piecewise functions and use of the Squeeze Theorem to compute some limits.",
+      "source_id": "user-provided-document",
+      "source_title": "Class Notes",
+      "source_url": "C:\\Users\\User\\Downloads\\Calculus.pdf",
+      "query_id": "content-query-02-continuity-and-applications",
+      "license_note": "Use only within the current course workflow and review provenance manually.",
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "screening_status": "proposed",
+      "recommended_use_mode": "manual-review-first",
+      "provenance": {
+        "source_id": "user-provided-document",
+        "source_title": "User-Provided Document",
+        "source_url": "file:///user-provided",
+        "query_id": "content-query-02-continuity-and-applications",
+        "query_texts": [
+          "Calculus I Continuity and Applications lecture notes",
+          "Continuity and Applications interactive learning activity",
+          "Continuity and Applications Apply standard calculus techniques to compute limits, derivatives, and integrals. worked example"
+        ],
+        "license_note": "Use only within the current course workflow and review provenance manually.",
+        "attribution_required": true
+      },
+      "notes": "Educational use policy matched source user-provided-document. Human review is still required before promotion into content drafts."
+    }
+  ]
+}

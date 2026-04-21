@@ -1,0 +1,217 @@
+{
+  "course_id": "project_in_mathematics_real_check",
+  "course_name_th": "โครงงานคณิตศาสตร์",
+  "course_name_en": "Project in Mathematics",
+  "course_short_name": "Math Project",
+  "instructor": "แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด",
+  "description": "A project-based mathematics course focused on topic selection, planning, evidence gathering, progress communication, and final seminar presentation under advisor supervision.",
+  "theme": {
+    "brand_icon": "M",
+    "accent": "#0f766e",
+    "accent_secondary": "#f59e0b"
+  },
+  "features": {
+    "resources": true,
+    "missions": true,
+    "games": false
+  },
+  "widgets_enabled": [
+    "quick-check",
+    "definition-visualizer",
+    "proof-unpack",
+    "step-sequence",
+    "sbra-sequence"
+  ],
+  "lesson_completion_xp": 45,
+  "badges": [
+    {
+      "id": "starter",
+      "emoji": "🌱",
+      "name": "Starter",
+      "req": "Open the course and begin collecting XP.",
+      "threshold_xp": 0
+    },
+    {
+      "id": "explorer",
+      "emoji": "📚",
+      "name": "Explorer",
+      "req": "Reach 120 XP and complete at least one module.",
+      "threshold_xp": 120,
+      "required_modules_count": 1
+    },
+    {
+      "id": "master",
+      "emoji": "🏆",
+      "name": "Project Master",
+      "req": "Complete the course with at least 80% accuracy.",
+      "threshold_xp": 480,
+      "required_accuracy": 80
+    },
+    {
+      "id": "clo1-understand-starter",
+      "emoji": "📘",
+      "name": "CLO1 Understand Starter",
+      "req": "Collect quick-check evidence in Project Scoping and Advisor Alignment",
+      "threshold_xp": 150,
+      "required_modules": [
+        "project-scoping-and-advisor-alignment"
+      ]
+    },
+    {
+      "id": "clo2-analyze-readiness",
+      "emoji": "🔍",
+      "name": "CLO2 Analyze Readiness",
+      "req": "Collect SBRA candidate evidence in Literature Review and Project Planning",
+      "threshold_xp": 210,
+      "required_modules": [
+        "literature-review-and-project-planning"
+      ],
+      "required_missions": [
+        "sbra-literature-review-and-project-planning-clo2"
+      ]
+    },
+    {
+      "id": "clo3-apply-builder",
+      "emoji": "🛠",
+      "name": "CLO3 Apply Builder",
+      "req": "Collect planning draft evidence in Literature Review and Project Planning",
+      "threshold_xp": 200,
+      "required_modules": [
+        "literature-review-and-project-planning"
+      ]
+    },
+    {
+      "id": "clo4-evaluate-progress",
+      "emoji": "🎯",
+      "name": "CLO4 Evaluate Progress",
+      "req": "Collect progress presentation evidence in Project Execution and Progress Review",
+      "threshold_xp": 240,
+      "required_modules": [
+        "project-execution-and-progress-review"
+      ]
+    },
+    {
+      "id": "clo4-evaluate-seminar",
+      "emoji": "🎯",
+      "name": "CLO4 Evaluate Seminar",
+      "req": "Collect seminar presentation evidence in Report Writing and Seminar Presentation",
+      "threshold_xp": 310,
+      "required_modules": [
+        "report-writing-and-seminar-presentation"
+      ],
+      "required_badges": [
+        "clo4-evaluate-progress"
+      ],
+      "required_accuracy": 60
+    },
+    {
+      "id": "clo5-apply-discipline",
+      "emoji": "🛠",
+      "name": "CLO5 Apply Discipline",
+      "req": "Collect advisor log review evidence in Project Execution and Progress Review",
+      "threshold_xp": 240,
+      "required_modules": [
+        "project-execution-and-progress-review"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "project-scoping-and-advisor-alignment",
+      "slug": "project-scoping-and-advisor-alignment",
+      "title": "Project Scoping and Advisor Alignment",
+      "summary": "Clarify project interests, shape a feasible topic, and connect it with advisor feedback.",
+      "order": 1,
+      "module_kind": "project",
+      "clo_ids": [
+        "CLO1",
+        "CLO2"
+      ]
+    },
+    {
+      "id": "literature-review-and-project-planning",
+      "slug": "literature-review-and-project-planning",
+      "title": "Literature Review and Project Planning",
+      "summary": "Search, evaluate, and synthesize relevant sources to frame a project direction and plan.",
+      "order": 2,
+      "module_kind": "analysis",
+      "clo_ids": [
+        "CLO1",
+        "CLO2",
+        "CLO3"
+      ]
+    },
+    {
+      "id": "project-execution-and-progress-review",
+      "slug": "project-execution-and-progress-review",
+      "title": "Project Execution and Progress Review",
+      "summary": "Carry out the project with advisor consultation, evidence logging, and progress reporting.",
+      "order": 3,
+      "module_kind": "project",
+      "clo_ids": [
+        "CLO3",
+        "CLO4",
+        "CLO5"
+      ]
+    },
+    {
+      "id": "report-writing-and-seminar-presentation",
+      "slug": "report-writing-and-seminar-presentation",
+      "title": "Report Writing and Seminar Presentation",
+      "summary": "Prepare the final report, refine communication, and present the project in seminar form.",
+      "order": 4,
+      "module_kind": "communication",
+      "clo_ids": [
+        "CLO4",
+        "CLO5"
+      ]
+    }
+  ],
+  "clos": [
+    {
+      "id": "CLO1",
+      "label": "Search for relevant sources and project ideas appropriately.",
+      "bloom": "Understand",
+      "assessment_tags": [
+        "search",
+        "source-evaluation"
+      ]
+    },
+    {
+      "id": "CLO2",
+      "label": "Analyze related work to define a meaningful mathematics project direction.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "analysis",
+        "project-framing"
+      ]
+    },
+    {
+      "id": "CLO3",
+      "label": "Design a suitable study or analysis process for the selected project problem.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "project-design",
+        "method"
+      ]
+    },
+    {
+      "id": "CLO4",
+      "label": "Present project progress and findings clearly and appropriately.",
+      "bloom": "Evaluate",
+      "assessment_tags": [
+        "presentation",
+        "communication"
+      ]
+    },
+    {
+      "id": "CLO5",
+      "label": "Work with discipline, responsibility, and respect for advisor and project roles.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "discipline",
+        "professionalism"
+      ]
+    }
+  ]
+}

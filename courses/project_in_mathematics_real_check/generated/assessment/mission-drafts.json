@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "project_in_mathematics_real_check",
+  "source_classification": "generated/assessment-classification.json",
+  "generated_at": "2026-04-21T08:25:27.478Z",
+  "drafts": [
+    {
+      "draft_id": "draft-proj-scope-feasibility-01",
+      "problem_id": "proj-scope-feasibility-01",
+      "module_id": "project-scoping-and-advisor-alignment",
+      "clo_id": "CLO1",
+      "bloom_level": "analyze",
+      "mission_family": "diagnose-and-justify",
+      "runtime_ready": false,
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "missions/missions.json",
+      "title": "Scope a project realistically and justify the judgment",
+      "prompt": "Review a proposed mathematics project topic and decide whether the scope is feasible for one semester. Explain the main reason for your decision.",
+      "strategy_prompt": "Use a diagnose and justify approach and explain the mathematical reason behind your choice before you submit.",
+      "misconception_tags": [
+        "too-broad-scope",
+        "no-math-focus",
+        "ignores-time-constraint"
+      ],
+      "sbra_blueprint": {
+        "shape": "diagnose-and-justify",
+        "steps": [
+          {
+            "step_id": "step-1",
+            "intent": "Detect the key mathematical issue in the prompt."
+          },
+          {
+            "step_id": "step-2",
+            "intent": "Choose the best diagnosis or direction."
+          },
+          {
+            "step_id": "step-3",
+            "intent": "Justify the diagnosis with mathematical reasoning."
+          },
+          {
+            "step_id": "step-4",
+            "intent": "Reflect on the most tempting incorrect diagnosis."
+          }
+        ]
+      },
+      "review_status": "pending",
+      "source_refs": {
+        "problem_pool_item": "proj-scope-feasibility-01",
+        "classification": "proj-scope-feasibility-01"
+      }
+    },
+    {
+      "draft_id": "draft-lit-review-source-quality-01",
+      "problem_id": "lit-review-source-quality-01",
+      "module_id": "literature-review-and-project-planning",
+      "clo_id": "CLO2",
+      "bloom_level": "analyze",
+      "mission_family": "quick-check",
+      "runtime_ready": true,
+      "needs_human_review": true,
+      "approval_status": "approved",
+      "reviewed_by": "codex-review-fixture",
+      "reviewed_at": "2026-04-21T09:10:00.000Z",
+      "approved_target_destination": "missions/missions.json",
+      "title": "Evaluate source quality for literature review planning",
+      "prompt": "Sort four candidate references into strong and weak starting sources for a mathematics project.",
+      "strategy_prompt": "Use a quick check approach and explain the mathematical reason behind your choice before you submit.",
+      "misconception_tags": [
+        "source-counts-as-quality",
+        "web-page-equals-paper"
+      ],
+      "sbra_blueprint": {
+        "shape": "sort-and-justify",
+        "steps": [
+          {
+            "step_id": "step-1",
+            "intent": "Inspect the mathematical signals in each option."
+          },
+          {
+            "step_id": "step-2",
+            "intent": "Sort or classify the options using a defensible rule."
+          },
+          {
+            "step_id": "step-3",
+            "intent": "Justify the rule with mathematical reasoning."
+          },
+          {
+            "step_id": "step-4",
+            "intent": "Reflect on the most tempting wrong classification."
+          }
+        ]
+      },
+      "review_status": "approved",
+      "source_refs": {
+        "problem_pool_item": "lit-review-source-quality-01",
+        "classification": "lit-review-source-quality-01"
+      }
+    },
+    {
+      "draft_id": "draft-progress-review-risk-01",
+      "problem_id": "progress-review-risk-01",
+      "module_id": "project-execution-and-progress-review",
+      "clo_id": "CLO3",
+      "bloom_level": "evaluate",
+      "mission_family": "reflection",
+      "runtime_ready": false,
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "missions/missions.json",
+      "title": "Monitor progress and identify real project risk",
+      "prompt": "Examine a short progress log and identify the most important project risk that should be raised in the next advisor meeting.",
+      "strategy_prompt": "Use a reflection approach and explain the mathematical reason behind your choice before you submit.",
+      "misconception_tags": [
+        "progress-without-evidence",
+        "activity-equals-progress"
+      ],
+      "sbra_blueprint": {
+        "shape": "reflect-and-prioritize",
+        "steps": [
+          {
+            "step_id": "step-1",
+            "intent": "Read the situation carefully and identify the most important signal."
+          },
+          {
+            "step_id": "step-2",
+            "intent": "Choose the best priority or response."
+          },
+          {
+            "step_id": "step-3",
+            "intent": "Explain why the choice matters most."
+          },
+          {
+            "step_id": "step-4",
+            "intent": "Reflect on one plausible but weaker alternative."
+          }
+        ]
+      },
+      "review_status": "pending",
+      "source_refs": {
+        "problem_pool_item": "progress-review-risk-01",
+        "classification": "progress-review-risk-01"
+      }
+    },
+    {
+      "draft_id": "draft-seminar-claim-evidence-01",
+      "problem_id": "seminar-claim-evidence-01",
+      "module_id": "report-writing-and-seminar-presentation",
+      "clo_id": "CLO5",
+      "bloom_level": "create",
+      "mission_family": "proof-reasoning",
+      "runtime_ready": false,
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "missions/missions.json",
+      "title": "Strengthen mathematical communication with evidence",
+      "prompt": "Repair a weak seminar claim by adding the missing mathematical evidence or clarification needed for a defensible presentation.",
+      "strategy_prompt": "Use a proof reasoning approach and explain the mathematical reason behind your choice before you submit.",
+      "misconception_tags": [
+        "claim-without-support",
+        "presentation-over-substance"
+      ],
+      "sbra_blueprint": {
+        "shape": "claim-evidence-repair",
+        "steps": [
+          {
+            "step_id": "step-1",
+            "intent": "Locate the claim that needs mathematical support."
+          },
+          {
+            "step_id": "step-2",
+            "intent": "Choose the mathematical evidence or condition that matters."
+          },
+          {
+            "step_id": "step-3",
+            "intent": "Repair the claim so it becomes defensible."
+          },
+          {
+            "step_id": "step-4",
+            "intent": "Reflect on why the repaired version is stronger."
+          }
+        ]
+      },
+      "review_status": "pending",
+      "source_refs": {
+        "problem_pool_item": "seminar-claim-evidence-01",
+        "classification": "seminar-claim-evidence-01"
+      }
+    }
+  ]
+}

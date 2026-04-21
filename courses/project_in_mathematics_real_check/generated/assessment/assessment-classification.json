@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "project_in_mathematics_real_check",
+  "source_problem_pool": "materials/processed/assessment/problem-pool.json",
+  "generated_at": "2026-04-21T08:25:21.750Z",
+  "classifications": [
+    {
+      "problem_id": "proj-scope-feasibility-01",
+      "classification_status": "proposed",
+      "confidence": 0.83,
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/assessment/mission-drafts.json",
+      "proposed": {
+        "module_id": "project-scoping-and-advisor-alignment",
+        "clo_id": "CLO1",
+        "bloom_level": "analyze",
+        "mission_family": "diagnose-and-justify",
+        "problem_type": "diagnosis",
+        "target_skill": "scope a project realistically and justify the judgment",
+        "misconception_tags": [
+          "too-broad-scope",
+          "no-math-focus",
+          "ignores-time-constraint"
+        ],
+        "usable_for": [
+          "active-learning",
+          "mission"
+        ],
+        "sbra_shape": "diagnose-and-justify"
+      },
+      "review_notes": "AI proposal only. Human approval is required before this item can be treated as mission-ready."
+    },
+    {
+      "problem_id": "lit-review-source-quality-01",
+      "classification_status": "proposed",
+      "confidence": 0.83,
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/assessment/mission-drafts.json",
+      "proposed": {
+        "module_id": "literature-review-and-project-planning",
+        "clo_id": "CLO2",
+        "bloom_level": "analyze",
+        "mission_family": "quick-check",
+        "problem_type": "classification",
+        "target_skill": "evaluate source quality for literature review planning",
+        "misconception_tags": [
+          "source-counts-as-quality",
+          "web-page-equals-paper"
+        ],
+        "usable_for": [
+          "quick-check",
+          "mission",
+          "sbra"
+        ],
+        "sbra_shape": "sort-and-justify"
+      },
+      "review_notes": "AI proposal only. Human approval is required before this item can be treated as mission-ready."
+    },
+    {
+      "problem_id": "progress-review-risk-01",
+      "classification_status": "proposed",
+      "confidence": 0.83,
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/assessment/mission-drafts.json",
+      "proposed": {
+        "module_id": "project-execution-and-progress-review",
+        "clo_id": "CLO3",
+        "bloom_level": "evaluate",
+        "mission_family": "reflection",
+        "problem_type": "reflection",
+        "target_skill": "monitor progress and identify real project risk",
+        "misconception_tags": [
+          "progress-without-evidence",
+          "activity-equals-progress"
+        ],
+        "usable_for": [
+          "active-learning",
+          "mission"
+        ],
+        "sbra_shape": "reflect-and-prioritize"
+      },
+      "review_notes": "AI proposal only. Human approval is required before this item can be treated as mission-ready."
+    },
+    {
+      "problem_id": "seminar-claim-evidence-01",
+      "classification_status": "proposed",
+      "confidence": 0.83,
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/assessment/mission-drafts.json",
+      "proposed": {
+        "module_id": "report-writing-and-seminar-presentation",
+        "clo_id": "CLO5",
+        "bloom_level": "create",
+        "mission_family": "proof-reasoning",
+        "problem_type": "proof-repair",
+        "target_skill": "strengthen mathematical communication with evidence",
+        "misconception_tags": [
+          "claim-without-support",
+          "presentation-over-substance"
+        ],
+        "usable_for": [
+          "mission",
+          "sbra"
+        ],
+        "sbra_shape": "claim-evidence-repair"
+      },
+      "review_notes": "AI proposal only. Human approval is required before this item can be treated as mission-ready."
+    }
+  ]
+}

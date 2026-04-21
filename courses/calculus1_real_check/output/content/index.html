@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แคลคูลัส 1 | Resources</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  
+<style>
+  .resource-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:.9rem; }
+  .resource-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    color: var(--color-text);
+  }
+  .resource-meta { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.75rem; }
+  .resource-note {
+    margin-top:.75rem;
+    padding:.65rem .8rem;
+    border-left:3px solid var(--color-accent2);
+    background:rgba(34,211,238,.06);
+    border-radius:0 8px 8px 0;
+    color:var(--color-text);
+  }
+</style>
+
+</head>
+<body data-page="resources">
+  <nav class="topnav">
+    <a href="../index.html" class="nav-brand"><span class="brand-icon">C</span> Calculus I <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="../index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="../intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="../lessons.html" class="nav-link"><span class="nl-icon">📚</span>Lessons</a>
+<a href="../missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="../content/" class="nav-link active"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="../index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card">
+      <h1 class="page-title">Resources</h1>
+      <p class="page-subtitle">รวมสื่อประกอบการเรียนของรายวิชาไว้ในหน้าเดียว เพื่อใช้ทบทวนก่อนเรียน ระหว่างเรียน หรือก่อนทำภารกิจ</p>
+    </section>
+    <section class="resource-grid">
+      <a class="resource-card" href="https://www.khanacademy.org/math/calculus-1" target="_blank" rel="noopener"><div class="card-title">Khan Academy Calculus 1</div><div class="text-muted" style="line-height:1.7;">practice: เหมาะกับ Limits and Functions, Continuity and Applications, Differentiation, Integration</div><div class="resource-meta"><span class="mission-chip">Practice and Review</span><span class="mission-chip">link</span></div></a>
+<a class="resource-card" href="http://tutorial.math.lamar.edu/Classes/CalcI/CalcI.aspx" target="_blank" rel="noopener"><div class="card-title">Paul's Online Math Notes: Calculus I</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Limits and Functions, Differentiation, Integration</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">link</span></div></a>
+<a class="resource-card" href="https://ocw.mit.edu/courses/mathematics/18-01-single-variable-calculus-fall-2006/" target="_blank" rel="noopener"><div class="card-title">MIT OpenCourseWare: Single Variable Calculus</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Limits and Functions, Differentiation, Integration</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">link</span></div></a>
+<a class="resource-card" href="https://www.coursera.org/learn/calculus1" target="_blank" rel="noopener"><div class="card-title">Coursera Calculus: Single Variable</div><div class="text-muted" style="line-height:1.7;">review: เหมาะกับ Differentiation, Integration</div><div class="resource-meta"><span class="mission-chip">Practice and Review</span><span class="mission-chip">link</span></div></a>
+<a class="resource-card" href="https://www.edx.org/course/calculus-1a-differentiation" target="_blank" rel="noopener"><div class="card-title">edX Calculus 1A: Differentiation</div><div class="text-muted" style="line-height:1.7;">review: เหมาะกับ Differentiation</div><div class="resource-meta"><span class="mission-chip">Differentiation</span><span class="mission-chip">link</span></div></a>
+<a class="resource-card" href="https://www.youtube.com/playlist?list=PLDesaqWTN6ES3tEYoj4THcPgZ4aPqB6a1" target="_blank" rel="noopener"><div class="card-title">Professor Leonard Calculus I Playlist</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Limits and Functions, Differentiation, Integration</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">link</span></div></a>
+<div class="resource-card"><div class="card-title">Stewart Calculus: Early Transcendentals (8th ed.)</div><div class="text-muted" style="line-height:1.7;">main text: เหมาะกับ Limits and Functions, Continuity and Applications, Differentiation, Integration</div><div class="resource-note">ประเภท: textbook
+บทบาท: main text
+โมดูลที่เกี่ยวข้อง: Limits and Functions, Continuity and Applications, Differentiation, Integration
+หมายเหตุ: standard first-course text</div><div class="resource-meta"><span class="mission-chip">Core References</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Thomas' Calculus (13th ed.)</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Differentiation, Integration</div><div class="resource-note">ประเภท: textbook
+บทบาท: support
+โมดูลที่เกี่ยวข้อง: Differentiation, Integration
+หมายเหตุ: alternative explanations and exercises</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Rogawski and Adams Calculus: Early Transcendentals (3rd ed.)</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Differentiation, Integration</div><div class="resource-note">ประเภท: textbook
+บทบาท: support
+โมดูลที่เกี่ยวข้อง: Differentiation, Integration
+หมายเหตุ: good for worked examples and comparison</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">note</span></div></div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"calculus1_real_check","course_name_th":"แคลคูลัส 1","course_name_en":"Calculus I","course_short_name":"Calculus I","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A first-course calculus site for limits, continuity, derivatives, and integration, built from the TQF3-first workflow in this repo.","theme":{"brand_icon":"C","accent":"#2563eb","accent_secondary":"#f59e0b"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","proof-unpack","step-sequence","sbra-sequence"],"lesson_completion_xp":45,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Calculus I Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-understand-foundation","emoji":"📘","name":"CLO1 Understand Foundation","req":"Collect quick-check evidence in Limits and Functions.","threshold_xp":150,"required_modules":["limits-and-functions"]},{"id":"clo1-understand-ftc-link","emoji":"📘","name":"CLO1 Understand Ftc Link","req":"Collect concept-check evidence in Integration.","threshold_xp":280,"required_modules":["integration"],"required_badges":["clo1-understand-foundation"]},{"id":"clo2-apply-limits","emoji":"🛠","name":"CLO2 Apply Limits","req":"Collect worked-computation evidence in Limits and Functions.","threshold_xp":160,"required_modules":["limits-and-functions"]},{"id":"clo2-apply-derivative-techniques","emoji":"🛠","name":"CLO2 Apply Derivative Techniques","req":"Collect derivative-exercise evidence in Differentiation.","threshold_xp":240,"required_modules":["differentiation"],"required_badges":["clo2-apply-limits"]},{"id":"clo2-apply-integration-techniques","emoji":"🛠","name":"CLO2 Apply Integration Techniques","req":"Collect integration-exercise evidence in Integration.","threshold_xp":310,"required_modules":["integration"],"required_badges":["clo2-apply-derivative-techniques"],"required_accuracy":60},{"id":"clo3-analyze-continuity","emoji":"🧠","name":"CLO3 Analyze Continuity","req":"Collect SBRA evidence in Continuity and Applications.","threshold_xp":210,"required_modules":["continuity-and-applications"],"required_missions":["sbra-continuity-and-applications-clo3"]},{"id":"clo3-analyze-function-behavior","emoji":"🧠","name":"CLO3 Analyze Function Behavior","req":"Collect application-task evidence in Differentiation.","threshold_xp":240,"required_modules":["differentiation"],"required_badges":["clo3-analyze-continuity"]},{"id":"clo4-evaluate-derivative-justification","emoji":"🎯","name":"CLO4 Evaluate Derivative Justification","req":"Collect explanation-task evidence in Differentiation.","threshold_xp":250,"required_modules":["differentiation"]},{"id":"clo4-evaluate-integral-interpretation","emoji":"🎯","name":"CLO4 Evaluate Integral Interpretation","req":"Collect reasoning-task evidence in Integration.","threshold_xp":280,"required_modules":["integration"],"required_badges":["clo4-evaluate-derivative-justification"]}],"modules":[{"id":"limits-and-functions","slug":"limits-and-functions","title":"Limits and Functions","summary":"Start with function behavior, limit ideas, and first ways to reason about approaching values.","order":1,"module_kind":"concept"},{"id":"continuity-and-applications","slug":"continuity-and-applications","title":"Continuity and Applications","summary":"Use continuity as a bridge between limit ideas and richer function analysis.","order":2,"module_kind":"application"},{"id":"differentiation","slug":"differentiation","title":"Differentiation","summary":"Build derivative concepts, rules, and function-analysis techniques for change and rate.","order":3,"module_kind":"application"},{"id":"integration","slug":"integration","title":"Integration","summary":"Connect area, accumulation, antiderivatives, and the first major links between derivative and integral ideas.","order":4,"module_kind":"application"}],"clos":[{"id":"CLO1","label":"Explain the meaning of limits, continuity, derivatives, and integrals in standard first-course contexts.","bloom":"Understand","assessment_tags":["concepts","definitions"]},{"id":"CLO2","label":"Apply standard calculus techniques to compute limits, derivatives, and integrals.","bloom":"Apply","assessment_tags":["techniques","computation"]},{"id":"CLO3","label":"Analyze functions and their behavior using continuity, derivatives, and definite integrals.","bloom":"Analyze","assessment_tags":["analysis","function-behavior"]},{"id":"CLO4","label":"Use calculus reasoning to justify steps and interpret results in problem-solving situations.","bloom":"Evaluate","assessment_tags":["reasoning","interpretation"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="../assets/js/course-runtime.js"></script>
+<script src="../assets/js/xp.js"></script>
+<script src="../assets/js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>โครงงานคณิตศาสตร์ | Lessons</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  
+<style>
+  .lesson-module-rail {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:1rem;
+  }
+  .lesson-rail-link {
+    display:block;
+    padding:.85rem 1rem;
+    border-radius:14px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.03);
+    color:var(--color-text);
+    text-decoration:none;
+  }
+  .lesson-rail-link strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.2rem;
+  }
+  .lesson-roadmap-grid {
+    display:grid;
+    gap:1rem;
+    margin-top:1rem;
+  }
+  .lesson-roadmap-card {
+    border:1px solid var(--color-border);
+    border-radius:var(--radius);
+    background:rgba(255,255,255,.03);
+    padding:1rem;
+  }
+  .lesson-roadmap-head {
+    display:flex;
+    justify-content:space-between;
+    gap:.75rem;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .lesson-order-pill {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:2rem;
+    height:2rem;
+    padding:0 .65rem;
+    border-radius:999px;
+    background:rgba(34,211,238,.12);
+    border:1px solid rgba(34,211,238,.28);
+    font-weight:800;
+    color:#fff;
+  }
+  .lesson-roadmap-summary {
+    color:var(--color-muted);
+    line-height:1.8;
+    margin:.7rem 0;
+  }
+  .lesson-meta-row {
+    display:flex;
+    flex-wrap:wrap;
+    gap:.45rem;
+    margin:.75rem 0;
+  }
+  .lesson-mini-pill {
+    display:inline-flex;
+    align-items:center;
+    padding:.2rem .6rem;
+    border-radius:999px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.04);
+    font-size:.78rem;
+    font-weight:700;
+  }
+  .lesson-activity-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:.85rem;
+  }
+  .lesson-activity-card {
+    border:1px dashed var(--color-border);
+    border-radius:12px;
+    background:rgba(10,6,20,.45);
+    padding:.85rem;
+  }
+  .lesson-activity-card strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.25rem;
+  }
+  .lesson-activity-card p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.7;
+    font-size:.88rem;
+  }
+  .lesson-page-note {
+    color:var(--color-muted);
+    line-height:1.8;
+  }
+</style>
+
+</head>
+<body data-page="lessons">
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">M</span> Math Project <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="lessons.html" class="nav-link active"><span class="nl-icon">📚</span>Lessons</a>
+<a href="missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="content/" class="nav-link"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card">
+      <h1 class="page-title">บทเรียนทั้งหมด 4 โมดูล</h1>
+      <p class="page-subtitle">lesson hub ของรายวิชานี้ล้อตามจำนวนโมดูลของแผนการสอน เพื่อให้เห็นลำดับหัวข้อ เส้นทางเรียน และกิจกรรม active learning ของแต่ละบทอย่างชัดเจน</p>
+      <p class="lesson-page-note">
+        ใช้ rail ด้านล่างเพื่อกระโดดไปยังโมดูลที่ต้องการ แล้วดู roadmap ของแต่ละบทเพื่อเห็นสรุปหัวข้อ กิจกรรม และจุดเชื่อมไปยังหน้าโมดูลจริง
+      </p>
+      <div class="lesson-module-rail" id="lessons-module-rail">
+        
+      <a class="lesson-rail-link" href="#lesson-module-project-scoping-and-advisor-alignment">
+        <strong>โมดูล 1</strong>
+        <span>Project Scoping and Advisor Alignment</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-literature-review-and-project-planning">
+        <strong>โมดูล 2</strong>
+        <span>Literature Review and Project Planning</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-project-execution-and-progress-review">
+        <strong>โมดูล 3</strong>
+        <span>Project Execution and Progress Review</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-report-writing-and-seminar-presentation">
+        <strong>โมดูล 4</strong>
+        <span>Report Writing and Seminar Presentation</span>
+      </a>
+    
+      </div>
+    </section>
+    <section class="card" id="lessons-roadmap">
+      <div class="card-title">แผนที่บทเรียนตามโมดูล</div>
+      <p class="lesson-page-note">
+        การ์ดแต่ละใบช่วยให้เห็นว่าบทนี้เน้นเรื่องอะไร อยู่ลำดับไหนของรายวิชา และมีกิจกรรม active learning แบบใดให้ใช้ประกอบก่อนเข้าเนื้อหาเต็ม
+      </p>
+      <div class="lesson-roadmap-grid">
+        
+      <article class="lesson-roadmap-card" id="lesson-module-project-scoping-and-advisor-alignment">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 1</div>
+            <div class="card-title" style="margin-top:.15rem;">Project Scoping and Advisor Alignment</div>
+          </div>
+          <span class="lesson-order-pill">1</span>
+        </div>
+        <p class="lesson-roadmap-summary">Clarify project interests, shape a feasible topic, and connect it with advisor feedback.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: project</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">2 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/project-scoping-and-advisor-alignment/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-literature-review-and-project-planning">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 2</div>
+            <div class="card-title" style="margin-top:.15rem;">Literature Review and Project Planning</div>
+          </div>
+          <span class="lesson-order-pill">2</span>
+        </div>
+        <p class="lesson-roadmap-summary">Search, evaluate, and synthesize relevant sources to frame a project direction and plan.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: analysis</span>
+          <span class="lesson-mini-pill">3 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🧩 คลี่นิยามทีละส่วน</strong>
+            <p>แยกนิยามหรือเงื่อนไขสำคัญออกเป็นชิ้น ๆ เพื่อมองความหมายได้ชัดขึ้น</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/literature-review-and-project-planning/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-project-execution-and-progress-review">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 3</div>
+            <div class="card-title" style="margin-top:.15rem;">Project Execution and Progress Review</div>
+          </div>
+          <span class="lesson-order-pill">3</span>
+        </div>
+        <p class="lesson-roadmap-summary">Carry out the project with advisor consultation, evidence logging, and progress reporting.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: project</span>
+          <span class="lesson-mini-pill">3 CLOs</span>
+          <span class="lesson-mini-pill">2 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/project-execution-and-progress-review/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-report-writing-and-seminar-presentation">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 4</div>
+            <div class="card-title" style="margin-top:.15rem;">Report Writing and Seminar Presentation</div>
+          </div>
+          <span class="lesson-order-pill">4</span>
+        </div>
+        <p class="lesson-roadmap-summary">Prepare the final report, refine communication, and present the project in seminar form.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: communication</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">2 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/report-writing-and-seminar-presentation/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+      </div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"project_in_mathematics_real_check","course_name_th":"โครงงานคณิตศาสตร์","course_name_en":"Project in Mathematics","course_short_name":"Math Project","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A project-based mathematics course focused on topic selection, planning, evidence gathering, progress communication, and final seminar presentation under advisor supervision.","theme":{"brand_icon":"M","accent":"#0f766e","accent_secondary":"#f59e0b"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","proof-unpack","step-sequence","sbra-sequence"],"lesson_completion_xp":45,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Open the course and begin collecting XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least one module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Project Master","req":"Complete the course with at least 80% accuracy.","threshold_xp":480,"required_accuracy":80},{"id":"clo1-understand-starter","emoji":"📘","name":"CLO1 Understand Starter","req":"Collect quick-check evidence in Project Scoping and Advisor Alignment","threshold_xp":150,"required_modules":["project-scoping-and-advisor-alignment"]},{"id":"clo2-analyze-readiness","emoji":"🔍","name":"CLO2 Analyze Readiness","req":"Collect SBRA candidate evidence in Literature Review and Project Planning","threshold_xp":210,"required_modules":["literature-review-and-project-planning"],"required_missions":["sbra-literature-review-and-project-planning-clo2"]},{"id":"clo3-apply-builder","emoji":"🛠","name":"CLO3 Apply Builder","req":"Collect planning draft evidence in Literature Review and Project Planning","threshold_xp":200,"required_modules":["literature-review-and-project-planning"]},{"id":"clo4-evaluate-progress","emoji":"🎯","name":"CLO4 Evaluate Progress","req":"Collect progress presentation evidence in Project Execution and Progress Review","threshold_xp":240,"required_modules":["project-execution-and-progress-review"]},{"id":"clo4-evaluate-seminar","emoji":"🎯","name":"CLO4 Evaluate Seminar","req":"Collect seminar presentation evidence in Report Writing and Seminar Presentation","threshold_xp":310,"required_modules":["report-writing-and-seminar-presentation"],"required_badges":["clo4-evaluate-progress"],"required_accuracy":60},{"id":"clo5-apply-discipline","emoji":"🛠","name":"CLO5 Apply Discipline","req":"Collect advisor log review evidence in Project Execution and Progress Review","threshold_xp":240,"required_modules":["project-execution-and-progress-review"]}],"modules":[{"id":"project-scoping-and-advisor-alignment","slug":"project-scoping-and-advisor-alignment","title":"Project Scoping and Advisor Alignment","summary":"Clarify project interests, shape a feasible topic, and connect it with advisor feedback.","order":1,"module_kind":"project","clo_ids":["CLO1","CLO2"]},{"id":"literature-review-and-project-planning","slug":"literature-review-and-project-planning","title":"Literature Review and Project Planning","summary":"Search, evaluate, and synthesize relevant sources to frame a project direction and plan.","order":2,"module_kind":"analysis","clo_ids":["CLO1","CLO2","CLO3"]},{"id":"project-execution-and-progress-review","slug":"project-execution-and-progress-review","title":"Project Execution and Progress Review","summary":"Carry out the project with advisor consultation, evidence logging, and progress reporting.","order":3,"module_kind":"project","clo_ids":["CLO3","CLO4","CLO5"]},{"id":"report-writing-and-seminar-presentation","slug":"report-writing-and-seminar-presentation","title":"Report Writing and Seminar Presentation","summary":"Prepare the final report, refine communication, and present the project in seminar form.","order":4,"module_kind":"communication","clo_ids":["CLO4","CLO5"]}],"clos":[{"id":"CLO1","label":"Search for relevant sources and project ideas appropriately.","bloom":"Understand","assessment_tags":["search","source-evaluation"]},{"id":"CLO2","label":"Analyze related work to define a meaningful mathematics project direction.","bloom":"Analyze","assessment_tags":["analysis","project-framing"]},{"id":"CLO3","label":"Design a suitable study or analysis process for the selected project problem.","bloom":"Apply","assessment_tags":["project-design","method"]},{"id":"CLO4","label":"Present project progress and findings clearly and appropriately.","bloom":"Evaluate","assessment_tags":["presentation","communication"]},{"id":"CLO5","label":"Work with discipline, responsibility, and respect for advisor and project roles.","bloom":"Apply","assessment_tags":["discipline","professionalism"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="assets/js/course-runtime.js"></script>
+<script src="assets/js/xp.js"></script>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cause-gen.local/schemas/retrieved-problems.schema.json",
+  "title": "Cause Gen Retrieved Problems",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "items"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "retrieval_id",
+          "query_id",
+          "source_id",
+          "source_url",
+          "source_title",
+          "retrieved_excerpt",
+          "review_status"
+        ],
+        "properties": {
+          "retrieval_id": {
+            "type": "string"
+          },
+          "query_id": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string"
+          },
+          "source_title": {
+            "type": "string"
+          },
+          "retrieved_excerpt": {
+            "type": "string"
+          },
+          "retrieval_query": {
+            "type": "string"
+          },
+          "license_note": {
+            "type": "string"
+          },
+          "attribution_required": {
+            "type": "boolean"
+          },
+          "candidate_module_id": {
+            "type": "string"
+          },
+          "candidate_clo_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "candidate_bloom_levels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": "string"
+          },
+          "review_status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

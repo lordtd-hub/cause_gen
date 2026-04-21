@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>โครงงานคณิตศาสตร์ | Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  
+<style>
+  .identity-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    background: linear-gradient(135deg, var(--color-surface), var(--color-surface2));
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin: 1.25rem auto 1rem;
+    box-shadow: 0 20px 60px -20px rgba(139, 92, 246, 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  .identity-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(139,92,246,0.18), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(251,113,133,0.12), transparent 45%);
+    pointer-events: none;
+  }
+  .identity-avatar {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    padding: 8px;
+    background: conic-gradient(
+      var(--color-accent3) calc(var(--xp-pct, 0) * 1%),
+      rgba(255,255,255,0.08) 0
+    );
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .identity-avatar-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a1030, #2a1e4d);
+    display: grid;
+    place-items: center;
+    border: 2px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .identity-avatar-emoji {
+    font-size: 3.8rem;
+    line-height: 1;
+    filter: drop-shadow(0 4px 12px rgba(139,92,246,0.5));
+  }
+  .identity-xp-pill {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--color-accent3), #f97316);
+    color: #1a1030;
+    font-weight: 800;
+    font-size: .75rem;
+    padding: .2rem .7rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(250,204,21,0.4);
+  }
+  .identity-body {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+  }
+  .identity-greeting {
+    color: var(--color-muted);
+    font-size: .9rem;
+    margin-bottom: .15rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+  }
+  .identity-name-row {
+    display: flex;
+    align-items: baseline;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-bottom: .4rem;
+  }
+  .identity-name {
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #fff 0%, var(--color-primary-light) 55%, var(--color-accent1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.15;
+    cursor: pointer;
+    border-bottom: 2px dashed transparent;
+    transition: border-color .2s;
+    min-width: 200px;
+  }
+  .identity-name:hover { border-bottom-color: rgba(167,139,250,.5); }
+  .identity-name.placeholder {
+    -webkit-text-fill-color: var(--color-muted);
+    color: var(--color-muted);
+    font-weight: 600;
+    font-size: 1.3rem;
+    font-style: italic;
+  }
+  .identity-name-edit-btn {
+    background: rgba(139,92,246,.18);
+    border: 1px solid rgba(139,92,246,.45);
+    color: var(--color-primary-light);
+    font-size: .7rem;
+    padding: .15rem .5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .identity-name-edit-btn:hover {
+    background: rgba(139,92,246,.35);
+    color: #fff;
+  }
+  .identity-name-input {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: rgba(255,255,255,.06);
+    border: 1px solid var(--color-primary);
+    color: #fff;
+    padding: .35rem .6rem;
+    border-radius: 8px;
+    font-family: inherit;
+    outline: none;
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 0 0 0 3px rgba(139,92,246,.25);
+  }
+  .identity-badge-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(251,113,133,0.15));
+    border: 1px solid rgba(139,92,246,0.4);
+    padding: .35rem .8rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: .95rem;
+    color: #fff;
+    margin-right: .5rem;
+  }
+  .identity-badge-emoji {
+    font-size: 1.15rem;
+    filter: drop-shadow(0 2px 6px rgba(250,204,21,0.4));
+  }
+  .identity-progress {
+    color: var(--color-muted);
+    font-size: .85rem;
+    margin-top: .25rem;
+  }
+  .identity-progress b {
+    color: var(--color-accent3);
+    font-weight: 700;
+  }
+  .identity-attrib {
+    display: inline-block;
+    margin-top: .8rem;
+    color: var(--color-muted);
+    font-size: .78rem;
+    font-style: italic;
+    padding: .2rem .6rem;
+    border-left: 2px solid var(--color-primary);
+    background: rgba(139,92,246,.06);
+    border-radius: 4px;
+  }
+  .howto-card {
+    background: linear-gradient(135deg, rgba(34,211,238,0.08), rgba(139,92,246,0.05));
+    border: 1px solid rgba(34,211,238,0.25);
+  }
+  .howto-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: .85rem;
+    margin-top: 1rem;
+  }
+  .howto-step {
+    background: rgba(0,0,0,0.18);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-sm);
+    padding: .9rem 1rem;
+    display: flex;
+    gap: .75rem;
+    align-items: flex-start;
+    transition: all .2s;
+  }
+  .howto-step:hover {
+    border-color: var(--color-accent2);
+    transform: translateY(-2px);
+  }
+  .howto-num {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent1));
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.05rem;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 4px 10px rgba(139,92,246,0.35);
+  }
+  .howto-title {
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: .15rem;
+    font-size: .95rem;
+  }
+  .howto-desc {
+    color: var(--color-muted);
+    font-size: .82rem;
+    line-height: 1.5;
+  }
+  .xp-info {
+    min-width: 0;
+    width: 100%;
+  }
+  .home-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .75rem;
+    margin-top: 1rem;
+  }
+  .stat-tile {
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+    background: rgba(10,6,20,.34);
+    padding: .8rem .9rem;
+    min-width: 0;
+  }
+  .stat-val {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .stat-lbl {
+    color: var(--color-muted);
+    font-size: .78rem;
+    line-height: 1.45;
+    margin-top: .22rem;
+  }
+  @media (max-width: 780px) {
+    .home-stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 540px) {
+    .xp-info {
+      text-align: center;
+    }
+    .home-stats {
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+  }
+  .badge-roadmap {
+    margin-top: 1rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+    font-size: .88rem;
+  }
+  .section-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+  }
+  .mission-spotlight {
+    background: linear-gradient(135deg, rgba(251,113,133,0.15), rgba(139,92,246,0.12));
+    border: 2px dashed rgba(251,113,133,0.6);
+    position: relative;
+  }
+  .mission-spotlight .new-pill {
+    position: absolute;
+    top: -10px;
+    right: 14px;
+    background: linear-gradient(135deg, var(--color-accent3), #f97316);
+    color: #1a1030;
+    font-size: .7rem;
+    font-weight: 900;
+    padding: .2rem .65rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 10px rgba(250,204,21,0.4);
+  }
+  @media (max-width: 700px) {
+    .identity-card {
+      grid-template-columns: 1fr;
+    }
+    .identity-avatar {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+    }
+    .identity-avatar-emoji { font-size: 3.2rem; }
+    .identity-name {
+      font-size: 1.5rem;
+      min-width: 0;
+    }
+    .identity-name-row {
+      justify-content: center;
+    }
+  }
+</style>
+
+</head>
+<body data-page="index">
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">M</span> Math Project <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="index.html" class="nav-link active"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="lessons.html" class="nav-link"><span class="nl-icon">📚</span>Lessons</a>
+<a href="missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="content/" class="nav-link"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="identity-card" id="identity-card">
+      <div class="identity-avatar" id="identity-avatar" style="--xp-pct:0;">
+        <div class="identity-avatar-inner">
+          <div class="identity-avatar-emoji" id="identity-avatar-emoji">🌱</div>
+          <div class="identity-xp-pill"><span id="identity-xp-num">0</span> XP</div>
+        </div>
+      </div>
+
+      <div class="identity-body">
+        <div class="identity-greeting" id="identity-greeting">👋 ยินดีต้อนรับสู่ Math Project</div>
+        <div class="identity-name-row" id="identity-name-row"></div>
+        <div>
+          <span class="identity-badge-chip">
+            <span class="identity-badge-emoji" id="identity-badge-emoji">🌱</span>
+            <span id="identity-badge-name">Starter</span>
+          </span>
+        </div>
+        <div class="identity-progress" id="identity-progress">เริ่มเรียนเพื่อเก็บ XP และปลด badge แรกของคอร์ส</div>
+        <div class="identity-attrib">✦ แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด ✦</div>
+      </div>
+    </section>
+
+    <section class="hero">
+      <h1 class="hero-title">โครงงานคณิตศาสตร์</h1>
+      <p class="hero-subtitle">A project-based mathematics course focused on topic selection, planning, evidence gathering, progress communication, and final seminar presentation under advisor supervision.</p>
+      <div class="cta-row" style="margin-top:1.5rem;">
+        <a href="intro.html" class="btn btn-primary btn-lg">เริ่มเรียน</a>
+        <a href="lessons.html" class="btn btn-lg">อ่านบทเรียน</a>
+        <a href="missions.html" class="btn btn-lg" style="border-color:var(--color-accent1);color:var(--color-accent1);">ลองภารกิจ</a>
+      </div>
+    </section>
+
+    <section class="card howto-card">
+      <div class="card-title">🧭 วิธีใช้งานเบื้องต้น</div>
+      <p class="text-muted text-small" style="margin-bottom:.2rem;">
+        คอร์สนี้ออกแบบให้ใช้ทั้งตอนเรียนด้วยตัวเอง และใช้ประกอบ active learning ในห้องเรียนได้ โดยระบบจะเก็บความคืบหน้าไว้ในเบราว์เซอร์เครื่องนี้
+      </p>
+      <div class="howto-steps">
+        
+    <div class="howto-step">
+      <div class="howto-num">1</div>
+      <div>
+        <div class="howto-title">ตั้งชื่อของคุณ</div>
+        <div class="howto-desc">คลิกที่การ์ดด้านบนเพื่อตั้งชื่อ ระบบจะใช้ชื่อนี้กับข้อความต้อนรับ ความคืบหน้า และการสะสม XP</div>
+      </div>
+    </div>
+  
+
+    <div class="howto-step">
+      <div class="howto-num">2</div>
+      <div>
+        <div class="howto-title">เริ่มจาก intro แล้วค่อยไป lessons</div>
+        <div class="howto-desc">ดูภาพรวมของวิชาก่อน แล้วค่อยเลือกบทเรียนตามลำดับหรือย้อนทบทวนเฉพาะส่วนที่ต้องการ</div>
+      </div>
+    </div>
+  
+
+    <div class="howto-step">
+      <div class="howto-num">3</div>
+      <div>
+        <div class="howto-title">ใช้สื่อ interactive ให้เต็มที่</div>
+        <div class="howto-desc">แต่ละบทออกแบบให้ลองสำรวจกราฟ นิยาม พารามิเตอร์ หรือขั้นตอนการคิดด้วยตัวเองก่อนสรุปคำตอบ</div>
+      </div>
+    </div>
+  
+
+    <div class="howto-step">
+      <div class="howto-num">4</div>
+      <div>
+        <div class="howto-title">ลองภารกิจแบบ SBRA</div>
+        <div class="howto-desc">ภารกิจจะให้เลือก process และ reasoning ทีละขั้น พร้อมประเมินความมั่นใจของตัวเองหลังทำเสร็จ</div>
+      </div>
+    </div>
+  
+      </div>
+    </section>
+
+    <section id="progress" class="xp-dashboard">
+      <div class="xp-ring" id="xp-ring" style="--xp-pct:0;">
+        <div class="xp-ring-inner">
+          <div class="xp-total" id="xp-total-big">0</div>
+          <div class="xp-label">XP</div>
+        </div>
+      </div>
+      <div class="xp-info">
+        <div class="xp-level" id="xp-level">🌱 Starter</div>
+        <div class="xp-next" id="xp-next">เริ่มเรียนเพื่อเก็บ XP และปลด badge แรกของคอร์ส</div>
+        <div class="home-stats">
+          <div class="stat-tile">
+            <div class="stat-val" id="stat-lessons">0</div>
+            <div class="stat-lbl">บทที่เรียน</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-val" id="stat-accuracy">0%</div>
+            <div class="stat-lbl">ความแม่นยำ</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-val" id="stat-games">0</div>
+            <div class="stat-lbl">กิจกรรมเสริม</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-val" id="stat-badges">0 / 9</div>
+            <div class="stat-lbl">badge ที่ได้</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-title">🏅 badge ของคุณ</div>
+      <div class="badge-showcase" id="badge-showcase"></div>
+      <div class="badge-roadmap" id="badge-next-status">
+        ระบบ XP และ badge เป็นฐานร่วมของทุกวิชา เมื่อเรียนจบบทและทำกิจกรรมครบ คุณจะค่อย ๆ ปลด milestone ของรายวิชา
+      </div>
+    </section>
+
+    <h2 class="section-heading">🗺️ เลือกกิจกรรม</h2>
+    <section class="topic-grid">
+      
+      <a href="intro.html" class="topic-card card-intro">
+        <div class="tc-icon">🌱</div>
+        <div class="tc-title">เริ่มจากภาพรวมรายวิชา</div>
+        <div class="tc-desc">ดูเป้าหมายการเรียน วิธีใช้งานคอร์ส และเส้นทางเริ่มต้นแบบไม่กดดันเกินไป</div>
+      </a>
+    
+
+      <a href="lessons.html" class="topic-card card-lessons">
+        <div class="tc-icon">📚</div>
+        <div class="tc-title">อ่านบทเรียนทั้งหมด</div>
+        <div class="tc-desc">เข้า lesson hub เพื่อเลือกบทเรียนตามลำดับ หรือย้อนกลับไปทบทวนหัวข้อที่ต้องการ</div>
+      </a>
+    
+
+      <a href="content/" class="topic-card card-intro">
+        <div class="tc-icon">📄</div>
+        <div class="tc-title">สื่อการเรียนและเอกสาร</div>
+        <div class="tc-desc">รวม handout เอกสารเสริม และโน้ตที่ใช้ทบทวนก่อนเรียน ระหว่างเรียน หรือก่อนทำภารกิจ</div>
+      </a>
+    
+
+      <a href="missions.html" class="topic-card card-lessons mission-spotlight">
+        <span class="new-pill">SBRA</span>
+        <div class="tc-icon">🎯</div>
+        <div class="tc-title">ภารกิจและการวัดผล</div>
+        <div class="tc-desc">ฝึกคิดแบบเป็นขั้น เลือก process และ reasoning ตามแต่ละ step เพื่อวัด CLO อย่างเป็นระบบ</div>
+      </a>
+    
+    </section>
+
+    <section class="card">
+      <div class="card-title">⚙️ จัดการข้อมูลของคุณ</div>
+      <p class="text-muted text-small">
+        ถ้าต้องการเริ่มนับความคืบหน้าใหม่ สามารถล้างข้อมูลคอร์สนี้ได้จากปุ่มด้านล่าง ระบบจะรีเซ็ตชื่อ XP badge และสถานะการเรียนของคอร์สนี้ในเครื่องนี้
+      </p>
+      <div class="mt-2">
+        <button class="btn btn-sm" id="btn-reset">🗑️ ล้างข้อมูลทั้งหมด</button>
+      </div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"project_in_mathematics_real_check","course_name_th":"โครงงานคณิตศาสตร์","course_name_en":"Project in Mathematics","course_short_name":"Math Project","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A project-based mathematics course focused on topic selection, planning, evidence gathering, progress communication, and final seminar presentation under advisor supervision.","theme":{"brand_icon":"M","accent":"#0f766e","accent_secondary":"#f59e0b"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","proof-unpack","step-sequence","sbra-sequence"],"lesson_completion_xp":45,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Open the course and begin collecting XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least one module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Project Master","req":"Complete the course with at least 80% accuracy.","threshold_xp":480,"required_accuracy":80},{"id":"clo1-understand-starter","emoji":"📘","name":"CLO1 Understand Starter","req":"Collect quick-check evidence in Project Scoping and Advisor Alignment","threshold_xp":150,"required_modules":["project-scoping-and-advisor-alignment"]},{"id":"clo2-analyze-readiness","emoji":"🔍","name":"CLO2 Analyze Readiness","req":"Collect SBRA candidate evidence in Literature Review and Project Planning","threshold_xp":210,"required_modules":["literature-review-and-project-planning"],"required_missions":["sbra-literature-review-and-project-planning-clo2"]},{"id":"clo3-apply-builder","emoji":"🛠","name":"CLO3 Apply Builder","req":"Collect planning draft evidence in Literature Review and Project Planning","threshold_xp":200,"required_modules":["literature-review-and-project-planning"]},{"id":"clo4-evaluate-progress","emoji":"🎯","name":"CLO4 Evaluate Progress","req":"Collect progress presentation evidence in Project Execution and Progress Review","threshold_xp":240,"required_modules":["project-execution-and-progress-review"]},{"id":"clo4-evaluate-seminar","emoji":"🎯","name":"CLO4 Evaluate Seminar","req":"Collect seminar presentation evidence in Report Writing and Seminar Presentation","threshold_xp":310,"required_modules":["report-writing-and-seminar-presentation"],"required_badges":["clo4-evaluate-progress"],"required_accuracy":60},{"id":"clo5-apply-discipline","emoji":"🛠","name":"CLO5 Apply Discipline","req":"Collect advisor log review evidence in Project Execution and Progress Review","threshold_xp":240,"required_modules":["project-execution-and-progress-review"]}],"modules":[{"id":"project-scoping-and-advisor-alignment","slug":"project-scoping-and-advisor-alignment","title":"Project Scoping and Advisor Alignment","summary":"Clarify project interests, shape a feasible topic, and connect it with advisor feedback.","order":1,"module_kind":"project","clo_ids":["CLO1","CLO2"]},{"id":"literature-review-and-project-planning","slug":"literature-review-and-project-planning","title":"Literature Review and Project Planning","summary":"Search, evaluate, and synthesize relevant sources to frame a project direction and plan.","order":2,"module_kind":"analysis","clo_ids":["CLO1","CLO2","CLO3"]},{"id":"project-execution-and-progress-review","slug":"project-execution-and-progress-review","title":"Project Execution and Progress Review","summary":"Carry out the project with advisor consultation, evidence logging, and progress reporting.","order":3,"module_kind":"project","clo_ids":["CLO3","CLO4","CLO5"]},{"id":"report-writing-and-seminar-presentation","slug":"report-writing-and-seminar-presentation","title":"Report Writing and Seminar Presentation","summary":"Prepare the final report, refine communication, and present the project in seminar form.","order":4,"module_kind":"communication","clo_ids":["CLO4","CLO5"]}],"clos":[{"id":"CLO1","label":"Search for relevant sources and project ideas appropriately.","bloom":"Understand","assessment_tags":["search","source-evaluation"]},{"id":"CLO2","label":"Analyze related work to define a meaningful mathematics project direction.","bloom":"Analyze","assessment_tags":["analysis","project-framing"]},{"id":"CLO3","label":"Design a suitable study or analysis process for the selected project problem.","bloom":"Apply","assessment_tags":["project-design","method"]},{"id":"CLO4","label":"Present project progress and findings clearly and appropriately.","bloom":"Evaluate","assessment_tags":["presentation","communication"]},{"id":"CLO5","label":"Work with discipline, responsibility, and respect for advisor and project roles.","bloom":"Apply","assessment_tags":["discipline","professionalism"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="assets/js/course-runtime.js"></script>
+<script src="assets/js/xp.js"></script>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

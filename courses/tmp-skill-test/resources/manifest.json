@@ -1,0 +1,23 @@
+{
+  "course_id": "discrete_math_foundations",
+  "items": [
+    {
+      "id": "getting-started",
+      "topic": "Course Overview",
+      "title": "Getting Started",
+      "description": "ภาพรวมของคอร์สทดสอบนี้และวิธีใช้ template ให้เป็นระบบ",
+      "type": "file",
+      "addedDate": "2026-04-21",
+      "path": "files/getting-started.md"
+    },
+    {
+      "id": "module-map",
+      "topic": "Course Overview",
+      "title": "Module Map",
+      "description": "สรุปโครงโมดูลและความเชื่อมโยงกับ CLO ของคอร์สทดสอบ",
+      "type": "file",
+      "addedDate": "2026-04-21",
+      "path": "files/module-map.md"
+    }
+  ]
+}

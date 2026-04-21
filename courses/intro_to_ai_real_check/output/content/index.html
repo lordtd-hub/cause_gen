@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ปัญญาประดิษฐ์เบื้องต้น | Resources</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  
+<style>
+  .resource-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:.9rem; }
+  .resource-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    color: var(--color-text);
+  }
+  .resource-meta { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.75rem; }
+  .resource-note {
+    margin-top:.75rem;
+    padding:.65rem .8rem;
+    border-left:3px solid var(--color-accent2);
+    background:rgba(34,211,238,.06);
+    border-radius:0 8px 8px 0;
+    color:var(--color-text);
+  }
+</style>
+
+</head>
+<body data-page="resources">
+  <nav class="topnav">
+    <a href="../index.html" class="nav-brand"><span class="brand-icon">AI</span> Intro to AI <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="../index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="../intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="../lessons.html" class="nav-link"><span class="nl-icon">📚</span>Lessons</a>
+<a href="../missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="../content/" class="nav-link active"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="../index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card">
+      <h1 class="page-title">Resources</h1>
+      <p class="page-subtitle">รวมสื่อประกอบการเรียนของรายวิชาไว้ในหน้าเดียว เพื่อใช้ทบทวนก่อนเรียน ระหว่างเรียน หรือก่อนทำภารกิจ</p>
+    </section>
+    <section class="resource-grid">
+      <div class="resource-card"><div class="card-title">Artificial Intelligence: A Modern Approach</div><div class="text-muted" style="line-height:1.7;">main text: เหมาะกับ AI Foundations, Search and Problem Solving, Knowledge and Reasoning</div><div class="resource-note">ประเภท: textbook
+บทบาท: main text
+โมดูลที่เกี่ยวข้อง: AI Foundations, Search and Problem Solving, Knowledge and Reasoning
+หมายเหตุ: core AI reference for concepts, search, and reasoning</div><div class="resource-meta"><span class="mission-chip">Core References</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">The Quest for Artificial Intelligence</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ AI Foundations</div><div class="resource-note">ประเภท: textbook
+บทบาท: support
+โมดูลที่เกี่ยวข้อง: AI Foundations
+หมายเหตุ: historical and conceptual background for the field</div><div class="resource-meta"><span class="mission-chip">AI Foundations</span><span class="mission-chip">note</span></div></div>
+<a class="resource-card" href="https://ocw.mit.edu" target="_blank" rel="noopener"><div class="card-title">MIT OpenCourseWare: Introduction to Artificial Intelligence</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Search and Problem Solving, Knowledge and Reasoning</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">link</span></div></a>
+<div class="resource-card"><div class="card-title">Search visualizer and graph search demos</div><div class="text-muted" style="line-height:1.7;">practice: เหมาะกับ Search and Problem Solving</div><div class="resource-note">ประเภท: interactive
+บทบาท: practice
+โมดูลที่เกี่ยวข้อง: Search and Problem Solving
+หมายเหตุ: use for BFS, DFS, best-first, and heuristic comparison</div><div class="resource-meta"><span class="mission-chip">Search and Problem Solving</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Logic and knowledge representation notes</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Knowledge and Reasoning</div><div class="resource-note">ประเภท: notes
+บทบาท: support
+โมดูลที่เกี่ยวข้อง: Knowledge and Reasoning
+หมายเหตุ: support material for facts, rules, and inference</div><div class="resource-meta"><span class="mission-chip">Knowledge and Reasoning</span><span class="mission-chip">note</span></div></div>
+<a class="resource-card" href="https://colab.research.google.com" target="_blank" rel="noopener"><div class="card-title">Google Colab starter notebooks for introductory AI coding</div><div class="text-muted" style="line-height:1.7;">practice: เหมาะกับ Knowledge and Reasoning, Intelligent Systems and Ethics</div><div class="resource-meta"><span class="mission-chip">Practice and Review</span><span class="mission-chip">link</span></div></a>
+<div class="resource-card"><div class="card-title">Neural network playground or Keras demonstrations</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Intelligent Systems and Ethics</div><div class="resource-note">ประเภท: interactive
+บทบาท: support
+โมดูลที่เกี่ยวข้อง: Intelligent Systems and Ethics
+หมายเหตุ: demo tools for model behavior, limits, and interpretation</div><div class="resource-meta"><span class="mission-chip">Intelligent Systems and Ethics</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">AI ethics reading pack and case prompts</div><div class="text-muted" style="line-height:1.7;">review: เหมาะกับ AI Foundations, Intelligent Systems and Ethics</div><div class="resource-note">ประเภท: reading-pack
+บทบาท: review
+โมดูลที่เกี่ยวข้อง: AI Foundations, Intelligent Systems and Ethics
+หมายเหตุ: case prompts for bias, transparency, accountability, and responsible deployment</div><div class="resource-meta"><span class="mission-chip">Practice and Review</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Untitled resource</div><div class="text-muted" style="line-height:1.7;">support: ใช้เป็นแหล่งอ้างอิงของรายวิชา</div><div class="resource-note">ประเภท: resource
+บทบาท: support</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Untitled resource</div><div class="text-muted" style="line-height:1.7;">support: ใช้เป็นแหล่งอ้างอิงของรายวิชา</div><div class="resource-note">ประเภท: resource
+บทบาท: support</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Untitled resource</div><div class="text-muted" style="line-height:1.7;">support: ใช้เป็นแหล่งอ้างอิงของรายวิชา</div><div class="resource-note">ประเภท: resource
+บทบาท: support</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Untitled resource</div><div class="text-muted" style="line-height:1.7;">support: ใช้เป็นแหล่งอ้างอิงของรายวิชา</div><div class="resource-note">ประเภท: resource
+บทบาท: support</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Untitled resource</div><div class="text-muted" style="line-height:1.7;">support: ใช้เป็นแหล่งอ้างอิงของรายวิชา</div><div class="resource-note">ประเภท: resource
+บทบาท: support</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Untitled resource</div><div class="text-muted" style="line-height:1.7;">support: ใช้เป็นแหล่งอ้างอิงของรายวิชา</div><div class="resource-note">ประเภท: resource
+บทบาท: support</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Untitled resource</div><div class="text-muted" style="line-height:1.7;">support: ใช้เป็นแหล่งอ้างอิงของรายวิชา</div><div class="resource-note">ประเภท: resource
+บทบาท: support</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Untitled resource</div><div class="text-muted" style="line-height:1.7;">support: ใช้เป็นแหล่งอ้างอิงของรายวิชา</div><div class="resource-note">ประเภท: resource
+บทบาท: support</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">note</span></div></div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"intro_to_ai_real_check","course_name_th":"ปัญญาประดิษฐ์เบื้องต้น","course_name_en":"Introduction to Artificial Intelligence","course_short_name":"Intro to AI","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"An introductory AI course site for core concepts, search, reasoning, and ethical use of intelligent systems, built from the TQF3-first workflow in this repo.","theme":{"brand_icon":"AI","accent":"#0f766e","accent_secondary":"#f59e0b"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","proof-unpack","step-sequence","sbra-sequence"],"lesson_completion_xp":45,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Intro to AI Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-ai-language","emoji":"📘","name":"CLO1 Understand AI Language","req":"Collect quick-check evidence in AI Foundations.","threshold_xp":150,"required_modules":["ai-foundations"]},{"id":"clo2-search-strategist","emoji":"🛠","name":"CLO2 Apply Search Strategist","req":"Collect SBRA evidence in Search and Problem Solving.","threshold_xp":210,"required_modules":["search-and-problem-solving"],"required_missions":["sbra-search-and-problem-solving-clo2"]},{"id":"clo3-reasoning-analyst","emoji":"🧠","name":"CLO3 Analyze Reasoning Analyst","req":"Collect reasoning-task evidence in Knowledge and Reasoning.","threshold_xp":250,"required_modules":["knowledge-and-reasoning"]},{"id":"clo4-ethical-evaluator","emoji":"🎯","name":"CLO4 Evaluate Ethical Evaluator","req":"Collect reflection-task evidence in Intelligent Systems and Ethics.","threshold_xp":310,"required_modules":["intelligent-systems-and-ethics"],"required_accuracy":60}],"modules":[{"id":"ai-foundations","slug":"ai-foundations","title":"AI Foundations","summary":"Start with core AI ideas, scope, domains, and the language used across the field.","order":1,"module_kind":"concept"},{"id":"search-and-problem-solving","slug":"search-and-problem-solving","title":"Search and Problem Solving","summary":"Use state spaces, search strategies, and heuristics to reason about AI problem solving.","order":2,"module_kind":"application"},{"id":"knowledge-and-reasoning","slug":"knowledge-and-reasoning","title":"Knowledge and Reasoning","summary":"Connect representation, logic, and inference to structured AI reasoning tasks.","order":3,"module_kind":"application"},{"id":"intelligent-systems-and-ethics","slug":"intelligent-systems-and-ethics","title":"Intelligent Systems and Ethics","summary":"Relate AI methods to real systems, limitations, and ethical decision making.","order":4,"module_kind":"proof"}],"clos":[{"id":"CLO1","label":"Explain core AI concepts, terminology, and problem domains.","bloom":"Understand","assessment_tags":["concepts","terminology"]},{"id":"CLO2","label":"Apply search, reasoning, and representation ideas to structured AI tasks.","bloom":"Apply","assessment_tags":["search","representation"]},{"id":"CLO3","label":"Analyze AI methods, model behavior, and suitable solution strategies.","bloom":"Analyze","assessment_tags":["analysis","strategy"]},{"id":"CLO4","label":"Evaluate AI use cases, limitations, and ethical implications in practical settings.","bloom":"Evaluate","assessment_tags":["ethics","evaluation"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="../assets/js/course-runtime.js"></script>
+<script src="../assets/js/xp.js"></script>
+<script src="../assets/js/nav.js"></script>
+</body>
+</html>

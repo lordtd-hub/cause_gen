@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ตัวแปรเชิงซ้อน | Lessons</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  
+<style>
+  .lesson-module-rail {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:1rem;
+  }
+  .lesson-rail-link {
+    display:block;
+    padding:.85rem 1rem;
+    border-radius:14px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.03);
+    color:var(--color-text);
+    text-decoration:none;
+  }
+  .lesson-rail-link strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.2rem;
+  }
+  .lesson-roadmap-grid {
+    display:grid;
+    gap:1rem;
+    margin-top:1rem;
+  }
+  .lesson-roadmap-card {
+    border:1px solid var(--color-border);
+    border-radius:var(--radius);
+    background:rgba(255,255,255,.03);
+    padding:1rem;
+  }
+  .lesson-roadmap-head {
+    display:flex;
+    justify-content:space-between;
+    gap:.75rem;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .lesson-order-pill {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:2rem;
+    height:2rem;
+    padding:0 .65rem;
+    border-radius:999px;
+    background:rgba(34,211,238,.12);
+    border:1px solid rgba(34,211,238,.28);
+    font-weight:800;
+    color:#fff;
+  }
+  .lesson-roadmap-summary {
+    color:var(--color-muted);
+    line-height:1.8;
+    margin:.7rem 0;
+  }
+  .lesson-meta-row {
+    display:flex;
+    flex-wrap:wrap;
+    gap:.45rem;
+    margin:.75rem 0;
+  }
+  .lesson-mini-pill {
+    display:inline-flex;
+    align-items:center;
+    padding:.2rem .6rem;
+    border-radius:999px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.04);
+    font-size:.78rem;
+    font-weight:700;
+  }
+  .lesson-activity-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:.85rem;
+  }
+  .lesson-activity-card {
+    border:1px dashed var(--color-border);
+    border-radius:12px;
+    background:rgba(10,6,20,.45);
+    padding:.85rem;
+  }
+  .lesson-activity-card strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.25rem;
+  }
+  .lesson-activity-card p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.7;
+    font-size:.88rem;
+  }
+  .lesson-page-note {
+    color:var(--color-muted);
+    line-height:1.8;
+  }
+</style>
+
+</head>
+<body data-page="lessons">
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">Z</span> Complex Variables <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="lessons.html" class="nav-link active"><span class="nl-icon">📚</span>Lessons</a>
+<a href="missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="content/" class="nav-link"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card">
+      <h1 class="page-title">บทเรียนทั้งหมด 5 โมดูล</h1>
+      <p class="page-subtitle">lesson hub ของรายวิชานี้ล้อตามจำนวนโมดูลของแผนการสอน เพื่อให้เห็นลำดับหัวข้อ เส้นทางเรียน และกิจกรรม active learning ของแต่ละบทอย่างชัดเจน</p>
+      <p class="lesson-page-note">
+        ใช้ rail ด้านล่างเพื่อกระโดดไปยังโมดูลที่ต้องการ แล้วดู roadmap ของแต่ละบทเพื่อเห็นสรุปหัวข้อ กิจกรรม และจุดเชื่อมไปยังหน้าโมดูลจริง
+      </p>
+      <div class="lesson-module-rail" id="lessons-module-rail">
+        
+      <a class="lesson-rail-link" href="#lesson-module-complex-number-foundations">
+        <strong>โมดูล 1</strong>
+        <span>Complex Number Foundations</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-limits-and-continuity">
+        <strong>โมดูล 2</strong>
+        <span>Limits and Continuity in the Complex Plane</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-complex-differentiation">
+        <strong>โมดูล 3</strong>
+        <span>Complex Differentiation and Analytic Functions</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-complex-integration">
+        <strong>โมดูล 4</strong>
+        <span>Complex Integration</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-series-and-applications">
+        <strong>โมดูล 5</strong>
+        <span>Taylor, Laurent, and Applications</span>
+      </a>
+    
+      </div>
+    </section>
+    <section class="card" id="lessons-roadmap">
+      <div class="card-title">แผนที่บทเรียนตามโมดูล</div>
+      <p class="lesson-page-note">
+        การ์ดแต่ละใบช่วยให้เห็นว่าบทนี้เน้นเรื่องอะไร อยู่ลำดับไหนของรายวิชา และมีกิจกรรม active learning แบบใดให้ใช้ประกอบก่อนเข้าเนื้อหาเต็ม
+      </p>
+      <div class="lesson-roadmap-grid">
+        
+      <article class="lesson-roadmap-card" id="lesson-module-complex-number-foundations">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 1</div>
+            <div class="card-title" style="margin-top:.15rem;">Complex Number Foundations</div>
+          </div>
+          <span class="lesson-order-pill">1</span>
+        </div>
+        <p class="lesson-roadmap-summary">Start from algebraic form, geometric interpretation, and the complex plane as the base language of the course.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: concept</span>
+          <span class="lesson-mini-pill">1 CLOs</span>
+          <span class="lesson-mini-pill">2 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🧩 คลี่นิยามทีละส่วน</strong>
+            <p>แยกนิยามหรือเงื่อนไขสำคัญออกเป็นชิ้น ๆ เพื่อมองความหมายได้ชัดขึ้น</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/complex-number-foundations/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-limits-and-continuity">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 2</div>
+            <div class="card-title" style="margin-top:.15rem;">Limits and Continuity in the Complex Plane</div>
+          </div>
+          <span class="lesson-order-pill">2</span>
+        </div>
+        <p class="lesson-roadmap-summary">Reconnect sequence, limit, and continuity ideas from analysis and move them into complex-valued settings.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: concept</span>
+          <span class="lesson-mini-pill">1 CLOs</span>
+          <span class="lesson-mini-pill">2 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/limits-and-continuity/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-complex-differentiation">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 3</div>
+            <div class="card-title" style="margin-top:.15rem;">Complex Differentiation and Analytic Functions</div>
+          </div>
+          <span class="lesson-order-pill">3</span>
+        </div>
+        <p class="lesson-roadmap-summary">Build the meaning of complex derivatives and analytic behavior through comparison with real-variable ideas.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: concept</span>
+          <span class="lesson-mini-pill">1 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>💡 sbra-sequence</strong>
+            <p>กิจกรรม interactive ของบทนี้จะถูกเติมต่อในรอบ authoring</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/complex-differentiation/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-complex-integration">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 4</div>
+            <div class="card-title" style="margin-top:.15rem;">Complex Integration</div>
+          </div>
+          <span class="lesson-order-pill">4</span>
+        </div>
+        <p class="lesson-roadmap-summary">Study contour-style integration and connect it to earlier work on integrals and paths.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: application</span>
+          <span class="lesson-mini-pill">1 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>💡 sbra-sequence</strong>
+            <p>กิจกรรม interactive ของบทนี้จะถูกเติมต่อในรอบ authoring</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/complex-integration/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-series-and-applications">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 5</div>
+            <div class="card-title" style="margin-top:.15rem;">Taylor, Laurent, and Applications</div>
+          </div>
+          <span class="lesson-order-pill">5</span>
+        </div>
+        <p class="lesson-roadmap-summary">Use expansions and local representations to reason about complex functions and integral applications.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: application</span>
+          <span class="lesson-mini-pill">1 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>💡 sbra-sequence</strong>
+            <p>กิจกรรม interactive ของบทนี้จะถูกเติมต่อในรอบ authoring</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/series-and-applications/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+      </div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"complex_variables_real_check","course_name_th":"ตัวแปรเชิงซ้อน","course_name_en":"Complex Variables","course_short_name":"Complex Variables","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A learner-facing complex variables course that helps students connect algebraic, geometric, and analytic ideas through modules, missions, and active-learning resources.","theme":{"brand_icon":"Z","accent":"#2563eb","accent_secondary":"#f59e0b"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","step-sequence","sbra-sequence"],"lesson_completion_xp":50,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Complex Variables Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-complex-foundations","emoji":"📘","name":"CLO1 Understand Complex Foundations","req":"Collect quick-check evidence in Complex Number Foundations.","threshold_xp":150,"required_modules":["complex-number-foundations"]},{"id":"clo2-complex-limits-analyst","emoji":"🧠","name":"CLO2 Analyze Complex Limits Analyst","req":"Collect reasoning-task evidence in Limits and Continuity in the Complex Plane.","threshold_xp":210,"required_modules":["limits-and-continuity"]},{"id":"clo3-analytic-function-strategist","emoji":"🛠","name":"CLO3 Apply Analytic Function Strategist","req":"Collect SBRA evidence in Complex Differentiation and Analytic Functions.","threshold_xp":250,"required_modules":["complex-differentiation"],"required_missions":["sbra-complex-differentiation-clo3"]},{"id":"clo4-complex-integrator","emoji":"🛠","name":"CLO4 Apply Complex Integrator","req":"Collect worked-task evidence in Complex Integration.","threshold_xp":280,"required_modules":["complex-integration"]},{"id":"clo5-series-analyst","emoji":"🧠","name":"CLO5 Analyze Series Analyst","req":"Collect SBRA evidence in Taylor, Laurent, and Applications.","threshold_xp":350,"required_modules":["series-and-applications"],"required_accuracy":60}],"modules":[{"id":"complex-number-foundations","slug":"complex-number-foundations","title":"Complex Number Foundations","summary":"Start from algebraic form, geometric interpretation, and the complex plane as the base language of the course.","order":1,"module_kind":"concept"},{"id":"limits-and-continuity","slug":"limits-and-continuity","title":"Limits and Continuity in the Complex Plane","summary":"Reconnect sequence, limit, and continuity ideas from analysis and move them into complex-valued settings.","order":2,"module_kind":"concept"},{"id":"complex-differentiation","slug":"complex-differentiation","title":"Complex Differentiation and Analytic Functions","summary":"Build the meaning of complex derivatives and analytic behavior through comparison with real-variable ideas.","order":3,"module_kind":"concept"},{"id":"complex-integration","slug":"complex-integration","title":"Complex Integration","summary":"Study contour-style integration and connect it to earlier work on integrals and paths.","order":4,"module_kind":"application"},{"id":"series-and-applications","slug":"series-and-applications","title":"Taylor, Laurent, and Applications","summary":"Use expansions and local representations to reason about complex functions and integral applications.","order":5,"module_kind":"application"}],"clos":[{"id":"CLO1","label":"Explain the algebraic and geometric foundations of complex numbers.","bloom":"Understand","assessment_tags":["concepts","complex-plane"]},{"id":"CLO2","label":"Analyze limits and continuity of complex functions using prior analysis knowledge.","bloom":"Analyze","assessment_tags":["limits","continuity"]},{"id":"CLO3","label":"Explain and apply complex differentiation, analytic functions, and holomorphic functions.","bloom":"Apply","assessment_tags":["derivatives","analytic-functions"]},{"id":"CLO4","label":"Explain and compute complex integrals along suitable paths.","bloom":"Apply","assessment_tags":["integrals","contours"]},{"id":"CLO5","label":"Use Taylor and Laurent series to study complex functions and support integral reasoning.","bloom":"Analyze","assessment_tags":["series","residue-ideas"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="assets/js/course-runtime.js"></script>
+<script src="assets/js/xp.js"></script>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

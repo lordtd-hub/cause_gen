@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ตัวแปรเชิงซ้อน | Missions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  
+<style>
+  .mission-grid { display: grid; gap: 1rem; }
+  .mission-page-note {
+    color: var(--color-muted);
+    line-height: 1.8;
+  }
+  .mission-primer-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:.85rem;
+    margin-top:1rem;
+  }
+  .mission-primer-card,
+  .mission-next-card,
+  .mission-overview-card {
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--color-border);
+    border-radius:12px;
+    padding:.9rem 1rem;
+  }
+  .mission-primer-card strong,
+  .mission-next-card strong,
+  .mission-overview-card strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.25rem;
+  }
+  .mission-primer-card p,
+  .mission-next-card p,
+  .mission-overview-card p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.7;
+    font-size:.9rem;
+  }
+  .mission-overview {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:1rem;
+  }
+  .mission-overview-card .mission-overview-number {
+    font-size:1.35rem;
+    font-weight:800;
+    color:#fff;
+    margin:.15rem 0;
+  }
+  .mission-heatmap {
+    display:grid;
+    grid-template-columns:minmax(150px, 1.2fr) repeat(6, minmax(48px, 1fr));
+    gap:.35rem;
+    margin-top:1rem;
+    font-size:.8rem;
+  }
+  .heatmap-head {
+    padding:.5rem .3rem;
+    text-align:center;
+    font-weight:700;
+    color:var(--color-muted);
+    background:rgba(255,255,255,.03);
+    border-radius:10px;
+    line-height:1.25;
+  }
+  .heatmap-row-label {
+    padding:.55rem .65rem;
+    background:rgba(255,255,255,.03);
+    border-radius:10px;
+    color:#fff;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+  }
+  .heatmap-cell {
+    min-height:48px;
+    border:1px solid var(--color-border);
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(8,10,20,.55);
+    color:var(--color-muted);
+    transition:all .15s ease;
+    cursor:pointer;
+    text-align:center;
+    padding:.2rem;
+    font-size:.86rem;
+    font-weight:700;
+  }
+  .heatmap-cell.available {
+    background:rgba(139,92,246,.1);
+    border-color:rgba(139,92,246,.4);
+    color:#fff;
+  }
+  .heatmap-cell.completed {
+    background:linear-gradient(135deg, rgba(52,211,153,.22), rgba(34,211,238,.15));
+    border-color:rgba(52,211,153,.55);
+    color:#fff;
+  }
+  .heatmap-cell.locked {
+    opacity:.4;
+    cursor:default;
+  }
+  .heatmap-cell:hover:not(.locked) {
+    border-color:var(--color-accent2);
+    transform:translateY(-1px);
+  }
+  .topic-tabs {
+    display:flex;
+    flex-wrap:wrap;
+    gap:.45rem;
+    margin:1rem 0 0;
+  }
+  .topic-tab {
+    padding:.45rem .95rem;
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--color-border);
+    border-radius:999px;
+    color:var(--color-muted);
+    cursor:pointer;
+    transition:all .15s ease;
+    font:inherit;
+  }
+  .topic-tab:hover {
+    color:#fff;
+    border-color:rgba(139,92,246,.4);
+  }
+  .topic-tab.active {
+    background:linear-gradient(135deg, var(--color-primary), var(--color-accent1));
+    border-color:transparent;
+    color:#fff;
+    font-weight:700;
+  }
+  .mission-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+  .mission-card[hidden] { display:none; }
+  .mission-meta { display:flex; flex-wrap:wrap; gap:.5rem; margin:.65rem 0; }
+  .mission-chip {
+    display:inline-flex;
+    align-items:center;
+    padding:.22rem .6rem;
+    border-radius:999px;
+    background:rgba(139,92,246,.15);
+    border:1px solid rgba(139,92,246,.35);
+    font-size:.75rem;
+    font-weight:700;
+  }
+  .mission-rubric { margin:.65rem 0; padding-left:1.1rem; color:var(--color-muted); }
+  .mission-step {
+    border:1px dashed var(--color-border);
+    border-radius:12px;
+    padding:.85rem 1rem;
+    margin-top:.85rem;
+    background:rgba(255,255,255,.03);
+  }
+  .mission-step h3 { margin:0 0 .45rem; font-size:1rem; }
+  .mission-options { display:grid; gap:.45rem; margin-top:.6rem; }
+  .mission-support-box {
+    display:none;
+    margin-top:.75rem;
+    padding:.8rem .95rem;
+    border-radius:10px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.04);
+    color:var(--color-muted);
+    line-height:1.75;
+  }
+  .mission-support-box.show {
+    display:block;
+  }
+  .mission-confidence-stars {
+    display:flex;
+    flex-wrap:wrap;
+    gap:.55rem;
+  }
+  .star-btn {
+    display:inline-flex;
+    align-items:center;
+    gap:.35rem;
+    padding:.45rem .65rem;
+    border-radius:999px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.03);
+    cursor:pointer;
+    transition:all .15s ease;
+    color:var(--color-muted);
+  }
+  .star-btn input {
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+  }
+  .star-btn .star-face {
+    color:#facc15;
+    font-size:1rem;
+    line-height:1;
+  }
+  .star-btn .star-num {
+    font-size:.82rem;
+    font-weight:700;
+  }
+  .star-btn.on,
+  .star-btn:hover {
+    border-color:rgba(250,204,21,.5);
+    background:rgba(250,204,21,.12);
+    color:#fff;
+    transform:translateY(-1px);
+  }
+  .mission-result {
+    margin-top:.85rem;
+    padding:.8rem .95rem;
+    border-radius:10px;
+    background:rgba(34,211,238,.08);
+    border:1px solid rgba(34,211,238,.25);
+  }
+  .mission-list-empty {
+    margin-top:1rem;
+    padding:1rem 1.1rem;
+    border:1px dashed var(--color-border);
+    border-radius:12px;
+    color:var(--color-muted);
+    line-height:1.8;
+    background:rgba(255,255,255,.03);
+  }
+  .mission-next-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:.85rem;
+    margin-top:1rem;
+  }
+  @media (max-width: 760px) {
+    .mission-heatmap {
+      grid-template-columns:minmax(120px, 1.2fr) repeat(6, minmax(40px, 1fr));
+      font-size:.72rem;
+    }
+    .heatmap-cell { min-height:42px; }
+  }
+</style>
+
+</head>
+<body data-page="missions">
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">Z</span> Complex Variables <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="lessons.html" class="nav-link"><span class="nl-icon">📚</span>Lessons</a>
+<a href="missions.html" class="nav-link active"><span class="nl-icon">🎯</span>Missions</a>
+<a href="content/" class="nav-link"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card" id="missions-welcome">
+      <h1 class="page-title">ภารกิจฝึกคิดของรายวิชา</h1>
+      <p class="page-subtitle">
+        หน้านี้เป็นพื้นที่ให้ผู้เรียนค่อย ๆ ฝึกคิดเป็นขั้น วางเหตุผลให้ชัด และเช็กความเข้าใจของตัวเองทีละส่วน โดยไม่ต้องรู้สึกว่าต้องตอบได้สมบูรณ์ตั้งแต่รอบแรก
+      </p>
+      <div class="mission-primer-grid">
+        <article class="mission-primer-card">
+          <strong>เริ่มจากภารกิจที่ใกล้บทเรียนล่าสุด</strong>
+          <p>เลือกจากโมดูลที่เพิ่งเรียน หรือใช้แผนที่ภารกิจด้านล่างเพื่อดูว่าตอนนี้มีงานฝึกคิดระดับไหนรออยู่บ้าง</p>
+        </article>
+        <article class="mission-primer-card">
+          <strong>ทำแบบค่อยเป็นค่อยไป</strong>
+          <p>ภารกิจแต่ละข้อออกแบบให้ดูทั้งวิธีคิด เหตุผล และความมั่นใจของผู้เรียน ไม่จำเป็นต้องตอบถูกทุกครั้งตั้งแต่รอบแรก</p>
+        </article>
+        <article class="mission-primer-card">
+          <strong>ใช้ภารกิจเป็นสะพานกลับไปบทเรียน</strong>
+          <p>ถ้ายังไม่มั่นใจ สามารถย้อนกลับไปบทเรียนหรือสื่อเสริมได้เสมอ เพื่อให้การฝึกคิดไม่รู้สึกโดดเดี่ยวเกินไป</p>
+        </article>
+      </div>
+    </section>
+    <section class="card" id="missions-self-assessment">
+      <div class="card-title">การประเมินตนเอง</div>
+      <p class="mission-page-note">
+        self-assessment เป็น building block กลางของหน้า missions ทุกวิชา เพราะข้อมูลความมั่นใจของผู้เรียนจะถูกใช้ต่อกับ feedback, XP, badge และการแปลผลการเรียนรู้ในรอบถัดไป
+      </p>
+      <div class="mission-primer-grid">
+        <article class="mission-primer-card">
+          <strong>ทบทวนตัวเองก่อนส่ง</strong>
+          <p>หลังทำภารกิจแต่ละข้อ ให้สะท้อนว่าตอนนี้เข้าใจมากน้อยเพียงใด และมั่นใจตรงจุดหรือยัง</p>
+        </article>
+        <article class="mission-primer-card">
+          <strong>ตัวคูณ XP และการใช้ข้อมูลประเมิน</strong>
+          <p>ความมั่นใจของผู้เรียนจะเชื่อมกับ XP และภาพรวมการประเมิน เพื่อดูว่าความเข้าใจกับการประเมินตนเองสอดคล้องกันแค่ไหน</p>
+        </article>
+        <article class="mission-primer-card">
+          <strong>ระดับความมั่นใจเป็นข้อมูลหลักของระบบ</strong>
+          <p>source ของภารกิจทุกข้อจึงต้องเก็บ confidence ไว้เป็นข้อมูลมาตรฐาน เพื่อให้หน้า missions แสดงผลได้สม่ำเสมอ</p>
+        </article>
+      </div>
+    </section>
+    <section class="card" id="missions-overview-shell">
+      <div class="card-title">ภาพรวมภารกิจของรายวิชา</div>
+      <p class="mission-page-note">
+        ส่วนนี้ช่วยให้เห็นภาพรวมว่าตอนนี้ทำภารกิจไปแค่ไหน เก็บ XP ได้เท่าไร และควรกลับไปทบทวนส่วนไหนเพิ่ม</p>
+      <div class="mission-overview-grid" id="missions-overview"></div>
+    </section>
+    <section class="card" id="missions-map-shell">
+      <div class="card-title">แผนที่ภารกิจตามโมดูลและระดับการคิด</div>
+      <p class="mission-page-note">
+        มองภาพรวมได้ว่ารายวิชานี้มีภารกิจอยู่ในโมดูลใดบ้าง และกระจายตัวในระดับ Bloom ใด เพื่อให้ต่อยอดรายละเอียดทีหลังได้ง่ายโดยไม่ต้องเปลี่ยนโครงหน้าใหม่
+      </p>
+      <div class="mission-heatmap" id="missions-heatmap"></div>
+      <div class="topic-tabs" id="missions-module-tabs"></div>
+    </section>
+    <section class="card" id="missions-list-shell">
+      <div class="card-title">รายการภารกิจ</div>
+      <p class="mission-page-note">
+        เลือกภารกิจที่อยากลองจากรายการด้านล่างได้เลย แต่ละข้อจะช่วยให้เห็นทั้งวิธีคิด เหตุผล และระดับความมั่นใจของตัวเอง
+      </p>
+      <div class="mission-list-empty" id="missions-empty" hidden></div>
+      <section class="mission-grid" id="missions-root"></section>
+    </section>
+    <section class="card" id="missions-next-step">
+      <div class="card-title">ไปต่อจากตรงไหนดี</div>
+      <p class="mission-page-note">
+        ถ้ายังไม่มั่นใจหลังทำภารกิจ ส่วนนี้จะช่วยชี้ทางไปต่อ เช่น กลับไปทบทวนบทเรียน หรืออ่านสื่อเสริมก่อนลองอีกครั้ง
+      </p>
+      <div class="mission-next-grid" id="missions-next-grid">
+        <article class="mission-next-card">
+          <strong>ทบทวนบทเรียนก่อน</strong>
+          <p>ถ้ายังไม่มั่นใจในเหตุผลหรือขั้นตอน ให้กลับไปดูหน้า lessons แล้วเลือกโมดูลที่เกี่ยวข้อง</p>
+          <div style="margin-top:.8rem;"><a href="lessons.html" class="btn">ไปหน้า Lessons</a></div>
+        </article>
+        <article class="mission-next-card">
+          <strong>อ่านสื่อเสริมเพิ่ม</strong>
+          <p>ถ้าต้องการตัวอย่างหรือ handout เพิ่ม สามารถใช้หน้า resources เป็นฐานทบทวนระหว่างทำภารกิจได้</p>
+          <div style="margin-top:.8rem;"><a href="content/" class="btn">ไปหน้า Resources</a></div>
+        </article>
+      </div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"complex_variables_real_check","course_name_th":"ตัวแปรเชิงซ้อน","course_name_en":"Complex Variables","course_short_name":"Complex Variables","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A learner-facing complex variables course that helps students connect algebraic, geometric, and analytic ideas through modules, missions, and active-learning resources.","theme":{"brand_icon":"Z","accent":"#2563eb","accent_secondary":"#f59e0b"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","step-sequence","sbra-sequence"],"lesson_completion_xp":50,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Complex Variables Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-complex-foundations","emoji":"📘","name":"CLO1 Understand Complex Foundations","req":"Collect quick-check evidence in Complex Number Foundations.","threshold_xp":150,"required_modules":["complex-number-foundations"]},{"id":"clo2-complex-limits-analyst","emoji":"🧠","name":"CLO2 Analyze Complex Limits Analyst","req":"Collect reasoning-task evidence in Limits and Continuity in the Complex Plane.","threshold_xp":210,"required_modules":["limits-and-continuity"]},{"id":"clo3-analytic-function-strategist","emoji":"🛠","name":"CLO3 Apply Analytic Function Strategist","req":"Collect SBRA evidence in Complex Differentiation and Analytic Functions.","threshold_xp":250,"required_modules":["complex-differentiation"],"required_missions":["sbra-complex-differentiation-clo3"]},{"id":"clo4-complex-integrator","emoji":"🛠","name":"CLO4 Apply Complex Integrator","req":"Collect worked-task evidence in Complex Integration.","threshold_xp":280,"required_modules":["complex-integration"]},{"id":"clo5-series-analyst","emoji":"🧠","name":"CLO5 Analyze Series Analyst","req":"Collect SBRA evidence in Taylor, Laurent, and Applications.","threshold_xp":350,"required_modules":["series-and-applications"],"required_accuracy":60}],"modules":[{"id":"complex-number-foundations","slug":"complex-number-foundations","title":"Complex Number Foundations","summary":"Start from algebraic form, geometric interpretation, and the complex plane as the base language of the course.","order":1,"module_kind":"concept"},{"id":"limits-and-continuity","slug":"limits-and-continuity","title":"Limits and Continuity in the Complex Plane","summary":"Reconnect sequence, limit, and continuity ideas from analysis and move them into complex-valued settings.","order":2,"module_kind":"concept"},{"id":"complex-differentiation","slug":"complex-differentiation","title":"Complex Differentiation and Analytic Functions","summary":"Build the meaning of complex derivatives and analytic behavior through comparison with real-variable ideas.","order":3,"module_kind":"concept"},{"id":"complex-integration","slug":"complex-integration","title":"Complex Integration","summary":"Study contour-style integration and connect it to earlier work on integrals and paths.","order":4,"module_kind":"application"},{"id":"series-and-applications","slug":"series-and-applications","title":"Taylor, Laurent, and Applications","summary":"Use expansions and local representations to reason about complex functions and integral applications.","order":5,"module_kind":"application"}],"clos":[{"id":"CLO1","label":"Explain the algebraic and geometric foundations of complex numbers.","bloom":"Understand","assessment_tags":["concepts","complex-plane"]},{"id":"CLO2","label":"Analyze limits and continuity of complex functions using prior analysis knowledge.","bloom":"Analyze","assessment_tags":["limits","continuity"]},{"id":"CLO3","label":"Explain and apply complex differentiation, analytic functions, and holomorphic functions.","bloom":"Apply","assessment_tags":["derivatives","analytic-functions"]},{"id":"CLO4","label":"Explain and compute complex integrals along suitable paths.","bloom":"Apply","assessment_tags":["integrals","contours"]},{"id":"CLO5","label":"Use Taylor and Laurent series to study complex functions and support integral reasoning.","bloom":"Analyze","assessment_tags":["series","residue-ideas"]}]};
+    window.__PAGE_DATA__ = {"missions":[{"mission_id":"draft-complex_variables_real_check-complex-number-foundations","clo_id":"CLO1","module_id":"complex-number-foundations","title":"SBRA Draft: Complex Number Foundations","mission_type":"sbra-step-based-reasoning","bloom_level":3,"xp":120,"rubric":["เลือก process ของแต่ละ step ได้สอดคล้องกับโจทย์และ CLO","ให้ reasoning ที่อธิบายว่าทำไมจึงเลือก process นั้นได้ชัดเจน","ระบุ misconception หรือจุดที่ต้องระวังได้อย่างน้อยหนึ่งจุด"],"threshold":{"min_steps_mastered":3},"prompt":"ภารกิจ draft สำหรับ module \"Complex Number Foundations\" ให้แทนที่ด้วยโจทย์จริงของรายวิชาหลัง review materials","strategy_prompt":"เติม strategy prompt ที่สะท้อนวิธีคิดของรายวิชาจริงก่อน publish","confidence":{"prompt":"หลังทำครบทุก step แล้ว คุณมั่นใจในคำตอบของตนเองระดับใด?","levels":[1,2,3,4,5]},"steps":[{"id":"step-1","title":"Step 1: วางแผน","prompt":"วิธีเริ่ม reasoning ที่เหมาะกับ module \"Complex Number Foundations\" มากที่สุดคืออะไร?","process_prompt":"เลือก process ที่เหมาะที่สุดสำหรับการเริ่มต้น","process_options":[{"id":"correct-process","text":"เริ่มจากนิยามหรือโครง concept หลักของ module","correct":true,"feedback":"นี่คือ process หลักที่ควรเชื่อมกับ CLO"},{"id":"wrong-process-1","text":"จำคำตอบตัวอย่างเพียงกรณีเดียวแล้วสรุปทันที","correct":false,"feedback":"แนวทางนี้ยังไม่พอสำหรับภารกิจเชิง reasoning"},{"id":"wrong-process-2","text":"ข้ามไปเฉลยโดยไม่อธิบายขั้นคิด","correct":false,"feedback":"ควรเก็บลำดับเหตุผลให้ตรวจสอบได้"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะ process นี้เชื่อมตรงกับแนวคิดหลักของ module และ CLO","correct":true,"feedback":"เหตุผลนี้ชี้ว่าทำไม process จึงเหมาะกับโจทย์"},{"id":"wrong-reasoning-1","text":"เพราะทำเสร็จเร็วที่สุดจึงน่าจะถูกเสมอ","correct":false,"feedback":"ความเร็วไม่ใช่เหตุผลเชิงวิชาการหลัก"},{"id":"wrong-reasoning-2","text":"เพราะไม่จำเป็นต้องดูโครงของโจทย์ก็เลือกได้","correct":false,"feedback":"ยังไม่อิงธรรมชาติของโจทย์จริง"}],"hint":"ถามก่อนว่าโจทย์นี้กำลังวัด concept หรือ strategy อะไรใน CLO"},{"id":"step-2","title":"Step 2: วิเคราะห์","prompt":"ระหว่างทำโจทย์ ควรตรวจอะไรเป็นพิเศษเพื่อไม่ให้ reasoning หลุดจากเป้าหมาย?","process_prompt":"เลือก process ที่เหมาะที่สุดสำหรับช่วงวิเคราะห์","process_options":[{"id":"correct-process","text":"ตรวจว่าแต่ละบรรทัดยังสอดคล้องกับนิยามหรือเงื่อนไขที่ตั้งไว้","correct":true,"feedback":"นี่ช่วยให้ reasoning ไม่ลอยจากโจทย์จริง"},{"id":"wrong-process-1","text":"ดูแค่ว่าผลลัพธ์หน้าตาถูกต้องพอหรือไม่","correct":false,"feedback":"ภารกิจนี้ต้องตรวจโครงเหตุผล ไม่ใช่แค่หน้าตาคำตอบ"},{"id":"wrong-process-2","text":"เปลี่ยน assumption กลางทางโดยไม่บอก","correct":false,"feedback":"ต้องคง assumption ให้ชัดเพื่อให้ตรวจได้"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะ reasoning ที่ดีต้องตรวจได้ว่าทุกขั้นยังอยู่บนเงื่อนไขเดิมของโจทย์","correct":true,"feedback":"นี่คือแกนของการควบคุม reasoning ระหว่างทาง"},{"id":"wrong-reasoning-1","text":"เพราะถ้าคำตอบสุดท้ายดูดี รายละเอียดระหว่างทางไม่สำคัญ","correct":false,"feedback":"ภารกิจนี้วัดกระบวนการคิด ไม่ใช่หน้าตาคำตอบอย่างเดียว"},{"id":"wrong-reasoning-2","text":"เพราะการเปลี่ยน assumption กลางทางช่วยให้ตอบง่ายขึ้นเสมอ","correct":false,"feedback":"เหตุผลนี้ทำให้ argument ตรวจสอบไม่ได้"}],"hint":"ลองถามว่าถ้าคนอื่นอ่านวิธีทำของเรา เขาจะตรวจทีละบรรทัดได้หรือไม่"},{"id":"step-3","title":"Step 3: ปิดคำตอบ","prompt":"ข้อใดคือการปิดคำตอบที่แข็งแรงที่สุดสำหรับ draft mission นี้?","process_prompt":"เลือก process ที่เหมาะที่สุดในการปิดคำตอบ","process_options":[{"id":"correct-process","text":"สรุปผลโดยเชื่อมกลับไปยังเป้าหมายของ CLO และ module","correct":true,"feedback":"การปิดคำตอบที่ดีควรเชื่อมกลับไปยัง learning outcome"},{"id":"wrong-process-1","text":"เขียนว่าชัดเจนอยู่แล้วจึงจบ","correct":false,"feedback":"ยังไม่ชี้ว่าชัดเจนเพราะอะไร"},{"id":"wrong-process-2","text":"เพิ่มตัวอย่างใหม่แต่ไม่สรุป claim เดิม","correct":false,"feedback":"ตัวอย่างเพิ่มไม่แทนการสรุป claim หลัก"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะการปิดคำตอบที่ดีต้องแสดงว่าคำตอบตอบโจทย์หรือ CLO ที่ตั้งไว้จริง","correct":true,"feedback":"เหตุผลนี้ทำให้บทสรุปมีหน้าที่ชัดเจน"},{"id":"wrong-reasoning-1","text":"เพราะบรรทัดสุดท้ายไม่จำเป็นต้องเชื่อมกับเป้าหมายของโจทย์","correct":false,"feedback":"ทำให้คำตอบดูจบแต่ไม่ชัดว่าจบอะไร"},{"id":"wrong-reasoning-2","text":"เพราะยิ่งเพิ่มตัวอย่างมากเท่าไรยิ่งแทนการสรุป claim ได้ดี","correct":false,"feedback":"ตัวอย่างเสริมไม่แทนการสรุป claim หลัก"}],"hint":"ถามว่าบรรทัดสุดท้ายเชื่อมกลับไปยังคำถามหลักหรือ CLO ได้ชัดหรือยัง"}]},{"mission_id":"draft-complex_variables_real_check-limits-and-continuity","clo_id":"CLO2","module_id":"limits-and-continuity","title":"SBRA Draft: Limits and Continuity in the Complex Plane","mission_type":"sbra-step-based-reasoning","bloom_level":3,"xp":130,"rubric":["เลือก process ของแต่ละ step ได้สอดคล้องกับโจทย์และ CLO","ให้ reasoning ที่อธิบายว่าทำไมจึงเลือก process นั้นได้ชัดเจน","ระบุ misconception หรือจุดที่ต้องระวังได้อย่างน้อยหนึ่งจุด"],"threshold":{"min_steps_mastered":3},"prompt":"ภารกิจ draft สำหรับ module \"Limits and Continuity in the Complex Plane\" ให้แทนที่ด้วยโจทย์จริงของรายวิชาหลัง review materials","strategy_prompt":"เติม strategy prompt ที่สะท้อนวิธีคิดของรายวิชาจริงก่อน publish","confidence":{"prompt":"หลังทำครบทุก step แล้ว คุณมั่นใจในคำตอบของตนเองระดับใด?","levels":[1,2,3,4,5]},"steps":[{"id":"step-1","title":"Step 1: วางแผน","prompt":"วิธีเริ่ม reasoning ที่เหมาะกับ module \"Limits and Continuity in the Complex Plane\" มากที่สุดคืออะไร?","process_prompt":"เลือก process ที่เหมาะที่สุดสำหรับการเริ่มต้น","process_options":[{"id":"correct-process","text":"เริ่มจากนิยามหรือโครง concept หลักของ module","correct":true,"feedback":"นี่คือ process หลักที่ควรเชื่อมกับ CLO"},{"id":"wrong-process-1","text":"จำคำตอบตัวอย่างเพียงกรณีเดียวแล้วสรุปทันที","correct":false,"feedback":"แนวทางนี้ยังไม่พอสำหรับภารกิจเชิง reasoning"},{"id":"wrong-process-2","text":"ข้ามไปเฉลยโดยไม่อธิบายขั้นคิด","correct":false,"feedback":"ควรเก็บลำดับเหตุผลให้ตรวจสอบได้"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะ process นี้เชื่อมตรงกับแนวคิดหลักของ module และ CLO","correct":true,"feedback":"เหตุผลนี้ชี้ว่าทำไม process จึงเหมาะกับโจทย์"},{"id":"wrong-reasoning-1","text":"เพราะทำเสร็จเร็วที่สุดจึงน่าจะถูกเสมอ","correct":false,"feedback":"ความเร็วไม่ใช่เหตุผลเชิงวิชาการหลัก"},{"id":"wrong-reasoning-2","text":"เพราะไม่จำเป็นต้องดูโครงของโจทย์ก็เลือกได้","correct":false,"feedback":"ยังไม่อิงธรรมชาติของโจทย์จริง"}],"hint":"ถามก่อนว่าโจทย์นี้กำลังวัด concept หรือ strategy อะไรใน CLO"},{"id":"step-2","title":"Step 2: วิเคราะห์","prompt":"ระหว่างทำโจทย์ ควรตรวจอะไรเป็นพิเศษเพื่อไม่ให้ reasoning หลุดจากเป้าหมาย?","process_prompt":"เลือก process ที่เหมาะที่สุดสำหรับช่วงวิเคราะห์","process_options":[{"id":"correct-process","text":"ตรวจว่าแต่ละบรรทัดยังสอดคล้องกับนิยามหรือเงื่อนไขที่ตั้งไว้","correct":true,"feedback":"นี่ช่วยให้ reasoning ไม่ลอยจากโจทย์จริง"},{"id":"wrong-process-1","text":"ดูแค่ว่าผลลัพธ์หน้าตาถูกต้องพอหรือไม่","correct":false,"feedback":"ภารกิจนี้ต้องตรวจโครงเหตุผล ไม่ใช่แค่หน้าตาคำตอบ"},{"id":"wrong-process-2","text":"เปลี่ยน assumption กลางทางโดยไม่บอก","correct":false,"feedback":"ต้องคง assumption ให้ชัดเพื่อให้ตรวจได้"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะ reasoning ที่ดีต้องตรวจได้ว่าทุกขั้นยังอยู่บนเงื่อนไขเดิมของโจทย์","correct":true,"feedback":"นี่คือแกนของการควบคุม reasoning ระหว่างทาง"},{"id":"wrong-reasoning-1","text":"เพราะถ้าคำตอบสุดท้ายดูดี รายละเอียดระหว่างทางไม่สำคัญ","correct":false,"feedback":"ภารกิจนี้วัดกระบวนการคิด ไม่ใช่หน้าตาคำตอบอย่างเดียว"},{"id":"wrong-reasoning-2","text":"เพราะการเปลี่ยน assumption กลางทางช่วยให้ตอบง่ายขึ้นเสมอ","correct":false,"feedback":"เหตุผลนี้ทำให้ argument ตรวจสอบไม่ได้"}],"hint":"ลองถามว่าถ้าคนอื่นอ่านวิธีทำของเรา เขาจะตรวจทีละบรรทัดได้หรือไม่"},{"id":"step-3","title":"Step 3: ปิดคำตอบ","prompt":"ข้อใดคือการปิดคำตอบที่แข็งแรงที่สุดสำหรับ draft mission นี้?","process_prompt":"เลือก process ที่เหมาะที่สุดในการปิดคำตอบ","process_options":[{"id":"correct-process","text":"สรุปผลโดยเชื่อมกลับไปยังเป้าหมายของ CLO และ module","correct":true,"feedback":"การปิดคำตอบที่ดีควรเชื่อมกลับไปยัง learning outcome"},{"id":"wrong-process-1","text":"เขียนว่าชัดเจนอยู่แล้วจึงจบ","correct":false,"feedback":"ยังไม่ชี้ว่าชัดเจนเพราะอะไร"},{"id":"wrong-process-2","text":"เพิ่มตัวอย่างใหม่แต่ไม่สรุป claim เดิม","correct":false,"feedback":"ตัวอย่างเพิ่มไม่แทนการสรุป claim หลัก"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะการปิดคำตอบที่ดีต้องแสดงว่าคำตอบตอบโจทย์หรือ CLO ที่ตั้งไว้จริง","correct":true,"feedback":"เหตุผลนี้ทำให้บทสรุปมีหน้าที่ชัดเจน"},{"id":"wrong-reasoning-1","text":"เพราะบรรทัดสุดท้ายไม่จำเป็นต้องเชื่อมกับเป้าหมายของโจทย์","correct":false,"feedback":"ทำให้คำตอบดูจบแต่ไม่ชัดว่าจบอะไร"},{"id":"wrong-reasoning-2","text":"เพราะยิ่งเพิ่มตัวอย่างมากเท่าไรยิ่งแทนการสรุป claim ได้ดี","correct":false,"feedback":"ตัวอย่างเสริมไม่แทนการสรุป claim หลัก"}],"hint":"ถามว่าบรรทัดสุดท้ายเชื่อมกลับไปยังคำถามหลักหรือ CLO ได้ชัดหรือยัง"}]},{"mission_id":"draft-complex_variables_real_check-complex-integration","clo_id":"CLO4","module_id":"complex-integration","title":"SBRA Draft: Complex Integration","mission_type":"sbra-step-based-reasoning","bloom_level":3,"xp":150,"rubric":["เลือก process ของแต่ละ step ได้สอดคล้องกับโจทย์และ CLO","ให้ reasoning ที่อธิบายว่าทำไมจึงเลือก process นั้นได้ชัดเจน","ระบุ misconception หรือจุดที่ต้องระวังได้อย่างน้อยหนึ่งจุด"],"threshold":{"min_steps_mastered":3},"prompt":"ภารกิจ draft สำหรับ module \"Complex Integration\" ให้แทนที่ด้วยโจทย์จริงของรายวิชาหลัง review materials","strategy_prompt":"เติม strategy prompt ที่สะท้อนวิธีคิดของรายวิชาจริงก่อน publish","confidence":{"prompt":"หลังทำครบทุก step แล้ว คุณมั่นใจในคำตอบของตนเองระดับใด?","levels":[1,2,3,4,5]},"steps":[{"id":"step-1","title":"Step 1: วางแผน","prompt":"วิธีเริ่ม reasoning ที่เหมาะกับ module \"Complex Integration\" มากที่สุดคืออะไร?","process_prompt":"เลือก process ที่เหมาะที่สุดสำหรับการเริ่มต้น","process_options":[{"id":"correct-process","text":"เริ่มจากนิยามหรือโครง concept หลักของ module","correct":true,"feedback":"นี่คือ process หลักที่ควรเชื่อมกับ CLO"},{"id":"wrong-process-1","text":"จำคำตอบตัวอย่างเพียงกรณีเดียวแล้วสรุปทันที","correct":false,"feedback":"แนวทางนี้ยังไม่พอสำหรับภารกิจเชิง reasoning"},{"id":"wrong-process-2","text":"ข้ามไปเฉลยโดยไม่อธิบายขั้นคิด","correct":false,"feedback":"ควรเก็บลำดับเหตุผลให้ตรวจสอบได้"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะ process นี้เชื่อมตรงกับแนวคิดหลักของ module และ CLO","correct":true,"feedback":"เหตุผลนี้ชี้ว่าทำไม process จึงเหมาะกับโจทย์"},{"id":"wrong-reasoning-1","text":"เพราะทำเสร็จเร็วที่สุดจึงน่าจะถูกเสมอ","correct":false,"feedback":"ความเร็วไม่ใช่เหตุผลเชิงวิชาการหลัก"},{"id":"wrong-reasoning-2","text":"เพราะไม่จำเป็นต้องดูโครงของโจทย์ก็เลือกได้","correct":false,"feedback":"ยังไม่อิงธรรมชาติของโจทย์จริง"}],"hint":"ถามก่อนว่าโจทย์นี้กำลังวัด concept หรือ strategy อะไรใน CLO"},{"id":"step-2","title":"Step 2: วิเคราะห์","prompt":"ระหว่างทำโจทย์ ควรตรวจอะไรเป็นพิเศษเพื่อไม่ให้ reasoning หลุดจากเป้าหมาย?","process_prompt":"เลือก process ที่เหมาะที่สุดสำหรับช่วงวิเคราะห์","process_options":[{"id":"correct-process","text":"ตรวจว่าแต่ละบรรทัดยังสอดคล้องกับนิยามหรือเงื่อนไขที่ตั้งไว้","correct":true,"feedback":"นี่ช่วยให้ reasoning ไม่ลอยจากโจทย์จริง"},{"id":"wrong-process-1","text":"ดูแค่ว่าผลลัพธ์หน้าตาถูกต้องพอหรือไม่","correct":false,"feedback":"ภารกิจนี้ต้องตรวจโครงเหตุผล ไม่ใช่แค่หน้าตาคำตอบ"},{"id":"wrong-process-2","text":"เปลี่ยน assumption กลางทางโดยไม่บอก","correct":false,"feedback":"ต้องคง assumption ให้ชัดเพื่อให้ตรวจได้"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะ reasoning ที่ดีต้องตรวจได้ว่าทุกขั้นยังอยู่บนเงื่อนไขเดิมของโจทย์","correct":true,"feedback":"นี่คือแกนของการควบคุม reasoning ระหว่างทาง"},{"id":"wrong-reasoning-1","text":"เพราะถ้าคำตอบสุดท้ายดูดี รายละเอียดระหว่างทางไม่สำคัญ","correct":false,"feedback":"ภารกิจนี้วัดกระบวนการคิด ไม่ใช่หน้าตาคำตอบอย่างเดียว"},{"id":"wrong-reasoning-2","text":"เพราะการเปลี่ยน assumption กลางทางช่วยให้ตอบง่ายขึ้นเสมอ","correct":false,"feedback":"เหตุผลนี้ทำให้ argument ตรวจสอบไม่ได้"}],"hint":"ลองถามว่าถ้าคนอื่นอ่านวิธีทำของเรา เขาจะตรวจทีละบรรทัดได้หรือไม่"},{"id":"step-3","title":"Step 3: ปิดคำตอบ","prompt":"ข้อใดคือการปิดคำตอบที่แข็งแรงที่สุดสำหรับ draft mission นี้?","process_prompt":"เลือก process ที่เหมาะที่สุดในการปิดคำตอบ","process_options":[{"id":"correct-process","text":"สรุปผลโดยเชื่อมกลับไปยังเป้าหมายของ CLO และ module","correct":true,"feedback":"การปิดคำตอบที่ดีควรเชื่อมกลับไปยัง learning outcome"},{"id":"wrong-process-1","text":"เขียนว่าชัดเจนอยู่แล้วจึงจบ","correct":false,"feedback":"ยังไม่ชี้ว่าชัดเจนเพราะอะไร"},{"id":"wrong-process-2","text":"เพิ่มตัวอย่างใหม่แต่ไม่สรุป claim เดิม","correct":false,"feedback":"ตัวอย่างเพิ่มไม่แทนการสรุป claim หลัก"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะการปิดคำตอบที่ดีต้องแสดงว่าคำตอบตอบโจทย์หรือ CLO ที่ตั้งไว้จริง","correct":true,"feedback":"เหตุผลนี้ทำให้บทสรุปมีหน้าที่ชัดเจน"},{"id":"wrong-reasoning-1","text":"เพราะบรรทัดสุดท้ายไม่จำเป็นต้องเชื่อมกับเป้าหมายของโจทย์","correct":false,"feedback":"ทำให้คำตอบดูจบแต่ไม่ชัดว่าจบอะไร"},{"id":"wrong-reasoning-2","text":"เพราะยิ่งเพิ่มตัวอย่างมากเท่าไรยิ่งแทนการสรุป claim ได้ดี","correct":false,"feedback":"ตัวอย่างเสริมไม่แทนการสรุป claim หลัก"}],"hint":"ถามว่าบรรทัดสุดท้ายเชื่อมกลับไปยังคำถามหลักหรือ CLO ได้ชัดหรือยัง"}]},{"mission_id":"draft-complex_variables_real_check-series-and-applications","clo_id":"CLO5","module_id":"series-and-applications","title":"SBRA Draft: Taylor, Laurent, and Applications","mission_type":"sbra-step-based-reasoning","bloom_level":3,"xp":160,"rubric":["เลือก process ของแต่ละ step ได้สอดคล้องกับโจทย์และ CLO","ให้ reasoning ที่อธิบายว่าทำไมจึงเลือก process นั้นได้ชัดเจน","ระบุ misconception หรือจุดที่ต้องระวังได้อย่างน้อยหนึ่งจุด"],"threshold":{"min_steps_mastered":3},"prompt":"ภารกิจ draft สำหรับ module \"Taylor, Laurent, and Applications\" ให้แทนที่ด้วยโจทย์จริงของรายวิชาหลัง review materials","strategy_prompt":"เติม strategy prompt ที่สะท้อนวิธีคิดของรายวิชาจริงก่อน publish","confidence":{"prompt":"หลังทำครบทุก step แล้ว คุณมั่นใจในคำตอบของตนเองระดับใด?","levels":[1,2,3,4,5]},"steps":[{"id":"step-1","title":"Step 1: วางแผน","prompt":"วิธีเริ่ม reasoning ที่เหมาะกับ module \"Taylor, Laurent, and Applications\" มากที่สุดคืออะไร?","process_prompt":"เลือก process ที่เหมาะที่สุดสำหรับการเริ่มต้น","process_options":[{"id":"correct-process","text":"เริ่มจากนิยามหรือโครง concept หลักของ module","correct":true,"feedback":"นี่คือ process หลักที่ควรเชื่อมกับ CLO"},{"id":"wrong-process-1","text":"จำคำตอบตัวอย่างเพียงกรณีเดียวแล้วสรุปทันที","correct":false,"feedback":"แนวทางนี้ยังไม่พอสำหรับภารกิจเชิง reasoning"},{"id":"wrong-process-2","text":"ข้ามไปเฉลยโดยไม่อธิบายขั้นคิด","correct":false,"feedback":"ควรเก็บลำดับเหตุผลให้ตรวจสอบได้"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะ process นี้เชื่อมตรงกับแนวคิดหลักของ module และ CLO","correct":true,"feedback":"เหตุผลนี้ชี้ว่าทำไม process จึงเหมาะกับโจทย์"},{"id":"wrong-reasoning-1","text":"เพราะทำเสร็จเร็วที่สุดจึงน่าจะถูกเสมอ","correct":false,"feedback":"ความเร็วไม่ใช่เหตุผลเชิงวิชาการหลัก"},{"id":"wrong-reasoning-2","text":"เพราะไม่จำเป็นต้องดูโครงของโจทย์ก็เลือกได้","correct":false,"feedback":"ยังไม่อิงธรรมชาติของโจทย์จริง"}],"hint":"ถามก่อนว่าโจทย์นี้กำลังวัด concept หรือ strategy อะไรใน CLO"},{"id":"step-2","title":"Step 2: วิเคราะห์","prompt":"ระหว่างทำโจทย์ ควรตรวจอะไรเป็นพิเศษเพื่อไม่ให้ reasoning หลุดจากเป้าหมาย?","process_prompt":"เลือก process ที่เหมาะที่สุดสำหรับช่วงวิเคราะห์","process_options":[{"id":"correct-process","text":"ตรวจว่าแต่ละบรรทัดยังสอดคล้องกับนิยามหรือเงื่อนไขที่ตั้งไว้","correct":true,"feedback":"นี่ช่วยให้ reasoning ไม่ลอยจากโจทย์จริง"},{"id":"wrong-process-1","text":"ดูแค่ว่าผลลัพธ์หน้าตาถูกต้องพอหรือไม่","correct":false,"feedback":"ภารกิจนี้ต้องตรวจโครงเหตุผล ไม่ใช่แค่หน้าตาคำตอบ"},{"id":"wrong-process-2","text":"เปลี่ยน assumption กลางทางโดยไม่บอก","correct":false,"feedback":"ต้องคง assumption ให้ชัดเพื่อให้ตรวจได้"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะ reasoning ที่ดีต้องตรวจได้ว่าทุกขั้นยังอยู่บนเงื่อนไขเดิมของโจทย์","correct":true,"feedback":"นี่คือแกนของการควบคุม reasoning ระหว่างทาง"},{"id":"wrong-reasoning-1","text":"เพราะถ้าคำตอบสุดท้ายดูดี รายละเอียดระหว่างทางไม่สำคัญ","correct":false,"feedback":"ภารกิจนี้วัดกระบวนการคิด ไม่ใช่หน้าตาคำตอบอย่างเดียว"},{"id":"wrong-reasoning-2","text":"เพราะการเปลี่ยน assumption กลางทางช่วยให้ตอบง่ายขึ้นเสมอ","correct":false,"feedback":"เหตุผลนี้ทำให้ argument ตรวจสอบไม่ได้"}],"hint":"ลองถามว่าถ้าคนอื่นอ่านวิธีทำของเรา เขาจะตรวจทีละบรรทัดได้หรือไม่"},{"id":"step-3","title":"Step 3: ปิดคำตอบ","prompt":"ข้อใดคือการปิดคำตอบที่แข็งแรงที่สุดสำหรับ draft mission นี้?","process_prompt":"เลือก process ที่เหมาะที่สุดในการปิดคำตอบ","process_options":[{"id":"correct-process","text":"สรุปผลโดยเชื่อมกลับไปยังเป้าหมายของ CLO และ module","correct":true,"feedback":"การปิดคำตอบที่ดีควรเชื่อมกลับไปยัง learning outcome"},{"id":"wrong-process-1","text":"เขียนว่าชัดเจนอยู่แล้วจึงจบ","correct":false,"feedback":"ยังไม่ชี้ว่าชัดเจนเพราะอะไร"},{"id":"wrong-process-2","text":"เพิ่มตัวอย่างใหม่แต่ไม่สรุป claim เดิม","correct":false,"feedback":"ตัวอย่างเพิ่มไม่แทนการสรุป claim หลัก"}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้มากที่สุด?","reasoning_options":[{"id":"correct-reasoning","text":"เพราะการปิดคำตอบที่ดีต้องแสดงว่าคำตอบตอบโจทย์หรือ CLO ที่ตั้งไว้จริง","correct":true,"feedback":"เหตุผลนี้ทำให้บทสรุปมีหน้าที่ชัดเจน"},{"id":"wrong-reasoning-1","text":"เพราะบรรทัดสุดท้ายไม่จำเป็นต้องเชื่อมกับเป้าหมายของโจทย์","correct":false,"feedback":"ทำให้คำตอบดูจบแต่ไม่ชัดว่าจบอะไร"},{"id":"wrong-reasoning-2","text":"เพราะยิ่งเพิ่มตัวอย่างมากเท่าไรยิ่งแทนการสรุป claim ได้ดี","correct":false,"feedback":"ตัวอย่างเสริมไม่แทนการสรุป claim หลัก"}],"hint":"ถามว่าบรรทัดสุดท้ายเชื่อมกลับไปยังคำถามหลักหรือ CLO ได้ชัดหรือยัง"}]},{"mission_id":"sbra-complex-differentiation-clo3","clo_id":"CLO3","module_id":"complex-differentiation","title":"SBRA: Complex Differentiation and Analytic Functions","mission_type":"sbra-step-based-reasoning","bloom_level":3,"xp":150,"badge_hook":"clo3-analytic-function-strategist","rubric":["เลือก process ที่สอดคล้องกับการวัด CLO3 ในหัวข้อ Complex Differentiation and Analytic Functions","อธิบาย reasoning ให้เห็นว่าทำไมกระบวนการที่เลือกจึงเหมาะกับโครงของโจทย์","หลีกเลี่ยง shortcut หรือ misconception ที่ทำให้ตอบได้โดยไม่ตรวจเงื่อนไขให้ครบ"],"threshold":{"min_steps_mastered":2},"confidence":{"prompt":"หลังทำครบทุก step แล้ว คุณมั่นใจต่อคำตอบและเหตุผลของตนเองระดับใด","levels":[1,2,3,4,5]},"prompt":"พิจารณาสถานการณ์ในหัวข้อ Complex Differentiation and Analytic Functions แล้วเลือก process และ reasoning ที่เหมาะสมที่สุดในแต่ละขั้น เพื่อแสดงว่าคุณกำลังทำงานตาม CLO3 ระดับ Apply","strategy_prompt":"อ่านโจทย์ก่อนว่ากำลังต้องการการวิเคราะห์แบบใดในหัวข้อ Complex Differentiation and Analytic Functions แล้วค่อยเลือก process ที่ยังอิงโครงของปัญหาอยู่","misconceptions":["assuming that any function with a symbolic derivative is automatically analytic everywhere","treating complex differentiability as identical to ordinary real-variable differentiability","choosing a result from memory without checking the conditions that support it","explaining the answer without tying the reasoning back to the structure of the function"],"steps":[{"id":"identify-the-function-features-and-derivative-target-that-the-task-is-asking-about","title":"Step 1: identify the function features and derivative target that the task is asking about","prompt":"ในขั้น \"identify the function features and derivative target that the task is asking about\" ผู้เรียนควรเลือกกระบวนการและเหตุผลแบบใดจึงจะสอดคล้องกับโจทย์","process_prompt":"เลือก process ที่เหมาะที่สุดกับขั้นนี้","process_options":[{"id":"correct-process","text":"เลือกกระบวนการที่เชื่อมตรงกับขั้น \"identify the function features and derivative target that the task is asking about\" และยังอิงโครงของโจทย์อย่างชัดเจน","correct":true,"feedback":"ถูกต้อง เพราะกระบวนการนี้ยังผูกกับเจตนาของขั้นและเงื่อนไขของโจทย์","misconception_tags":[]},{"id":"wrong-process-1","text":"เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"assuming that any function with a symbolic derivative is automatically analytic everywhere\"","correct":false,"feedback":"แนวนี้ทำให้ reasoning หลุดจากโครงของโจทย์หรือ CLO ที่กำลังวัด","misconception_tags":["assuming-that-any-function-with-a-symbolic-derivative-is-automatically-analytic-everywhere"]},{"id":"wrong-process-2","text":"เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"treating complex differentiability as identical to ordinary real-variable differentiability\"","correct":false,"feedback":"แนวนี้ยังไม่พอสำหรับภารกิจที่ต้องอธิบายกระบวนการคิดอย่างตรวจสอบได้","misconception_tags":["treating-complex-differentiability-as-identical-to-ordinary-real-variable-differentiability"]}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้ได้ดีที่สุด","reasoning_options":[{"id":"correct-reasoning","text":"เพราะขั้น \"identify the function features and derivative target that the task is asking about\" ต้องอธิบายให้เห็นว่าทำไมกระบวนการนี้จึงเหมาะกับโครงของโจทย์และเป้าหมายการวัด","correct":true,"feedback":"ถูกต้อง เพราะเหตุผลยังเชื่อมทั้งกับโจทย์ เป้าหมาย และวิธีคิดของขั้นนี้","misconception_tags":[]},{"id":"wrong-reasoning-1","text":"เพราะดูเหมือนจะตอบได้เร็วที่สุดจึงน่าจะถูกต้องที่สุด","correct":false,"feedback":"ความเร็วไม่ใช่เหตุผลหลักของภารกิจเชิง reasoning","misconception_tags":["speed-over-validity"]},{"id":"wrong-reasoning-2","text":"เพราะไม่จำเป็นต้องตรวจโครงของโจทย์ให้ละเอียดก็เลือกคำตอบได้","correct":false,"feedback":"ภารกิจนี้ต้องผูกเหตุผลกับโครงของปัญหา ไม่ใช่เลือกคำตอบลอย ๆ","misconception_tags":["structure-ignored"]}],"hint":"ลองถามก่อนว่า ขั้น \"identify the function features and derivative target that the task is asking about\" กำลังต้องการตรวจอะไรในโจทย์ แล้วค่อยเลือก process ที่อธิบายได้จริง"},{"id":"choose-the-analytic-function-reasoning-path-that-fits-the-structure-and-conditions","title":"Step 2: choose the analytic-function reasoning path that fits the structure and conditions","prompt":"ในขั้น \"choose the analytic-function reasoning path that fits the structure and conditions\" ผู้เรียนควรเลือกกระบวนการและเหตุผลแบบใดจึงจะสอดคล้องกับโจทย์","process_prompt":"เลือก process ที่เหมาะที่สุดกับขั้นนี้","process_options":[{"id":"correct-process","text":"เลือกกระบวนการที่เชื่อมตรงกับขั้น \"choose the analytic-function reasoning path that fits the structure and conditions\" และยังอิงโครงของโจทย์อย่างชัดเจน","correct":true,"feedback":"ถูกต้อง เพราะกระบวนการนี้ยังผูกกับเจตนาของขั้นและเงื่อนไขของโจทย์","misconception_tags":[]},{"id":"wrong-process-1","text":"เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"treating complex differentiability as identical to ordinary real-variable differentiability\"","correct":false,"feedback":"แนวนี้ทำให้ reasoning หลุดจากโครงของโจทย์หรือ CLO ที่กำลังวัด","misconception_tags":["treating-complex-differentiability-as-identical-to-ordinary-real-variable-differentiability"]},{"id":"wrong-process-2","text":"ใช้วิธีหรือทฤษฎีโดยไม่ตรวจเงื่อนไขที่ทำให้ใช้ได้จริง","correct":false,"feedback":"แนวนี้ยังไม่พอสำหรับภารกิจที่ต้องอธิบายกระบวนการคิดอย่างตรวจสอบได้","misconception_tags":["choosing-a-result-from-memory-without-checking-the-conditions-that-support-it"]}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้ได้ดีที่สุด","reasoning_options":[{"id":"correct-reasoning","text":"เพราะขั้น \"choose the analytic-function reasoning path that fits the structure and conditions\" ต้องอธิบายให้เห็นว่าทำไมกระบวนการนี้จึงเหมาะกับโครงของโจทย์และเป้าหมายการวัด","correct":true,"feedback":"ถูกต้อง เพราะเหตุผลยังเชื่อมทั้งกับโจทย์ เป้าหมาย และวิธีคิดของขั้นนี้","misconception_tags":[]},{"id":"wrong-reasoning-1","text":"เพราะดูเหมือนจะตอบได้เร็วที่สุดจึงน่าจะถูกต้องที่สุด","correct":false,"feedback":"ความเร็วไม่ใช่เหตุผลหลักของภารกิจเชิง reasoning","misconception_tags":["speed-over-validity"]},{"id":"wrong-reasoning-2","text":"เพราะไม่จำเป็นต้องตรวจโครงของโจทย์ให้ละเอียดก็เลือกคำตอบได้","correct":false,"feedback":"ภารกิจนี้ต้องผูกเหตุผลกับโครงของปัญหา ไม่ใช่เลือกคำตอบลอย ๆ","misconception_tags":["structure-ignored"]}],"hint":"ลองถามก่อนว่า ขั้น \"choose the analytic-function reasoning path that fits the structure and conditions\" กำลังต้องการตรวจอะไรในโจทย์ แล้วค่อยเลือก process ที่อธิบายได้จริง"},{"id":"justify-the-final-claim-in-a-short-argument-that-keeps-the-conditions-visible","title":"Step 3: justify the final claim in a short argument that keeps the conditions visible","prompt":"ในขั้น \"justify the final claim in a short argument that keeps the conditions visible\" ผู้เรียนควรเลือกกระบวนการและเหตุผลแบบใดจึงจะสอดคล้องกับโจทย์","process_prompt":"เลือก process ที่เหมาะที่สุดกับขั้นนี้","process_options":[{"id":"correct-process","text":"เลือกกระบวนการที่เชื่อมตรงกับขั้น \"justify the final claim in a short argument that keeps the conditions visible\" และยังอิงโครงของโจทย์อย่างชัดเจน","correct":true,"feedback":"ถูกต้อง เพราะกระบวนการนี้ยังผูกกับเจตนาของขั้นและเงื่อนไขของโจทย์","misconception_tags":[]},{"id":"wrong-process-1","text":"ใช้วิธีหรือทฤษฎีโดยไม่ตรวจเงื่อนไขที่ทำให้ใช้ได้จริง","correct":false,"feedback":"แนวนี้ทำให้ reasoning หลุดจากโครงของโจทย์หรือ CLO ที่กำลังวัด","misconception_tags":["choosing-a-result-from-memory-without-checking-the-conditions-that-support-it"]},{"id":"wrong-process-2","text":"รีบตอบผลลัพธ์โดยไม่อธิบายเส้นทางการตัดสินใจ","correct":false,"feedback":"แนวนี้ยังไม่พอสำหรับภารกิจที่ต้องอธิบายกระบวนการคิดอย่างตรวจสอบได้","misconception_tags":["explaining-the-answer-without-tying-the-reasoning-back-to-the-structure-of-the-function"]}],"reasoning_prompt":"เหตุผลใดรองรับ process นี้ได้ดีที่สุด","reasoning_options":[{"id":"correct-reasoning","text":"เพราะขั้น \"justify the final claim in a short argument that keeps the conditions visible\" ต้องอธิบายให้เห็นว่าทำไมกระบวนการนี้จึงเหมาะกับโครงของโจทย์และเป้าหมายการวัด","correct":true,"feedback":"ถูกต้อง เพราะเหตุผลยังเชื่อมทั้งกับโจทย์ เป้าหมาย และวิธีคิดของขั้นนี้","misconception_tags":[]},{"id":"wrong-reasoning-1","text":"เพราะดูเหมือนจะตอบได้เร็วที่สุดจึงน่าจะถูกต้องที่สุด","correct":false,"feedback":"ความเร็วไม่ใช่เหตุผลหลักของภารกิจเชิง reasoning","misconception_tags":["speed-over-validity"]},{"id":"wrong-reasoning-2","text":"เพราะไม่จำเป็นต้องตรวจโครงของโจทย์ให้ละเอียดก็เลือกคำตอบได้","correct":false,"feedback":"ภารกิจนี้ต้องผูกเหตุผลกับโครงของปัญหา ไม่ใช่เลือกคำตอบลอย ๆ","misconception_tags":["structure-ignored"]}],"hint":"ลองถามก่อนว่า ขั้น \"justify the final claim in a short argument that keeps the conditions visible\" กำลังต้องการตรวจอะไรในโจทย์ แล้วค่อยเลือก process ที่อธิบายได้จริง"}]}],"modules":[{"id":"complex-number-foundations","slug":"complex-number-foundations","title":"Complex Number Foundations","summary":"Start from algebraic form, geometric interpretation, and the complex plane as the base language of the course.","order":1,"clo_ids":["CLO1"],"module_kind":"concept","widgets":["quick-check","definition-visualizer"]},{"id":"limits-and-continuity","slug":"limits-and-continuity","title":"Limits and Continuity in the Complex Plane","summary":"Reconnect sequence, limit, and continuity ideas from analysis and move them into complex-valued settings.","order":2,"clo_ids":["CLO2"],"module_kind":"concept","widgets":["quick-check","step-sequence"]},{"id":"complex-differentiation","slug":"complex-differentiation","title":"Complex Differentiation and Analytic Functions","summary":"Build the meaning of complex derivatives and analytic behavior through comparison with real-variable ideas.","order":3,"clo_ids":["CLO3"],"module_kind":"concept","widgets":["quick-check","step-sequence","sbra-sequence"]},{"id":"complex-integration","slug":"complex-integration","title":"Complex Integration","summary":"Study contour-style integration and connect it to earlier work on integrals and paths.","order":4,"clo_ids":["CLO4"],"module_kind":"application","widgets":["quick-check","step-sequence","sbra-sequence"]},{"id":"series-and-applications","slug":"series-and-applications","title":"Taylor, Laurent, and Applications","summary":"Use expansions and local representations to reason about complex functions and integral applications.","order":5,"clo_ids":["CLO5"],"module_kind":"application","widgets":["quick-check","step-sequence","sbra-sequence"]}],"clos":[{"id":"CLO1","label":"Explain the algebraic and geometric foundations of complex numbers.","bloom":"Understand","assessment_tags":["concepts","complex-plane"]},{"id":"CLO2","label":"Analyze limits and continuity of complex functions using prior analysis knowledge.","bloom":"Analyze","assessment_tags":["limits","continuity"]},{"id":"CLO3","label":"Explain and apply complex differentiation, analytic functions, and holomorphic functions.","bloom":"Apply","assessment_tags":["derivatives","analytic-functions"]},{"id":"CLO4","label":"Explain and compute complex integrals along suitable paths.","bloom":"Apply","assessment_tags":["integrals","contours"]},{"id":"CLO5","label":"Use Taylor and Laurent series to study complex functions and support integral reasoning.","bloom":"Analyze","assessment_tags":["series","residue-ideas"]}]};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="assets/js/course-runtime.js"></script>
+<script src="assets/js/xp.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/missions.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+{
+  "course_id": "model_analysis_real_check",
+  "course_name_th": "การวิเคราะห์ตัวแบบเชิงคณิตศาสตร์",
+  "course_name_en": "Analysis of Mathematical Models",
+  "course_short_name": "Model Analysis",
+  "instructor": "แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด",
+  "description": "A mathematical model analysis course scaffolded from TQF3 and extended with modules, project framing, and active-learning missions.",
+  "theme": {
+    "brand_icon": "M",
+    "accent": "#0f766e",
+    "accent_secondary": "#f97316"
+  },
+  "features": {
+    "resources": true,
+    "missions": true,
+    "games": false
+  },
+  "widgets_enabled": [
+    "quick-check",
+    "definition-visualizer",
+    "step-sequence",
+    "sbra-sequence"
+  ],
+  "lesson_completion_xp": 50,
+  "badges": [
+    {
+      "id": "starter",
+      "emoji": "🌱",
+      "name": "Starter",
+      "req": "Begin the course and collect the first XP.",
+      "threshold_xp": 0
+    },
+    {
+      "id": "explorer",
+      "emoji": "📚",
+      "name": "Explorer",
+      "req": "Reach 120 XP and complete at least 1 module.",
+      "threshold_xp": 120,
+      "required_modules_count": 1
+    },
+    {
+      "id": "master",
+      "emoji": "🏆",
+      "name": "Model Analysis Master",
+      "req": "Reach 600 XP and maintain at least 80% mission accuracy.",
+      "threshold_xp": 600,
+      "required_accuracy": 80
+    },
+    {
+      "id": "clo1-modeling-foundations",
+      "emoji": "📘",
+      "name": "CLO1 Understand Modeling Foundations",
+      "req": "Collect quick-check evidence in Modeling Foundations.",
+      "threshold_xp": 150,
+      "required_modules": [
+        "modeling-foundations"
+      ]
+    },
+    {
+      "id": "clo2-modeling-reviewer",
+      "emoji": "🧠",
+      "name": "CLO2 Analyze Modeling Reviewer",
+      "req": "Collect review-task evidence in Modeling Tools and Techniques.",
+      "threshold_xp": 200,
+      "required_modules": [
+        "modeling-tools-and-techniques"
+      ]
+    },
+    {
+      "id": "clo3-model-designer",
+      "emoji": "🚀",
+      "name": "CLO3 Create Model Designer",
+      "req": "Collect design-task evidence in Linear and Nonlinear Models.",
+      "threshold_xp": 250,
+      "required_modules": [
+        "linear-and-nonlinear-models"
+      ]
+    },
+    {
+      "id": "clo5-application-interpreter",
+      "emoji": "🎯",
+      "name": "CLO5 Evaluate Application Interpreter",
+      "req": "Collect interpretation-task evidence in Model Development and Probability Models.",
+      "threshold_xp": 290,
+      "required_modules": [
+        "model-development-and-probability"
+      ]
+    },
+    {
+      "id": "clo4-model-validator",
+      "emoji": "🛠",
+      "name": "CLO4 Apply Model Validator",
+      "req": "Collect SBRA evidence in Validation and Advanced Cases.",
+      "threshold_xp": 350,
+      "required_modules": [
+        "validation-and-advanced-cases"
+      ],
+      "required_missions": [
+        "sbra-validation-and-advanced-cases-clo4"
+      ],
+      "required_accuracy": 60
+    },
+    {
+      "id": "clo6-ethical-modeler",
+      "emoji": "🎯",
+      "name": "CLO6 Evaluate Ethical Modeler",
+      "req": "Collect reflection-task evidence in Project Modeling Studio.",
+      "threshold_xp": 390,
+      "required_modules": [
+        "project-modeling-studio"
+      ],
+      "required_accuracy": 60
+    }
+  ],
+  "modules": [
+    {
+      "id": "modeling-foundations",
+      "slug": "modeling-foundations",
+      "title": "Modeling Foundations",
+      "summary": "Orient the course around what mathematical models are, why they matter, and how modeling work begins.",
+      "order": 1,
+      "module_kind": "concept"
+    },
+    {
+      "id": "modeling-tools-and-techniques",
+      "slug": "modeling-tools-and-techniques",
+      "title": "Modeling Tools and Techniques",
+      "summary": "Use foundational mathematical and statistical tools to set up and compare modeling choices.",
+      "order": 2,
+      "module_kind": "concept"
+    },
+    {
+      "id": "linear-and-nonlinear-models",
+      "slug": "linear-and-nonlinear-models",
+      "title": "Linear and Nonlinear Models",
+      "summary": "Compare model structures and decide when a linear or nonlinear view is more useful.",
+      "order": 3,
+      "module_kind": "application"
+    },
+    {
+      "id": "model-development-and-probability",
+      "slug": "model-development-and-probability",
+      "title": "Model Development and Probability Models",
+      "summary": "Move from structure choice into full model development and probabilistic perspectives.",
+      "order": 4,
+      "module_kind": "application"
+    },
+    {
+      "id": "validation-and-advanced-cases",
+      "slug": "validation-and-advanced-cases",
+      "title": "Validation and Advanced Cases",
+      "summary": "Test model validity, inspect advanced examples, and discuss ethical handling of modeling decisions.",
+      "order": 5,
+      "module_kind": "concept"
+    },
+    {
+      "id": "project-modeling-studio",
+      "slug": "project-modeling-studio",
+      "title": "Project Modeling Studio",
+      "summary": "Use project-based work, peer critique, and final presentation as the capstone modeling experience.",
+      "order": 6,
+      "module_kind": "proof"
+    }
+  ],
+  "clos": [
+    {
+      "id": "CLO1",
+      "label": "Explain mathematical and statistical techniques used in mathematical modeling.",
+      "bloom": "Understand",
+      "assessment_tags": [
+        "foundations",
+        "techniques"
+      ]
+    },
+    {
+      "id": "CLO2",
+      "label": "Search and review modeling work connected to real-world problems.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "literature",
+        "real-world-context"
+      ]
+    },
+    {
+      "id": "CLO3",
+      "label": "Integrate knowledge from other areas to create more complete mathematical models.",
+      "bloom": "Create",
+      "assessment_tags": [
+        "integration",
+        "design"
+      ]
+    },
+    {
+      "id": "CLO4",
+      "label": "Build mathematical models that are analyzed, tested, and checked for validity.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "validation",
+        "testing"
+      ]
+    },
+    {
+      "id": "CLO5",
+      "label": "Apply models to real-world problems and interpret results effectively.",
+      "bloom": "Evaluate",
+      "assessment_tags": [
+        "application",
+        "interpretation"
+      ]
+    },
+    {
+      "id": "CLO6",
+      "label": "Demonstrate ethics in the development and analysis of mathematical models.",
+      "bloom": "Evaluate",
+      "assessment_tags": [
+        "ethics",
+        "responsibility"
+      ]
+    }
+  ]
+}

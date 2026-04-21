@@ -1,0 +1,132 @@
+{
+  "course_id": "complex_variables_real_check",
+  "course_name_th": "ตัวแปรเชิงซ้อน",
+  "generated_at": "2026-04-21T08:46:27.787Z",
+  "modules": [
+    {
+      "id": "complex-number-foundations",
+      "slug": "complex-number-foundations",
+      "title": "Complex Number Foundations",
+      "summary": "Start from algebraic form, geometric interpretation, and the complex plane as the base language of the course.",
+      "order": 1,
+      "clo_ids": [
+        "CLO1"
+      ],
+      "module_kind": "concept",
+      "widgets": [
+        "quick-check",
+        "definition-visualizer"
+      ]
+    },
+    {
+      "id": "limits-and-continuity",
+      "slug": "limits-and-continuity",
+      "title": "Limits and Continuity in the Complex Plane",
+      "summary": "Reconnect sequence, limit, and continuity ideas from analysis and move them into complex-valued settings.",
+      "order": 2,
+      "clo_ids": [
+        "CLO2"
+      ],
+      "module_kind": "concept",
+      "widgets": [
+        "quick-check",
+        "step-sequence"
+      ]
+    },
+    {
+      "id": "complex-differentiation",
+      "slug": "complex-differentiation",
+      "title": "Complex Differentiation and Analytic Functions",
+      "summary": "Build the meaning of complex derivatives and analytic behavior through comparison with real-variable ideas.",
+      "order": 3,
+      "clo_ids": [
+        "CLO3"
+      ],
+      "module_kind": "concept",
+      "widgets": [
+        "quick-check",
+        "step-sequence",
+        "sbra-sequence"
+      ]
+    },
+    {
+      "id": "complex-integration",
+      "slug": "complex-integration",
+      "title": "Complex Integration",
+      "summary": "Study contour-style integration and connect it to earlier work on integrals and paths.",
+      "order": 4,
+      "clo_ids": [
+        "CLO4"
+      ],
+      "module_kind": "application",
+      "widgets": [
+        "quick-check",
+        "step-sequence",
+        "sbra-sequence"
+      ]
+    },
+    {
+      "id": "series-and-applications",
+      "slug": "series-and-applications",
+      "title": "Taylor, Laurent, and Applications",
+      "summary": "Use expansions and local representations to reason about complex functions and integral applications.",
+      "order": 5,
+      "clo_ids": [
+        "CLO5"
+      ],
+      "module_kind": "application",
+      "widgets": [
+        "quick-check",
+        "step-sequence",
+        "sbra-sequence"
+      ]
+    }
+  ],
+  "clos": [
+    {
+      "id": "CLO1",
+      "label": "Explain the algebraic and geometric foundations of complex numbers.",
+      "bloom": "Understand",
+      "assessment_tags": [
+        "concepts",
+        "complex-plane"
+      ]
+    },
+    {
+      "id": "CLO2",
+      "label": "Analyze limits and continuity of complex functions using prior analysis knowledge.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "limits",
+        "continuity"
+      ]
+    },
+    {
+      "id": "CLO3",
+      "label": "Explain and apply complex differentiation, analytic functions, and holomorphic functions.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "derivatives",
+        "analytic-functions"
+      ]
+    },
+    {
+      "id": "CLO4",
+      "label": "Explain and compute complex integrals along suitable paths.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "integrals",
+        "contours"
+      ]
+    },
+    {
+      "id": "CLO5",
+      "label": "Use Taylor and Laurent series to study complex functions and support integral reasoning.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "series",
+        "residue-ideas"
+      ]
+    }
+  ]
+}

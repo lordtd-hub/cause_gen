@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>การประยุกต์ของอนุพันธ์ — แคลคูลัส 1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .app-header {
+      background: linear-gradient(135deg, rgba(139,92,246,.12), rgba(251,113,133,.08));
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .app-title { font-size: 1.15rem; font-weight: 800; color: var(--color-accent2); margin-bottom: .3rem; }
+    .app-desc  { color: var(--color-muted); font-size: .9rem; }
+    .app-card canvas { width: 100%; background: var(--color-bg); border-radius: var(--radius-sm); display:block; }
+    .motion-stack { display: grid; gap: .5rem; }
+    .motion-track {
+      height: 42px;
+      background: linear-gradient(90deg, rgba(139,92,246,.15), rgba(34,211,238,.15));
+      border-radius: 99px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+    .motion-ball {
+      position: absolute;
+      top: 5px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, var(--color-accent1));
+      box-shadow: 0 4px 10px rgba(251,113,133,.5);
+      transition: left .05s linear;
+    }
+    .readout {
+      background: var(--color-surface2);
+      border-left: 3px solid var(--color-accent2);
+      padding: .6rem 1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-variant-numeric: tabular-nums;
+      margin-top: .5rem;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">∫</span> Calculus 1 <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+      <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+      <a href="intro.html" class="nav-link"><span class="nl-icon">🎯</span>แนะนำ</a>
+      </div>
+      <div class="nav-group" data-title="📖 บทเรียน">
+      <a href="lessons.html" class="nav-link"><span class="nl-icon">📏</span>ลิมิต</a>
+      <a href="continuity.html" class="nav-link"><span class="nl-icon">🔗</span>ต่อเนื่อง</a>
+      <a href="differentiation.html" class="nav-link"><span class="nl-icon">📐</span>อนุพันธ์</a>
+      <a href="integration.html" class="nav-link"><span class="nl-icon">∫</span>ปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="⚡ แอปประยุกต์">
+      <a href="diff-app.html" class="nav-link active"><span class="nl-icon">🚗</span>แอปอนุพันธ์</a>
+      <a href="integrate-app.html" class="nav-link"><span class="nl-icon">📊</span>แอปปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="🎮 เกม">
+      <a href="guess-game.html" class="nav-link"><span class="nl-icon">🎲</span>เกมทาย</a>
+      <a href="match-game.html" class="nav-link"><span class="nl-icon">🧩</span>เกมจับคู่</a>
+      </div>
+      <div class="nav-group" data-title="📚 สื่อ">
+      <a href="content/" class="nav-link"><span class="nl-icon">📚</span>สื่อเพิ่มเติม</a>
+      </div>
+      <div class="nav-group nav-group-cta">
+      <a href="missions.html" class="nav-link nav-cta"><span class="nl-icon">🎯</span>ภารกิจ</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    <h1 class="page-title">⚡ การประยุกต์ของอนุพันธ์</h1>
+    <p class="page-subtitle">อนุพันธ์ = อัตราการเปลี่ยนแปลง ⟹ ใช้ได้กับฟิสิกส์ เรขาคณิต และการหาค่าสูงสุด-ต่ำสุด</p>
+
+    <!-- APP A: Motion -->
+    <section class="card">
+      <div class="app-header">
+        <div class="app-title">🚗 A. ตำแหน่ง → ความเร็ว → ความเร่ง</div>
+        <div class="app-desc">$s(t)$ คือตำแหน่ง, $v(t)=s'(t)$ คือความเร็ว, $a(t)=v'(t)=s''(t)$ คือความเร่ง
+          — เลื่อนเวลาเพื่อดูความสัมพันธ์พร้อมลูกบอลเคลื่อนที่จริง</div>
+      </div>
+
+      <div class="flex-row" style="gap:.5rem;">
+        <label style="font-weight:600;">ชนิดการเคลื่อนที่:</label>
+        <select id="motion-preset">
+          <option value="parab">ขว้างขึ้นฟ้า &nbsp; s = 20t − 5t²</option>
+          <option value="linear">เร่งคงที่ &nbsp; s = 2t²</option>
+          <option value="bounce">โยกซ้ายขวา &nbsp; s = 5 sin t</option>
+        </select>
+      </div>
+
+      <div class="motion-stack mt-2">
+        <div>
+          <canvas id="c-motion-s" width="720" height="160"></canvas>
+          <div class="text-small text-muted text-center">$s(t)$ ตำแหน่ง (สีม่วง)</div>
+        </div>
+        <div>
+          <canvas id="c-motion-v" width="720" height="130"></canvas>
+          <div class="text-small text-muted text-center">$v(t)=s'(t)$ ความเร็ว (สีฟ้า)</div>
+        </div>
+        <div>
+          <canvas id="c-motion-a" width="720" height="130"></canvas>
+          <div class="text-small text-muted text-center">$a(t)=s''(t)$ ความเร่ง (สีชมพู)</div>
+        </div>
+        <div class="motion-track">
+          <div class="motion-ball" id="motion-ball"></div>
+        </div>
+      </div>
+
+      <div class="slider-row mt-2">
+        <label>เวลา $t$ = <span id="val-t">0.0</span></label>
+        <input type="range" id="sl-t" min="0" max="4" step="0.02" value="0" />
+      </div>
+      <div class="readout" id="motion-readout">
+        $s(t) = ?$ &nbsp;·&nbsp; $v(t) = ?$ &nbsp;·&nbsp; $a(t) = ?$
+      </div>
+      <div class="cta-row">
+        <button class="btn btn-primary" id="btn-play">▶ เล่นอัตโนมัติ</button>
+        <button class="btn" id="btn-stop">⏸ หยุด</button>
+      </div>
+    </section>
+
+    <!-- APP B: Tangent playground -->
+    <section class="card">
+      <div class="app-header">
+        <div class="app-title">📍 B. ลากจุดบนกราฟ เห็นความชันทันที</div>
+        <div class="app-desc">อนุพันธ์ที่จุด $x_0$ = ความชันของเส้นสัมผัส ณ จุดนั้น
+          — ลากจุดสีแดงไปตามโค้ง สังเกตว่าเส้นสัมผัส "หมุน" และความชันก็เปลี่ยน</div>
+      </div>
+
+      <div class="flex-row" style="gap:.5rem;">
+        <label style="font-weight:600;">ฟังก์ชัน:</label>
+        <select id="tan-fn"></select>
+        <label style="margin-left:.8rem;">
+          <input type="checkbox" id="tan-trace" /> วาดรอย $f'(x_0)$
+        </label>
+      </div>
+
+      <canvas id="c-tan" width="720" height="420"></canvas>
+
+      <div class="slider-row mt-2">
+        <label>จุด $x_0$ = <span id="val-x0">1.0</span></label>
+        <input type="range" id="sl-x0" min="-3" max="3" step="0.02" value="1.0" />
+      </div>
+      <div class="readout" id="tan-readout">
+        ความชันที่ $x_0$: $f'(x_0) = ?$
+      </div>
+    </section>
+
+    <!-- APP C: Optima -->
+    <section class="card">
+      <div class="app-header">
+        <div class="app-title">🏔 C. หาจุดสูงสุด-ต่ำสุด (Critical Points)</div>
+        <div class="app-desc">จุดวิกฤต = จุดที่ $f'(x)=0$ — เส้นสีเขียวคือจุดต่ำสุดสัมพัทธ์, เส้นสีเหลืองคือจุดสูงสุดสัมพัทธ์
+          (ทดสอบด้วย $f''$: $f''&gt;0$ → min, $f''&lt;0$ → max)</div>
+      </div>
+
+      <div class="flex-row" style="gap:.5rem;">
+        <label style="font-weight:600;">ฟังก์ชัน:</label>
+        <select id="opt-fn">
+          <option value="x^3 - 3*x^2 + 1|3*x^2 - 6*x|6*x - 6">x³ − 3x² + 1</option>
+          <option value="x^3 - 3*x|3*x^2 - 3|6*x">x³ − 3x</option>
+          <option value="x^4 - 4*x^2|4*x^3 - 8*x|12*x^2 - 8">x⁴ − 4x²</option>
+          <option value="sin(x)|cos(x)|-sin(x)">sin x</option>
+        </select>
+      </div>
+
+      <canvas id="c-opt" width="720" height="380"></canvas>
+
+      <div class="readout" id="opt-readout">จุดวิกฤต: –</div>
+    </section>
+
+  </main>
+
+  <!-- Libraries -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+          onload="renderMathInElement(document.body, { delimiters: [{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}], throwOnError: false });"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@13.0.3/lib/browser/math.min.js"></script>
+
+  <!-- App -->
+  <script src="js/xp.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/diff-app.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

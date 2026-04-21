@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>การวิเคราะห์ตัวแบบเชิงคณิตศาสตร์ | Intro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  
+<style>
+  .intro-grid {
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+  @media (min-width: 880px) {
+    .intro-grid {
+      grid-template-columns:1.1fr .9fr;
+    }
+  }
+  .intro-soft-card {
+    background:linear-gradient(135deg, rgba(34,211,238,.08), rgba(139,92,246,.07));
+    border:1px solid rgba(34,211,238,.2);
+  }
+  .intro-soft-card p,
+  .intro-soft-card li {
+    color:var(--color-muted);
+    line-height:1.8;
+  }
+  .intro-route-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:.9rem;
+    margin-top:1rem;
+  }
+  .intro-route-card {
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--color-border);
+    border-radius:var(--radius);
+    padding:1rem;
+  }
+  .intro-route-card strong {
+    color:#fff;
+    display:block;
+    margin-bottom:.3rem;
+  }
+  .intro-route-card p {
+    color:var(--color-muted);
+    line-height:1.7;
+    font-size:.9rem;
+  }
+  .intro-checklist {
+    margin:0;
+    padding-left:1.2rem;
+  }
+  .intro-checklist li {
+    margin:.3rem 0;
+  }
+</style>
+
+</head>
+<body data-page="intro">
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">M</span> Model Analysis <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="intro.html" class="nav-link active"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="lessons.html" class="nav-link"><span class="nl-icon">📚</span>Lessons</a>
+<a href="missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="content/" class="nav-link"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card">
+      <h1 class="page-title">แนะนำ Model Analysis</h1>
+      <p class="page-subtitle">หน้าแนะนำนี้ออกแบบให้ค่อย ๆ พาเข้าสู่รายวิชาอย่างไม่กดดันเกินไป เหมาะสำหรับการเริ่มเรียนครั้งแรกหรือกลับมาทบทวนภาพรวมก่อนเปิดบทเรียน</p>
+      <p style="line-height:1.8;">
+        รายวิชานี้แบ่งเป็น 6 โมดูล และเชื่อมกับผลลัพธ์การเรียนรู้ 6 ข้อ โดยใช้บทเรียน สื่อ interactive และภารกิจแบบเป็นขั้นช่วยให้เห็นความเข้าใจของตัวเองชัดขึ้น
+      </p>
+    </section>
+
+    <div class="intro-grid">
+      <section class="card intro-soft-card" id="intro-welcome">
+        <div class="card-title">🌿 เริ่มต้นแบบไม่ต้องรีบ</div>
+        <p>
+          ไม่จำเป็นต้องรู้ทุกอย่างตั้งแต่ครั้งแรก คุณสามารถเริ่มจากภาพรวมของวิชา แล้วค่อยเลือกบทที่อยากเรียนต่อหรือย้อนกลับมาทบทวนเฉพาะจุดได้เสมอ
+        </p>
+        <p>
+          ถ้าบางส่วนยังไม่มั่นใจ ให้ใช้บทเรียน สื่อเสริม และภารกิจเป็นสะพานช่วยเชื่อมความเข้าใจทีละส่วน ไม่ต้องเร่งให้ตอบได้ครบทุกอย่างในรอบเดียว
+        </p>
+      </section>
+
+      <section class="card intro-soft-card">
+        <div class="card-title">🧩 ก่อนเริ่มเรียนควรรู้อะไรบ้าง</div>
+        <ul class="intro-checklist">
+          <li>ดูภาพรวมของรายวิชาและเส้นทางการเรียนก่อน เพื่อเห็นว่าบทต่าง ๆ เชื่อมกันอย่างไร</li>
+          <li>เข้า lessons เพื่อเลือกเรียนตามลำดับ หรือย้อนกลับไปทบทวนเฉพาะโมดูลที่ต้องการ</li>
+          <li>ใช้สื่อ interactive ช่วยสำรวจกราฟ นิยาม พารามิเตอร์ หรือโครงเหตุผลให้เห็นภาพ</li>
+          <li>ถ้ามี missions ให้ใช้ภารกิจเป็นจังหวะเช็กความเข้าใจ ไม่ใช่พื้นที่ลงโทษเมื่อยังตอบไม่ได้ทันที</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="card">
+      <div class="card-title">✅ เริ่มจากตรงไหนดี</div>
+      <div class="intro-route-grid">
+        <div class="intro-route-card">
+          <strong>ดูภาพรวมก่อนเริ่ม</strong>
+          <p>เหมาะกับคนที่อยากเข้าใจก่อนว่ารายวิชานี้เรียนอะไร ใช้สื่ออย่างไร และควรเริ่มจากตรงไหน</p>
+          <div style="margin-top:.8rem;"><a href="index.html" class="btn">กลับหน้าแรก</a></div>
+        </div>
+        <div class="intro-route-card">
+          <strong>เข้าไปเลือกบทเรียน</strong>
+          <p>ถ้าพร้อมเริ่มเรียนแล้ว ให้ไปที่ lessons เพื่อเลือกโมดูลตามลำดับ หรือข้ามไปส่วนที่ต้องการทบทวนได้เลย</p>
+          <div style="margin-top:.8rem;"><a href="lessons.html" class="btn btn-primary">ไปหน้า Lessons</a></div>
+        </div>
+        
+        <div class="intro-route-card">
+          <strong>ลองภารกิจเมื่อพร้อม</strong>
+          <p>missions ใช้สำหรับเช็กวิธีคิด เหตุผล และความมั่นใจของตัวเองหลังจากได้ลองเรียนหรือทบทวนบทแล้ว</p>
+          <div style="margin-top:.8rem;"><a href="missions.html" class="btn">ไปหน้า Missions</a></div>
+        </div>
+      </div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"model_analysis_real_check","course_name_th":"การวิเคราะห์ตัวแบบเชิงคณิตศาสตร์","course_name_en":"Analysis of Mathematical Models","course_short_name":"Model Analysis","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A mathematical model analysis course scaffolded from TQF3 and extended with modules, project framing, and active-learning missions.","theme":{"brand_icon":"M","accent":"#0f766e","accent_secondary":"#f97316"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","step-sequence","sbra-sequence"],"lesson_completion_xp":50,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Model Analysis Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-modeling-foundations","emoji":"📘","name":"CLO1 Understand Modeling Foundations","req":"Collect quick-check evidence in Modeling Foundations.","threshold_xp":150,"required_modules":["modeling-foundations"]},{"id":"clo2-modeling-reviewer","emoji":"🧠","name":"CLO2 Analyze Modeling Reviewer","req":"Collect review-task evidence in Modeling Tools and Techniques.","threshold_xp":200,"required_modules":["modeling-tools-and-techniques"]},{"id":"clo3-model-designer","emoji":"🚀","name":"CLO3 Create Model Designer","req":"Collect design-task evidence in Linear and Nonlinear Models.","threshold_xp":250,"required_modules":["linear-and-nonlinear-models"]},{"id":"clo5-application-interpreter","emoji":"🎯","name":"CLO5 Evaluate Application Interpreter","req":"Collect interpretation-task evidence in Model Development and Probability Models.","threshold_xp":290,"required_modules":["model-development-and-probability"]},{"id":"clo4-model-validator","emoji":"🛠","name":"CLO4 Apply Model Validator","req":"Collect SBRA evidence in Validation and Advanced Cases.","threshold_xp":350,"required_modules":["validation-and-advanced-cases"],"required_missions":["sbra-validation-and-advanced-cases-clo4"],"required_accuracy":60},{"id":"clo6-ethical-modeler","emoji":"🎯","name":"CLO6 Evaluate Ethical Modeler","req":"Collect reflection-task evidence in Project Modeling Studio.","threshold_xp":390,"required_modules":["project-modeling-studio"],"required_accuracy":60}],"modules":[{"id":"modeling-foundations","slug":"modeling-foundations","title":"Modeling Foundations","summary":"Orient the course around what mathematical models are, why they matter, and how modeling work begins.","order":1,"module_kind":"concept"},{"id":"modeling-tools-and-techniques","slug":"modeling-tools-and-techniques","title":"Modeling Tools and Techniques","summary":"Use foundational mathematical and statistical tools to set up and compare modeling choices.","order":2,"module_kind":"concept"},{"id":"linear-and-nonlinear-models","slug":"linear-and-nonlinear-models","title":"Linear and Nonlinear Models","summary":"Compare model structures and decide when a linear or nonlinear view is more useful.","order":3,"module_kind":"application"},{"id":"model-development-and-probability","slug":"model-development-and-probability","title":"Model Development and Probability Models","summary":"Move from structure choice into full model development and probabilistic perspectives.","order":4,"module_kind":"application"},{"id":"validation-and-advanced-cases","slug":"validation-and-advanced-cases","title":"Validation and Advanced Cases","summary":"Test model validity, inspect advanced examples, and discuss ethical handling of modeling decisions.","order":5,"module_kind":"concept"},{"id":"project-modeling-studio","slug":"project-modeling-studio","title":"Project Modeling Studio","summary":"Use project-based work, peer critique, and final presentation as the capstone modeling experience.","order":6,"module_kind":"proof"}],"clos":[{"id":"CLO1","label":"Explain mathematical and statistical techniques used in mathematical modeling.","bloom":"Understand","assessment_tags":["foundations","techniques"]},{"id":"CLO2","label":"Search and review modeling work connected to real-world problems.","bloom":"Analyze","assessment_tags":["literature","real-world-context"]},{"id":"CLO3","label":"Integrate knowledge from other areas to create more complete mathematical models.","bloom":"Create","assessment_tags":["integration","design"]},{"id":"CLO4","label":"Build mathematical models that are analyzed, tested, and checked for validity.","bloom":"Apply","assessment_tags":["validation","testing"]},{"id":"CLO5","label":"Apply models to real-world problems and interpret results effectively.","bloom":"Evaluate","assessment_tags":["application","interpretation"]},{"id":"CLO6","label":"Demonstrate ethics in the development and analysis of mathematical models.","bloom":"Evaluate","assessment_tags":["ethics","responsibility"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="assets/js/course-runtime.js"></script>
+<script src="assets/js/xp.js"></script>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

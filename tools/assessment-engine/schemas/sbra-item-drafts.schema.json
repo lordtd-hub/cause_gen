@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cause-gen.local/schemas/sbra-item-drafts.schema.json",
+  "title": "Cause Gen SBRA Item Drafts",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "source_solution_drafts",
+    "drafts"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "source_solution_drafts": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "drafts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "draft_id",
+          "problem_id",
+          "module_id",
+          "clo_id",
+          "bloom_level",
+          "mastery_role",
+          "runtime_ready",
+          "needs_human_review",
+          "approval_status",
+          "review_status",
+          "item_prompt",
+          "learner_task",
+          "steps"
+        ],
+        "properties": {
+          "draft_id": {
+            "type": "string"
+          },
+          "problem_id": {
+            "type": "string"
+          },
+          "module_id": {
+            "type": "string"
+          },
+          "clo_id": {
+            "type": "string"
+          },
+          "bloom_level": {
+            "type": "string"
+          },
+          "mastery_role": {
+            "type": "string",
+            "enum": [
+              "clo-evidence"
+            ]
+          },
+          "runtime_ready": {
+            "type": "boolean"
+          },
+          "needs_human_review": {
+            "type": "boolean"
+          },
+          "approval_status": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reviewed_by": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reviewed_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "approved_target_destination": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "review_status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected"
+            ]
+          },
+          "item_prompt": {
+            "type": "string"
+          },
+          "learner_task": {
+            "type": "string"
+          },
+          "expected_answer": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "full_solution_latex": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "step_id",
+                "title",
+                "prompt",
+                "step_choice_row",
+                "reason_choice_row"
+              ],
+              "properties": {
+                "step_id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "prompt": {
+                  "type": "string"
+                },
+                "step_choice_row": {
+                  "type": "object",
+                  "required": [
+                    "row_type",
+                    "prompt",
+                    "choices",
+                    "correct_choice_id"
+                  ],
+                  "properties": {
+                    "row_type": {
+                      "type": "string",
+                      "const": "step-choice"
+                    },
+                    "prompt": {
+                      "type": "string"
+                    },
+                    "choices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "choice_id",
+                          "text",
+                          "is_correct",
+                          "feedback"
+                        ],
+                        "properties": {
+                          "choice_id": {
+                            "type": "string"
+                          },
+                          "text": {
+                            "type": "string"
+                          },
+                          "is_correct": {
+                            "type": "boolean"
+                          },
+                          "feedback": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "correct_choice_id": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "reason_choice_row": {
+                  "type": "object",
+                  "required": [
+                    "row_type",
+                    "prompt",
+                    "choices",
+                    "correct_choice_id"
+                  ],
+                  "properties": {
+                    "row_type": {
+                      "type": "string",
+                      "const": "reason-choice"
+                    },
+                    "prompt": {
+                      "type": "string"
+                    },
+                    "choices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "choice_id",
+                          "text",
+                          "is_correct",
+                          "feedback"
+                        ],
+                        "properties": {
+                          "choice_id": {
+                            "type": "string"
+                          },
+                          "text": {
+                            "type": "string"
+                          },
+                          "is_correct": {
+                            "type": "boolean"
+                          },
+                          "feedback": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "correct_choice_id": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "source_refs": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

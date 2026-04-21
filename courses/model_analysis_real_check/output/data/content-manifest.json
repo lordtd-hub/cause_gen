@@ -1,0 +1,82 @@
+{
+  "updated": "2026-04-21",
+  "items": [
+    {
+      "id": "introductory-notes-on-mathematical-modeling",
+      "topic": "Modeling Foundations",
+      "title": "Introductory notes on mathematical modeling",
+      "description": "main text: เหมาะกับ Modeling Foundations",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: notes\nบทบาท: main text\nโมดูลที่เกี่ยวข้อง: Modeling Foundations\nหมายเหตุ: starter notes on model meaning, assumptions, and scope",
+      "seed_type": "notes",
+      "seed_role": "main text",
+      "linked_modules": [
+        "modeling-foundations"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "modeling-case-study-reading-pack",
+      "topic": "Course Resources",
+      "title": "Modeling case-study reading pack",
+      "description": "support: เหมาะกับ Modeling Tools and Techniques, Linear and Nonlinear Models",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: reading-pack\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: Modeling Tools and Techniques, Linear and Nonlinear Models\nหมายเหตุ: examples of real-world models across different contexts",
+      "seed_type": "reading-pack",
+      "seed_role": "support",
+      "linked_modules": [
+        "modeling-tools-and-techniques",
+        "linear-and-nonlinear-models"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "spreadsheet-or-colab-starter-for-modeling-experiments",
+      "topic": "Practice and Review",
+      "title": "Spreadsheet or Colab starter for modeling experiments",
+      "description": "practice: เหมาะกับ Model Development and Probability Models, Validation and Advanced Cases",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: notebook\nบทบาท: practice\nโมดูลที่เกี่ยวข้อง: Model Development and Probability Models, Validation and Advanced Cases\nหมายเหตุ: use for quick trials, parameter checks, and output comparison",
+      "seed_type": "notebook",
+      "seed_role": "practice",
+      "linked_modules": [
+        "model-development-and-probability",
+        "validation-and-advanced-cases"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "validation-checklist-for-mathematical-models",
+      "topic": "Validation and Advanced Cases",
+      "title": "Validation checklist for mathematical models",
+      "description": "support: เหมาะกับ Validation and Advanced Cases",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: worksheet\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: Validation and Advanced Cases\nหมายเหตุ: prompts for assumptions, tests, and interpretation limits",
+      "seed_type": "worksheet",
+      "seed_role": "support",
+      "linked_modules": [
+        "validation-and-advanced-cases"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "project-report-and-presentation-template",
+      "topic": "Project Modeling Studio",
+      "title": "Project report and presentation template",
+      "description": "review: เหมาะกับ Project Modeling Studio",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: template\nบทบาท: review\nโมดูลที่เกี่ยวข้อง: Project Modeling Studio\nหมายเหตุ: structure for final project evidence and presentation",
+      "seed_type": "template",
+      "seed_role": "review",
+      "linked_modules": [
+        "project-modeling-studio"
+      ],
+      "public_href": null
+    }
+  ]
+}

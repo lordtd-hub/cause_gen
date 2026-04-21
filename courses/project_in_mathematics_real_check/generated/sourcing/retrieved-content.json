@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "project_in_mathematics_real_check",
+  "generated_at": "2026-04-21T09:00:00.000Z",
+  "items": [
+    {
+      "retrieval_id": "content-001",
+      "content_id": "lit-review-evidence-ladder",
+      "query_id": "content-query-02-literature-review-and-project-planning",
+      "source_id": "mit-ocw",
+      "source_title": "Annotated reading ladder for literature review planning",
+      "source_url": "https://example.edu/lit-review-ladder",
+      "license_note": "Educational adaptation note recorded for local review.",
+      "content_title": "Evidence Ladder for Literature Review",
+      "content_summary": "A short guided activity that helps students separate strong mathematical sources from weaker background references before they write a project plan.",
+      "content_excerpt": "Learners compare four references, sort them by mathematical usefulness, and explain which source should anchor the first project review.",
+      "candidate_module_id": "02-literature-review-and-project-planning",
+      "candidate_clo_ids": [
+        "CLO1",
+        "CLO2"
+      ],
+      "candidate_bloom_levels": [
+        "analyze"
+      ]
+    },
+    {
+      "retrieval_id": "content-002",
+      "content_id": "progress-risk-checkpoint",
+      "query_id": "content-query-03-project-execution-and-progress-review",
+      "source_id": "openstax",
+      "source_title": "Project progress checkpoint prompt",
+      "source_url": "https://example.edu/progress-checkpoint",
+      "license_note": "Educational adaptation note recorded for local review.",
+      "content_title": "Progress Risk Checkpoint",
+      "content_summary": "A checkpoint prompt that asks learners to distinguish visible activity from evidence-backed project progress.",
+      "content_excerpt": "Students inspect a progress note, identify the highest-risk gap, and justify what should be raised in the next advisor meeting.",
+      "candidate_module_id": "03-project-execution-and-progress-review",
+      "candidate_clo_ids": [
+        "CLO3",
+        "CLO4"
+      ],
+      "candidate_bloom_levels": [
+        "evaluate"
+      ]
+    }
+  ]
+}

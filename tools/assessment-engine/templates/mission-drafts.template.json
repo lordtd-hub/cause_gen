@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "replace-course-id",
+  "source_classification": "generated/assessment-classification.json",
+  "generated_at": "replace-generated-at",
+  "drafts": [
+    {
+      "draft_id": "replace-draft-id",
+      "problem_id": "replace-problem-id",
+      "module_id": "replace-module-id",
+      "clo_id": "CLO1",
+      "bloom_level": "analyze",
+      "mission_family": "sbra-step-reasoning",
+      "needs_human_review": true,
+      "runtime_ready": false,
+      "title": "Replace with a learner-facing title",
+      "prompt": "Replace with a learner-facing mission prompt.",
+      "strategy_prompt": "Explain your reasoning before you submit.",
+      "misconception_tags": [],
+      "sbra_blueprint": {
+        "shape": "diagnose-and-justify",
+        "steps": [
+          {
+            "step_id": "step-1",
+            "intent": "Identify the key mathematical signal in the prompt."
+          },
+          {
+            "step_id": "step-2",
+            "intent": "Choose a defensible process."
+          },
+          {
+            "step_id": "step-3",
+            "intent": "Justify the choice with mathematical reasoning."
+          }
+        ]
+      },
+      "review_status": "pending"
+    }
+  ]
+}

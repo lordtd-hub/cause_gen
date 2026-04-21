@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "complex_variables_real_check",
+  "generated_at": "2026-04-21T08:37:19.289Z",
+  "queries": [
+    {
+      "query_id": "content-query-01-complex-number-foundations",
+      "module_id": "complex-number-foundations",
+      "target_clo_ids": [
+        "CLO1"
+      ],
+      "target_bloom_levels": [
+        "understand"
+      ],
+      "query_texts": [
+        "Complex Variables Complex Number Foundations lecture notes",
+        "Complex Number Foundations interactive learning activity",
+        "Complex Number Foundations Explain the algebraic and geometric foundations of complex numbers. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    },
+    {
+      "query_id": "content-query-02-limits-and-continuity",
+      "module_id": "limits-and-continuity",
+      "target_clo_ids": [
+        "CLO2"
+      ],
+      "target_bloom_levels": [
+        "analyze"
+      ],
+      "query_texts": [
+        "Complex Variables Limits and Continuity in the Complex Plane lecture notes",
+        "Limits and Continuity in the Complex Plane interactive learning activity",
+        "Limits and Continuity in the Complex Plane Analyze limits and continuity of complex functions using prior analysis knowledge. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    },
+    {
+      "query_id": "content-query-03-complex-differentiation",
+      "module_id": "complex-differentiation",
+      "target_clo_ids": [
+        "CLO3"
+      ],
+      "target_bloom_levels": [
+        "apply"
+      ],
+      "query_texts": [
+        "Complex Variables Complex Differentiation and Analytic Functions lecture notes",
+        "Complex Differentiation and Analytic Functions interactive learning activity",
+        "Complex Differentiation and Analytic Functions Explain and apply complex differentiation, analytic functions, and holomorphic functions. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    },
+    {
+      "query_id": "content-query-04-complex-integration",
+      "module_id": "complex-integration",
+      "target_clo_ids": [
+        "CLO4"
+      ],
+      "target_bloom_levels": [
+        "apply"
+      ],
+      "query_texts": [
+        "Complex Variables Complex Integration lecture notes",
+        "Complex Integration interactive learning activity",
+        "Complex Integration Explain and compute complex integrals along suitable paths. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    },
+    {
+      "query_id": "content-query-05-series-and-applications",
+      "module_id": "series-and-applications",
+      "target_clo_ids": [
+        "CLO5"
+      ],
+      "target_bloom_levels": [
+        "analyze"
+      ],
+      "query_texts": [
+        "Complex Variables Taylor, Laurent, and Applications lecture notes",
+        "Taylor, Laurent, and Applications interactive learning activity",
+        "Taylor, Laurent, and Applications Use Taylor and Laurent series to study complex functions and support integral reasoning. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    }
+  ]
+}

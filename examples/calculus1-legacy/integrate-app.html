@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>การประยุกต์ของปริพันธ์ — แคลคูลัส 1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .app-header {
+      background: linear-gradient(135deg, rgba(34,211,238,.12), rgba(139,92,246,.08));
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .app-title { font-size: 1.15rem; font-weight: 800; color: var(--color-accent2); margin-bottom: .3rem; }
+    .app-desc  { color: var(--color-muted); font-size: .9rem; }
+    canvas { width: 100%; background: var(--color-bg); border-radius: var(--radius-sm); display:block; }
+    .readout {
+      background: var(--color-surface2);
+      border-left: 3px solid var(--color-accent2);
+      padding: .6rem 1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-variant-numeric: tabular-nums;
+      margin-top: .5rem;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">∫</span> Calculus 1 <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+      <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+      <a href="intro.html" class="nav-link"><span class="nl-icon">🎯</span>แนะนำ</a>
+      </div>
+      <div class="nav-group" data-title="📖 บทเรียน">
+      <a href="lessons.html" class="nav-link"><span class="nl-icon">📏</span>ลิมิต</a>
+      <a href="continuity.html" class="nav-link"><span class="nl-icon">🔗</span>ต่อเนื่อง</a>
+      <a href="differentiation.html" class="nav-link"><span class="nl-icon">📐</span>อนุพันธ์</a>
+      <a href="integration.html" class="nav-link"><span class="nl-icon">∫</span>ปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="⚡ แอปประยุกต์">
+      <a href="diff-app.html" class="nav-link"><span class="nl-icon">🚗</span>แอปอนุพันธ์</a>
+      <a href="integrate-app.html" class="nav-link active"><span class="nl-icon">📊</span>แอปปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="🎮 เกม">
+      <a href="guess-game.html" class="nav-link"><span class="nl-icon">🎲</span>เกมทาย</a>
+      <a href="match-game.html" class="nav-link"><span class="nl-icon">🧩</span>เกมจับคู่</a>
+      </div>
+      <div class="nav-group" data-title="📚 สื่อ">
+      <a href="content/" class="nav-link"><span class="nl-icon">📚</span>สื่อเพิ่มเติม</a>
+      </div>
+      <div class="nav-group nav-group-cta">
+      <a href="missions.html" class="nav-link nav-cta"><span class="nl-icon">🎯</span>ภารกิจ</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    <h1 class="page-title">⚡ การประยุกต์ของปริพันธ์</h1>
+    <p class="page-subtitle">ปริพันธ์ = การ "สะสม" ของปริมาณ — คำนวณพื้นที่ ปริมาตร และงาน ได้จากแนวคิดเดียวกัน</p>
+
+    <!-- APP A: Area between curves -->
+    <section class="card">
+      <div class="app-header">
+        <div class="app-title">📐 A. พื้นที่ระหว่างเส้นโค้งสองเส้น</div>
+        <div class="app-desc">$\displaystyle\text{พื้นที่} = \int_a^b |f(x) - g(x)|\,dx$ — เลื่อน $a,b$ เพื่อดูว่าพื้นที่เปลี่ยนไปอย่างไร</div>
+      </div>
+
+      <div class="flex-row" style="gap:.5rem;">
+        <label>$f(x)$:</label>
+        <select id="ab-f">
+          <option value="x">x</option>
+          <option value="x^2">x²</option>
+          <option value="sqrt(x)">√x</option>
+          <option value="sin(x)+2">sin x + 2</option>
+        </select>
+        <label style="margin-left:.8rem;">g(x):</label>
+        <select id="ab-g">
+          <option value="x^2">x²</option>
+          <option value="x">x</option>
+          <option value="x/2">x/2</option>
+          <option value="0">0</option>
+        </select>
+      </div>
+
+      <canvas id="c-ab" width="720" height="380"></canvas>
+
+      <div class="slider-row">
+        <label>$a$ = <span id="val-ab-a">0.0</span></label>
+        <input type="range" id="sl-ab-a" min="-2" max="2" step="0.05" value="0" />
+      </div>
+      <div class="slider-row">
+        <label>$b$ = <span id="val-ab-b">1.0</span></label>
+        <input type="range" id="sl-ab-b" min="-1" max="4" step="0.05" value="1" />
+      </div>
+      <div class="readout" id="ab-readout">พื้นที่ = –</div>
+    </section>
+
+    <!-- APP B: Volume of revolution (disk) -->
+    <section class="card">
+      <div class="app-header">
+        <div class="app-title">🏗 B. ปริมาตรโดยการหมุน (Disk Method)</div>
+        <div class="app-desc">หมุนเส้นโค้ง $y = f(x)$ บน $[a,b]$ รอบแกน $x$ →
+          $V = \pi \displaystyle\int_a^b [f(x)]^2\,dx$
+          — แท่งกลมเล็กๆ (disks) สะสมเป็นปริมาตรทรงสามมิติ</div>
+      </div>
+
+      <div class="flex-row" style="gap:.5rem;">
+        <label>$f(x)$:</label>
+        <select id="vol-f">
+          <option value="sqrt(x)">√x (พาราโบลอยด์)</option>
+          <option value="x">x (กรวย)</option>
+          <option value="1">1 (ทรงกระบอก)</option>
+          <option value="sin(x)+1.2">sin x + 1.2</option>
+          <option value="0.4*x^2 + 0.3">0.4x² + 0.3</option>
+        </select>
+      </div>
+
+      <canvas id="c-vol" width="720" height="300"></canvas>
+
+      <div class="slider-row">
+        <label>$a$ = <span id="val-vol-a">0.0</span></label>
+        <input type="range" id="sl-vol-a" min="0" max="3" step="0.05" value="0" />
+      </div>
+      <div class="slider-row">
+        <label>$b$ = <span id="val-vol-b">3.0</span></label>
+        <input type="range" id="sl-vol-b" min="0.5" max="5" step="0.05" value="3" />
+      </div>
+      <div class="slider-row">
+        <label>จำนวน disks = <span id="val-vol-n">20</span></label>
+        <input type="range" id="sl-vol-n" min="4" max="80" step="1" value="20" />
+      </div>
+      <div class="readout" id="vol-readout">ปริมาตร = –</div>
+    </section>
+
+    <!-- APP C: Work (spring) -->
+    <section class="card">
+      <div class="app-header">
+        <div class="app-title">💪 C. งาน — แรงสปริง (Hooke's Law)</div>
+        <div class="app-desc">สปริงยืดจากตำแหน่งสมดุล $0$ ไปถึง $d$ ใช้งาน $W = \int_0^d kx\,dx = \tfrac{1}{2}kd^2$
+          — พื้นที่ใต้กราฟ $F(x)=kx$ คือปริมาณงานพอดี</div>
+      </div>
+
+      <canvas id="c-work" width="720" height="320"></canvas>
+
+      <div class="slider-row">
+        <label>ค่าคงตัวสปริง $k$ = <span id="val-k">2.0</span> N/m</label>
+        <input type="range" id="sl-k" min="0.5" max="10" step="0.1" value="2" />
+      </div>
+      <div class="slider-row">
+        <label>ระยะยืด $d$ = <span id="val-d">1.5</span> m</label>
+        <input type="range" id="sl-d" min="0" max="4" step="0.05" value="1.5" />
+      </div>
+      <div class="readout" id="work-readout">งาน $W$ = –</div>
+    </section>
+  </main>
+
+  <!-- Libraries -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+          onload="renderMathInElement(document.body, { delimiters: [{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}], throwOnError: false });"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@13.0.3/lib/browser/math.min.js"></script>
+
+  <!-- App -->
+  <script src="js/xp.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/integrate-app.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

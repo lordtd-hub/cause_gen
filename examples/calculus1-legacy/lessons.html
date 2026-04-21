@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>บทเรียน — ลิมิตของฟังก์ชัน</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/game.css" />
+  <style>
+    .lesson-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 880px) { .lesson-grid { grid-template-columns: 1fr 1fr; } }
+
+    .fn-picker {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .fn-chip {
+      padding: 0.35rem 0.85rem;
+      background: var(--color-surface2);
+      border: 1px solid var(--color-border);
+      border-radius: 99px;
+      color: var(--color-muted);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: var(--font);
+    }
+    .fn-chip:hover { color: var(--color-text); border-color: var(--color-primary); }
+    .fn-chip.active {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent1));
+      color: #fff;
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .graph-shell {
+      background: #0a0614;
+      border-radius: var(--radius-sm);
+      padding: 0.5rem;
+    }
+    .graph-shell canvas { width: 100%; height: 340px; display: block; }
+
+    .info-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 0.4rem; flex-wrap: wrap; gap: 0.3rem;
+    }
+    .info-head .tech-tag {
+      font-size: 0.75rem;
+      background: rgba(34,211,238,0.15);
+      border: 1px solid rgba(34,211,238,0.4);
+      color: var(--color-accent2);
+      padding: 0.15rem 0.6rem;
+      border-radius: 99px;
+      font-weight: 600;
+    }
+    .steps-box {
+      background: var(--color-bg);
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      margin-top: 0.75rem;
+    }
+    .steps-box .step-row { padding: 0.4rem 0; border-bottom: 1px dashed rgba(255,255,255,0.06); }
+    .steps-box .step-row:last-child { border-bottom: none; }
+
+    .answer-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1.1rem; margin-top: 0.75rem;
+      background: linear-gradient(135deg, rgba(52,211,153,0.15), rgba(34,211,238,0.08));
+      border: 1px solid var(--color-success);
+      border-radius: var(--radius-sm);
+      font-weight: 700; font-size: 1.05rem;
+    }
+
+    .summary-note {
+      background: linear-gradient(135deg, rgba(250,204,21,0.08), rgba(251,113,133,0.05));
+      border: 1px solid var(--color-accent3);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem;
+      margin: 0.75rem 0;
+    }
+    .summary-note .t { font-weight: 700; color: var(--color-accent3); margin-bottom: 0.3rem; }
+
+    .completion-banner {
+      display: none;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(135deg, rgba(52,211,153,0.15), rgba(34,211,238,0.08));
+      border: 1px solid var(--color-success);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .completion-banner.show { display: flex; }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">∫</span> Calculus 1 <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+      <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+      <a href="intro.html" class="nav-link"><span class="nl-icon">🎯</span>แนะนำ</a>
+      </div>
+      <div class="nav-group" data-title="📖 บทเรียน">
+      <a href="lessons.html" class="nav-link active"><span class="nl-icon">📏</span>ลิมิต</a>
+      <a href="continuity.html" class="nav-link"><span class="nl-icon">🔗</span>ต่อเนื่อง</a>
+      <a href="differentiation.html" class="nav-link"><span class="nl-icon">📐</span>อนุพันธ์</a>
+      <a href="integration.html" class="nav-link"><span class="nl-icon">∫</span>ปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="⚡ แอปประยุกต์">
+      <a href="diff-app.html" class="nav-link"><span class="nl-icon">🚗</span>แอปอนุพันธ์</a>
+      <a href="integrate-app.html" class="nav-link"><span class="nl-icon">📊</span>แอปปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="🎮 เกม">
+      <a href="guess-game.html" class="nav-link"><span class="nl-icon">🎲</span>เกมทาย</a>
+      <a href="match-game.html" class="nav-link"><span class="nl-icon">🧩</span>เกมจับคู่</a>
+      </div>
+      <div class="nav-group" data-title="📚 สื่อ">
+      <a href="content/" class="nav-link"><span class="nl-icon">📚</span>สื่อเพิ่มเติม</a>
+      </div>
+      <div class="nav-group nav-group-cta">
+      <a href="missions.html" class="nav-link nav-cta"><span class="nl-icon">🎯</span>ภารกิจ</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    <h1 class="page-title">📚 บทเรียน 4 หัวข้อ + สรุป</h1>
+    <p class="page-subtitle">เลือกแท็บเพื่อศึกษาฟังก์ชันแต่ละกลุ่ม อ่านจนครบรับ <strong>+30 XP ต่อหัวข้อ</strong></p>
+
+    <!-- Tabs -->
+    <div class="tab-bar" id="tab-bar">
+      <button class="tab-btn active" data-topic="basic">พื้นฐาน</button>
+      <button class="tab-btn" data-topic="trig">ตรีโกณมิติ</button>
+      <button class="tab-btn" data-topic="exp">เอ็กซ์โพเนนเชียล</button>
+      <button class="tab-btn" data-topic="log">ลอการิทึม</button>
+      <button class="tab-btn" data-topic="summary">📋 สรุปเทคนิค</button>
+    </div>
+
+    <!-- Function panels -->
+    <div id="topic-content">
+      <div class="completion-banner" id="completion-banner">
+        <span>✅</span><span id="completion-text">หัวข้อนี้เรียนจบแล้ว</span>
+      </div>
+
+      <div class="fn-picker" id="fn-picker"></div>
+
+      <div class="lesson-grid">
+        <section class="card">
+          <div class="card-title" id="fn-title">ฟังก์ชัน</div>
+          <div class="graph-shell">
+            <canvas id="lesson-graph"></canvas>
+          </div>
+          <div class="text-small text-muted text-center mt-2" id="fn-domain"></div>
+        </section>
+
+        <section class="card">
+          <div class="info-head">
+            <div style="font-size:1.1rem; font-weight:700;" id="fn-expr"></div>
+            <span class="tech-tag" id="fn-tech"></span>
+          </div>
+          <div style="color:var(--color-muted); font-size:0.85rem; margin-bottom:0.6rem;">
+            คำถาม: $\lim_{x\to a} f(x) = ?$
+          </div>
+          <div class="steps-box" id="fn-steps"></div>
+          <div class="answer-chip" id="fn-answer">🎯 คำตอบ: L = ?</div>
+        </section>
+      </div>
+
+      <section class="card" style="margin-top:1rem;">
+        <div class="card-title">💪 เสริมความเข้าใจ</div>
+        <div id="fn-hint" style="color:var(--color-muted); line-height:1.8;"></div>
+      </section>
+    </div>
+
+    <!-- Summary panel -->
+    <div id="summary-panel" style="display:none;">
+      <div class="completion-banner" id="sum-banner">
+        <span>✅</span><span>เรียนสรุปครบแล้ว</span>
+      </div>
+
+      <section class="card">
+        <div class="card-title">📋 สรุปเทคนิคการหาลิมิต</div>
+
+        <div class="summary-note">
+          <div class="t">1. แทนค่าตรงๆ ได้เลย (ฟังก์ชันต่อเนื่อง)</div>
+          ถ้า $f$ ต่อเนื่องที่ $a$: $\lim_{x\to a} f(x) = f(a)$<br>
+          <em>ตัวอย่าง:</em> $\lim_{x\to 3}(2x+1) = 7$
+        </div>
+
+        <div class="summary-note">
+          <div class="t">2. รูป 0/0 → แยกตัวประกอบ</div>
+          ถ้าแทน $x=a$ แล้วได้ $0/0$ ลองจัดรูปให้ $(x-a)$ หักล้างกัน
+          <div style="margin-top:.4rem;">$$\lim_{x\to 2}\frac{x^2-4}{x-2} = \lim_{x\to 2}\frac{(x-2)(x+2)}{x-2} = 4$$</div>
+        </div>
+
+        <div class="summary-note">
+          <div class="t">3. รูป 0/0 ที่มีราก → คูณคอนจูเกต</div>
+          $$\lim_{x\to 0}\frac{\sqrt{x+4}-2}{x} = \lim_{x\to 0}\frac{1}{\sqrt{x+4}+2} = \frac{1}{4}$$
+        </div>
+
+        <div class="summary-note">
+          <div class="t">4. ลิมิตพื้นฐานที่ต้องจำ</div>
+          $$\lim_{x\to 0}\frac{\sin x}{x} = 1, \quad
+          \lim_{x\to 0}\frac{1-\cos x}{x} = 0$$
+          $$\lim_{x\to 0}\frac{e^x - 1}{x} = 1, \quad
+          \lim_{x\to 0}\frac{\ln(1+x)}{x} = 1$$
+          $$\lim_{n\to\infty}\left(1+\tfrac{1}{n}\right)^n = e$$
+        </div>
+
+        <div class="summary-note">
+          <div class="t">5. รูป ∞/∞ → L'Hospital (ขั้นสูง)</div>
+          ถ้า $\lim \dfrac{f}{g}$ เป็นรูป $\dfrac{0}{0}$ หรือ $\dfrac{\infty}{\infty}$:
+          $$\lim\frac{f(x)}{g(x)} = \lim\frac{f'(x)}{g'(x)}$$
+        </div>
+
+        <div class="summary-note">
+          <div class="t">6. เข้าใกล้ ∞ → พิจารณาเทอมโตที่สุด</div>
+          $$\lim_{x\to\infty}\frac{3x^2+1}{5x^2-x} = \frac{3}{5}$$
+        </div>
+
+        <div class="flex-row" style="justify-content:center; margin-top:1rem;">
+          <a href="guess-game.html" class="btn btn-primary">🎮 ทดสอบด้วยเกมทาย</a>
+          <a href="match-game.html" class="btn btn-accent">🔗 เล่นเกมจับคู่</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Libraries -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+          onload="renderMathInElement(document.body, { delimiters: [{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}], throwOnError: false });"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@13.0.3/lib/browser/math.min.js"></script>
+
+  <!-- App -->
+  <script src="js/xp.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/lessons.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

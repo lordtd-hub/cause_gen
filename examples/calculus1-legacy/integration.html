@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ปริพันธ์ — แคลคูลัส 1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .twin-graph { display:grid; grid-template-columns:1fr; gap:.75rem; }
+    @media (min-width:820px){ .twin-graph{ grid-template-columns:1fr 1fr; } }
+    .twin-graph canvas { width:100%; background:var(--color-bg); border-radius:var(--radius-sm); }
+    .twin-graph .cap { font-size:.85rem; color:var(--color-muted); text-align:center; margin-top:.25rem; }
+    .readout {
+      background: var(--color-surface2);
+      border-left: 3px solid var(--color-accent2);
+      padding: .75rem 1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-variant-numeric: tabular-nums;
+      margin-top: .75rem;
+    }
+    .mode-pills {
+      display:flex; flex-wrap:wrap; gap:.4rem; margin:.5rem 0;
+    }
+    .mode-pill {
+      padding: .35rem .85rem; border-radius: 99px;
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      color: var(--color-muted); cursor: pointer; font-size: .85rem; font-weight: 600;
+      font-family: var(--font); transition: all .15s;
+    }
+    .mode-pill:hover { color: var(--color-text); }
+    .mode-pill.active {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent2));
+      color:#fff; border-color: transparent;
+    }
+    .formula-card {
+      background: var(--color-bg); border:1px solid var(--color-border);
+      border-radius: var(--radius-sm); padding:.85rem 1rem; margin-bottom:.6rem;
+    }
+    .formula-card h4 { font-size: .95rem; color: var(--color-accent3); font-weight:700; margin-bottom:.3rem; }
+    .error-tile {
+      display:inline-block; padding:.3rem .7rem; border-radius:99px;
+      background: rgba(52,211,153,.15); color: var(--color-success); font-weight:700; font-size:.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">∫</span> Calculus 1 <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+      <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+      <a href="intro.html" class="nav-link"><span class="nl-icon">🎯</span>แนะนำ</a>
+      </div>
+      <div class="nav-group" data-title="📖 บทเรียน">
+      <a href="lessons.html" class="nav-link"><span class="nl-icon">📏</span>ลิมิต</a>
+      <a href="continuity.html" class="nav-link"><span class="nl-icon">🔗</span>ต่อเนื่อง</a>
+      <a href="differentiation.html" class="nav-link"><span class="nl-icon">📐</span>อนุพันธ์</a>
+      <a href="integration.html" class="nav-link active"><span class="nl-icon">∫</span>ปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="⚡ แอปประยุกต์">
+      <a href="diff-app.html" class="nav-link"><span class="nl-icon">🚗</span>แอปอนุพันธ์</a>
+      <a href="integrate-app.html" class="nav-link"><span class="nl-icon">📊</span>แอปปริพันธ์</a>
+      </div>
+      <div class="nav-group" data-title="🎮 เกม">
+      <a href="guess-game.html" class="nav-link"><span class="nl-icon">🎲</span>เกมทาย</a>
+      <a href="match-game.html" class="nav-link"><span class="nl-icon">🧩</span>เกมจับคู่</a>
+      </div>
+      <div class="nav-group" data-title="📚 สื่อ">
+      <a href="content/" class="nav-link"><span class="nl-icon">📚</span>สื่อเพิ่มเติม</a>
+      </div>
+      <div class="nav-group nav-group-cta">
+      <a href="missions.html" class="nav-link nav-cta"><span class="nl-icon">🎯</span>ภารกิจ</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    <h1 class="page-title">∫ ปริพันธ์ (Integration)</h1>
+    <p class="page-subtitle">จาก<em>ลิมิตของผลรวมรีมันน์</em> → แอนติเดริเวทีฟ → ถึงทฤษฎีบทหลักของแคลคูลัส (FTC)</p>
+
+    <!-- Tabs -->
+    <div class="tab-bar" id="tab-bar">
+      <button class="tab-btn active" data-topic="concept">🎯 แนวคิด (Riemann)</button>
+      <button class="tab-btn" data-topic="anti">🔄 แอนติเดริเวทีฟ</button>
+      <button class="tab-btn" data-topic="ftc">🌉 FTC</button>
+      <button class="tab-btn" data-topic="formulas">📘 สูตร</button>
+      <button class="tab-btn" data-topic="summary">📝 สรุป</button>
+    </div>
+
+    <!-- Concept tab: Riemann sum -->
+    <section class="tab-panel active" id="pane-concept">
+      <div class="card">
+        <div class="card-title">📊 แนวคิด: แบ่งพื้นที่เป็นสี่เหลี่ยมเล็กๆ</div>
+        <p>พื้นที่ใต้กราฟของ $f$ บน $[a,b]$ หาได้โดย<strong>แบ่งช่วงเป็น $n$ ส่วน</strong> และบวกพื้นที่ของสี่เหลี่ยมแต่ละแท่ง เมื่อ $n \to \infty$ ผลรวมจะเข้าสู่ค่าจริง</p>
+        <div class="definition-block">
+          <div class="label">นิยามปริพันธ์ของรีมันน์</div>
+          <div style="text-align:center; font-size:1.05rem;">
+            $$\int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*)\,\Delta x, \quad \Delta x = \frac{b-a}{n}$$
+          </div>
+        </div>
+
+        <div class="flex-row" style="gap:.5rem;">
+          <label style="font-weight:600;">ฟังก์ชัน:</label>
+          <select id="riemann-fn"></select>
+        </div>
+
+        <canvas id="c-riemann" width="720" height="420"></canvas>
+
+        <div class="mode-pills" id="riemann-modes">
+          <button class="mode-pill active" data-mode="L">ซ้าย (L)</button>
+          <button class="mode-pill" data-mode="R">ขวา (R)</button>
+          <button class="mode-pill" data-mode="M">กึ่งกลาง (M)</button>
+          <button class="mode-pill" data-mode="T">ทราพีซอยด์ (T)</button>
+        </div>
+
+        <div class="slider-row">
+          <label>$n$ = <span id="val-n">4</span> แท่ง</label>
+          <input type="range" id="sl-n" min="1" max="500" step="1" value="4" />
+        </div>
+        <div class="slider-row">
+          <label>$a$ = <span id="val-a">0.0</span></label>
+          <input type="range" id="sl-a" min="-2" max="2" step="0.1" value="0" />
+        </div>
+        <div class="slider-row">
+          <label>$b$ = <span id="val-b">2.0</span></label>
+          <input type="range" id="sl-b" min="-1" max="4" step="0.1" value="2" />
+        </div>
+
+        <div class="readout" id="riemann-readout">
+          ผลรวมรีมันน์: – &nbsp;·&nbsp; ค่าจริง: – &nbsp;·&nbsp; ความคลาดเคลื่อน: –
+        </div>
+
+        <div class="cta-row mt-2">
+          <button class="btn btn-primary" id="btn-converge">▶ ดูลู่เข้า ($n$ เพิ่มขึ้น)</button>
+          <button class="btn" id="btn-reset-n">รีเซ็ต</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Antiderivative -->
+    <section class="tab-panel" id="pane-anti">
+      <div class="card">
+        <div class="card-title">🔄 แอนติเดริเวทีฟ — ฟังก์ชันย้อนอนุพันธ์</div>
+        <p>ฟังก์ชัน $F$ เป็น<strong>แอนติเดริเวทีฟ</strong>ของ $f$ เมื่อ $F'(x) = f(x)$</p>
+        <div class="definition-block">
+          <div class="label">ข้อสังเกต</div>
+          <p>ถ้า $F$ เป็นแอนติเดริเวทีฟของ $f$ แล้ว $F+C$ ก็เป็นเช่นกันสำหรับค่าคงที่ $C$ ใดๆ
+          → <strong>ปริพันธ์ไม่จำกัด</strong>: $\int f(x)\,dx = F(x) + C$</p>
+        </div>
+
+        <div class="flex-row" style="gap:.5rem;">
+          <label>ดู $F(x) + C$:</label>
+          <select id="anti-fn"></select>
+        </div>
+        <canvas id="c-anti" width="720" height="380"></canvas>
+        <div class="slider-row">
+          <label>$C$ = <span id="val-c">0.0</span></label>
+          <input type="range" id="sl-c" min="-4" max="4" step="0.1" value="0" />
+        </div>
+        <p class="text-small text-muted">เลื่อน $C$ เพื่อดูว่าครอบครัวเส้นโค้งทั้งหมดมีความชันเท่ากันทุกจุด (เพราะอนุพันธ์ของ $C$ คือ $0$)</p>
+      </div>
+    </section>
+
+    <!-- FTC -->
+    <section class="tab-panel" id="pane-ftc">
+      <div class="card">
+        <div class="card-title">🌉 ทฤษฎีบทหลักของแคลคูลัส (FTC)</div>
+        <div class="definition-block">
+          <div class="label">FTC ภาค 1</div>
+          <p>ถ้า $A(x) = \displaystyle\int_a^x f(t)\,dt$ แล้ว $A'(x) = f(x)$
+          → <strong>การหาอนุพันธ์และการหาปริพันธ์เป็นการผกผันกัน</strong></p>
+        </div>
+        <div class="definition-block">
+          <div class="label">FTC ภาค 2</div>
+          <p>$\displaystyle\int_a^b f(x)\,dx = F(b) - F(a)$ เมื่อ $F$ เป็นแอนติเดริเวทีฟใดๆ ของ $f$</p>
+        </div>
+
+        <p class="text-small text-muted">ลากแถบด้านล่างเพื่อดูว่าพื้นที่สะสม $A(x)$ สร้างตัวมันเองขึ้นมาอย่างไร</p>
+
+        <div class="twin-graph">
+          <div>
+            <canvas id="c-ftc-top" width="360" height="260"></canvas>
+            <div class="cap">$f(t)$ กับพื้นที่จาก $a$ ถึง $x$</div>
+          </div>
+          <div>
+            <canvas id="c-ftc-bot" width="360" height="260"></canvas>
+            <div class="cap">$A(x) = \int_0^x f(t)\,dt$</div>
+          </div>
+        </div>
+
+        <div class="slider-row">
+          <label>$x$ = <span id="val-x">1.0</span></label>
+          <input type="range" id="sl-x" min="0" max="3" step="0.02" value="1" />
+        </div>
+        <div class="readout" id="ftc-readout">$A(x) = ?$</div>
+      </div>
+    </section>
+
+    <!-- Formulas -->
+    <section class="tab-panel" id="pane-formulas">
+      <div class="card">
+        <div class="card-title">📘 สูตรปริพันธ์ที่ใช้บ่อย</div>
+        <div class="formula-card">$\displaystyle\int x^n\,dx = \dfrac{x^{n+1}}{n+1} + C, \ (n \ne -1)$</div>
+        <div class="formula-card">$\displaystyle\int \dfrac{1}{x}\,dx = \ln|x| + C$</div>
+        <div class="formula-card">$\displaystyle\int e^x\,dx = e^x + C$</div>
+        <div class="formula-card">$\displaystyle\int a^x\,dx = \dfrac{a^x}{\ln a} + C$</div>
+        <div class="formula-card">$\displaystyle\int \sin x\,dx = -\cos x + C$</div>
+        <div class="formula-card">$\displaystyle\int \cos x\,dx = \sin x + C$</div>
+        <div class="formula-card">$\displaystyle\int \sec^2 x\,dx = \tan x + C$</div>
+        <div class="formula-card">$\displaystyle\int k\cdot f(x)\,dx = k\int f(x)\,dx$</div>
+        <div class="formula-card">$\displaystyle\int [f(x) \pm g(x)]\,dx = \int f \pm \int g$</div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="tab-panel" id="pane-summary">
+      <div class="card">
+        <div class="card-title">📝 สรุป — ปริพันธ์</div>
+        <ul style="margin-left:1.4rem; line-height:1.9;">
+          <li>$\int_a^b f(x)\,dx$ คือ<strong>ลิมิตของผลรวมรีมันน์</strong>เมื่อ $n \to \infty$</li>
+          <li>แอนติเดริเวทีฟ: $F' = f \Rightarrow \int f = F + C$</li>
+          <li>FTC: หาปริพันธ์จำกัดได้จาก $F(b) - F(a)$</li>
+          <li>จำสูตรหลัก: $x^n$, $1/x$, $e^x$, $\sin$, $\cos$, $\sec^2$</li>
+        </ul>
+
+        <div class="cta-row mt-3">
+          <a href="integrate-app.html" class="btn btn-primary">⚡ ไปต่อที่ <em>การประยุกต์ของปริพันธ์</em></a>
+          <a href="index.html" class="btn">🏠 กลับหน้าแรก</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Libraries -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+          onload="renderMathInElement(document.body, { delimiters: [{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false},{left:'$',right:'$',display:false}], throwOnError: false });"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@13.0.3/lib/browser/math.min.js"></script>
+
+  <!-- App -->
+  <script src="js/xp.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/integration.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>การวิเคราะห์ตัวแบบเชิงคณิตศาสตร์ | Resources</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  
+<style>
+  .resource-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:.9rem; }
+  .resource-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    color: var(--color-text);
+  }
+  .resource-meta { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.75rem; }
+  .resource-note {
+    margin-top:.75rem;
+    padding:.65rem .8rem;
+    border-left:3px solid var(--color-accent2);
+    background:rgba(34,211,238,.06);
+    border-radius:0 8px 8px 0;
+    color:var(--color-text);
+  }
+</style>
+
+</head>
+<body data-page="resources">
+  <nav class="topnav">
+    <a href="../index.html" class="nav-brand"><span class="brand-icon">M</span> Model Analysis <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="../index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="../intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="../lessons.html" class="nav-link"><span class="nl-icon">📚</span>Lessons</a>
+<a href="../missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="../content/" class="nav-link active"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="../index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card">
+      <h1 class="page-title">Resources</h1>
+      <p class="page-subtitle">รวมสื่อประกอบการเรียนของรายวิชาไว้ในหน้าเดียว เพื่อใช้ทบทวนก่อนเรียน ระหว่างเรียน หรือก่อนทำภารกิจ</p>
+    </section>
+    <section class="resource-grid">
+      <div class="resource-card"><div class="card-title">Introductory notes on mathematical modeling</div><div class="text-muted" style="line-height:1.7;">main text: เหมาะกับ Modeling Foundations</div><div class="resource-note">ประเภท: notes
+บทบาท: main text
+โมดูลที่เกี่ยวข้อง: Modeling Foundations
+หมายเหตุ: starter notes on model meaning, assumptions, and scope</div><div class="resource-meta"><span class="mission-chip">Modeling Foundations</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Modeling case-study reading pack</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Modeling Tools and Techniques, Linear and Nonlinear Models</div><div class="resource-note">ประเภท: reading-pack
+บทบาท: support
+โมดูลที่เกี่ยวข้อง: Modeling Tools and Techniques, Linear and Nonlinear Models
+หมายเหตุ: examples of real-world models across different contexts</div><div class="resource-meta"><span class="mission-chip">Course Resources</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Spreadsheet or Colab starter for modeling experiments</div><div class="text-muted" style="line-height:1.7;">practice: เหมาะกับ Model Development and Probability Models, Validation and Advanced Cases</div><div class="resource-note">ประเภท: notebook
+บทบาท: practice
+โมดูลที่เกี่ยวข้อง: Model Development and Probability Models, Validation and Advanced Cases
+หมายเหตุ: use for quick trials, parameter checks, and output comparison</div><div class="resource-meta"><span class="mission-chip">Practice and Review</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Validation checklist for mathematical models</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Validation and Advanced Cases</div><div class="resource-note">ประเภท: worksheet
+บทบาท: support
+โมดูลที่เกี่ยวข้อง: Validation and Advanced Cases
+หมายเหตุ: prompts for assumptions, tests, and interpretation limits</div><div class="resource-meta"><span class="mission-chip">Validation and Advanced Cases</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Project report and presentation template</div><div class="text-muted" style="line-height:1.7;">review: เหมาะกับ Project Modeling Studio</div><div class="resource-note">ประเภท: template
+บทบาท: review
+โมดูลที่เกี่ยวข้อง: Project Modeling Studio
+หมายเหตุ: structure for final project evidence and presentation</div><div class="resource-meta"><span class="mission-chip">Project Modeling Studio</span><span class="mission-chip">note</span></div></div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"model_analysis_real_check","course_name_th":"การวิเคราะห์ตัวแบบเชิงคณิตศาสตร์","course_name_en":"Analysis of Mathematical Models","course_short_name":"Model Analysis","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A mathematical model analysis course scaffolded from TQF3 and extended with modules, project framing, and active-learning missions.","theme":{"brand_icon":"M","accent":"#0f766e","accent_secondary":"#f97316"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","step-sequence","sbra-sequence"],"lesson_completion_xp":50,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Model Analysis Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-modeling-foundations","emoji":"📘","name":"CLO1 Understand Modeling Foundations","req":"Collect quick-check evidence in Modeling Foundations.","threshold_xp":150,"required_modules":["modeling-foundations"]},{"id":"clo2-modeling-reviewer","emoji":"🧠","name":"CLO2 Analyze Modeling Reviewer","req":"Collect review-task evidence in Modeling Tools and Techniques.","threshold_xp":200,"required_modules":["modeling-tools-and-techniques"]},{"id":"clo3-model-designer","emoji":"🚀","name":"CLO3 Create Model Designer","req":"Collect design-task evidence in Linear and Nonlinear Models.","threshold_xp":250,"required_modules":["linear-and-nonlinear-models"]},{"id":"clo5-application-interpreter","emoji":"🎯","name":"CLO5 Evaluate Application Interpreter","req":"Collect interpretation-task evidence in Model Development and Probability Models.","threshold_xp":290,"required_modules":["model-development-and-probability"]},{"id":"clo4-model-validator","emoji":"🛠","name":"CLO4 Apply Model Validator","req":"Collect SBRA evidence in Validation and Advanced Cases.","threshold_xp":350,"required_modules":["validation-and-advanced-cases"],"required_missions":["sbra-validation-and-advanced-cases-clo4"],"required_accuracy":60},{"id":"clo6-ethical-modeler","emoji":"🎯","name":"CLO6 Evaluate Ethical Modeler","req":"Collect reflection-task evidence in Project Modeling Studio.","threshold_xp":390,"required_modules":["project-modeling-studio"],"required_accuracy":60}],"modules":[{"id":"modeling-foundations","slug":"modeling-foundations","title":"Modeling Foundations","summary":"Orient the course around what mathematical models are, why they matter, and how modeling work begins.","order":1,"module_kind":"concept"},{"id":"modeling-tools-and-techniques","slug":"modeling-tools-and-techniques","title":"Modeling Tools and Techniques","summary":"Use foundational mathematical and statistical tools to set up and compare modeling choices.","order":2,"module_kind":"concept"},{"id":"linear-and-nonlinear-models","slug":"linear-and-nonlinear-models","title":"Linear and Nonlinear Models","summary":"Compare model structures and decide when a linear or nonlinear view is more useful.","order":3,"module_kind":"application"},{"id":"model-development-and-probability","slug":"model-development-and-probability","title":"Model Development and Probability Models","summary":"Move from structure choice into full model development and probabilistic perspectives.","order":4,"module_kind":"application"},{"id":"validation-and-advanced-cases","slug":"validation-and-advanced-cases","title":"Validation and Advanced Cases","summary":"Test model validity, inspect advanced examples, and discuss ethical handling of modeling decisions.","order":5,"module_kind":"concept"},{"id":"project-modeling-studio","slug":"project-modeling-studio","title":"Project Modeling Studio","summary":"Use project-based work, peer critique, and final presentation as the capstone modeling experience.","order":6,"module_kind":"proof"}],"clos":[{"id":"CLO1","label":"Explain mathematical and statistical techniques used in mathematical modeling.","bloom":"Understand","assessment_tags":["foundations","techniques"]},{"id":"CLO2","label":"Search and review modeling work connected to real-world problems.","bloom":"Analyze","assessment_tags":["literature","real-world-context"]},{"id":"CLO3","label":"Integrate knowledge from other areas to create more complete mathematical models.","bloom":"Create","assessment_tags":["integration","design"]},{"id":"CLO4","label":"Build mathematical models that are analyzed, tested, and checked for validity.","bloom":"Apply","assessment_tags":["validation","testing"]},{"id":"CLO5","label":"Apply models to real-world problems and interpret results effectively.","bloom":"Evaluate","assessment_tags":["application","interpretation"]},{"id":"CLO6","label":"Demonstrate ethics in the development and analysis of mathematical models.","bloom":"Evaluate","assessment_tags":["ethics","responsibility"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="../assets/js/course-runtime.js"></script>
+<script src="../assets/js/xp.js"></script>
+<script src="../assets/js/nav.js"></script>
+</body>
+</html>

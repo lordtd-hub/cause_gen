@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "replace-course-id",
+  "source_problem_pool": "materials/processed/assessment/problem-pool.json",
+  "generated_at": "replace-generated-at",
+  "classifications": [
+    {
+      "problem_id": "replace-problem-id",
+      "classification_status": "proposed",
+      "needs_human_review": true,
+      "confidence": 0.5,
+      "proposed": {
+        "module_id": "replace-module-id",
+        "clo_id": "CLO1",
+        "bloom_level": "analyze",
+        "mission_family": "sbra-step-reasoning",
+        "problem_type": "diagnosis",
+        "target_skill": "Replace with the target skill.",
+        "misconception_tags": [],
+        "usable_for": [
+          "mission"
+        ],
+        "sbra_profile": {
+          "candidate_strength": "medium",
+          "evidence_role": "support-clo-evidence",
+          "recommended_step_count": 3,
+          "pattern_tags": [],
+          "distractor_focus": []
+        },
+        "sbra_shape": "diagnose-and-justify"
+      },
+      "review_notes": ""
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "project_in_mathematics_real_check",
+  "promoted_at": "2026-04-21T08:29:38.302Z",
+  "promoted_count": 1,
+  "promoted_draft_ids": [
+    "draft-lit-review-source-quality-01"
+  ],
+  "missions_path": "missions/missions.json"
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "project_in_mathematics_real_check",
+  "source_content_classification": "generated/content/content-classification.json",
+  "generated_at": "2026-04-21T08:29:38.250Z",
+  "drafts": [
+    {
+      "draft_id": "content-draft-lit-review-evidence-ladder",
+      "content_id": "lit-review-evidence-ladder",
+      "module_id": "literature-review-and-project-planning",
+      "clo_ids": [
+        "CLO1",
+        "CLO2"
+      ],
+      "bloom_levels": [
+        "analyze"
+      ],
+      "content_kind": "activity",
+      "asset_family": "active-learning-seed",
+      "target_section": "module-active-learning",
+      "widget_type": "quick-check",
+      "title": "Evidence Ladder for Literature Review",
+      "summary": "A short guided activity that helps students separate strong mathematical sources from weaker background references before they write a project plan.",
+      "excerpt": "Learners compare four references, sort them by mathematical usefulness, and explain which source should anchor the first project review.",
+      "source_note": "MIT OpenCourseWare",
+      "runtime_ready": true,
+      "needs_human_review": true,
+      "approval_status": "approved",
+      "reviewed_by": "codex-review-fixture",
+      "reviewed_at": "2026-04-21T09:15:00.000Z",
+      "approved_target_destination": "modules/*.md",
+      "review_status": "approved",
+      "markdown_block": "### Evidence Ladder for Literature Review\n\nA short guided activity that helps students separate strong mathematical sources from weaker background references before they write a project plan.\n\n- Asset family: active-learning-seed\n- Target section: module-active-learning\n- CLO focus: CLO1, CLO2\n- Bloom focus: analyze\n\n> Source excerpt\n> Learners compare four references, sort them by mathematical usefulness, and explain which source should anchor the first project review.\n\n- Source note: MIT OpenCourseWare\n\n:::quick-check\n{\n  \"title\": \"Evidence Ladder for Literature Review\",\n  \"prompt\": \"A short guided activity that helps students separate strong mathematical sources from weaker background references before they write a project plan.\",\n  \"choices\": [\n    \"A response that stays aligned with the module target\",\n    \"A tempting but weaker response\",\n    \"A response that ignores the stated condition\"\n  ],\n  \"answer_index\": 0,\n  \"explanation\": \"MIT OpenCourseWare\"\n}\n:::",
+      "source_refs": {
+        "content_classification": "lit-review-evidence-ladder"
+      }
+    },
+    {
+      "draft_id": "content-draft-progress-risk-checkpoint",
+      "content_id": "progress-risk-checkpoint",
+      "module_id": "project-execution-and-progress-review",
+      "clo_ids": [
+        "CLO3",
+        "CLO4"
+      ],
+      "bloom_levels": [
+        "evaluate"
+      ],
+      "content_kind": "activity",
+      "asset_family": "checkpoint-seed",
+      "target_section": "module-checkpoints",
+      "widget_type": "quick-check",
+      "title": "Progress Risk Checkpoint",
+      "summary": "A checkpoint prompt that asks learners to distinguish visible activity from evidence-backed project progress.",
+      "excerpt": "Students inspect a progress note, identify the highest-risk gap, and justify what should be raised in the next advisor meeting.",
+      "source_note": "OpenStax",
+      "runtime_ready": false,
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "modules/*.md",
+      "review_status": "pending",
+      "markdown_block": "### Progress Risk Checkpoint\n\nA checkpoint prompt that asks learners to distinguish visible activity from evidence-backed project progress.\n\n- Asset family: checkpoint-seed\n- Target section: module-checkpoints\n- CLO focus: CLO3, CLO4\n- Bloom focus: evaluate\n\n> Source excerpt\n> Students inspect a progress note, identify the highest-risk gap, and justify what should be raised in the next advisor meeting.\n\n- Source note: OpenStax\n\n:::quick-check\n{\n  \"title\": \"Progress Risk Checkpoint\",\n  \"prompt\": \"A checkpoint prompt that asks learners to distinguish visible activity from evidence-backed project progress.\",\n  \"choices\": [\n    \"A response that stays aligned with the module target\",\n    \"A tempting but weaker response\",\n    \"A response that ignores the stated condition\"\n  ],\n  \"answer_index\": 0,\n  \"explanation\": \"OpenStax\"\n}\n:::",
+      "source_refs": {
+        "content_classification": "progress-risk-checkpoint"
+      }
+    }
+  ]
+}

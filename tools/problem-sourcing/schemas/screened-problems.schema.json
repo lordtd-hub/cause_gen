@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cause-gen.local/schemas/screened-problems.schema.json",
+  "title": "Cause Gen Screened Problems",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "items"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "retrieval_id",
+          "screening_status",
+          "recommended_use_mode",
+          "needs_human_review",
+          "dedupe_group"
+        ],
+        "properties": {
+          "retrieval_id": {
+            "type": "string"
+          },
+          "screening_status": {
+            "type": "string",
+            "enum": [
+              "proposed",
+              "approved",
+              "rejected"
+            ]
+          },
+          "recommended_use_mode": {
+            "type": "string",
+            "enum": [
+              "ingest-with-attribution",
+              "link-only",
+              "manual-review-first"
+            ]
+          },
+          "needs_human_review": {
+            "type": "boolean"
+          },
+          "dedupe_group": {
+            "type": "string"
+          },
+          "proposed_module_id": {
+            "type": "string"
+          },
+          "proposed_clo_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "proposed_bloom_levels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "proposed_problem_type": {
+            "type": "string"
+          },
+          "proposed_mission_family": {
+            "type": "string"
+          },
+          "license_note": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

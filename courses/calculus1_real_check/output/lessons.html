@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แคลคูลัส 1 | Lessons</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  
+<style>
+  .lesson-module-rail {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:1rem;
+  }
+  .lesson-rail-link {
+    display:block;
+    padding:.85rem 1rem;
+    border-radius:14px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.03);
+    color:var(--color-text);
+    text-decoration:none;
+  }
+  .lesson-rail-link strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.2rem;
+  }
+  .lesson-roadmap-grid {
+    display:grid;
+    gap:1rem;
+    margin-top:1rem;
+  }
+  .lesson-roadmap-card {
+    border:1px solid var(--color-border);
+    border-radius:var(--radius);
+    background:rgba(255,255,255,.03);
+    padding:1rem;
+  }
+  .lesson-roadmap-head {
+    display:flex;
+    justify-content:space-between;
+    gap:.75rem;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .lesson-order-pill {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:2rem;
+    height:2rem;
+    padding:0 .65rem;
+    border-radius:999px;
+    background:rgba(34,211,238,.12);
+    border:1px solid rgba(34,211,238,.28);
+    font-weight:800;
+    color:#fff;
+  }
+  .lesson-roadmap-summary {
+    color:var(--color-muted);
+    line-height:1.8;
+    margin:.7rem 0;
+  }
+  .lesson-meta-row {
+    display:flex;
+    flex-wrap:wrap;
+    gap:.45rem;
+    margin:.75rem 0;
+  }
+  .lesson-mini-pill {
+    display:inline-flex;
+    align-items:center;
+    padding:.2rem .6rem;
+    border-radius:999px;
+    border:1px solid var(--color-border);
+    background:rgba(255,255,255,.04);
+    font-size:.78rem;
+    font-weight:700;
+  }
+  .lesson-activity-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:.85rem;
+  }
+  .lesson-activity-card {
+    border:1px dashed var(--color-border);
+    border-radius:12px;
+    background:rgba(10,6,20,.45);
+    padding:.85rem;
+  }
+  .lesson-activity-card strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.25rem;
+  }
+  .lesson-activity-card p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.7;
+    font-size:.88rem;
+  }
+  .lesson-page-note {
+    color:var(--color-muted);
+    line-height:1.8;
+  }
+</style>
+
+</head>
+<body data-page="lessons">
+  <nav class="topnav">
+    <a href="index.html" class="nav-brand"><span class="brand-icon">C</span> Calculus I <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="lessons.html" class="nav-link active"><span class="nl-icon">📚</span>Lessons</a>
+<a href="missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="content/" class="nav-link"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card">
+      <h1 class="page-title">บทเรียนทั้งหมด 4 โมดูล</h1>
+      <p class="page-subtitle">lesson hub ของรายวิชานี้ล้อตามจำนวนโมดูลของแผนการสอน เพื่อให้เห็นลำดับหัวข้อ เส้นทางเรียน และกิจกรรม active learning ของแต่ละบทอย่างชัดเจน</p>
+      <p class="lesson-page-note">
+        ใช้ rail ด้านล่างเพื่อกระโดดไปยังโมดูลที่ต้องการ แล้วดู roadmap ของแต่ละบทเพื่อเห็นสรุปหัวข้อ กิจกรรม และจุดเชื่อมไปยังหน้าโมดูลจริง
+      </p>
+      <div class="lesson-module-rail" id="lessons-module-rail">
+        
+      <a class="lesson-rail-link" href="#lesson-module-limits-and-functions">
+        <strong>โมดูล 1</strong>
+        <span>Limits and Functions</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-continuity-and-applications">
+        <strong>โมดูล 2</strong>
+        <span>Continuity and Applications</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-differentiation">
+        <strong>โมดูล 3</strong>
+        <span>Differentiation</span>
+      </a>
+    
+
+      <a class="lesson-rail-link" href="#lesson-module-integration">
+        <strong>โมดูล 4</strong>
+        <span>Integration</span>
+      </a>
+    
+      </div>
+    </section>
+    <section class="card" id="lessons-roadmap">
+      <div class="card-title">แผนที่บทเรียนตามโมดูล</div>
+      <p class="lesson-page-note">
+        การ์ดแต่ละใบช่วยให้เห็นว่าบทนี้เน้นเรื่องอะไร อยู่ลำดับไหนของรายวิชา และมีกิจกรรม active learning แบบใดให้ใช้ประกอบก่อนเข้าเนื้อหาเต็ม
+      </p>
+      <div class="lesson-roadmap-grid">
+        
+      <article class="lesson-roadmap-card" id="lesson-module-limits-and-functions">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 1</div>
+            <div class="card-title" style="margin-top:.15rem;">Limits and Functions</div>
+          </div>
+          <span class="lesson-order-pill">1</span>
+        </div>
+        <p class="lesson-roadmap-summary">Start with function behavior, limit ideas, and first ways to reason about approaching values.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: concept</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🧩 คลี่นิยามทีละส่วน</strong>
+            <p>แยกนิยามหรือเงื่อนไขสำคัญออกเป็นชิ้น ๆ เพื่อมองความหมายได้ชัดขึ้น</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/limits-and-functions/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-continuity-and-applications">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 2</div>
+            <div class="card-title" style="margin-top:.15rem;">Continuity and Applications</div>
+          </div>
+          <span class="lesson-order-pill">2</span>
+        </div>
+        <p class="lesson-roadmap-summary">Use continuity as a bridge between limit ideas and richer function analysis.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: application</span>
+          <span class="lesson-mini-pill">2 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🧩 คลี่นิยามทีละส่วน</strong>
+            <p>แยกนิยามหรือเงื่อนไขสำคัญออกเป็นชิ้น ๆ เพื่อมองความหมายได้ชัดขึ้น</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>💡 sbra-sequence</strong>
+            <p>กิจกรรม interactive ของบทนี้จะถูกเติมต่อในรอบ authoring</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/continuity-and-applications/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-differentiation">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 3</div>
+            <div class="card-title" style="margin-top:.15rem;">Differentiation</div>
+          </div>
+          <span class="lesson-order-pill">3</span>
+        </div>
+        <p class="lesson-roadmap-summary">Build derivative concepts, rules, and function-analysis techniques for change and rate.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: application</span>
+          <span class="lesson-mini-pill">3 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🧠 แกะโครงพิสูจน์</strong>
+            <p>ค่อย ๆ เปิดเหตุผลของ proof ทีละช่วง เพื่อเห็นความสัมพันธ์ระหว่างสมมติฐานกับข้อสรุป</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/differentiation/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+
+      <article class="lesson-roadmap-card" id="lesson-module-integration">
+        <div class="lesson-roadmap-head">
+          <div>
+            <div class="text-small text-muted">โมดูล 4</div>
+            <div class="card-title" style="margin-top:.15rem;">Integration</div>
+          </div>
+          <span class="lesson-order-pill">4</span>
+        </div>
+        <p class="lesson-roadmap-summary">Connect area, accumulation, antiderivatives, and the first major links between derivative and integral ideas.</p>
+        <div class="lesson-meta-row">
+          <span class="lesson-mini-pill">ชนิด: application</span>
+          <span class="lesson-mini-pill">3 CLOs</span>
+          <span class="lesson-mini-pill">3 active blocks</span>
+        </div>
+        <div class="text-small text-muted" style="font-weight:700; margin-top:.65rem;">Active learning ในบทนี้</div>
+        
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>💡 sbra-sequence</strong>
+            <p>กิจกรรม interactive ของบทนี้จะถูกเติมต่อในรอบ authoring</p>
+          </div>
+        
+    </div>
+  
+        <div class="flex-row" style="margin-top:1rem; justify-content:flex-start;">
+          <a href="modules/integration/" class="btn btn-primary">เปิดบทนี้</a>
+        </div>
+      </article>
+    
+      </div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"calculus1_real_check","course_name_th":"แคลคูลัส 1","course_name_en":"Calculus I","course_short_name":"Calculus I","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A first-course calculus site for limits, continuity, derivatives, and integration, built from the TQF3-first workflow in this repo.","theme":{"brand_icon":"C","accent":"#2563eb","accent_secondary":"#f59e0b"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","proof-unpack","step-sequence","sbra-sequence"],"lesson_completion_xp":45,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Calculus I Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-understand-foundation","emoji":"📘","name":"CLO1 Understand Foundation","req":"Collect quick-check evidence in Limits and Functions.","threshold_xp":150,"required_modules":["limits-and-functions"]},{"id":"clo1-understand-ftc-link","emoji":"📘","name":"CLO1 Understand Ftc Link","req":"Collect concept-check evidence in Integration.","threshold_xp":280,"required_modules":["integration"],"required_badges":["clo1-understand-foundation"]},{"id":"clo2-apply-limits","emoji":"🛠","name":"CLO2 Apply Limits","req":"Collect worked-computation evidence in Limits and Functions.","threshold_xp":160,"required_modules":["limits-and-functions"]},{"id":"clo2-apply-derivative-techniques","emoji":"🛠","name":"CLO2 Apply Derivative Techniques","req":"Collect derivative-exercise evidence in Differentiation.","threshold_xp":240,"required_modules":["differentiation"],"required_badges":["clo2-apply-limits"]},{"id":"clo2-apply-integration-techniques","emoji":"🛠","name":"CLO2 Apply Integration Techniques","req":"Collect integration-exercise evidence in Integration.","threshold_xp":310,"required_modules":["integration"],"required_badges":["clo2-apply-derivative-techniques"],"required_accuracy":60},{"id":"clo3-analyze-continuity","emoji":"🧠","name":"CLO3 Analyze Continuity","req":"Collect SBRA evidence in Continuity and Applications.","threshold_xp":210,"required_modules":["continuity-and-applications"],"required_missions":["sbra-continuity-and-applications-clo3"]},{"id":"clo3-analyze-function-behavior","emoji":"🧠","name":"CLO3 Analyze Function Behavior","req":"Collect application-task evidence in Differentiation.","threshold_xp":240,"required_modules":["differentiation"],"required_badges":["clo3-analyze-continuity"]},{"id":"clo4-evaluate-derivative-justification","emoji":"🎯","name":"CLO4 Evaluate Derivative Justification","req":"Collect explanation-task evidence in Differentiation.","threshold_xp":250,"required_modules":["differentiation"]},{"id":"clo4-evaluate-integral-interpretation","emoji":"🎯","name":"CLO4 Evaluate Integral Interpretation","req":"Collect reasoning-task evidence in Integration.","threshold_xp":280,"required_modules":["integration"],"required_badges":["clo4-evaluate-derivative-justification"]}],"modules":[{"id":"limits-and-functions","slug":"limits-and-functions","title":"Limits and Functions","summary":"Start with function behavior, limit ideas, and first ways to reason about approaching values.","order":1,"module_kind":"concept"},{"id":"continuity-and-applications","slug":"continuity-and-applications","title":"Continuity and Applications","summary":"Use continuity as a bridge between limit ideas and richer function analysis.","order":2,"module_kind":"application"},{"id":"differentiation","slug":"differentiation","title":"Differentiation","summary":"Build derivative concepts, rules, and function-analysis techniques for change and rate.","order":3,"module_kind":"application"},{"id":"integration","slug":"integration","title":"Integration","summary":"Connect area, accumulation, antiderivatives, and the first major links between derivative and integral ideas.","order":4,"module_kind":"application"}],"clos":[{"id":"CLO1","label":"Explain the meaning of limits, continuity, derivatives, and integrals in standard first-course contexts.","bloom":"Understand","assessment_tags":["concepts","definitions"]},{"id":"CLO2","label":"Apply standard calculus techniques to compute limits, derivatives, and integrals.","bloom":"Apply","assessment_tags":["techniques","computation"]},{"id":"CLO3","label":"Analyze functions and their behavior using continuity, derivatives, and definite integrals.","bloom":"Analyze","assessment_tags":["analysis","function-behavior"]},{"id":"CLO4","label":"Use calculus reasoning to justify steps and interpret results in problem-solving situations.","bloom":"Evaluate","assessment_tags":["reasoning","interpretation"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="assets/js/course-runtime.js"></script>
+<script src="assets/js/xp.js"></script>
+<script src="assets/js/nav.js"></script>
+</body>
+</html>

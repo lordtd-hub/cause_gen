@@ -1,0 +1,99 @@
+{
+  "updated": "2026-04-21",
+  "items": [
+    {
+      "id": "the-craft-of-research-4th-ed",
+      "topic": "Core References",
+      "title": "The Craft of Research (4th ed.)",
+      "description": "main text: เหมาะกับ Literature Review and Project Planning, Report Writing and Seminar Presentation",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: textbook\nบทบาท: main text\nโมดูลที่เกี่ยวข้อง: Literature Review and Project Planning, Report Writing and Seminar Presentation\nหมายเหตุ: project framing, proposal writing, and academic writing support",
+      "seed_type": "textbook",
+      "seed_role": "main text",
+      "linked_modules": [
+        "literature-review-and-project-planning",
+        "report-writing-and-seminar-presentation"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "research-design-qualitative-quantitative-and-mixed-methods-approaches-5th-ed",
+      "topic": "Course Resources",
+      "title": "Research Design: Qualitative, Quantitative, and Mixed Methods Approaches (5th ed.)",
+      "description": "support: เหมาะกับ Literature Review and Project Planning, Project Execution and Progress Review",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: reference\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: Literature Review and Project Planning, Project Execution and Progress Review\nหมายเหตุ: useful for planning and study design decisions",
+      "seed_type": "reference",
+      "seed_role": "support",
+      "linked_modules": [
+        "literature-review-and-project-planning",
+        "project-execution-and-progress-review"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "developing-effective-research-proposals-2nd-ed",
+      "topic": "Course Resources",
+      "title": "Developing Effective Research Proposals (2nd ed.)",
+      "description": "support: เหมาะกับ Project Scoping and Advisor Alignment, Literature Review and Project Planning",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: guide\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: Project Scoping and Advisor Alignment, Literature Review and Project Planning\nหมายเหตุ: useful for proposal drafting and narrowing scope",
+      "seed_type": "guide",
+      "seed_role": "support",
+      "linked_modules": [
+        "project-scoping-and-advisor-alignment",
+        "literature-review-and-project-planning"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "a-manual-for-writers-of-research-papers-theses-and-dissertations-9th-ed",
+      "topic": "Report Writing and Seminar Presentation",
+      "title": "A Manual for Writers of Research Papers, Theses, and Dissertations (9th ed.)",
+      "description": "review: เหมาะกับ Report Writing and Seminar Presentation",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: guide\nบทบาท: review\nโมดูลที่เกี่ยวข้อง: Report Writing and Seminar Presentation\nหมายเหตุ: supports report structure and citation quality",
+      "seed_type": "guide",
+      "seed_role": "review",
+      "linked_modules": [
+        "report-writing-and-seminar-presentation"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "resource-seed-5",
+      "topic": "Course Resources",
+      "title": "การวิจัยทางคณิตศาสตร์",
+      "description": "support: เหมาะกับ Project Execution and Progress Review, Report Writing and Seminar Presentation",
+      "type": "note",
+      "addedDate": "2026-04-21",
+      "body": "ประเภท: textbook\nบทบาท: support\nโมดูลที่เกี่ยวข้อง: Project Execution and Progress Review, Report Writing and Seminar Presentation\nหมายเหตุ: Thai-language support for mathematics project writing",
+      "seed_type": "textbook",
+      "seed_role": "support",
+      "linked_modules": [
+        "project-execution-and-progress-review",
+        "report-writing-and-seminar-presentation"
+      ],
+      "public_href": null
+    },
+    {
+      "id": "google-scholar",
+      "topic": "Literature Review and Project Planning",
+      "title": "Google Scholar",
+      "description": "practice: เหมาะกับ Literature Review and Project Planning",
+      "type": "link",
+      "addedDate": "2026-04-21",
+      "seed_type": "interactive",
+      "seed_role": "practice",
+      "linked_modules": [
+        "literature-review-and-project-planning"
+      ],
+      "url": "https://scholar.google.com",
+      "public_href": "https://scholar.google.com"
+    }
+  ]
+}

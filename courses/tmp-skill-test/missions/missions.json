@@ -1,0 +1,159 @@
+{
+  "course_id": "discrete_math_foundations",
+  "missions": [
+    {
+      "mission_id": "logic-translation-check",
+      "clo_id": "CLO1",
+      "module_id": "logic-propositions",
+      "title": "เลือกวิธีแปลประโยคให้เป็นตรรกะ",
+      "mission_type": "sbra-step-based-reasoning",
+      "bloom_level": 2,
+      "xp": 100,
+      "rubric": [
+        "เติม rubric ของ mission นี้ก่อน publish"
+      ],
+      "threshold": {
+        "min_steps_mastered": 1
+      },
+      "prompt": "เติมโจทย์หลักของ mission \"logic-translation-check\"",
+      "strategy_prompt": "เติม strategy prompt ที่สะท้อนวิธีคิดของภารกิจนี้",
+      "confidence": {
+        "prompt": "ก่อนส่งคำตอบ คุณมั่นใจแค่ไหนว่าคุณเลือกวิธีและเหตุผลได้เหมาะสม",
+        "levels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "steps": [
+        {
+          "id": "step-1",
+          "title": "Step 1",
+          "prompt": "เติม prompt ของ step 1",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดสำหรับ step นี้",
+          "process_options": [
+            {
+              "id": "logic-translation-check-step-1-process-1",
+              "text": "Process option 1",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะคำเชื่อมหลักจะกำหนดโครงของประโยคเชิงตรรกะ"
+            },
+            {
+              "id": "logic-translation-check-step-1-process-2",
+              "text": "Process option 2",
+              "correct": false,
+              "feedback": "ยังไม่พอ เพราะอาจพลาดโครงสร้างของประโยค"
+            },
+            {
+              "id": "logic-translation-check-step-1-process-3",
+              "text": "Process option 3",
+              "correct": false,
+              "feedback": "ยังไม่เหมาะ เพราะยังไม่รู้รูปตรรกะของประโยค"
+            }
+          ],
+          "reasoning_prompt": "เลือก reasoning ที่รองรับ process นี้มากที่สุด",
+          "reasoning_options": [
+            {
+              "id": "logic-translation-check-step-1-reasoning-1",
+              "text": "Reasoning option 1",
+              "correct": true,
+              "feedback": "ใช่ นี่คือเหตุผลหลักของการเริ่มจากคำเชื่อม"
+            },
+            {
+              "id": "logic-translation-check-step-1-reasoning-2",
+              "text": "Reasoning option 2",
+              "correct": false,
+              "feedback": "เหตุผลนี้ไม่เกี่ยวกับการแปลประโยค"
+            },
+            {
+              "id": "logic-translation-check-step-1-reasoning-3",
+              "text": "Reasoning option 3",
+              "correct": false,
+              "feedback": "ไม่ถูกต้อง เพราะแต่ละสัญลักษณ์มีหน้าที่ต่างกัน"
+            }
+          ],
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "mission_id": "proof-goal-diagnosis",
+      "clo_id": "CLO2",
+      "module_id": "proof-structure",
+      "title": "มองให้ออกว่าบทพิสูจน์ควรเริ่มจากตรงไหน",
+      "mission_type": "sbra-step-based-reasoning",
+      "bloom_level": 3,
+      "xp": 120,
+      "rubric": [
+        "เติม rubric ของ mission นี้ก่อน publish"
+      ],
+      "threshold": {
+        "min_steps_mastered": 1
+      },
+      "prompt": "เติมโจทย์หลักของ mission \"proof-goal-diagnosis\"",
+      "strategy_prompt": "เติม strategy prompt ที่สะท้อนวิธีคิดของภารกิจนี้",
+      "confidence": {
+        "prompt": "ก่อนส่งคำตอบ คุณมั่นใจแค่ไหนว่าคุณเลือกโครงคิดของบทพิสูจน์ได้เหมาะสม",
+        "levels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "steps": [
+        {
+          "id": "step-1",
+          "title": "Step 1",
+          "prompt": "เติม prompt ของ step 1",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดสำหรับ step นี้",
+          "process_options": [
+            {
+              "id": "proof-goal-diagnosis-step-1-process-1",
+              "text": "Process option 1",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะต้องเห็นโครงของข้อความก่อนเลือกวิธีพิสูจน์"
+            },
+            {
+              "id": "proof-goal-diagnosis-step-1-process-2",
+              "text": "Process option 2",
+              "correct": false,
+              "feedback": "ยังไม่พอ เพราะเสี่ยงให้เหตุผลหลุดจากโจทย์"
+            },
+            {
+              "id": "proof-goal-diagnosis-step-1-process-3",
+              "text": "Process option 3",
+              "correct": false,
+              "feedback": "ยังไม่ถูกต้อง เพราะวิธีพิสูจน์ขึ้นกับโครงของโจทย์"
+            }
+          ],
+          "reasoning_prompt": "เลือก reasoning ที่รองรับ process นี้มากที่สุด",
+          "reasoning_options": [
+            {
+              "id": "proof-goal-diagnosis-step-1-reasoning-1",
+              "text": "Reasoning option 1",
+              "correct": true,
+              "feedback": "ใช่ เหตุผลนี้ตรงกับการวิเคราะห์ proof structure"
+            },
+            {
+              "id": "proof-goal-diagnosis-step-1-reasoning-2",
+              "text": "Reasoning option 2",
+              "correct": false,
+              "feedback": "ไม่เสมอไป บางโจทย์ต้องเริ่มจากสมมติฐานหรือทฤษฎีบทที่เกี่ยวข้อง"
+            },
+            {
+              "id": "proof-goal-diagnosis-step-1-reasoning-3",
+              "text": "Reasoning option 3",
+              "correct": false,
+              "feedback": "ไม่ถูกต้อง เพราะข้อสรุปเป็นส่วนสำคัญของโครงพิสูจน์"
+            }
+          ],
+          "hint": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "course_id": "intro_to_ai_real_check",
+  "course_name_th": "ปัญญาประดิษฐ์เบื้องต้น",
+  "generated_at": "2026-04-21T07:30:39.988Z",
+  "modules": [
+    {
+      "id": "ai-foundations",
+      "slug": "ai-foundations",
+      "title": "AI Foundations",
+      "summary": "Start with core AI ideas, scope, domains, and the language used across the field.",
+      "order": 1,
+      "clo_ids": [
+        "CLO1",
+        "CLO4"
+      ],
+      "module_kind": "concept",
+      "widgets": [
+        "quick-check",
+        "definition-visualizer",
+        "step-sequence"
+      ]
+    },
+    {
+      "id": "search-and-problem-solving",
+      "slug": "search-and-problem-solving",
+      "title": "Search and Problem Solving",
+      "summary": "Use state spaces, search strategies, and heuristics to reason about AI problem solving.",
+      "order": 2,
+      "clo_ids": [
+        "CLO2",
+        "CLO3"
+      ],
+      "module_kind": "application",
+      "widgets": [
+        "quick-check",
+        "step-sequence",
+        "sbra-sequence"
+      ]
+    },
+    {
+      "id": "knowledge-and-reasoning",
+      "slug": "knowledge-and-reasoning",
+      "title": "Knowledge and Reasoning",
+      "summary": "Connect representation, logic, and inference to structured AI reasoning tasks.",
+      "order": 3,
+      "clo_ids": [
+        "CLO2",
+        "CLO3"
+      ],
+      "module_kind": "application",
+      "widgets": [
+        "quick-check",
+        "definition-visualizer",
+        "proof-unpack"
+      ]
+    },
+    {
+      "id": "intelligent-systems-and-ethics",
+      "slug": "intelligent-systems-and-ethics",
+      "title": "Intelligent Systems and Ethics",
+      "summary": "Relate AI methods to real systems, limitations, and ethical decision making.",
+      "order": 4,
+      "clo_ids": [
+        "CLO1",
+        "CLO4"
+      ],
+      "module_kind": "proof",
+      "widgets": [
+        "quick-check",
+        "definition-visualizer"
+      ]
+    }
+  ],
+  "clos": [
+    {
+      "id": "CLO1",
+      "label": "Explain core AI concepts, terminology, and problem domains.",
+      "bloom": "Understand",
+      "assessment_tags": [
+        "concepts",
+        "terminology"
+      ]
+    },
+    {
+      "id": "CLO2",
+      "label": "Apply search, reasoning, and representation ideas to structured AI tasks.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "search",
+        "representation"
+      ]
+    },
+    {
+      "id": "CLO3",
+      "label": "Analyze AI methods, model behavior, and suitable solution strategies.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "analysis",
+        "strategy"
+      ]
+    },
+    {
+      "id": "CLO4",
+      "label": "Evaluate AI use cases, limitations, and ethical implications in practical settings.",
+      "bloom": "Evaluate",
+      "assessment_tags": [
+        "ethics",
+        "evaluation"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "project_in_mathematics_real_check",
+  "generated_at": "2026-04-21T08:22:02.281Z",
+  "queries": [
+    {
+      "query_id": "content-query-01-project-scoping-and-advisor-alignment",
+      "module_id": "project-scoping-and-advisor-alignment",
+      "target_clo_ids": [
+        "CLO1"
+      ],
+      "target_bloom_levels": [
+        "understand"
+      ],
+      "query_texts": [
+        "Project in Mathematics Project Scoping and Advisor Alignment lecture notes",
+        "Project Scoping and Advisor Alignment interactive learning activity",
+        "Project Scoping and Advisor Alignment Search for relevant sources and project ideas appropriately. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    },
+    {
+      "query_id": "content-query-02-literature-review-and-project-planning",
+      "module_id": "literature-review-and-project-planning",
+      "target_clo_ids": [
+        "CLO2"
+      ],
+      "target_bloom_levels": [
+        "analyze"
+      ],
+      "query_texts": [
+        "Project in Mathematics Literature Review and Project Planning lecture notes",
+        "Literature Review and Project Planning interactive learning activity",
+        "Literature Review and Project Planning Analyze related work to define a meaningful mathematics project direction. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    },
+    {
+      "query_id": "content-query-03-project-execution-and-progress-review",
+      "module_id": "project-execution-and-progress-review",
+      "target_clo_ids": [
+        "CLO3"
+      ],
+      "target_bloom_levels": [
+        "apply"
+      ],
+      "query_texts": [
+        "Project in Mathematics Project Execution and Progress Review lecture notes",
+        "Project Execution and Progress Review interactive learning activity",
+        "Project Execution and Progress Review Design a suitable study or analysis process for the selected project problem. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    },
+    {
+      "query_id": "content-query-04-report-writing-and-seminar-presentation",
+      "module_id": "report-writing-and-seminar-presentation",
+      "target_clo_ids": [
+        "CLO4"
+      ],
+      "target_bloom_levels": [
+        "evaluate"
+      ],
+      "query_texts": [
+        "Project in Mathematics Report Writing and Seminar Presentation lecture notes",
+        "Report Writing and Seminar Presentation interactive learning activity",
+        "Report Writing and Seminar Presentation Present project progress and findings clearly and appropriately. worked example"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax",
+        "mit-ocw",
+        "libretexts"
+      ],
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "status": "pending"
+    }
+  ]
+}

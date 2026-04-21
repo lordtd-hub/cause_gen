@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ตัวแปรเชิงซ้อน | Resources</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  
+<style>
+  .resource-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:.9rem; }
+  .resource-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    color: var(--color-text);
+  }
+  .resource-meta { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.75rem; }
+  .resource-note {
+    margin-top:.75rem;
+    padding:.65rem .8rem;
+    border-left:3px solid var(--color-accent2);
+    background:rgba(34,211,238,.06);
+    border-radius:0 8px 8px 0;
+    color:var(--color-text);
+  }
+</style>
+
+</head>
+<body data-page="resources">
+  <nav class="topnav">
+    <a href="../index.html" class="nav-brand"><span class="brand-icon">Z</span> Complex Variables <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="../index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="../intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="../lessons.html" class="nav-link"><span class="nl-icon">📚</span>Lessons</a>
+<a href="../missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="../content/" class="nav-link active"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="../index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    
+    <section class="card">
+      <h1 class="page-title">Resources</h1>
+      <p class="page-subtitle">รวมสื่อประกอบการเรียนของรายวิชาไว้ในหน้าเดียว เพื่อใช้ทบทวนก่อนเรียน ระหว่างเรียน หรือก่อนทำภารกิจ</p>
+    </section>
+    <section class="resource-grid">
+      <div class="resource-card"><div class="card-title">First Course in Complex Analysis</div><div class="text-muted" style="line-height:1.7;">main text: เหมาะกับ Complex Number Foundations, Limits and Continuity in the Complex Plane, Complex Differentiation and Analytic Functions, Complex Integration, Taylor, Laurent, and Applications</div><div class="resource-note">ประเภท: textbook
+บทบาท: main text
+โมดูลที่เกี่ยวข้อง: Complex Number Foundations, Limits and Continuity in the Complex Plane, Complex Differentiation and Analytic Functions, Complex Integration, Taylor, Laurent, and Applications
+หมายเหตุ: Dennis Pixton and Lucas Sabalka introductory text for the whole course</div><div class="resource-meta"><span class="mission-chip">Core References</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Visual complex plane notes and Argand diagram handout</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Complex Number Foundations</div><div class="resource-note">ประเภท: notes
+บทบาท: support
+โมดูลที่เกี่ยวข้อง: Complex Number Foundations
+หมายเหตุ: use for algebraic-geometric interpretation and argument/modulus review</div><div class="resource-meta"><span class="mission-chip">Complex Number Foundations</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Review notes on limits and continuity from mathematical analysis</div><div class="text-muted" style="line-height:1.7;">review: เหมาะกับ Limits and Continuity in the Complex Plane</div><div class="resource-note">ประเภท: notes
+บทบาท: review
+โมดูลที่เกี่ยวข้อง: Limits and Continuity in the Complex Plane
+หมายเหตุ: bridge prior analysis knowledge into complex-valued functions</div><div class="resource-meta"><span class="mission-chip">Limits and Continuity in the Complex Plane</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Complex derivative and analytic-function worksheet</div><div class="text-muted" style="line-height:1.7;">practice: เหมาะกับ Complex Differentiation and Analytic Functions</div><div class="resource-note">ประเภท: worksheet
+บทบาท: practice
+โมดูลที่เกี่ยวข้อง: Complex Differentiation and Analytic Functions
+หมายเหตุ: guided reasoning tasks on differentiability and analytic structure</div><div class="resource-meta"><span class="mission-chip">Complex Differentiation and Analytic Functions</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Contour integration worked examples</div><div class="text-muted" style="line-height:1.7;">support: เหมาะกับ Complex Integration</div><div class="resource-note">ประเภท: notes
+บทบาท: support
+โมดูลที่เกี่ยวข้อง: Complex Integration
+หมายเหตุ: examples of path setup and explanation of integral meaning</div><div class="resource-meta"><span class="mission-chip">Complex Integration</span><span class="mission-chip">note</span></div></div>
+<div class="resource-card"><div class="card-title">Taylor and Laurent series summary sheet</div><div class="text-muted" style="line-height:1.7;">review: เหมาะกับ Taylor, Laurent, and Applications</div><div class="resource-note">ประเภท: notes
+บทบาท: review
+โมดูลที่เกี่ยวข้อง: Taylor, Laurent, and Applications
+หมายเหตุ: compare local expansions and application patterns</div><div class="resource-meta"><span class="mission-chip">Taylor, Laurent, and Applications</span><span class="mission-chip">note</span></div></div>
+    </section>
+  
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"complex_variables_real_check","course_name_th":"ตัวแปรเชิงซ้อน","course_name_en":"Complex Variables","course_short_name":"Complex Variables","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A learner-facing complex variables course that helps students connect algebraic, geometric, and analytic ideas through modules, missions, and active-learning resources.","theme":{"brand_icon":"Z","accent":"#2563eb","accent_secondary":"#f59e0b"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","step-sequence","sbra-sequence"],"lesson_completion_xp":50,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Complex Variables Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-complex-foundations","emoji":"📘","name":"CLO1 Understand Complex Foundations","req":"Collect quick-check evidence in Complex Number Foundations.","threshold_xp":150,"required_modules":["complex-number-foundations"]},{"id":"clo2-complex-limits-analyst","emoji":"🧠","name":"CLO2 Analyze Complex Limits Analyst","req":"Collect reasoning-task evidence in Limits and Continuity in the Complex Plane.","threshold_xp":210,"required_modules":["limits-and-continuity"]},{"id":"clo3-analytic-function-strategist","emoji":"🛠","name":"CLO3 Apply Analytic Function Strategist","req":"Collect SBRA evidence in Complex Differentiation and Analytic Functions.","threshold_xp":250,"required_modules":["complex-differentiation"],"required_missions":["sbra-complex-differentiation-clo3"]},{"id":"clo4-complex-integrator","emoji":"🛠","name":"CLO4 Apply Complex Integrator","req":"Collect worked-task evidence in Complex Integration.","threshold_xp":280,"required_modules":["complex-integration"]},{"id":"clo5-series-analyst","emoji":"🧠","name":"CLO5 Analyze Series Analyst","req":"Collect SBRA evidence in Taylor, Laurent, and Applications.","threshold_xp":350,"required_modules":["series-and-applications"],"required_accuracy":60}],"modules":[{"id":"complex-number-foundations","slug":"complex-number-foundations","title":"Complex Number Foundations","summary":"Start from algebraic form, geometric interpretation, and the complex plane as the base language of the course.","order":1,"module_kind":"concept"},{"id":"limits-and-continuity","slug":"limits-and-continuity","title":"Limits and Continuity in the Complex Plane","summary":"Reconnect sequence, limit, and continuity ideas from analysis and move them into complex-valued settings.","order":2,"module_kind":"concept"},{"id":"complex-differentiation","slug":"complex-differentiation","title":"Complex Differentiation and Analytic Functions","summary":"Build the meaning of complex derivatives and analytic behavior through comparison with real-variable ideas.","order":3,"module_kind":"concept"},{"id":"complex-integration","slug":"complex-integration","title":"Complex Integration","summary":"Study contour-style integration and connect it to earlier work on integrals and paths.","order":4,"module_kind":"application"},{"id":"series-and-applications","slug":"series-and-applications","title":"Taylor, Laurent, and Applications","summary":"Use expansions and local representations to reason about complex functions and integral applications.","order":5,"module_kind":"application"}],"clos":[{"id":"CLO1","label":"Explain the algebraic and geometric foundations of complex numbers.","bloom":"Understand","assessment_tags":["concepts","complex-plane"]},{"id":"CLO2","label":"Analyze limits and continuity of complex functions using prior analysis knowledge.","bloom":"Analyze","assessment_tags":["limits","continuity"]},{"id":"CLO3","label":"Explain and apply complex differentiation, analytic functions, and holomorphic functions.","bloom":"Apply","assessment_tags":["derivatives","analytic-functions"]},{"id":"CLO4","label":"Explain and compute complex integrals along suitable paths.","bloom":"Apply","assessment_tags":["integrals","contours"]},{"id":"CLO5","label":"Use Taylor and Laurent series to study complex functions and support integral reasoning.","bloom":"Analyze","assessment_tags":["series","residue-ideas"]}]};
+    window.__PAGE_DATA__ = {};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="../assets/js/course-runtime.js"></script>
+<script src="../assets/js/xp.js"></script>
+<script src="../assets/js/nav.js"></script>
+</body>
+</html>

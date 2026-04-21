@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.1.0",
+  "course_id": "calculus1_real_check",
+  "generated_at": "2026-04-21T10:54:51.420Z",
+  "items": [
+    {
+      "retrieval_id": "retrieval-user-provided-document-content-query-02-continui-b9ee9ced77",
+      "content_id": "retrieved-content-user-provided-document-content-query-02-continui-b9ee9ced77",
+      "source_id": "user-provided-document",
+      "source_url": "C:\\Users\\User\\Downloads\\Calculus.pdf",
+      "source_title": "Class Notes",
+      "query_id": "content-query-02-continuity-and-applications",
+      "query_text": null,
+      "candidate_module_id": "continuity-and-applications",
+      "candidate_clo_ids": [
+        "CLO2"
+      ],
+      "candidate_bloom_levels": [
+        "apply"
+      ],
+      "retrieval_method": "local-pdf",
+      "license_note": "Use only within the current course workflow and review provenance manually.",
+      "attribution_required": true,
+      "content_title": "Class Notes",
+      "content_summary": "2.10 The Definition of the Limit............................... 169 3 Derivatives 184",
+      "content_excerpt": "2.10 The Definition of the Limit............................... 169 3 Derivatives 184"
+    },
+    {
+      "retrieval_id": "retrieval-user-provided-document-content-query-02-continui-b10efccd02",
+      "content_id": "retrieved-content-user-provided-document-content-query-02-continui-b10efccd02",
+      "source_id": "user-provided-document",
+      "source_url": "C:\\Users\\User\\Downloads\\Calculus.pdf",
+      "source_title": "Class Notes",
+      "query_id": "content-query-02-continuity-and-applications",
+      "query_text": null,
+      "candidate_module_id": "continuity-and-applications",
+      "candidate_clo_ids": [
+        "CLO2"
+      ],
+      "candidate_bloom_levels": [
+        "apply"
+      ],
+      "retrieval_method": "local-pdf",
+      "license_note": "Use only within the current course workflow and review provenance manually.",
+      "attribution_required": true,
+      "content_title": "Class Notes",
+      "content_summary": "Computing Limits - In this section we will looks at several types of limits that require some work before we can use the limit properties to compute them. We will also look at computing limits of piecewise functions and use of the Squeeze Theorem to compute some limits.",
+      "content_excerpt": "Computing Limits - In this section we will looks at several types of limits that require some work before we can use the limit properties to compute them. We will also look at computing limits of piecewise functions and use of the Squeeze Theorem to compute some limits."
+    }
+  ]
+}

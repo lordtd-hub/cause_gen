@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "complex_variables_real_check",
+  "generated_at": "2026-04-21T09:33:06.535Z",
+  "items": [
+    {
+      "retrieval_id": "retrieval-mit-ocw-content-query-04-complex-integration-htt-7481769ceb",
+      "content_id": "retrieved-content-mit-ocw-content-query-04-complex-integration-htt-7481769ceb",
+      "dedupe_group": "18-04-s18-topic-4-cauchy-s-integral-formula-cauchy-s-theorem-is-a-big-theorem-which-we-will-use-almost-daily-from-here-on-out-right-away-i",
+      "proposed_module_id": "complex-integration",
+      "proposed_clo_ids": [
+        "CLO4"
+      ],
+      "proposed_bloom_levels": [
+        "apply"
+      ],
+      "proposed_content_kind": "concept-explainer",
+      "proposed_asset_family": "module-content-block",
+      "title": "18.04 S18 Topic 4: Cauchy's integral formula",
+      "summary": "Cauchy’s theorem is a big theorem which we will use almost daily from here on out. Right away it will reveal a number of interesting and useful properties of analytic functions. More will follow as the course progresses.",
+      "excerpt": "Cauchy’s theorem is a big theorem which we will use almost daily from here on out. Right away it will reveal a number of interesting and useful properties of analytic functions. More will follow as the course progresses.",
+      "source_id": "mit-ocw",
+      "source_title": "18.04 S18 Topic 4: Cauchy's integral formula",
+      "source_url": "https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/b1a90df19f643b974555bbbb93138a48_MIT18_04S18_topic4.pdf",
+      "query_id": "content-query-04-complex-integration",
+      "license_note": "Open course materials with Creative Commons licensing; confirm page-level terms when needed.",
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "screening_status": "proposed",
+      "recommended_use_mode": "ingest-with-attribution",
+      "provenance": {
+        "source_id": "mit-ocw",
+        "source_title": "MIT OpenCourseWare",
+        "source_url": "https://ocw.mit.edu/",
+        "query_id": "content-query-04-complex-integration",
+        "query_texts": [
+          "Complex Variables Complex Integration lecture notes",
+          "Complex Integration interactive learning activity",
+          "Complex Integration Explain and compute complex integrals along suitable paths. worked example"
+        ],
+        "license_note": "Open course materials with Creative Commons licensing; confirm page-level terms when needed.",
+        "attribution_required": true
+      },
+      "notes": "Educational use policy matched source mit-ocw. Human review is still required before promotion into content drafts."
+    },
+    {
+      "retrieval_id": "retrieval-mit-ocw-content-query-04-complex-integration-htt-8b5baba1d5",
+      "content_id": "retrieved-content-mit-ocw-content-query-04-complex-integration-htt-8b5baba1d5",
+      "dedupe_group": "18-04-s18-topic-4-cauchy-s-integral-formula-theorem-4-1-cauchy-s-integral-formula-suppose-is-a-simple-closed-curve-and-the-function-i",
+      "proposed_module_id": "complex-integration",
+      "proposed_clo_ids": [
+        "CLO4"
+      ],
+      "proposed_bloom_levels": [
+        "apply"
+      ],
+      "proposed_content_kind": "concept-explainer",
+      "proposed_asset_family": "module-content-block",
+      "title": "18.04 S18 Topic 4: Cauchy's integral formula",
+      "summary": "Theorem 4.1. (Cauchy’s integral formula) Suppose is a simple closed curve and the function () is analytic on a region containing and its interior. We assume is oriented counterclockwise. Then for any 0 inside : 1 () (0) = (1) 2 ∫ - 0",
+      "excerpt": "Theorem 4.1. (Cauchy’s integral formula) Suppose is a simple closed curve and the function () is analytic on a region containing and its interior. We assume is oriented counterclockwise. Then for any 0 inside : 1 () (0) = (1) 2 ∫ - 0",
+      "source_id": "mit-ocw",
+      "source_title": "18.04 S18 Topic 4: Cauchy's integral formula",
+      "source_url": "https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/b1a90df19f643b974555bbbb93138a48_MIT18_04S18_topic4.pdf",
+      "query_id": "content-query-04-complex-integration",
+      "license_note": "Open course materials with Creative Commons licensing; confirm page-level terms when needed.",
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-classification.json",
+      "screening_status": "proposed",
+      "recommended_use_mode": "ingest-with-attribution",
+      "provenance": {
+        "source_id": "mit-ocw",
+        "source_title": "MIT OpenCourseWare",
+        "source_url": "https://ocw.mit.edu/",
+        "query_id": "content-query-04-complex-integration",
+        "query_texts": [
+          "Complex Variables Complex Integration lecture notes",
+          "Complex Integration interactive learning activity",
+          "Complex Integration Explain and compute complex integrals along suitable paths. worked example"
+        ],
+        "license_note": "Open course materials with Creative Commons licensing; confirm page-level terms when needed.",
+        "attribution_required": true
+      },
+      "notes": "Educational use policy matched source mit-ocw. Human review is still required before promotion into content drafts."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.1.0",
+  "course_id": "complex_variables_real_check",
+  "generated_at": "2026-04-21T09:32:27.427Z",
+  "items": [
+    {
+      "retrieval_id": "retrieval-mit-ocw-content-query-04-complex-integration-htt-7481769ceb",
+      "content_id": "retrieved-content-mit-ocw-content-query-04-complex-integration-htt-7481769ceb",
+      "source_id": "mit-ocw",
+      "source_url": "https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/b1a90df19f643b974555bbbb93138a48_MIT18_04S18_topic4.pdf",
+      "source_title": "18.04 S18 Topic 4: Cauchy's integral formula",
+      "query_id": "content-query-04-complex-integration",
+      "query_text": null,
+      "candidate_module_id": "complex-integration",
+      "candidate_clo_ids": [
+        "CLO4"
+      ],
+      "candidate_bloom_levels": [
+        "apply"
+      ],
+      "retrieval_method": "pdf-document",
+      "license_note": "Open course materials with Creative Commons licensing; confirm page-level terms when needed.",
+      "attribution_required": true,
+      "content_title": "18.04 S18 Topic 4: Cauchy's integral formula",
+      "content_summary": "Cauchy’s theorem is a big theorem which we will use almost daily from here on out. Right away it will reveal a number of interesting and useful properties of analytic functions. More will follow as the course progresses.",
+      "content_excerpt": "Cauchy’s theorem is a big theorem which we will use almost daily from here on out. Right away it will reveal a number of interesting and useful properties of analytic functions. More will follow as the course progresses."
+    },
+    {
+      "retrieval_id": "retrieval-mit-ocw-content-query-04-complex-integration-htt-8b5baba1d5",
+      "content_id": "retrieved-content-mit-ocw-content-query-04-complex-integration-htt-8b5baba1d5",
+      "source_id": "mit-ocw",
+      "source_url": "https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/b1a90df19f643b974555bbbb93138a48_MIT18_04S18_topic4.pdf",
+      "source_title": "18.04 S18 Topic 4: Cauchy's integral formula",
+      "query_id": "content-query-04-complex-integration",
+      "query_text": null,
+      "candidate_module_id": "complex-integration",
+      "candidate_clo_ids": [
+        "CLO4"
+      ],
+      "candidate_bloom_levels": [
+        "apply"
+      ],
+      "retrieval_method": "pdf-document",
+      "license_note": "Open course materials with Creative Commons licensing; confirm page-level terms when needed.",
+      "attribution_required": true,
+      "content_title": "18.04 S18 Topic 4: Cauchy's integral formula",
+      "content_summary": "Theorem 4.1. (Cauchy’s integral formula) Suppose is a simple closed curve and the function () is analytic on a region containing and its interior. We assume is oriented counterclockwise. Then for any 0 inside : 1 () (0) = (1) 2 ∫ - 0",
+      "content_excerpt": "Theorem 4.1. (Cauchy’s integral formula) Suppose is a simple closed curve and the function () is analytic on a region containing and its interior. We assume is oriented counterclockwise. Then for any 0 inside : 1 () (0) = (1) 2 ∫ - 0"
+    }
+  ]
+}

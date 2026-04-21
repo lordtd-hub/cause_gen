@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "replace-course-id",
+  "source_problem_pool": "materials/processed/assessment/problem-pool.json",
+  "generated_at": "replace-generated-at",
+  "drafts": [
+    {
+      "draft_id": "replace-draft-id",
+      "problem_id": "replace-problem-id",
+      "module_id": "replace-module-id",
+      "clo_id": "CLO1",
+      "bloom_level": "apply",
+      "primary_use_target": "module_checkpoint",
+      "draft_type": "outline",
+      "solution_status": "drafted",
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/assessment/mission-drafts.json",
+      "review_status": "pending",
+      "expected_answer_form": "numeric-or-expression",
+      "expected_answer": null,
+      "solution_outline": [
+        "Identify the mathematical target of the problem.",
+        "Choose the relevant technique and justify why it fits.",
+        "Carry out the core steps and state the result clearly."
+      ],
+      "full_solution_latex": null,
+      "hint_drafts": [
+        "Start by naming the quantity you must compute or justify.",
+        "Check which calculus technique matches the problem type."
+      ],
+      "common_error_notes": [
+        "Do not skip the justification for the chosen technique."
+      ],
+      "solution_confidence": 0.6,
+      "downstream_profiles": {
+        "quick_check": {
+          "answer_only": "Replace with the concise final answer."
+        },
+        "module_checkpoint": {
+          "concept_summary": "Replace with the core idea behind the solution.",
+          "answer": "Replace with the checkpoint-ready answer."
+        }
+      },
+      "source_refs": {
+        "problem_pool_item": "replace-problem-id"
+      }
+    }
+  ]
+}

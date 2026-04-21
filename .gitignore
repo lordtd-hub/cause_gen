@@ -1,0 +1,24 @@
+# OS / editor / local tooling
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+.claude/
+.venv/
+.tmp/
+
+# Private working notes, source problem material, review docs
+# (anything in root notes/ is local-only and never shipped)
+# Leading slash = root-only match, so content/*/notes/ stays tracked
+/notes/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Machine-local runtime artifacts
+tools/vendor/

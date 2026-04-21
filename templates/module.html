@@ -1,0 +1,32 @@
+<section class="card" style="margin-bottom:1rem; background:linear-gradient(135deg, rgba(34,211,238,0.08), rgba(139,92,246,0.08)); border-color:rgba(34,211,238,0.25);">
+  <div class="text-small text-muted">{{BREADCRUMB}}</div>
+  <h1 class="page-title" style="margin-top:.35rem;">{{MODULE_TITLE}}</h1>
+  <p class="page-subtitle">{{MODULE_SUMMARY}}</p>
+  <div class="flex-row" style="flex-wrap:wrap; gap:.5rem; margin-top:1rem;">
+    {{MODULE_TAGS}}
+  </div>
+</section>
+
+{{MODULE_AT_A_GLANCE}}
+
+{{MODULE_SECTION_MAP}}
+
+<section class="card" id="module-core-content" style="margin-bottom:1rem;">
+  <div class="card-title">สาระของบทเรียน</div>
+  <div class="module-content markdown-body">{{MODULE_CONTENT}}</div>
+</section>
+
+{{MODULE_ACTIVE_LEARNING}}
+
+{{MODULE_CHECKPOINTS}}
+
+{{MODULE_NEXT_STEP}}
+
+<section class="card">
+  <div class="card-title">ความคืบหน้า</div>
+  <p class="text-muted text-small" id="module-status-text">เมื่อเรียนจบบทนี้แล้ว ให้กดปุ่มด้านล่างเพื่อบันทึกความคืบหน้าและรับ XP ของบทเรียน</p>
+  <div class="flex-row" style="justify-content:space-between; flex-wrap:wrap; gap:.75rem;">
+    <button class="btn btn-primary" data-complete-module="{{MODULE_ID}}" data-module-xp="{{MODULE_XP}}">บันทึกว่าจบบทเรียนนี้</button>
+    <a class="btn" href="{{BASE_PATH}}lessons.html">กลับไปหน้า Lessons</a>
+  </div>
+</section>

@@ -1,0 +1,232 @@
+{
+  "course_id": "calculus1_real_check",
+  "course_name_th": "แคลคูลัส 1",
+  "course_name_en": "Calculus I",
+  "course_short_name": "Calculus I",
+  "instructor": "แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด",
+  "description": "A first-course calculus site for limits, continuity, derivatives, and integration, built from the TQF3-first workflow in this repo.",
+  "theme": {
+    "brand_icon": "C",
+    "accent": "#2563eb",
+    "accent_secondary": "#f59e0b"
+  },
+  "features": {
+    "resources": true,
+    "missions": true,
+    "games": false
+  },
+  "widgets_enabled": [
+    "quick-check",
+    "definition-visualizer",
+    "proof-unpack",
+    "step-sequence",
+    "sbra-sequence"
+  ],
+  "lesson_completion_xp": 45,
+  "badges": [
+    {
+      "id": "starter",
+      "emoji": "🌱",
+      "name": "Starter",
+      "req": "Begin the course and collect the first XP.",
+      "threshold_xp": 0
+    },
+    {
+      "id": "explorer",
+      "emoji": "📚",
+      "name": "Explorer",
+      "req": "Reach 120 XP and complete at least 1 module.",
+      "threshold_xp": 120,
+      "required_modules_count": 1
+    },
+    {
+      "id": "master",
+      "emoji": "🏆",
+      "name": "Calculus I Master",
+      "req": "Reach 600 XP and maintain at least 80% mission accuracy.",
+      "threshold_xp": 600,
+      "required_accuracy": 80
+    },
+    {
+      "id": "clo1-understand-foundation",
+      "emoji": "📘",
+      "name": "CLO1 Understand Foundation",
+      "req": "Collect quick-check evidence in Limits and Functions.",
+      "threshold_xp": 150,
+      "required_modules": [
+        "limits-and-functions"
+      ]
+    },
+    {
+      "id": "clo1-understand-ftc-link",
+      "emoji": "📘",
+      "name": "CLO1 Understand Ftc Link",
+      "req": "Collect concept-check evidence in Integration.",
+      "threshold_xp": 280,
+      "required_modules": [
+        "integration"
+      ],
+      "required_badges": [
+        "clo1-understand-foundation"
+      ]
+    },
+    {
+      "id": "clo2-apply-limits",
+      "emoji": "🛠",
+      "name": "CLO2 Apply Limits",
+      "req": "Collect worked-computation evidence in Limits and Functions.",
+      "threshold_xp": 160,
+      "required_modules": [
+        "limits-and-functions"
+      ]
+    },
+    {
+      "id": "clo2-apply-derivative-techniques",
+      "emoji": "🛠",
+      "name": "CLO2 Apply Derivative Techniques",
+      "req": "Collect derivative-exercise evidence in Differentiation.",
+      "threshold_xp": 240,
+      "required_modules": [
+        "differentiation"
+      ],
+      "required_badges": [
+        "clo2-apply-limits"
+      ]
+    },
+    {
+      "id": "clo2-apply-integration-techniques",
+      "emoji": "🛠",
+      "name": "CLO2 Apply Integration Techniques",
+      "req": "Collect integration-exercise evidence in Integration.",
+      "threshold_xp": 310,
+      "required_modules": [
+        "integration"
+      ],
+      "required_badges": [
+        "clo2-apply-derivative-techniques"
+      ],
+      "required_accuracy": 60
+    },
+    {
+      "id": "clo3-analyze-continuity",
+      "emoji": "🧠",
+      "name": "CLO3 Analyze Continuity",
+      "req": "Collect SBRA evidence in Continuity and Applications.",
+      "threshold_xp": 210,
+      "required_modules": [
+        "continuity-and-applications"
+      ],
+      "required_missions": [
+        "sbra-continuity-and-applications-clo3"
+      ]
+    },
+    {
+      "id": "clo3-analyze-function-behavior",
+      "emoji": "🧠",
+      "name": "CLO3 Analyze Function Behavior",
+      "req": "Collect application-task evidence in Differentiation.",
+      "threshold_xp": 240,
+      "required_modules": [
+        "differentiation"
+      ],
+      "required_badges": [
+        "clo3-analyze-continuity"
+      ]
+    },
+    {
+      "id": "clo4-evaluate-derivative-justification",
+      "emoji": "🎯",
+      "name": "CLO4 Evaluate Derivative Justification",
+      "req": "Collect explanation-task evidence in Differentiation.",
+      "threshold_xp": 250,
+      "required_modules": [
+        "differentiation"
+      ]
+    },
+    {
+      "id": "clo4-evaluate-integral-interpretation",
+      "emoji": "🎯",
+      "name": "CLO4 Evaluate Integral Interpretation",
+      "req": "Collect reasoning-task evidence in Integration.",
+      "threshold_xp": 280,
+      "required_modules": [
+        "integration"
+      ],
+      "required_badges": [
+        "clo4-evaluate-derivative-justification"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "limits-and-functions",
+      "slug": "limits-and-functions",
+      "title": "Limits and Functions",
+      "summary": "Start with function behavior, limit ideas, and first ways to reason about approaching values.",
+      "order": 1,
+      "module_kind": "concept"
+    },
+    {
+      "id": "continuity-and-applications",
+      "slug": "continuity-and-applications",
+      "title": "Continuity and Applications",
+      "summary": "Use continuity as a bridge between limit ideas and richer function analysis.",
+      "order": 2,
+      "module_kind": "application"
+    },
+    {
+      "id": "differentiation",
+      "slug": "differentiation",
+      "title": "Differentiation",
+      "summary": "Build derivative concepts, rules, and function-analysis techniques for change and rate.",
+      "order": 3,
+      "module_kind": "application"
+    },
+    {
+      "id": "integration",
+      "slug": "integration",
+      "title": "Integration",
+      "summary": "Connect area, accumulation, antiderivatives, and the first major links between derivative and integral ideas.",
+      "order": 4,
+      "module_kind": "application"
+    }
+  ],
+  "clos": [
+    {
+      "id": "CLO1",
+      "label": "Explain the meaning of limits, continuity, derivatives, and integrals in standard first-course contexts.",
+      "bloom": "Understand",
+      "assessment_tags": [
+        "concepts",
+        "definitions"
+      ]
+    },
+    {
+      "id": "CLO2",
+      "label": "Apply standard calculus techniques to compute limits, derivatives, and integrals.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "techniques",
+        "computation"
+      ]
+    },
+    {
+      "id": "CLO3",
+      "label": "Analyze functions and their behavior using continuity, derivatives, and definite integrals.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "analysis",
+        "function-behavior"
+      ]
+    },
+    {
+      "id": "CLO4",
+      "label": "Use calculus reasoning to justify steps and interpret results in problem-solving situations.",
+      "bloom": "Evaluate",
+      "assessment_tags": [
+        "reasoning",
+        "interpretation"
+      ]
+    }
+  ]
+}

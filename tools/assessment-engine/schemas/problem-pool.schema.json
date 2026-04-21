@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cause-gen.local/schemas/problem-pool.schema.json",
+  "title": "Cause Gen Problem Pool",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "pool_status",
+    "items"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "pool_status": {
+      "type": "string",
+      "enum": [
+        "starter",
+        "in-review",
+        "approved"
+      ]
+    },
+    "source_file": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "problem_id",
+          "statement"
+        ],
+        "properties": {
+          "problem_id": {
+            "type": "string"
+          },
+          "module_id": {
+            "type": "string"
+          },
+          "clo_id": {
+            "type": "string"
+          },
+          "bloom_level": {
+            "type": "string"
+          },
+          "problem_type": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "target_skill": {
+            "type": "string"
+          },
+          "misconception_tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "usable_for": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sbra_profile": {
+            "type": "object",
+            "properties": {
+              "candidate_strength": {
+                "type": "string",
+                "enum": [
+                  "strong",
+                  "medium",
+                  "weak",
+                  "not_recommended"
+                ]
+              },
+              "evidence_role": {
+                "type": "string",
+                "enum": [
+                  "primary-clo-evidence",
+                  "support-clo-evidence",
+                  "practice-or-check",
+                  "not-recommended"
+                ]
+              },
+              "recommended_step_count": {
+                "type": "integer"
+              },
+              "pattern_tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "distractor_focus": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "difficulty": {
+            "type": "string"
+          },
+          "solution_status": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "drafted",
+              "reviewed"
+            ]
+          },
+          "solution_required": {
+            "type": "boolean"
+          },
+          "expected_answer_form": {
+            "type": "string"
+          },
+          "needs_solution_review": {
+            "type": "boolean"
+          },
+          "source": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "review_status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected"
+            ]
+          },
+          "retrieval_id": {
+            "type": "string"
+          },
+          "source_intake_file": {
+            "type": "string"
+          },
+          "intake_part_label": {
+            "type": "string"
+          },
+          "raw_label": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

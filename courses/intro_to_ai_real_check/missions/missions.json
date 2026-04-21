@@ -1,0 +1,754 @@
+{
+  "course_id": "intro_to_ai_real_check",
+  "missions": [
+    {
+      "mission_id": "draft-intro_to_ai_real_check-ai-foundations",
+      "clo_id": "CLO1",
+      "module_id": "ai-foundations",
+      "title": "SBRA Draft: AI Foundations",
+      "mission_type": "sbra-step-based-reasoning",
+      "bloom_level": 3,
+      "xp": 120,
+      "rubric": [
+        "เลือก process ของแต่ละ step ได้สอดคล้องกับโจทย์และ CLO",
+        "ให้ reasoning ที่อธิบายว่าทำไมจึงเลือก process นั้นได้ชัดเจน",
+        "ระบุ misconception หรือจุดที่ต้องระวังได้อย่างน้อยหนึ่งจุด"
+      ],
+      "threshold": {
+        "min_steps_mastered": 3
+      },
+      "prompt": "ภารกิจ draft สำหรับ module \"AI Foundations\" ให้แทนที่ด้วยโจทย์จริงของรายวิชาหลัง review materials",
+      "strategy_prompt": "เติม strategy prompt ที่สะท้อนวิธีคิดของรายวิชาจริงก่อน publish",
+      "confidence": {
+        "prompt": "หลังทำครบทุก step แล้ว คุณมั่นใจในคำตอบของตนเองระดับใด?",
+        "levels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "steps": [
+        {
+          "id": "step-1",
+          "title": "Step 1: วางแผน",
+          "prompt": "วิธีเริ่ม reasoning ที่เหมาะกับ module \"AI Foundations\" มากที่สุดคืออะไร?",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดสำหรับการเริ่มต้น",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "เริ่มจากนิยามหรือโครง concept หลักของ module",
+              "correct": true,
+              "feedback": "นี่คือ process หลักที่ควรเชื่อมกับ CLO"
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "จำคำตอบตัวอย่างเพียงกรณีเดียวแล้วสรุปทันที",
+              "correct": false,
+              "feedback": "แนวทางนี้ยังไม่พอสำหรับภารกิจเชิง reasoning"
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "ข้ามไปเฉลยโดยไม่อธิบายขั้นคิด",
+              "correct": false,
+              "feedback": "ควรเก็บลำดับเหตุผลให้ตรวจสอบได้"
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้มากที่สุด?",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะ process นี้เชื่อมตรงกับแนวคิดหลักของ module และ CLO",
+              "correct": true,
+              "feedback": "เหตุผลนี้ชี้ว่าทำไม process จึงเหมาะกับโจทย์"
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะทำเสร็จเร็วที่สุดจึงน่าจะถูกเสมอ",
+              "correct": false,
+              "feedback": "ความเร็วไม่ใช่เหตุผลเชิงวิชาการหลัก"
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะไม่จำเป็นต้องดูโครงของโจทย์ก็เลือกได้",
+              "correct": false,
+              "feedback": "ยังไม่อิงธรรมชาติของโจทย์จริง"
+            }
+          ],
+          "hint": "ถามก่อนว่าโจทย์นี้กำลังวัด concept หรือ strategy อะไรใน CLO"
+        },
+        {
+          "id": "step-2",
+          "title": "Step 2: วิเคราะห์",
+          "prompt": "ระหว่างทำโจทย์ ควรตรวจอะไรเป็นพิเศษเพื่อไม่ให้ reasoning หลุดจากเป้าหมาย?",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดสำหรับช่วงวิเคราะห์",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "ตรวจว่าแต่ละบรรทัดยังสอดคล้องกับนิยามหรือเงื่อนไขที่ตั้งไว้",
+              "correct": true,
+              "feedback": "นี่ช่วยให้ reasoning ไม่ลอยจากโจทย์จริง"
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "ดูแค่ว่าผลลัพธ์หน้าตาถูกต้องพอหรือไม่",
+              "correct": false,
+              "feedback": "ภารกิจนี้ต้องตรวจโครงเหตุผล ไม่ใช่แค่หน้าตาคำตอบ"
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "เปลี่ยน assumption กลางทางโดยไม่บอก",
+              "correct": false,
+              "feedback": "ต้องคง assumption ให้ชัดเพื่อให้ตรวจได้"
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้มากที่สุด?",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะ reasoning ที่ดีต้องตรวจได้ว่าทุกขั้นยังอยู่บนเงื่อนไขเดิมของโจทย์",
+              "correct": true,
+              "feedback": "นี่คือแกนของการควบคุม reasoning ระหว่างทาง"
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะถ้าคำตอบสุดท้ายดูดี รายละเอียดระหว่างทางไม่สำคัญ",
+              "correct": false,
+              "feedback": "ภารกิจนี้วัดกระบวนการคิด ไม่ใช่หน้าตาคำตอบอย่างเดียว"
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะการเปลี่ยน assumption กลางทางช่วยให้ตอบง่ายขึ้นเสมอ",
+              "correct": false,
+              "feedback": "เหตุผลนี้ทำให้ argument ตรวจสอบไม่ได้"
+            }
+          ],
+          "hint": "ลองถามว่าถ้าคนอื่นอ่านวิธีทำของเรา เขาจะตรวจทีละบรรทัดได้หรือไม่"
+        },
+        {
+          "id": "step-3",
+          "title": "Step 3: ปิดคำตอบ",
+          "prompt": "ข้อใดคือการปิดคำตอบที่แข็งแรงที่สุดสำหรับ draft mission นี้?",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดในการปิดคำตอบ",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "สรุปผลโดยเชื่อมกลับไปยังเป้าหมายของ CLO และ module",
+              "correct": true,
+              "feedback": "การปิดคำตอบที่ดีควรเชื่อมกลับไปยัง learning outcome"
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "เขียนว่าชัดเจนอยู่แล้วจึงจบ",
+              "correct": false,
+              "feedback": "ยังไม่ชี้ว่าชัดเจนเพราะอะไร"
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "เพิ่มตัวอย่างใหม่แต่ไม่สรุป claim เดิม",
+              "correct": false,
+              "feedback": "ตัวอย่างเพิ่มไม่แทนการสรุป claim หลัก"
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้มากที่สุด?",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะการปิดคำตอบที่ดีต้องแสดงว่าคำตอบตอบโจทย์หรือ CLO ที่ตั้งไว้จริง",
+              "correct": true,
+              "feedback": "เหตุผลนี้ทำให้บทสรุปมีหน้าที่ชัดเจน"
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะบรรทัดสุดท้ายไม่จำเป็นต้องเชื่อมกับเป้าหมายของโจทย์",
+              "correct": false,
+              "feedback": "ทำให้คำตอบดูจบแต่ไม่ชัดว่าจบอะไร"
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะยิ่งเพิ่มตัวอย่างมากเท่าไรยิ่งแทนการสรุป claim ได้ดี",
+              "correct": false,
+              "feedback": "ตัวอย่างเสริมไม่แทนการสรุป claim หลัก"
+            }
+          ],
+          "hint": "ถามว่าบรรทัดสุดท้ายเชื่อมกลับไปยังคำถามหลักหรือ CLO ได้ชัดหรือยัง"
+        }
+      ]
+    },
+    {
+      "mission_id": "draft-intro_to_ai_real_check-knowledge-and-reasoning",
+      "clo_id": "CLO2",
+      "module_id": "knowledge-and-reasoning",
+      "title": "SBRA Draft: Knowledge and Reasoning",
+      "mission_type": "sbra-step-based-reasoning",
+      "bloom_level": 3,
+      "xp": 140,
+      "rubric": [
+        "เลือก process ของแต่ละ step ได้สอดคล้องกับโจทย์และ CLO",
+        "ให้ reasoning ที่อธิบายว่าทำไมจึงเลือก process นั้นได้ชัดเจน",
+        "ระบุ misconception หรือจุดที่ต้องระวังได้อย่างน้อยหนึ่งจุด"
+      ],
+      "threshold": {
+        "min_steps_mastered": 3
+      },
+      "prompt": "ภารกิจ draft สำหรับ module \"Knowledge and Reasoning\" ให้แทนที่ด้วยโจทย์จริงของรายวิชาหลัง review materials",
+      "strategy_prompt": "เติม strategy prompt ที่สะท้อนวิธีคิดของรายวิชาจริงก่อน publish",
+      "confidence": {
+        "prompt": "หลังทำครบทุก step แล้ว คุณมั่นใจในคำตอบของตนเองระดับใด?",
+        "levels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "steps": [
+        {
+          "id": "step-1",
+          "title": "Step 1: วางแผน",
+          "prompt": "วิธีเริ่ม reasoning ที่เหมาะกับ module \"Knowledge and Reasoning\" มากที่สุดคืออะไร?",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดสำหรับการเริ่มต้น",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "เริ่มจากนิยามหรือโครง concept หลักของ module",
+              "correct": true,
+              "feedback": "นี่คือ process หลักที่ควรเชื่อมกับ CLO"
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "จำคำตอบตัวอย่างเพียงกรณีเดียวแล้วสรุปทันที",
+              "correct": false,
+              "feedback": "แนวทางนี้ยังไม่พอสำหรับภารกิจเชิง reasoning"
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "ข้ามไปเฉลยโดยไม่อธิบายขั้นคิด",
+              "correct": false,
+              "feedback": "ควรเก็บลำดับเหตุผลให้ตรวจสอบได้"
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้มากที่สุด?",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะ process นี้เชื่อมตรงกับแนวคิดหลักของ module และ CLO",
+              "correct": true,
+              "feedback": "เหตุผลนี้ชี้ว่าทำไม process จึงเหมาะกับโจทย์"
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะทำเสร็จเร็วที่สุดจึงน่าจะถูกเสมอ",
+              "correct": false,
+              "feedback": "ความเร็วไม่ใช่เหตุผลเชิงวิชาการหลัก"
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะไม่จำเป็นต้องดูโครงของโจทย์ก็เลือกได้",
+              "correct": false,
+              "feedback": "ยังไม่อิงธรรมชาติของโจทย์จริง"
+            }
+          ],
+          "hint": "ถามก่อนว่าโจทย์นี้กำลังวัด concept หรือ strategy อะไรใน CLO"
+        },
+        {
+          "id": "step-2",
+          "title": "Step 2: วิเคราะห์",
+          "prompt": "ระหว่างทำโจทย์ ควรตรวจอะไรเป็นพิเศษเพื่อไม่ให้ reasoning หลุดจากเป้าหมาย?",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดสำหรับช่วงวิเคราะห์",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "ตรวจว่าแต่ละบรรทัดยังสอดคล้องกับนิยามหรือเงื่อนไขที่ตั้งไว้",
+              "correct": true,
+              "feedback": "นี่ช่วยให้ reasoning ไม่ลอยจากโจทย์จริง"
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "ดูแค่ว่าผลลัพธ์หน้าตาถูกต้องพอหรือไม่",
+              "correct": false,
+              "feedback": "ภารกิจนี้ต้องตรวจโครงเหตุผล ไม่ใช่แค่หน้าตาคำตอบ"
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "เปลี่ยน assumption กลางทางโดยไม่บอก",
+              "correct": false,
+              "feedback": "ต้องคง assumption ให้ชัดเพื่อให้ตรวจได้"
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้มากที่สุด?",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะ reasoning ที่ดีต้องตรวจได้ว่าทุกขั้นยังอยู่บนเงื่อนไขเดิมของโจทย์",
+              "correct": true,
+              "feedback": "นี่คือแกนของการควบคุม reasoning ระหว่างทาง"
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะถ้าคำตอบสุดท้ายดูดี รายละเอียดระหว่างทางไม่สำคัญ",
+              "correct": false,
+              "feedback": "ภารกิจนี้วัดกระบวนการคิด ไม่ใช่หน้าตาคำตอบอย่างเดียว"
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะการเปลี่ยน assumption กลางทางช่วยให้ตอบง่ายขึ้นเสมอ",
+              "correct": false,
+              "feedback": "เหตุผลนี้ทำให้ argument ตรวจสอบไม่ได้"
+            }
+          ],
+          "hint": "ลองถามว่าถ้าคนอื่นอ่านวิธีทำของเรา เขาจะตรวจทีละบรรทัดได้หรือไม่"
+        },
+        {
+          "id": "step-3",
+          "title": "Step 3: ปิดคำตอบ",
+          "prompt": "ข้อใดคือการปิดคำตอบที่แข็งแรงที่สุดสำหรับ draft mission นี้?",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดในการปิดคำตอบ",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "สรุปผลโดยเชื่อมกลับไปยังเป้าหมายของ CLO และ module",
+              "correct": true,
+              "feedback": "การปิดคำตอบที่ดีควรเชื่อมกลับไปยัง learning outcome"
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "เขียนว่าชัดเจนอยู่แล้วจึงจบ",
+              "correct": false,
+              "feedback": "ยังไม่ชี้ว่าชัดเจนเพราะอะไร"
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "เพิ่มตัวอย่างใหม่แต่ไม่สรุป claim เดิม",
+              "correct": false,
+              "feedback": "ตัวอย่างเพิ่มไม่แทนการสรุป claim หลัก"
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้มากที่สุด?",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะการปิดคำตอบที่ดีต้องแสดงว่าคำตอบตอบโจทย์หรือ CLO ที่ตั้งไว้จริง",
+              "correct": true,
+              "feedback": "เหตุผลนี้ทำให้บทสรุปมีหน้าที่ชัดเจน"
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะบรรทัดสุดท้ายไม่จำเป็นต้องเชื่อมกับเป้าหมายของโจทย์",
+              "correct": false,
+              "feedback": "ทำให้คำตอบดูจบแต่ไม่ชัดว่าจบอะไร"
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะยิ่งเพิ่มตัวอย่างมากเท่าไรยิ่งแทนการสรุป claim ได้ดี",
+              "correct": false,
+              "feedback": "ตัวอย่างเสริมไม่แทนการสรุป claim หลัก"
+            }
+          ],
+          "hint": "ถามว่าบรรทัดสุดท้ายเชื่อมกลับไปยังคำถามหลักหรือ CLO ได้ชัดหรือยัง"
+        }
+      ]
+    },
+    {
+      "mission_id": "draft-intro_to_ai_real_check-intelligent-systems-and-ethics",
+      "clo_id": "CLO1",
+      "module_id": "intelligent-systems-and-ethics",
+      "title": "SBRA Draft: Intelligent Systems and Ethics",
+      "mission_type": "sbra-step-based-reasoning",
+      "bloom_level": 4,
+      "xp": 150,
+      "rubric": [
+        "เลือก process ของแต่ละ step ได้สอดคล้องกับโจทย์และ CLO",
+        "ให้ reasoning ที่อธิบายว่าทำไมจึงเลือก process นั้นได้ชัดเจน",
+        "ระบุ misconception หรือจุดที่ต้องระวังได้อย่างน้อยหนึ่งจุด"
+      ],
+      "threshold": {
+        "min_steps_mastered": 3
+      },
+      "prompt": "ภารกิจ draft สำหรับ module \"Intelligent Systems and Ethics\" ให้แทนที่ด้วยโจทย์จริงของรายวิชาหลัง review materials",
+      "strategy_prompt": "เติม strategy prompt ที่สะท้อนวิธีคิดของรายวิชาจริงก่อน publish",
+      "confidence": {
+        "prompt": "หลังทำครบทุก step แล้ว คุณมั่นใจในคำตอบของตนเองระดับใด?",
+        "levels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "steps": [
+        {
+          "id": "step-1",
+          "title": "Step 1: วางแผน",
+          "prompt": "วิธีเริ่ม reasoning ที่เหมาะกับ module \"Intelligent Systems and Ethics\" มากที่สุดคืออะไร?",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดสำหรับการเริ่มต้น",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "เริ่มจากนิยามหรือโครง concept หลักของ module",
+              "correct": true,
+              "feedback": "นี่คือ process หลักที่ควรเชื่อมกับ CLO"
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "จำคำตอบตัวอย่างเพียงกรณีเดียวแล้วสรุปทันที",
+              "correct": false,
+              "feedback": "แนวทางนี้ยังไม่พอสำหรับภารกิจเชิง reasoning"
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "ข้ามไปเฉลยโดยไม่อธิบายขั้นคิด",
+              "correct": false,
+              "feedback": "ควรเก็บลำดับเหตุผลให้ตรวจสอบได้"
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้มากที่สุด?",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะ process นี้เชื่อมตรงกับแนวคิดหลักของ module และ CLO",
+              "correct": true,
+              "feedback": "เหตุผลนี้ชี้ว่าทำไม process จึงเหมาะกับโจทย์"
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะทำเสร็จเร็วที่สุดจึงน่าจะถูกเสมอ",
+              "correct": false,
+              "feedback": "ความเร็วไม่ใช่เหตุผลเชิงวิชาการหลัก"
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะไม่จำเป็นต้องดูโครงของโจทย์ก็เลือกได้",
+              "correct": false,
+              "feedback": "ยังไม่อิงธรรมชาติของโจทย์จริง"
+            }
+          ],
+          "hint": "ถามก่อนว่าโจทย์นี้กำลังวัด concept หรือ strategy อะไรใน CLO"
+        },
+        {
+          "id": "step-2",
+          "title": "Step 2: วิเคราะห์",
+          "prompt": "ระหว่างทำโจทย์ ควรตรวจอะไรเป็นพิเศษเพื่อไม่ให้ reasoning หลุดจากเป้าหมาย?",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดสำหรับช่วงวิเคราะห์",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "ตรวจว่าแต่ละบรรทัดยังสอดคล้องกับนิยามหรือเงื่อนไขที่ตั้งไว้",
+              "correct": true,
+              "feedback": "นี่ช่วยให้ reasoning ไม่ลอยจากโจทย์จริง"
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "ดูแค่ว่าผลลัพธ์หน้าตาถูกต้องพอหรือไม่",
+              "correct": false,
+              "feedback": "ภารกิจนี้ต้องตรวจโครงเหตุผล ไม่ใช่แค่หน้าตาคำตอบ"
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "เปลี่ยน assumption กลางทางโดยไม่บอก",
+              "correct": false,
+              "feedback": "ต้องคง assumption ให้ชัดเพื่อให้ตรวจได้"
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้มากที่สุด?",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะ reasoning ที่ดีต้องตรวจได้ว่าทุกขั้นยังอยู่บนเงื่อนไขเดิมของโจทย์",
+              "correct": true,
+              "feedback": "นี่คือแกนของการควบคุม reasoning ระหว่างทาง"
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะถ้าคำตอบสุดท้ายดูดี รายละเอียดระหว่างทางไม่สำคัญ",
+              "correct": false,
+              "feedback": "ภารกิจนี้วัดกระบวนการคิด ไม่ใช่หน้าตาคำตอบอย่างเดียว"
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะการเปลี่ยน assumption กลางทางช่วยให้ตอบง่ายขึ้นเสมอ",
+              "correct": false,
+              "feedback": "เหตุผลนี้ทำให้ argument ตรวจสอบไม่ได้"
+            }
+          ],
+          "hint": "ลองถามว่าถ้าคนอื่นอ่านวิธีทำของเรา เขาจะตรวจทีละบรรทัดได้หรือไม่"
+        },
+        {
+          "id": "step-3",
+          "title": "Step 3: ปิดคำตอบ",
+          "prompt": "ข้อใดคือการปิดคำตอบที่แข็งแรงที่สุดสำหรับ draft mission นี้?",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดในการปิดคำตอบ",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "สรุปผลโดยเชื่อมกลับไปยังเป้าหมายของ CLO และ module",
+              "correct": true,
+              "feedback": "การปิดคำตอบที่ดีควรเชื่อมกลับไปยัง learning outcome"
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "เขียนว่าชัดเจนอยู่แล้วจึงจบ",
+              "correct": false,
+              "feedback": "ยังไม่ชี้ว่าชัดเจนเพราะอะไร"
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "เพิ่มตัวอย่างใหม่แต่ไม่สรุป claim เดิม",
+              "correct": false,
+              "feedback": "ตัวอย่างเพิ่มไม่แทนการสรุป claim หลัก"
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้มากที่สุด?",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะการปิดคำตอบที่ดีต้องแสดงว่าคำตอบตอบโจทย์หรือ CLO ที่ตั้งไว้จริง",
+              "correct": true,
+              "feedback": "เหตุผลนี้ทำให้บทสรุปมีหน้าที่ชัดเจน"
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะบรรทัดสุดท้ายไม่จำเป็นต้องเชื่อมกับเป้าหมายของโจทย์",
+              "correct": false,
+              "feedback": "ทำให้คำตอบดูจบแต่ไม่ชัดว่าจบอะไร"
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะยิ่งเพิ่มตัวอย่างมากเท่าไรยิ่งแทนการสรุป claim ได้ดี",
+              "correct": false,
+              "feedback": "ตัวอย่างเสริมไม่แทนการสรุป claim หลัก"
+            }
+          ],
+          "hint": "ถามว่าบรรทัดสุดท้ายเชื่อมกลับไปยังคำถามหลักหรือ CLO ได้ชัดหรือยัง"
+        }
+      ]
+    },
+    {
+      "mission_id": "sbra-search-and-problem-solving-clo2",
+      "clo_id": "CLO2",
+      "module_id": "search-and-problem-solving",
+      "title": "SBRA: Search and Problem Solving",
+      "mission_type": "sbra-step-based-reasoning",
+      "bloom_level": 3,
+      "xp": 150,
+      "badge_hook": "clo2-search-strategist",
+      "rubric": [
+        "เลือก process ที่สอดคล้องกับการวัด CLO2 ในหัวข้อ Search and Problem Solving",
+        "อธิบาย reasoning ให้เห็นว่าทำไมกระบวนการที่เลือกจึงเหมาะกับโครงของโจทย์",
+        "หลีกเลี่ยง shortcut หรือ misconception ที่ทำให้ตอบได้โดยไม่ตรวจเงื่อนไขให้ครบ"
+      ],
+      "threshold": {
+        "min_steps_mastered": 2
+      },
+      "confidence": {
+        "prompt": "หลังทำครบทุก step แล้ว คุณมั่นใจต่อคำตอบและเหตุผลของตนเองระดับใด",
+        "levels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "prompt": "พิจารณาสถานการณ์ในหัวข้อ Search and Problem Solving แล้วเลือก process และ reasoning ที่เหมาะสมที่สุดในแต่ละขั้น เพื่อแสดงว่าคุณกำลังทำงานตาม CLO2 ระดับ Apply",
+      "strategy_prompt": "อ่านโจทย์ก่อนว่ากำลังต้องการการวิเคราะห์แบบใดในหัวข้อ Search and Problem Solving แล้วค่อยเลือก process ที่ยังอิงโครงของปัญหาอยู่",
+      "misconceptions": [
+        "treating all search problems as identical without checking the state-space structure",
+        "naming a search algorithm without explaining why it matches the problem",
+        "assuming that a heuristic automatically guarantees the best answer",
+        "focusing only on speed without checking completeness or fit to the goal"
+      ],
+      "steps": [
+        {
+          "id": "identify-the-state-space-initial-state-and-goal-condition-of-the-problem",
+          "title": "Step 1: identify the state space, initial state, and goal condition of the problem",
+          "prompt": "ในขั้น \"identify the state space, initial state, and goal condition of the problem\" ผู้เรียนควรเลือกกระบวนการและเหตุผลแบบใดจึงจะสอดคล้องกับโจทย์",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดกับขั้นนี้",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "เลือกกระบวนการที่เชื่อมตรงกับขั้น \"identify the state space, initial state, and goal condition of the problem\" และยังอิงโครงของโจทย์อย่างชัดเจน",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะกระบวนการนี้ยังผูกกับเจตนาของขั้นและเงื่อนไขของโจทย์",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"treating all search problems as identical without checking the state-space structure\"",
+              "correct": false,
+              "feedback": "แนวนี้ทำให้ reasoning หลุดจากโครงของโจทย์หรือ CLO ที่กำลังวัด",
+              "misconception_tags": [
+                "treating-all-search-problems-as-identical-without-checking-the-state-space-structure"
+              ]
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "รีบตอบผลลัพธ์โดยไม่อธิบายเส้นทางการตัดสินใจ",
+              "correct": false,
+              "feedback": "แนวนี้ยังไม่พอสำหรับภารกิจที่ต้องอธิบายกระบวนการคิดอย่างตรวจสอบได้",
+              "misconception_tags": [
+                "naming-a-search-algorithm-without-explaining-why-it-matches-the-problem"
+              ]
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้ได้ดีที่สุด",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะขั้น \"identify the state space, initial state, and goal condition of the problem\" ต้องอธิบายให้เห็นว่าทำไมกระบวนการนี้จึงเหมาะกับโครงของโจทย์และเป้าหมายการวัด",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะเหตุผลยังเชื่อมทั้งกับโจทย์ เป้าหมาย และวิธีคิดของขั้นนี้",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะดูเหมือนจะตอบได้เร็วที่สุดจึงน่าจะถูกต้องที่สุด",
+              "correct": false,
+              "feedback": "ความเร็วไม่ใช่เหตุผลหลักของภารกิจเชิง reasoning",
+              "misconception_tags": [
+                "speed-over-validity"
+              ]
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะไม่จำเป็นต้องตรวจโครงของโจทย์ให้ละเอียดก็เลือกคำตอบได้",
+              "correct": false,
+              "feedback": "ภารกิจนี้ต้องผูกเหตุผลกับโครงของปัญหา ไม่ใช่เลือกคำตอบลอย ๆ",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            }
+          ],
+          "hint": "ลองถามก่อนว่า ขั้น \"identify the state space, initial state, and goal condition of the problem\" กำลังต้องการตรวจอะไรในโจทย์ แล้วค่อยเลือก process ที่อธิบายได้จริง"
+        },
+        {
+          "id": "compare-the-relevant-search-strategies-using-the-available-structure-and-constraints",
+          "title": "Step 2: compare the relevant search strategies using the available structure and constraints",
+          "prompt": "ในขั้น \"compare the relevant search strategies using the available structure and constraints\" ผู้เรียนควรเลือกกระบวนการและเหตุผลแบบใดจึงจะสอดคล้องกับโจทย์",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดกับขั้นนี้",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "เลือกกระบวนการที่เชื่อมตรงกับขั้น \"compare the relevant search strategies using the available structure and constraints\" และยังอิงโครงของโจทย์อย่างชัดเจน",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะกระบวนการนี้ยังผูกกับเจตนาของขั้นและเงื่อนไขของโจทย์",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "รีบตอบผลลัพธ์โดยไม่อธิบายเส้นทางการตัดสินใจ",
+              "correct": false,
+              "feedback": "แนวนี้ทำให้ reasoning หลุดจากโครงของโจทย์หรือ CLO ที่กำลังวัด",
+              "misconception_tags": [
+                "naming-a-search-algorithm-without-explaining-why-it-matches-the-problem"
+              ]
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"assuming that a heuristic automatically guarantees the best answer\"",
+              "correct": false,
+              "feedback": "แนวนี้ยังไม่พอสำหรับภารกิจที่ต้องอธิบายกระบวนการคิดอย่างตรวจสอบได้",
+              "misconception_tags": [
+                "assuming-that-a-heuristic-automatically-guarantees-the-best-answer"
+              ]
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้ได้ดีที่สุด",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะขั้น \"compare the relevant search strategies using the available structure and constraints\" ต้องอธิบายให้เห็นว่าทำไมกระบวนการนี้จึงเหมาะกับโครงของโจทย์และเป้าหมายการวัด",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะเหตุผลยังเชื่อมทั้งกับโจทย์ เป้าหมาย และวิธีคิดของขั้นนี้",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะดูเหมือนจะตอบได้เร็วที่สุดจึงน่าจะถูกต้องที่สุด",
+              "correct": false,
+              "feedback": "ความเร็วไม่ใช่เหตุผลหลักของภารกิจเชิง reasoning",
+              "misconception_tags": [
+                "speed-over-validity"
+              ]
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะไม่จำเป็นต้องตรวจโครงของโจทย์ให้ละเอียดก็เลือกคำตอบได้",
+              "correct": false,
+              "feedback": "ภารกิจนี้ต้องผูกเหตุผลกับโครงของปัญหา ไม่ใช่เลือกคำตอบลอย ๆ",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            }
+          ],
+          "hint": "ลองถามก่อนว่า ขั้น \"compare the relevant search strategies using the available structure and constraints\" กำลังต้องการตรวจอะไรในโจทย์ แล้วค่อยเลือก process ที่อธิบายได้จริง"
+        },
+        {
+          "id": "choose-the-best-fit-strategy-and-justify-the-tradeoff-in-a-short-argument",
+          "title": "Step 3: choose the best-fit strategy and justify the tradeoff in a short argument",
+          "prompt": "ในขั้น \"choose the best-fit strategy and justify the tradeoff in a short argument\" ผู้เรียนควรเลือกกระบวนการและเหตุผลแบบใดจึงจะสอดคล้องกับโจทย์",
+          "process_prompt": "เลือก process ที่เหมาะที่สุดกับขั้นนี้",
+          "process_options": [
+            {
+              "id": "correct-process",
+              "text": "เลือกกระบวนการที่เชื่อมตรงกับขั้น \"choose the best-fit strategy and justify the tradeoff in a short argument\" และยังอิงโครงของโจทย์อย่างชัดเจน",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะกระบวนการนี้ยังผูกกับเจตนาของขั้นและเงื่อนไขของโจทย์",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-process-1",
+              "text": "เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"assuming that a heuristic automatically guarantees the best answer\"",
+              "correct": false,
+              "feedback": "แนวนี้ทำให้ reasoning หลุดจากโครงของโจทย์หรือ CLO ที่กำลังวัด",
+              "misconception_tags": [
+                "assuming-that-a-heuristic-automatically-guarantees-the-best-answer"
+              ]
+            },
+            {
+              "id": "wrong-process-2",
+              "text": "เลือกแนวคิดที่คลาดเคลื่อนจากโจทย์ เช่น \"focusing only on speed without checking completeness or fit to the goal\"",
+              "correct": false,
+              "feedback": "แนวนี้ยังไม่พอสำหรับภารกิจที่ต้องอธิบายกระบวนการคิดอย่างตรวจสอบได้",
+              "misconception_tags": [
+                "focusing-only-on-speed-without-checking-completeness-or-fit-to-the-goal"
+              ]
+            }
+          ],
+          "reasoning_prompt": "เหตุผลใดรองรับ process นี้ได้ดีที่สุด",
+          "reasoning_options": [
+            {
+              "id": "correct-reasoning",
+              "text": "เพราะขั้น \"choose the best-fit strategy and justify the tradeoff in a short argument\" ต้องอธิบายให้เห็นว่าทำไมกระบวนการนี้จึงเหมาะกับโครงของโจทย์และเป้าหมายการวัด",
+              "correct": true,
+              "feedback": "ถูกต้อง เพราะเหตุผลยังเชื่อมทั้งกับโจทย์ เป้าหมาย และวิธีคิดของขั้นนี้",
+              "misconception_tags": []
+            },
+            {
+              "id": "wrong-reasoning-1",
+              "text": "เพราะดูเหมือนจะตอบได้เร็วที่สุดจึงน่าจะถูกต้องที่สุด",
+              "correct": false,
+              "feedback": "ความเร็วไม่ใช่เหตุผลหลักของภารกิจเชิง reasoning",
+              "misconception_tags": [
+                "speed-over-validity"
+              ]
+            },
+            {
+              "id": "wrong-reasoning-2",
+              "text": "เพราะไม่จำเป็นต้องตรวจโครงของโจทย์ให้ละเอียดก็เลือกคำตอบได้",
+              "correct": false,
+              "feedback": "ภารกิจนี้ต้องผูกเหตุผลกับโครงของปัญหา ไม่ใช่เลือกคำตอบลอย ๆ",
+              "misconception_tags": [
+                "structure-ignored"
+              ]
+            }
+          ],
+          "hint": "ลองถามก่อนว่า ขั้น \"choose the best-fit strategy and justify the tradeoff in a short argument\" กำลังต้องการตรวจอะไรในโจทย์ แล้วค่อยเลือก process ที่อธิบายได้จริง"
+        }
+      ]
+    }
+  ]
+}

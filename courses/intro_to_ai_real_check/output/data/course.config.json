@@ -1,0 +1,167 @@
+{
+  "course_id": "intro_to_ai_real_check",
+  "course_name_th": "ปัญญาประดิษฐ์เบื้องต้น",
+  "course_name_en": "Introduction to Artificial Intelligence",
+  "course_short_name": "Intro to AI",
+  "instructor": "แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด",
+  "description": "An introductory AI course site for core concepts, search, reasoning, and ethical use of intelligent systems, built from the TQF3-first workflow in this repo.",
+  "theme": {
+    "brand_icon": "AI",
+    "accent": "#0f766e",
+    "accent_secondary": "#f59e0b"
+  },
+  "features": {
+    "resources": true,
+    "missions": true,
+    "games": false
+  },
+  "widgets_enabled": [
+    "quick-check",
+    "definition-visualizer",
+    "proof-unpack",
+    "step-sequence",
+    "sbra-sequence"
+  ],
+  "lesson_completion_xp": 45,
+  "badges": [
+    {
+      "id": "starter",
+      "emoji": "🌱",
+      "name": "Starter",
+      "req": "Begin the course and collect the first XP.",
+      "threshold_xp": 0
+    },
+    {
+      "id": "explorer",
+      "emoji": "📚",
+      "name": "Explorer",
+      "req": "Reach 120 XP and complete at least 1 module.",
+      "threshold_xp": 120,
+      "required_modules_count": 1
+    },
+    {
+      "id": "master",
+      "emoji": "🏆",
+      "name": "Intro to AI Master",
+      "req": "Reach 600 XP and maintain at least 80% mission accuracy.",
+      "threshold_xp": 600,
+      "required_accuracy": 80
+    },
+    {
+      "id": "clo1-ai-language",
+      "emoji": "📘",
+      "name": "CLO1 Understand AI Language",
+      "req": "Collect quick-check evidence in AI Foundations.",
+      "threshold_xp": 150,
+      "required_modules": [
+        "ai-foundations"
+      ]
+    },
+    {
+      "id": "clo2-search-strategist",
+      "emoji": "🛠",
+      "name": "CLO2 Apply Search Strategist",
+      "req": "Collect SBRA evidence in Search and Problem Solving.",
+      "threshold_xp": 210,
+      "required_modules": [
+        "search-and-problem-solving"
+      ],
+      "required_missions": [
+        "sbra-search-and-problem-solving-clo2"
+      ]
+    },
+    {
+      "id": "clo3-reasoning-analyst",
+      "emoji": "🧠",
+      "name": "CLO3 Analyze Reasoning Analyst",
+      "req": "Collect reasoning-task evidence in Knowledge and Reasoning.",
+      "threshold_xp": 250,
+      "required_modules": [
+        "knowledge-and-reasoning"
+      ]
+    },
+    {
+      "id": "clo4-ethical-evaluator",
+      "emoji": "🎯",
+      "name": "CLO4 Evaluate Ethical Evaluator",
+      "req": "Collect reflection-task evidence in Intelligent Systems and Ethics.",
+      "threshold_xp": 310,
+      "required_modules": [
+        "intelligent-systems-and-ethics"
+      ],
+      "required_accuracy": 60
+    }
+  ],
+  "modules": [
+    {
+      "id": "ai-foundations",
+      "slug": "ai-foundations",
+      "title": "AI Foundations",
+      "summary": "Start with core AI ideas, scope, domains, and the language used across the field.",
+      "order": 1,
+      "module_kind": "concept"
+    },
+    {
+      "id": "search-and-problem-solving",
+      "slug": "search-and-problem-solving",
+      "title": "Search and Problem Solving",
+      "summary": "Use state spaces, search strategies, and heuristics to reason about AI problem solving.",
+      "order": 2,
+      "module_kind": "application"
+    },
+    {
+      "id": "knowledge-and-reasoning",
+      "slug": "knowledge-and-reasoning",
+      "title": "Knowledge and Reasoning",
+      "summary": "Connect representation, logic, and inference to structured AI reasoning tasks.",
+      "order": 3,
+      "module_kind": "application"
+    },
+    {
+      "id": "intelligent-systems-and-ethics",
+      "slug": "intelligent-systems-and-ethics",
+      "title": "Intelligent Systems and Ethics",
+      "summary": "Relate AI methods to real systems, limitations, and ethical decision making.",
+      "order": 4,
+      "module_kind": "proof"
+    }
+  ],
+  "clos": [
+    {
+      "id": "CLO1",
+      "label": "Explain core AI concepts, terminology, and problem domains.",
+      "bloom": "Understand",
+      "assessment_tags": [
+        "concepts",
+        "terminology"
+      ]
+    },
+    {
+      "id": "CLO2",
+      "label": "Apply search, reasoning, and representation ideas to structured AI tasks.",
+      "bloom": "Apply",
+      "assessment_tags": [
+        "search",
+        "representation"
+      ]
+    },
+    {
+      "id": "CLO3",
+      "label": "Analyze AI methods, model behavior, and suitable solution strategies.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "analysis",
+        "strategy"
+      ]
+    },
+    {
+      "id": "CLO4",
+      "label": "Evaluate AI use cases, limitations, and ethical implications in practical settings.",
+      "bloom": "Evaluate",
+      "assessment_tags": [
+        "ethics",
+        "evaluation"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "replace-course-id",
+  "generated_at": "replace-generated-at",
+  "items": [
+    {
+      "retrieval_id": "replace-retrieval-id",
+      "screening_status": "proposed",
+      "recommended_use_mode": "manual-review-first",
+      "needs_human_review": true,
+      "dedupe_group": "replace-dedupe-group",
+      "proposed_module_id": "replace-module-id",
+      "proposed_clo_ids": [
+        "CLO1"
+      ],
+      "proposed_bloom_levels": [
+        "understand"
+      ],
+      "proposed_problem_type": "reasoning",
+      "proposed_mission_family": "quick-check",
+      "license_note": "Replace with source-specific note.",
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "course_id": "discrete_math_foundations",
+  "course_name_th": "คณิตศาสตร์ไม่ต่อเนื่องเบื้องต้น",
+  "course_name_en": "Foundations of Discrete Mathematics",
+  "course_short_name": "Discrete Math",
+  "instructor": "แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด",
+  "description": "A sandbox course used to test workflow, markdown lessons, SBRA missions, and shared building blocks in this repo.",
+  "theme": {
+    "brand_icon": "D",
+    "accent": "#0ea5e9",
+    "accent_secondary": "#f97316"
+  },
+  "features": {
+    "resources": true,
+    "missions": true,
+    "games": false
+  },
+  "widgets_enabled": [
+    "quick-check",
+    "definition-visualizer",
+    "proof-unpack",
+    "step-sequence",
+    "sbra-sequence"
+  ],
+  "lesson_completion_xp": 50,
+  "badges": [
+    {
+      "id": "starter",
+      "emoji": "🌱",
+      "name": "Starter",
+      "req": "Begin the course and collect the first XP.",
+      "threshold_xp": 0
+    },
+    {
+      "id": "explorer",
+      "emoji": "📚",
+      "name": "Explorer",
+      "req": "Reach 120 XP and complete at least 1 module.",
+      "threshold_xp": 120,
+      "required_modules_count": 1
+    },
+    {
+      "id": "logic-propositions-specialist",
+      "emoji": "📈",
+      "name": "Logic and Propositions Specialist",
+      "req": "Reach 240 XP and complete the Logic and Propositions module.",
+      "threshold_xp": 240,
+      "required_modules": [
+        "logic-propositions"
+      ]
+    },
+    {
+      "id": "proof-structure-specialist",
+      "emoji": "🧩",
+      "name": "Proof Structure Specialist",
+      "req": "Reach 360 XP and complete the Proof Structure module.",
+      "threshold_xp": 360,
+      "required_modules": [
+        "proof-structure"
+      ]
+    },
+    {
+      "id": "master",
+      "emoji": "🏆",
+      "name": "Discrete Math Master",
+      "req": "Reach 600 XP and maintain at least 80% mission accuracy.",
+      "threshold_xp": 600,
+      "required_accuracy": 80
+    }
+  ],
+  "modules": [
+    {
+      "id": "logic-propositions",
+      "slug": "logic-propositions",
+      "title": "Logic and Propositions",
+      "summary": "Start with statements, truth values, logical connectives, and proposition translation.",
+      "order": 1,
+      "module_kind": "concept"
+    },
+    {
+      "id": "proof-structure",
+      "slug": "proof-structure",
+      "title": "Proof Structure",
+      "summary": "Practice separating assumptions, goals, and the reasoning structure of introductory proofs.",
+      "order": 2,
+      "module_kind": "proof"
+    }
+  ],
+  "clos": [
+    {
+      "id": "CLO1",
+      "label": "Explain foundational ideas of logic and mathematical reasoning.",
+      "bloom": "Understand",
+      "assessment_tags": [
+        "logic",
+        "definitions"
+      ]
+    },
+    {
+      "id": "CLO2",
+      "label": "Analyze and organize the structure of introductory proofs from definitions and assumptions.",
+      "bloom": "Analyze",
+      "assessment_tags": [
+        "proof",
+        "structure"
+      ]
+    }
+  ]
+}

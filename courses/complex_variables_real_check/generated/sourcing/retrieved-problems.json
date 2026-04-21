@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.1.0",
+  "course_id": "complex_variables_real_check",
+  "generated_at": "2026-04-21T09:32:27.423Z",
+  "items": [
+    {
+      "retrieval_id": "retrieved-problem-mit-ocw-query-04-complex-integration-https-ocw-m-d982b0aa87",
+      "source_id": "mit-ocw",
+      "source_url": "https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/b1a90df19f643b974555bbbb93138a48_MIT18_04S18_topic4.pdf",
+      "source_title": "18.04 S18 Topic 4: Cauchy's integral formula",
+      "query_id": "query-04-complex-integration",
+      "query_text": null,
+      "candidate_module_id": "complex-integration",
+      "candidate_clo_ids": [
+        "CLO4"
+      ],
+      "candidate_bloom_levels": [
+        "apply"
+      ],
+      "retrieval_method": "pdf-document",
+      "license_note": "Open course materials with Creative Commons licensing; confirm page-level terms when needed.",
+      "attribution_required": true,
+      "retrieved_excerpt": "Example 4.7. Now Let be the contour shown below and evaluate the same integral as in the previous example.",
+      "normalized_statement": "Example 4.7. Now Let be the contour shown below and evaluate the same integral as in the previous example."
+    },
+    {
+      "retrieval_id": "retrieved-problem-mit-ocw-query-04-complex-integration-https-ocw-m-3f6e559bff",
+      "source_id": "mit-ocw",
+      "source_url": "https://ocw.mit.edu/courses/18-04-complex-variables-with-applications-spring-2018/b1a90df19f643b974555bbbb93138a48_MIT18_04S18_topic4.pdf",
+      "source_title": "18.04 S18 Topic 4: Cauchy's integral formula",
+      "query_id": "query-04-complex-integration",
+      "query_text": null,
+      "candidate_module_id": "complex-integration",
+      "candidate_clo_ids": [
+        "CLO4"
+      ],
+      "candidate_bloom_levels": [
+        "apply"
+      ],
+      "retrieval_method": "pdf-document",
+      "license_note": "Open course materials with Creative Commons licensing; confirm page-level terms when needed.",
+      "attribution_required": true,
+      "retrieved_excerpt": "Clearly () is analytic inside. So, by Cauchy’s formula for derivatives: [ ] 1 () -2 4 = ∫ = 2 ′(2) = 2 = = ∫ (2 + 4)2 ( - 2)2 ( + 2)3 =2 64 16 Example 4.10. Compute over the curve shown below. ∫ 2 + 4",
+      "normalized_statement": "Clearly () is analytic inside. So, by Cauchy’s formula for derivatives: [ ] 1 () -2 4 = ∫ = 2 ′(2) = 2 = = ∫ (2 + 4)2 ( - 2)2 ( + 2)3 =2 64 16 Example 4.10. Compute over the curve shown below. ∫ 2 + 4"
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cause-gen.local/schemas/solution-drafts.schema.json",
+  "title": "Cause Gen Solution Drafts",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "source_problem_pool",
+    "drafts"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "source_problem_pool": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "drafts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "draft_id",
+          "problem_id",
+          "draft_type",
+          "solution_status",
+          "needs_human_review",
+          "expected_answer_form"
+        ],
+        "properties": {
+          "draft_id": {
+            "type": "string"
+          },
+          "problem_id": {
+            "type": "string"
+          },
+          "module_id": {
+            "type": "string"
+          },
+          "clo_id": {
+            "type": "string"
+          },
+          "bloom_level": {
+            "type": "string"
+          },
+          "primary_use_target": {
+            "type": "string",
+            "enum": [
+              "quick_check",
+              "module_checkpoint",
+              "active_learning_task",
+              "sbra_exercise_bank"
+            ]
+          },
+          "draft_type": {
+            "type": "string",
+            "enum": [
+              "final-answer-only",
+              "outline",
+              "worked-solution",
+              "hint-set"
+            ]
+          },
+          "solution_status": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "drafted",
+              "reviewed"
+            ]
+          },
+          "needs_human_review": {
+            "type": "boolean"
+          },
+          "approval_status": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reviewed_by": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reviewed_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "approved_target_destination": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "review_status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected"
+            ]
+          },
+          "expected_answer_form": {
+            "type": "string"
+          },
+          "expected_answer": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "solution_outline": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "full_solution_latex": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "hint_drafts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "common_error_notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "solution_confidence": {
+            "type": "number"
+          },
+          "downstream_profiles": {
+            "type": "object",
+            "properties": {
+              "quick_check": {
+                "type": "object",
+                "required": [
+                  "answer_only"
+                ],
+                "properties": {
+                  "answer_only": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "module_checkpoint": {
+                "type": "object",
+                "required": [
+                  "concept_summary",
+                  "answer"
+                ],
+                "properties": {
+                  "concept_summary": {
+                    "type": "string"
+                  },
+                  "answer": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "active_learning_task": {
+                "type": "object",
+                "required": [
+                  "problem_analysis",
+                  "method_steps",
+                  "answer"
+                ],
+                "properties": {
+                  "problem_analysis": {
+                    "type": "string"
+                  },
+                  "method_steps": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "answer": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "sbra_exercise_bank": {
+                "type": "object",
+                "required": [
+                  "problem_analysis",
+                  "steps",
+                  "answer"
+                ],
+                "properties": {
+                  "problem_analysis": {
+                    "type": "string"
+                  },
+                  "steps": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "step_id",
+                        "title",
+                        "prompt",
+                        "process_prompt",
+                        "process_options",
+                        "reasoning_prompt",
+                        "reasoning_options"
+                      ],
+                      "properties": {
+                        "step_id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "prompt": {
+                          "type": "string"
+                        },
+                        "process_prompt": {
+                          "type": "string"
+                        },
+                        "process_options": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "id",
+                              "text",
+                              "correct",
+                              "feedback"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "text": {
+                                "type": "string"
+                              },
+                              "correct": {
+                                "type": "boolean"
+                              },
+                              "feedback": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "reasoning_prompt": {
+                          "type": "string"
+                        },
+                        "reasoning_options": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "id",
+                              "text",
+                              "correct",
+                              "feedback"
+                            ],
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "text": {
+                                "type": "string"
+                              },
+                              "correct": {
+                                "type": "boolean"
+                              },
+                              "feedback": {
+                                "type": "string"
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "answer": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "source_refs": {
+            "type": "object",
+            "properties": {
+              "problem_pool_item": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

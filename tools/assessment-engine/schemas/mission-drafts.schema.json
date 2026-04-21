@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cause-gen.local/schemas/mission-drafts.schema.json",
+  "title": "Cause Gen Mission Drafts",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "source_classification",
+    "drafts"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "source_classification": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "drafts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "draft_id",
+          "problem_id",
+          "mission_family",
+          "needs_human_review",
+          "runtime_ready",
+          "title",
+          "prompt",
+          "sbra_blueprint"
+        ],
+        "properties": {
+          "draft_id": {
+            "type": "string"
+          },
+          "problem_id": {
+            "type": "string"
+          },
+          "module_id": {
+            "type": "string"
+          },
+          "clo_id": {
+            "type": "string"
+          },
+          "bloom_level": {
+            "type": "string"
+          },
+          "mission_family": {
+            "type": "string"
+          },
+          "needs_human_review": {
+            "type": "boolean"
+          },
+          "runtime_ready": {
+            "type": "boolean"
+          },
+          "title": {
+            "type": "string"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "strategy_prompt": {
+            "type": "string"
+          },
+          "misconception_tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sbra_blueprint": {
+            "type": "object",
+            "required": [
+              "shape",
+              "steps"
+            ],
+            "properties": {
+              "shape": {
+                "type": "string"
+              },
+              "steps": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "step_id",
+                    "intent"
+                  ],
+                  "properties": {
+                    "step_id": {
+                      "type": "string"
+                    },
+                    "intent": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "review_status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

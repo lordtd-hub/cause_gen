@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Differentiation | แคลคูลัส 1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  
+<style>
+  .module-content { line-height: 1.9; }
+  .module-content h1:first-child { display: none; }
+  .module-content h2 { margin-top: 1.5rem; font-size: 1.35rem; }
+  .module-content h3 { margin-top: 1.1rem; font-size: 1.05rem; }
+  .module-content blockquote {
+    background: rgba(34,211,238,0.06);
+    border-left: 3px solid var(--color-accent2);
+    padding: .75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    color: var(--color-text);
+  }
+  .module-content pre {
+    background: rgba(0,0,0,.28);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    overflow: auto;
+  }
+  .module-content ul { padding-left: 1.25rem; }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .3rem .7rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 700;
+    border: 1px solid var(--color-border);
+    background: rgba(255,255,255,.04);
+    color: var(--color-text);
+  }
+  .interactive-widget {
+    margin: 1rem 0;
+    background: rgba(10,6,20,.75);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+  .widget-title { font-weight: 800; font-size: 1.05rem; color: #fff; margin-bottom: .35rem; }
+  .widget-desc { color: var(--color-muted); font-size: .88rem; margin-bottom: .9rem; line-height: 1.7; }
+  .widget-grid { display: grid; gap: 1rem; }
+  @media (min-width: 900px) { .widget-grid.graphish { grid-template-columns: 1.2fr .8fr; } }
+  .widget-controls { display: grid; gap: .75rem; }
+  .widget-control label { display:block; font-size:.85rem; font-weight:700; margin-bottom:.2rem; }
+  .widget-control input[type=range] { width:100%; }
+  .widget-value { color: var(--color-accent2); font-weight: 700; }
+  .widget-canvas-wrap { background:#0a0614; border-radius:12px; padding:.5rem; }
+  .widget-canvas-wrap canvas { width:100%; height:320px; display:block; }
+  .quick-check-choices { display:grid; gap:.5rem; margin-top:.75rem; }
+  .quick-check-choice { text-align:left; }
+  .widget-feedback {
+    margin-top: .75rem;
+    padding: .7rem .9rem;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: rgba(255,255,255,.04);
+  }
+  .definition-grid { display:grid; gap:.75rem; }
+  .definition-item {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255,255,255,.03);
+  }
+  .definition-item button {
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    color:#fff;
+    padding:.9rem 1rem;
+    font:inherit;
+    cursor:pointer;
+  }
+  .definition-detail {
+    padding:0 1rem 1rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+  .proof-box, .step-box {
+    background: rgba(255,255,255,.03);
+    border: 1px dashed var(--color-border);
+    border-radius: 12px;
+    padding: .9rem 1rem;
+    margin-top: .75rem;
+  }
+  .proof-steps, .step-sequence-nav { display:grid; gap:.5rem; margin-top:.75rem; }
+  .sequence-progress { color: var(--color-muted); font-size: .82rem; margin-bottom: .5rem; }
+  .lesson-activity-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    gap:.75rem;
+    margin-top:.85rem;
+  }
+  .lesson-activity-card {
+    border:1px dashed var(--color-border);
+    border-radius:12px;
+    background:rgba(10,6,20,.45);
+    padding:.85rem;
+  }
+  .lesson-activity-card strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.25rem;
+  }
+  .lesson-activity-card p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.7;
+    font-size:.88rem;
+  }
+  .lesson-page-note {
+    color:var(--color-muted);
+    line-height:1.8;
+  }
+  .module-kicker-grid,
+  .module-next-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:.85rem;
+  }
+  .module-kicker-card,
+  .module-next-card {
+    border:1px solid var(--color-border);
+    border-radius:12px;
+    background:rgba(255,255,255,.03);
+    padding:.95rem 1rem;
+  }
+  .module-kicker-card strong,
+  .module-next-card strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.3rem;
+  }
+  .module-kicker-card p,
+  .module-next-card p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.75;
+    font-size:.9rem;
+  }
+  .module-roadmap-list,
+  .module-reflection-list {
+    display:grid;
+    gap:.75rem;
+    margin-top:.9rem;
+  }
+  .module-roadmap-item,
+  .module-reflection-item {
+    border:1px dashed var(--color-border);
+    border-radius:12px;
+    background:rgba(10,6,20,.4);
+    padding:.85rem .95rem;
+  }
+  .module-roadmap-item {
+    display:flex;
+    gap:.8rem;
+    align-items:flex-start;
+  }
+  .module-roadmap-num {
+    width:1.9rem;
+    height:1.9rem;
+    flex-shrink:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    background:rgba(139,92,246,.14);
+    border:1px solid rgba(139,92,246,.35);
+    color:#fff;
+    font-weight:800;
+    font-size:.82rem;
+  }
+  .module-roadmap-item strong,
+  .module-reflection-item strong {
+    display:block;
+    color:#fff;
+    margin-bottom:.25rem;
+  }
+  .module-roadmap-item p,
+  .module-reflection-item p {
+    margin:0;
+    color:var(--color-muted);
+    line-height:1.75;
+  }
+  .module-nav-link {
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+    margin-top:.75rem;
+    color:var(--color-accent2);
+    font-weight:700;
+  }
+  .module-content h2[id] {
+    scroll-margin-top: 96px;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjs@13.0.3/lib/browser/math.min.js"></script>
+<script src="../../assets/js/graph.js"></script>
+</head>
+<body data-page="lessons">
+  <nav class="topnav">
+    <a href="../../index.html" class="nav-brand"><span class="brand-icon">C</span> Calculus I <span style="opacity:.5">TH</span></a>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="เมนู"><span></span><span></span><span></span></label>
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+    <div class="nav-links">
+      <div class="nav-group nav-group-top">
+        <a href="../../index.html" class="nav-link"><span class="nl-icon">🏠</span>หน้าแรก</a>
+<a href="../../intro.html" class="nav-link"><span class="nl-icon">🌱</span>แนะนำ</a>
+<a href="../../lessons.html" class="nav-link active"><span class="nl-icon">📚</span>Lessons</a>
+<a href="../../missions.html" class="nav-link"><span class="nl-icon">🎯</span>Missions</a>
+<a href="../../content/" class="nav-link"><span class="nl-icon">📄</span>Resources</a>
+      </div>
+    </div>
+    <a href="../../index.html#progress" class="nav-xp">⭐ <span id="nav-xp-total">0</span> XP</a>
+  </nav>
+
+  <main>
+    <section class="card" style="margin-bottom:1rem; background:linear-gradient(135deg, rgba(34,211,238,0.08), rgba(139,92,246,0.08)); border-color:rgba(34,211,238,0.25);">
+  <div class="text-small text-muted">Lessons / Differentiation</div>
+  <h1 class="page-title" style="margin-top:.35rem;">Differentiation</h1>
+  <p class="page-subtitle">Build derivative concepts, rules, and function-analysis techniques for change and rate.</p>
+  <div class="flex-row" style="flex-wrap:wrap; gap:.5rem; margin-top:1rem;">
+    <span class="pill">ชนิด: application</span>
+<span class="pill">CLO2</span>
+<span class="pill">CLO3</span>
+<span class="pill">CLO4</span>
+<span class="pill">quick-check</span>
+<span class="pill">step-sequence</span>
+<span class="pill">proof-unpack</span>
+  </div>
+</section>
+
+
+    <section class="card" id="module-at-a-glance" style="margin-bottom:1rem;">
+      <div class="card-title">ภาพรวมของบทเรียน</div>
+      <div class="module-kicker-grid" style="margin-top:.9rem;">
+        <article class="module-kicker-card">
+          <strong>บทนี้เน้นอะไร</strong>
+          <p>Build derivative concepts, rules, and function-analysis techniques for change and rate.</p>
+        </article>
+        <article class="module-kicker-card">
+          <strong>โครงของบท</strong>
+          <p>ตอนนี้บทนี้แบ่งเป็นหัวข้อหลัก 8 ช่วง เพื่อช่วยให้ผู้เรียนค่อย ๆ มองภาพรวมก่อนลงรายละเอียดในแต่ละส่วน</p>
+        </article>
+        <article class="module-kicker-card">
+          <strong>วิธีฝึกในบทนี้</strong>
+          <p>, , </p>
+        </article>
+      </div>
+    </section>
+  
+
+
+    <section class="card" id="module-section-map" style="margin-bottom:1rem;">
+      <div class="card-title">แผนผังหัวข้อของบท</div>
+      <p class="lesson-page-note">
+        ส่วนนี้ช่วยให้เห็นว่าบทเรียนแบ่งเป็นช่วงใดบ้าง และถ้าต้องการย้อนกลับมาทบทวนเฉพาะหัวข้อก็เลือกเข้าไปดูได้ทันที
+      </p>
+      <div class="module-roadmap-list">
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">1</div>
+            <div>
+              <strong>Learning Snapshot</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-1">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">2</div>
+            <div>
+              <strong>What You Will Explore</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-2">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">3</div>
+            <div>
+              <strong>Learning Flow</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-3">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">4</div>
+            <div>
+              <strong>Try While You Learn</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-4">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">5</div>
+            <div>
+              <strong>Check Your Understanding</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-5">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">6</div>
+            <div>
+              <strong>Interactive Practice</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-6">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">7</div>
+            <div>
+              <strong>Interactive Practice</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-7">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+          <div class="module-roadmap-item">
+            <div class="module-roadmap-num">8</div>
+            <div>
+              <strong>Interactive Practice</strong>
+              <p>หัวข้อนี้เป็นจุดสำคัญของบท และเชื่อมกับกิจกรรมหรือคำถามที่ช่วยให้เข้าใจเนื้อหาได้ชัดขึ้น</p>
+              <a class="module-nav-link" href="#module-section-8">เปิดหัวข้อนี้</a>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+  
+
+<section class="card" id="module-core-content" style="margin-bottom:1rem;">
+  <div class="card-title">สาระของบทเรียน</div>
+  <div class="module-content markdown-body"><h1>Differentiation</h1>
+<p>Build derivative concepts, rules, and function-analysis techniques for change and rate.</p>
+<h2 id="module-section-1">Learning Snapshot</h2>
+<ul><li>Learning pace: 4-10 week(s)</li><li>Main CLO emphasis: CLO2, CLO3, CLO4</li><li>Module style: application</li></ul>
+<h2 id="module-section-2">What You Will Explore</h2>
+<p>In this module, learners gradually work through derivative definition, derivative rules, trigonometric and exponential/logarithmic derivatives, extrema, graph analysis, related applications, indeterminate forms, L&#39;Hospital.</p>
+<p>The main ideas you will revisit in this part of the course are:</p>
+<ul><li>derivative definition and basic derivative rules</li><li>applications of derivatives, extrema, graph behavior</li><li>indeterminate forms and L&#39;Hospital</li></ul>
+<h2 id="module-section-3">Learning Flow</h2>
+<ul><li>Week 4-6: derivative definition and basic derivative rules</li><li>Week 7-9: applications of derivatives, extrema, graph behavior</li><li>Week 10: indeterminate forms and L&#39;Hospital</li></ul>
+<h2 id="module-section-4">Try While You Learn</h2>
+<ul><li>derivative rule map, symbolic practice ladder, pair explanation</li><li>optimization storyboard, graph-sign table workshop, application discussion</li><li>condition check drill, compare-before-use routine</li></ul>
+<h2 id="module-section-5">Check Your Understanding</h2>
+<ul><li>derivative routine practice and mini reasoning check</li><li>application analysis and graph interpretation</li><li>justified choice of L&#39;Hospital or another method</li></ul>
+<h2 id="module-section-6">Interactive Practice</h2>
+<div class="interactive-widget" data-widget-type="quick-check"><script type="application/json" class="widget-data">{
+  "question": "Which statement best describes the derivative in the first calculus course?",
+  "choices": [
+    {
+      "label": "It captures instantaneous rate of change and local slope ideas.",
+      "correct": true
+    },
+    {
+      "label": "It is only a shortcut for indefinite integrals.",
+      "correct": false
+    },
+    {
+      "label": "It never connects to graph behavior.",
+      "correct": false
+    }
+  ],
+  "explanation": "Replace this draft with computation and reasoning items from the problem pool later."
+}</script></div>
+<h2 id="module-section-7">Interactive Practice</h2>
+<div class="interactive-widget" data-widget-type="step-sequence"><script type="application/json" class="widget-data">{
+  "title": "Differentiation: Step Sequence",
+  "description": "Use this sequence for derivative-rule and application examples.",
+  "steps": [
+    {
+      "label": "Step 1",
+      "detail": "Identify the function structure and what rule family is needed."
+    },
+    {
+      "label": "Step 2",
+      "detail": "Carry out the derivative process carefully."
+    },
+    {
+      "label": "Step 3",
+      "detail": "Interpret the derivative result in the context of the problem."
+    }
+  ]
+}</script></div>
+<h2 id="module-section-8">Interactive Practice</h2>
+<div class="interactive-widget" data-widget-type="proof-unpack"><script type="application/json" class="widget-data">{
+  "title": "Differentiation: Reasoning Unpack",
+  "description": "Use this draft when the module needs a justification block for derivative applications.",
+  "claims": [
+    {
+      "label": "Derivative sign and monotonicity",
+      "detail": "Show how sign information supports increasing or decreasing behavior."
+    },
+    {
+      "label": "Critical points and extrema",
+      "detail": "Connect derivative zero or undefined cases to optimization analysis."
+    }
+  ]
+}</script></div></div>
+</section>
+
+
+    <section class="card" id="module-active-learning" style="margin-bottom:1rem;">
+      <div class="card-title">Active Learning ในบทนี้</div>
+      <p class="text-muted text-small" style="line-height:1.8;">
+        แต่ละบทควรมีช่วงให้ผู้เรียนได้ลองคิด ลองสำรวจ หรือเช็กความเข้าใจระหว่างทาง ไม่ใช่อ่านเนื้อหาอย่างเดียว ส่วนนี้จึงบอกว่าบทนี้จะมีกิจกรรมหรือ interactive แบบไหนช่วยพยุงการเรียนบ้าง
+      </p>
+      
+    <div class="lesson-activity-grid">
+      
+          <div class="lesson-activity-card">
+            <strong>✅ เช็กความเข้าใจระหว่างบท</strong>
+            <p>หยุดตอบคำถามสั้น ๆ เพื่อดูว่าจับใจความสำคัญของบทได้แล้วหรือยัง</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🪜 ไล่ขั้นตอนการคิด</strong>
+            <p>เหมาะกับโจทย์ที่ต้องค่อย ๆ เห็นลำดับการคิดก่อนจะไปถึงคำตอบหรือข้อพิสูจน์</p>
+          </div>
+        
+          <div class="lesson-activity-card">
+            <strong>🧠 แกะโครงพิสูจน์</strong>
+            <p>ค่อย ๆ เปิดเหตุผลของ proof ทีละช่วง เพื่อเห็นความสัมพันธ์ระหว่างสมมติฐานกับข้อสรุป</p>
+          </div>
+        
+    </div>
+  
+    </section>
+  
+
+
+    <section class="card" id="module-checkpoints" style="margin-bottom:1rem;">
+      <div class="card-title">จุดเช็กระหว่างเรียน</div>
+      <p class="lesson-page-note">
+        ใช้ส่วนนี้หยุดเช็กความเข้าใจเป็นระยะ เพื่อไม่ให้การเรียนไหลไปเร็วเกินจนหลุดประเด็นสำคัญของบท
+      </p>
+      <div class="module-reflection-list">
+        
+          <article class="module-reflection-item">
+            <strong>ระบุวัตถุที่กำลังศึกษา</strong>
+            <p>ลองเช็กว่าตอนนี้กำลังมองชุด ลำดับ ฟังก์ชัน หรือพารามิเตอร์ชนิดใดอยู่</p>
+          </article>
+        
+          <article class="module-reflection-item">
+            <strong>ลองดูการเปลี่ยนแปลง</strong>
+            <p>ใช้กิจกรรม interactive เป็นตัวช่วยดูว่าเมื่อเงื่อนไขเปลี่ยน ผลลัพธ์หรือพฤติกรรมเปลี่ยนอย่างไร</p>
+          </article>
+        
+          <article class="module-reflection-item">
+            <strong>สรุปด้วยภาษาของตัวเอง</strong>
+            <p>หลังเรียน ลองพูดใจความสำคัญของหัวข้อนี้ด้วยภาษาของตัวเอง ไม่ยึดติดกับสูตรหรือสัญลักษณ์อย่างเดียว</p>
+          </article>
+        
+      </div>
+    </section>
+  
+
+
+    <section class="card" id="module-next-step" style="margin-bottom:1rem;">
+      <div class="card-title">ไปต่อจากบทนี้</div>
+      <p class="lesson-page-note">
+        หลังจากอ่านจบบทนี้แล้ว ผู้เรียนสามารถเลือกทางไปต่อได้ชัดเจน ทั้งการทบทวน การไปบทถัดไป หรือการลองทำภารกิจ
+      </p>
+      <div class="module-next-grid" style="margin-top:.9rem;">
+        <article class="module-next-card">
+          <strong>กลับไปดูแผนบทเรียน</strong>
+          <p>ถ้าอยากมองภาพรวมอีกครั้งหรือเลือกบทอื่นก่อน ก็สามารถกลับไปที่หน้า lessons ได้เสมอ</p>
+          <div style="margin-top:.8rem;"><a href="../../lessons.html" class="btn">ไปหน้า Lessons</a></div>
+        </article>
+        <article class="module-next-card">
+          <strong>ลองบทถัดไป: Integration</strong>
+          <p>เมื่อพร้อมแล้วสามารถขยับไปตามลำดับของแผนการเรียนต่อได้ทันที</p>
+          <div style="margin-top:.8rem;">
+            <a href="../integration/" class="btn">เปิดบทถัดไป</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  
+
+<section class="card">
+  <div class="card-title">ความคืบหน้า</div>
+  <p class="text-muted text-small" id="module-status-text">เมื่อเรียนจบบทนี้แล้ว ให้กดปุ่มด้านล่างเพื่อบันทึกความคืบหน้าและรับ XP ของบทเรียน</p>
+  <div class="flex-row" style="justify-content:space-between; flex-wrap:wrap; gap:.75rem;">
+    <button class="btn btn-primary" data-complete-module="differentiation" data-module-xp="45">บันทึกว่าจบบทเรียนนี้</button>
+    <a class="btn" href="../../lessons.html">กลับไปหน้า Lessons</a>
+  </div>
+</section>
+
+  </main>
+
+  <script>
+    window.__COURSE_CONFIG__ = {"course_id":"calculus1_real_check","course_name_th":"แคลคูลัส 1","course_name_en":"Calculus I","course_short_name":"Calculus I","instructor":"แนวคิดโดยอาจารย์สิทธิโชค ทรงสอาด","description":"A first-course calculus site for limits, continuity, derivatives, and integration, built from the TQF3-first workflow in this repo.","theme":{"brand_icon":"C","accent":"#2563eb","accent_secondary":"#f59e0b"},"features":{"resources":true,"missions":true,"games":false},"widgets_enabled":["quick-check","definition-visualizer","proof-unpack","step-sequence","sbra-sequence"],"lesson_completion_xp":45,"badges":[{"id":"starter","emoji":"🌱","name":"Starter","req":"Begin the course and collect the first XP.","threshold_xp":0},{"id":"explorer","emoji":"📚","name":"Explorer","req":"Reach 120 XP and complete at least 1 module.","threshold_xp":120,"required_modules_count":1},{"id":"master","emoji":"🏆","name":"Calculus I Master","req":"Reach 600 XP and maintain at least 80% mission accuracy.","threshold_xp":600,"required_accuracy":80},{"id":"clo1-understand-foundation","emoji":"📘","name":"CLO1 Understand Foundation","req":"Collect quick-check evidence in Limits and Functions.","threshold_xp":150,"required_modules":["limits-and-functions"]},{"id":"clo1-understand-ftc-link","emoji":"📘","name":"CLO1 Understand Ftc Link","req":"Collect concept-check evidence in Integration.","threshold_xp":280,"required_modules":["integration"],"required_badges":["clo1-understand-foundation"]},{"id":"clo2-apply-limits","emoji":"🛠","name":"CLO2 Apply Limits","req":"Collect worked-computation evidence in Limits and Functions.","threshold_xp":160,"required_modules":["limits-and-functions"]},{"id":"clo2-apply-derivative-techniques","emoji":"🛠","name":"CLO2 Apply Derivative Techniques","req":"Collect derivative-exercise evidence in Differentiation.","threshold_xp":240,"required_modules":["differentiation"],"required_badges":["clo2-apply-limits"]},{"id":"clo2-apply-integration-techniques","emoji":"🛠","name":"CLO2 Apply Integration Techniques","req":"Collect integration-exercise evidence in Integration.","threshold_xp":310,"required_modules":["integration"],"required_badges":["clo2-apply-derivative-techniques"],"required_accuracy":60},{"id":"clo3-analyze-continuity","emoji":"🧠","name":"CLO3 Analyze Continuity","req":"Collect SBRA evidence in Continuity and Applications.","threshold_xp":210,"required_modules":["continuity-and-applications"],"required_missions":["sbra-continuity-and-applications-clo3"]},{"id":"clo3-analyze-function-behavior","emoji":"🧠","name":"CLO3 Analyze Function Behavior","req":"Collect application-task evidence in Differentiation.","threshold_xp":240,"required_modules":["differentiation"],"required_badges":["clo3-analyze-continuity"]},{"id":"clo4-evaluate-derivative-justification","emoji":"🎯","name":"CLO4 Evaluate Derivative Justification","req":"Collect explanation-task evidence in Differentiation.","threshold_xp":250,"required_modules":["differentiation"]},{"id":"clo4-evaluate-integral-interpretation","emoji":"🎯","name":"CLO4 Evaluate Integral Interpretation","req":"Collect reasoning-task evidence in Integration.","threshold_xp":280,"required_modules":["integration"],"required_badges":["clo4-evaluate-derivative-justification"]}],"modules":[{"id":"limits-and-functions","slug":"limits-and-functions","title":"Limits and Functions","summary":"Start with function behavior, limit ideas, and first ways to reason about approaching values.","order":1,"module_kind":"concept"},{"id":"continuity-and-applications","slug":"continuity-and-applications","title":"Continuity and Applications","summary":"Use continuity as a bridge between limit ideas and richer function analysis.","order":2,"module_kind":"application"},{"id":"differentiation","slug":"differentiation","title":"Differentiation","summary":"Build derivative concepts, rules, and function-analysis techniques for change and rate.","order":3,"module_kind":"application"},{"id":"integration","slug":"integration","title":"Integration","summary":"Connect area, accumulation, antiderivatives, and the first major links between derivative and integral ideas.","order":4,"module_kind":"application"}],"clos":[{"id":"CLO1","label":"Explain the meaning of limits, continuity, derivatives, and integrals in standard first-course contexts.","bloom":"Understand","assessment_tags":["concepts","definitions"]},{"id":"CLO2","label":"Apply standard calculus techniques to compute limits, derivatives, and integrals.","bloom":"Apply","assessment_tags":["techniques","computation"]},{"id":"CLO3","label":"Analyze functions and their behavior using continuity, derivatives, and definite integrals.","bloom":"Analyze","assessment_tags":["analysis","function-behavior"]},{"id":"CLO4","label":"Use calculus reasoning to justify steps and interpret results in problem-solving situations.","bloom":"Evaluate","assessment_tags":["reasoning","interpretation"]}]};
+    window.__PAGE_DATA__ = {"module":{"id":"differentiation","slug":"differentiation","title":"Differentiation","summary":"Build derivative concepts, rules, and function-analysis techniques for change and rate.","order":3,"clo_ids":["CLO2","CLO3","CLO4"],"module_kind":"application","widgets":["quick-check","step-sequence","proof-unpack"]}};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script src="../../assets/js/course-runtime.js"></script>
+<script src="../../assets/js/xp.js"></script>
+<script src="../../assets/js/nav.js"></script>
+<script src="assets/js/widgets.js"></script>
+<script src="assets/js/module-page.js"></script>
+</body>
+</html>

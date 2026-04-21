@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cause-gen.local/schemas/retrieval-queries.schema.json",
+  "title": "Cause Gen Retrieval Queries",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "course_id",
+    "queries"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "queries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "query_id",
+          "module_id",
+          "query_texts",
+          "preferred_sources",
+          "needs_human_review",
+          "status"
+        ],
+        "properties": {
+          "query_id": {
+            "type": "string"
+          },
+          "module_id": {
+            "type": "string"
+          },
+          "target_clo_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "target_bloom_levels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "query_texts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "preferred_sources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "needs_human_review": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "in-review",
+              "approved"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

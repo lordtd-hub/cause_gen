@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "project_in_mathematics_real_check",
+  "source_screened_content": "generated/sourcing/screened-content.json",
+  "generated_at": "2026-04-21T08:29:38.201Z",
+  "items": [
+    {
+      "content_id": "lit-review-evidence-ladder",
+      "classification_status": "proposed",
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-drafts.json",
+      "proposed": {
+        "module_id": "literature-review-and-project-planning",
+        "clo_ids": [
+          "CLO1",
+          "CLO2"
+        ],
+        "bloom_levels": [
+          "analyze"
+        ],
+        "content_kind": "activity",
+        "asset_family": "active-learning-seed",
+        "target_section": "module-active-learning",
+        "widget_type": "quick-check",
+        "title": "Evidence Ladder for Literature Review",
+        "summary": "A short guided activity that helps students separate strong mathematical sources from weaker background references before they write a project plan.",
+        "excerpt": "Learners compare four references, sort them by mathematical usefulness, and explain which source should anchor the first project review.",
+        "source_note": "MIT OpenCourseWare"
+      },
+      "review_notes": "AI proposal only. Human approval is required before this content can be treated as course-ready."
+    },
+    {
+      "content_id": "progress-risk-checkpoint",
+      "classification_status": "proposed",
+      "needs_human_review": true,
+      "approval_status": "pending",
+      "reviewed_by": null,
+      "reviewed_at": null,
+      "approved_target_destination": "generated/content/content-drafts.json",
+      "proposed": {
+        "module_id": "project-execution-and-progress-review",
+        "clo_ids": [
+          "CLO3",
+          "CLO4"
+        ],
+        "bloom_levels": [
+          "evaluate"
+        ],
+        "content_kind": "activity",
+        "asset_family": "checkpoint-seed",
+        "target_section": "module-checkpoints",
+        "widget_type": "quick-check",
+        "title": "Progress Risk Checkpoint",
+        "summary": "A checkpoint prompt that asks learners to distinguish visible activity from evidence-backed project progress.",
+        "excerpt": "Students inspect a progress note, identify the highest-risk gap, and justify what should be raised in the next advisor meeting.",
+        "source_note": "OpenStax"
+      },
+      "review_notes": "AI proposal only. Human approval is required before this content can be treated as course-ready."
+    }
+  ]
+}

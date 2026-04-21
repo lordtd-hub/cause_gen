@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "course_id": "replace-course-id",
+  "generated_at": "replace-generated-at",
+  "queries": [
+    {
+      "query_id": "replace-query-id",
+      "module_id": "replace-module-id",
+      "target_clo_ids": [
+        "CLO1"
+      ],
+      "target_bloom_levels": [
+        "understand"
+      ],
+      "query_texts": [
+        "replace with a search query"
+      ],
+      "preferred_sources": [
+        "webwork-opl",
+        "openstax"
+      ],
+      "needs_human_review": true,
+      "status": "pending"
+    }
+  ]
+}
